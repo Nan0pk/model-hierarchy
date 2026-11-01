@@ -95,6 +95,18 @@ Same tier = statistically indistinguishable on current data (METHODOLOGY.md §11
 *( regenerate with `python -m hierarchy demo` — numbers are synthetic, see
 `demo/DATA_IS_SYNTHETIC.md` )*
 
+## Explore the leaderboard
+
+A lightweight interactive dashboard is available in [`dashboard/`](dashboard/). Serve the repository
+(e.g. `python -m http.server 8000`) and open `/dashboard/` to search models, inspect published
+confidence intervals, and interactively reweight capability pillars. Personalized rankings are
+exploratory; they do not recompute statistical tiers or bootstrap intervals. The dashboard reads
+`output/leaderboard.json` without a backend.
+
+Pairwise tier separations and dominance claims use Benjamini–Hochberg-adjusted bootstrap tail
+probabilities to reduce false discoveries across comparisons. This remains a bootstrap heuristic,
+not an analytic test or proof of model superiority.
+
 ## Live leaderboard
 
 <!-- leaderboard:start -->

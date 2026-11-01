@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "model-hierarchy"
+version = "1.0.0"
+description = "A reality-anchored hierarchy of frontier models"
+requires-python = ">=3.10"
+dependencies = ["PyYAML>=6.0", "requests>=2.31", "requests-cache>=1.2"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "ruff>=0.6", "hypothesis>=6.100"]
+
+[project.scripts]
+hierarchy = "hierarchy.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["hierarchy*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.uv]
+dev-dependencies = ["pytest>=8.0", "ruff>=0.6", "hypothesis>=6.100"]
