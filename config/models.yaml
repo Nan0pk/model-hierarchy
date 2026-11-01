@@ -1,0 +1,18 @@
+# ============================================================================
+# Model Hierarchy — name reconciliation aliases (METHODOLOGY.md §12)
+#
+# Sources disagree on names: Arena says "Claude Opus 5.5 (High)", OpenRouter
+# says "anthropic/claude-opus-5.5", benchmark pages say vendor names. Matching
+# is exact-after-canonicalization (lowercase, drop provider prefix, unify
+# separators). Add entries here ONLY for names canonicalization cannot merge
+# on its own. Keys and values are canonical form (lowercase, single spaces).
+#
+# Wrong merges silently corrupt the hierarchy — when in doubt, leave a name
+# unmatched; it shows up in the reconciliation report instead.
+# ============================================================================
+
+aliases:
+  # examples — extend as your sources require:
+  # "chatgpt 4o latest": "gpt 4o latest"
+  # "gemini flash latest": "gemini 2.0 flash"
+  # "deepseek r1 0528": "deepseek r1"

@@ -1,0 +1,145 @@
+# ============================================================================
+# Model Hierarchy — data sources (fetch layer)
+# Where numbers come from and how hard to try before falling back to
+# data/manual/scores.csv (the guaranteed path, METHODOLOGY.md §12).
+#
+# roles:
+#   scored      - fetched numbers feed the aggregate directly
+#   mirror      - aggregation site republishing the same underlying benchmarks
+#                 (llmstat). NEVER a separate scored voice (double counting, §4).
+#   optional    - off by default (double counting with registered benchmarks, §4)
+# ============================================================================
+
+defaults:
+  timeout_seconds: 20
+  retries: 2
+  user_agent: "model-hierarchy/1.0 (+https://github.com/Nan0pk/model-hierarchy)"
+
+sources:
+  # ---- Scored: Pillar 1 (Human Preference) --------------------------------
+  lm_arena_elo:
+    role: scored
+    kind: lm_arena
+    cadence: daily
+    # Adapter order (hierarchy/fetch/base.py):
+    # 1) CANONICAL: official HF dataset lmarena-ai/leaderboard-dataset
+    #    (CC-BY-4.0) via the public datasets-server JSON API — config
+    #    text_style_control, split latest, category=overall; carries per-model
+    #    95% CIs and the leaderboard publish date.
+    # 2) Community mirror API (clean JSON) as fallback.
+    # 3) Manual drop into data/manual/scores.csv.
+    canonical: https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset
+    endpoints:
+      - https://api.wulong.dev/arena-ai-leaderboards/v1/leaderboard?name=text
+    fallback_note: >
+      If both paths fail, copy Elo + CI from lmarena.ai/leaderboard
+      (style-control column) into data/manual/scores.csv with
+      benchmark=lm_arena_elo.
+
+  openrouter_usage:
+    role: scored
+    kind: openrouter
+    cadence: daily
+    # Adapter parses the server-rendered table captioned "Model rankings by
+    # tokens processed" (most recent complete day) and converts tokens to
+    # share-of-parsed-total (%).
+    endpoints:
+      - https://openrouter.ai/rankings
+    fallback_note: >
+      If the page shape changes, copy top-model token shares into
+      data/manual/scores.csv with benchmark=openrouter_usage (score = share
+      in percent).
+
+  # ---- Scored: capability benchmarks --------------------------------------
+  # Orchestrator-run leaderboards publish JSON in heterogeneous shapes.
+  # Register each as kind: json_url with dot-paths, or paste numbers by hand.
+  gpqa_diamond:
+    role: scored
+    kind: manual_or_json
+    cadence: weekly
+    url: https://gorilla.cs.berkeley.edu/leaderboard.html
+    fallback_note: Paste GPQA Diamond pass rates from the leaderboard page (or a llmstat mirror) into data/manual/scores.csv.
+
+  livebench_overall:
+    role: scored
+    kind: json_url
+    cadence: weekly
+    url: https://livebench.ai
+    json_spec:
+      root: data.categories.global
+      model_key: model_display_name
+      score_key: global_qa_index
+    fallback_note: LiveBench serves an embedded JSON table; if the shape moved, paste the overall scores manually.
+
+  seal_average:
+    role: scored
+    kind: manual_or_json
+    cadence: monthly
+    url: https://scale.com/leaderboard
+    fallback_note: SEAL updates monthly; paste the average scores manually when a new edition drops.
+
+  aime_2025:
+    role: scored
+    kind: manual_or_json
+    cadence: monthly
+    fallback_note: Average of AIME 2025 (I/II), no-tools setting, vendor-reported or orchestrator-run (preferred).
+
+  hmmt_feb_2025:
+    role: scored
+    kind: manual_or_json
+    cadence: monthly
+    fallback_note: HMMT Feb 2025 scores, no-tools setting.
+
+  math_500:
+    role: scored
+    kind: manual_or_json
+    cadence: quarterly
+    fallback_note: Near-saturated legacy anchor (weight 0.03 only).
+
+  swebench_verified:
+    role: scored
+    kind: manual_or_json
+    cadence: weekly
+    url: https://www.swebench.com
+    fallback_note: Verified subset, scaffolding-on, unassisted; orchestrator-run values preferred over vendor posts.
+
+  livecodebench:
+    role: scored
+    kind: manual_or_json
+    cadence: weekly
+    url: https://livecodebench.github.io
+    fallback_note: Current release window average.
+
+  terminal_bench:
+    role: scored
+    kind: manual_or_json
+    cadence: monthly
+    url: https://www.tbench.ai
+    fallback_note: Terminal-Bench 2.x pass rate; feeds BOTH terminal_bench and terminal_bench_agentic (alias).
+
+  tau2_bench:
+    role: scored
+    kind: manual_or_json
+    cadence: monthly
+    fallback_note: Average across published Tau²-bench domains.
+
+  # ---- Mirror (never scored — §4) ------------------------------------------
+  llmstat:
+    role: mirror
+    kind: llmstat
+    url: https://llmstat.info
+    note: >
+      llmstat republishes the same underlying benchmark numbers; use it to
+      source manual drops, not as an extra voice, or every benchmark gets
+      double-counted.
+
+  # ---- Optional (off by default — §4) --------------------------------------
+  artanalysis_index:
+    role: optional
+    enabled: false
+    kind: manual_or_json
+    url: https://artificialanalysis.ai/models/benchmarks
+    note: >
+      AA Intelligence Index already aggregates GPQA and other registered
+      benchmarks. Enable ONLY as a wholesale P2 substitution, never alongside
+      its components, and say so in anything you publish from it.

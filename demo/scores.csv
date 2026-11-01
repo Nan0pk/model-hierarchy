@@ -1,0 +1,143 @@
+benchmark,model,score,as_of,source,notes
+lm_arena_elo,gemini-3-pro,1492,2026-11-01,demo (synthetic),style-controlled elo
+lm_arena_elo,gpt-5.1,1488,2026-11-01,demo (synthetic),style-controlled elo
+lm_arena_elo,claude-opus-4.5,1481,2026-11-01,demo (synthetic),style-controlled elo
+lm_arena_elo,grok-4.1,1460,2026-11-01,demo (synthetic),style-controlled elo
+lm_arena_elo,kimi-k2.5,1435,2026-11-01,demo (synthetic),style-controlled elo
+lm_arena_elo,glm-4.7,1430,2026-11-01,demo (synthetic),style-controlled elo
+lm_arena_elo,deepseek-v3.2,1420,2026-11-01,demo (synthetic),style-controlled elo
+lm_arena_elo,qwen3-max,1415,2026-11-01,demo (synthetic),style-controlled elo
+lm_arena_elo,gpt-5-mini,1400,2026-11-01,demo (synthetic),style-controlled elo
+lm_arena_elo,minimax-m2.5,1395,2026-11-01,demo (synthetic),style-controlled elo
+lm_arena_elo,mistral-large-3,1360,2026-11-01,demo (synthetic),style-controlled elo
+lm_arena_elo,llama-4-maverick,1330,2026-11-01,demo (synthetic),style-controlled elo
+openrouter_usage,claude-opus-4.5,17.0,2026-11-01,demo (synthetic),token share %
+openrouter_usage,deepseek-v3.2,21.0,2026-11-01,demo (synthetic),token share %
+openrouter_usage,gemini-3-pro,12.5,2026-11-01,demo (synthetic),token share %
+openrouter_usage,gpt-5.1,9.0,2026-11-01,demo (synthetic),token share %
+openrouter_usage,gpt-5-mini,8.5,2026-11-01,demo (synthetic),token share %
+openrouter_usage,grok-4.1,3.0,2026-11-01,demo (synthetic),token share %
+openrouter_usage,qwen3-max,3.4,2026-11-01,demo (synthetic),token share %
+openrouter_usage,kimi-k2.5,2.5,2026-11-01,demo (synthetic),token share %
+openrouter_usage,glm-4.7,1.6,2026-11-01,demo (synthetic),token share %
+openrouter_usage,llama-4-maverick,1.0,2026-11-01,demo (synthetic),token share %
+openrouter_usage,minimax-m2.5,1.2,2026-11-01,demo (synthetic),token share %
+openrouter_usage,mistral-large-3,0.8,2026-11-01,demo (synthetic),token share %
+gpqa_diamond,gemini-3-pro,92,2026-10-30,demo (synthetic),pass rate
+gpqa_diamond,gpt-5.1,90,2026-10-30,demo (synthetic),pass rate
+gpqa_diamond,claude-opus-4.5,88,2026-10-30,demo (synthetic),pass rate
+gpqa_diamond,grok-4.1,86,2026-10-30,demo (synthetic),pass rate
+gpqa_diamond,deepseek-v3.2,84,2026-10-30,demo (synthetic),pass rate
+gpqa_diamond,kimi-k2.5,82,2026-10-30,demo (synthetic),pass rate
+gpqa_diamond,qwen3-max,81,2026-10-30,demo (synthetic),pass rate
+gpqa_diamond,glm-4.7,80,2026-10-30,demo (synthetic),pass rate
+gpqa_diamond,gpt-5-mini,78,2026-10-30,demo (synthetic),pass rate
+gpqa_diamond,minimax-m2.5,75,2026-10-30,demo (synthetic),pass rate
+gpqa_diamond,mistral-large-3,70,2026-10-30,demo (synthetic),pass rate
+gpqa_diamond,llama-4-maverick,62,2026-10-30,demo (synthetic),pass rate
+livebench_overall,gpt-5.1,68,2026-10-25,demo (synthetic),overall index
+livebench_overall,claude-opus-4.5,66,2026-10-25,demo (synthetic),overall index
+livebench_overall,gemini-3-pro,67,2026-10-25,demo (synthetic),overall index
+livebench_overall,grok-4.1,63,2026-10-25,demo (synthetic),overall index
+livebench_overall,deepseek-v3.2,60,2026-10-25,demo (synthetic),overall index
+livebench_overall,kimi-k2.5,58,2026-10-25,demo (synthetic),overall index
+livebench_overall,glm-4.7,57,2026-10-25,demo (synthetic),overall index
+livebench_overall,qwen3-max,56,2026-10-25,demo (synthetic),overall index
+livebench_overall,gpt-5-mini,52,2026-10-25,demo (synthetic),overall index
+livebench_overall,minimax-m2.5,50,2026-10-25,demo (synthetic),overall index
+livebench_overall,mistral-large-3,46,2026-10-25,demo (synthetic),overall index
+livebench_overall,llama-4-maverick,40,2026-10-25,demo (synthetic),overall index
+seal_average,gpt-5.1,55,2026-10-15,demo (synthetic),seal average
+seal_average,claude-opus-4.5,53,2026-10-15,demo (synthetic),seal average
+seal_average,gemini-3-pro,54,2026-10-15,demo (synthetic),seal average
+seal_average,grok-4.1,48,2026-10-15,demo (synthetic),seal average
+seal_average,deepseek-v3.2,44,2026-10-15,demo (synthetic),seal average
+seal_average,kimi-k2.5,43,2026-10-15,demo (synthetic),seal average
+seal_average,glm-4.7,41,2026-10-15,demo (synthetic),seal average
+seal_average,qwen3-max,40,2026-10-15,demo (synthetic),seal average
+seal_average,gpt-5-mini,37,2026-10-15,demo (synthetic),seal average
+seal_average,minimax-m2.5,35,2026-10-15,demo (synthetic),seal average
+seal_average,llama-4-maverick,25,2026-10-15,demo (synthetic),seal average
+aime_2025,gemini-3-pro,100,2026-10-28,demo (synthetic),avg no-tools
+aime_2025,gpt-5.1,99,2026-10-28,demo (synthetic),avg no-tools
+aime_2025,claude-opus-4.5,95,2026-10-28,demo (synthetic),avg no-tools
+aime_2025,grok-4.1,93,2026-10-28,demo (synthetic),avg no-tools
+aime_2025,deepseek-v3.2,92,2026-10-28,demo (synthetic),avg no-tools
+aime_2025,kimi-k2.5,90,2026-10-28,demo (synthetic),avg no-tools
+aime_2025,glm-4.7,89,2026-10-28,demo (synthetic),avg no-tools
+aime_2025,qwen3-max,87,2026-10-28,demo (synthetic),avg no-tools
+aime_2025,gpt-5-mini,85,2026-10-28,demo (synthetic),avg no-tools
+aime_2025,minimax-m2.5,82,2026-10-28,demo (synthetic),avg no-tools
+aime_2025,mistral-large-3,70,2026-10-28,demo (synthetic),avg no-tools
+aime_2025,llama-4-maverick,55,2026-10-28,demo (synthetic),avg no-tools
+hmmt_feb_2025,gemini-3-pro,35,2026-10-28,demo (synthetic),pass rate
+hmmt_feb_2025,gpt-5.1,30,2026-10-28,demo (synthetic),pass rate
+hmmt_feb_2025,claude-opus-4.5,28,2026-10-28,demo (synthetic),pass rate
+hmmt_feb_2025,grok-4.1,25,2026-10-28,demo (synthetic),pass rate
+hmmt_feb_2025,deepseek-v3.2,22,2026-10-28,demo (synthetic),pass rate
+hmmt_feb_2025,kimi-k2.5,20,2026-10-28,demo (synthetic),pass rate
+hmmt_feb_2025,glm-4.7,18,2026-10-28,demo (synthetic),pass rate
+hmmt_feb_2025,qwen3-max,17,2026-10-28,demo (synthetic),pass rate
+hmmt_feb_2025,gpt-5-mini,15,2026-10-28,demo (synthetic),pass rate
+hmmt_feb_2025,mistral-large-3,8,2026-10-28,demo (synthetic),pass rate
+hmmt_feb_2025,llama-4-maverick,5,2026-10-28,demo (synthetic),pass rate
+math_500,gpt-5.1,100,2026-10-20,demo (synthetic),accuracy
+math_500,gemini-3-pro,100,2026-10-20,demo (synthetic),accuracy
+math_500,claude-opus-4.5,98,2026-10-20,demo (synthetic),accuracy
+math_500,grok-4.1,97,2026-10-20,demo (synthetic),accuracy
+math_500,deepseek-v3.2,97,2026-10-20,demo (synthetic),accuracy
+math_500,kimi-k2.5,96,2026-10-20,demo (synthetic),accuracy
+math_500,glm-4.7,95,2026-10-20,demo (synthetic),accuracy
+math_500,qwen3-max,95,2026-10-20,demo (synthetic),accuracy
+math_500,gpt-5-mini,93,2026-10-20,demo (synthetic),accuracy
+math_500,minimax-m2.5,91,2026-10-20,demo (synthetic),accuracy
+math_500,mistral-large-3,88,2026-10-20,demo (synthetic),accuracy
+math_500,llama-4-maverick,80,2026-10-20,demo (synthetic),accuracy
+swebench_verified,claude-opus-4.5,80,2026-10-30,demo (synthetic),resolved %
+swebench_verified,gpt-5.1,78,2026-10-30,demo (synthetic),resolved %
+swebench_verified,gemini-3-pro,76,2026-10-30,demo (synthetic),resolved %
+swebench_verified,grok-4.1,70,2026-10-30,demo (synthetic),resolved %
+swebench_verified,kimi-k2.5,71,2026-10-30,demo (synthetic),resolved %
+swebench_verified,deepseek-v3.2,67,2026-10-30,demo (synthetic),resolved %
+swebench_verified,glm-4.7,66,2026-10-30,demo (synthetic),resolved %
+swebench_verified,qwen3-max,64,2026-10-30,demo (synthetic),resolved %
+swebench_verified,gpt-5-mini,60,2026-10-30,demo (synthetic),resolved %
+swebench_verified,minimax-m2.5,61,2026-10-30,demo (synthetic),resolved %
+swebench_verified,mistral-large-3,50,2026-10-30,demo (synthetic),resolved %
+swebench_verified,llama-4-maverick,40,2026-10-30,demo (synthetic),resolved %
+livecodebench,gpt-5.1,82,2026-10-28,demo (synthetic),pass@1 current window
+livecodebench,gemini-3-pro,80,2026-10-28,demo (synthetic),pass@1 current window
+livecodebench,claude-opus-4.5,78,2026-10-28,demo (synthetic),pass@1 current window
+livecodebench,deepseek-v3.2,76,2026-10-28,demo (synthetic),pass@1 current window
+livecodebench,grok-4.1,74,2026-10-28,demo (synthetic),pass@1 current window
+livecodebench,kimi-k2.5,73,2026-10-28,demo (synthetic),pass@1 current window
+livecodebench,glm-4.7,70,2026-10-28,demo (synthetic),pass@1 current window
+livecodebench,qwen3-max,69,2026-10-28,demo (synthetic),pass@1 current window
+livecodebench,gpt-5-mini,66,2026-10-28,demo (synthetic),pass@1 current window
+livecodebench,minimax-m2.5,64,2026-10-28,demo (synthetic),pass@1 current window
+livecodebench,mistral-large-3,55,2026-10-28,demo (synthetic),pass@1 current window
+livecodebench,llama-4-maverick,45,2026-10-28,demo (synthetic),pass@1 current window
+terminal_bench,claude-opus-4.5,58,2026-10-20,demo (synthetic),pass rate
+terminal_bench,gpt-5.1,55,2026-10-20,demo (synthetic),pass rate
+terminal_bench,gemini-3-pro,52,2026-10-20,demo (synthetic),pass rate
+terminal_bench,grok-4.1,45,2026-10-20,demo (synthetic),pass rate
+terminal_bench,kimi-k2.5,40,2026-10-20,demo (synthetic),pass rate
+terminal_bench,deepseek-v3.2,38,2026-10-20,demo (synthetic),pass rate
+terminal_bench,glm-4.7,36,2026-10-20,demo (synthetic),pass rate
+terminal_bench,qwen3-max,34,2026-10-20,demo (synthetic),pass rate
+terminal_bench,gpt-5-mini,32,2026-10-20,demo (synthetic),pass rate
+terminal_bench,minimax-m2.5,30,2026-10-20,demo (synthetic),pass rate
+terminal_bench,mistral-large-3,20,2026-10-20,demo (synthetic),pass rate
+terminal_bench,llama-4-maverick,12,2026-10-20,demo (synthetic),pass rate
+tau2_bench,gpt-5.1,85,2026-10-20,demo (synthetic),domain avg success
+tau2_bench,claude-opus-4.5,88,2026-10-20,demo (synthetic),domain avg success
+tau2_bench,gemini-3-pro,80,2026-10-20,demo (synthetic),domain avg success
+tau2_bench,grok-4.1,72,2026-10-20,demo (synthetic),domain avg success
+tau2_bench,deepseek-v3.2,70,2026-10-20,demo (synthetic),domain avg success
+tau2_bench,kimi-k2.5,68,2026-10-20,demo (synthetic),domain avg success
+tau2_bench,glm-4.7,66,2026-10-20,demo (synthetic),domain avg success
+tau2_bench,qwen3-max,65,2026-10-20,demo (synthetic),domain avg success
+tau2_bench,gpt-5-mini,60,2026-10-20,demo (synthetic),domain avg success
+tau2_bench,minimax-m2.5,58,2026-10-20,demo (synthetic),domain avg success
+tau2_bench,mistral-large-3,50,2026-10-20,demo (synthetic),domain avg success
+tau2_bench,llama-4-maverick,35,2026-10-20,demo (synthetic),domain avg success

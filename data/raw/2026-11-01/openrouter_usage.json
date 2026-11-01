@@ -1,0 +1,47 @@
+{
+  "benchmark": "openrouter_usage",
+  "as_of": "2026-11-01",
+  "values": {
+    "DeepSeek V4.1 Flash 1017": {
+      "score": 38.2369,
+      "tokens": 47800000000000.0
+    },
+    "GLM 5.3 Flash": {
+      "score": 12.559,
+      "tokens": 15700000000000.0
+    },
+    "DeepSeek V4.1 Flash": {
+      "score": 11.6791,
+      "tokens": 14600000000000.0
+    },
+    "GPT-6 Luna": {
+      "score": 8.2393,
+      "tokens": 10300000000000.0
+    },
+    "Hy4 preview": {
+      "score": 7.4474,
+      "tokens": 9310000000000.0
+    },
+    "Claude Opus 5.5": {
+      "score": 5.5276,
+      "tokens": 6910000000000.0
+    },
+    "Step 5 Preview": {
+      "score": 5.0396,
+      "tokens": 6300000000000.0
+    },
+    "MiniMax M3.1 Flash": {
+      "score": 4.5356,
+      "tokens": 5670000000000.0
+    },
+    "GLM 5.3": {
+      "score": 3.5357,
+      "tokens": 4420000000000.0
+    },
+    "GPT-5.6 Luna": {
+      "score": 3.1997,
+      "tokens": 4000000000000.0
+    }
+  },
+  "source": "https://openrouter.ai/rankings (share of parsed daily tokens, n=10)"
+}

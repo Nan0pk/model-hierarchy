@@ -1,0 +1,153 @@
+# ============================================================================
+# Model Hierarchy — authoritative weights (methodology v1.0.0)
+# Normative spec: METHODOLOGY.md §3, §4, §9, §10. Any change here MUST bump
+# `version`, add a METHODOLOGY.md changelog line, and update tests/test_weights.py
+# in the same commit.
+# ============================================================================
+
+version: "1.0.0"
+
+aggregation:
+  method: two_level_weighted_geometric   # arithmetic within pillar (§7), geometric across (§8)
+  value_floor: 0.02                      # floor on normalized benchmark values (§6.5)
+  pillar_floor: 0.05                     # floor on pillar scores before exponentiation (§6.5)
+  coverage_penalty:                      # G = g * (base + span * C)   (§9); base + span must equal 1.0
+    base: 0.70
+    span: 0.30
+  eligibility:                           # (§5)
+    min_pillars: 3
+    min_benchmarks: 5
+  staleness:                             # (§12)
+    warn_after_days: 14
+    exclude_after_days: 120
+
+uncertainty:                             # (§10)
+  bootstrap_reps: 2000
+  seed: 42
+  default_noise_raw: 1.5                 # raw points, used when a benchmark has no per-model CI
+  dominance_threshold: 0.95              # P(A > B) at or above this => "confidently better"
+
+tiers:                                   # (§11)
+  max_tiers: 7
+  separation_confidence: 0.95
+
+# ---------------------------------------------------------------------------
+# Pillars (§3) — weights must sum to 1.0
+# ---------------------------------------------------------------------------
+pillars:
+  human_preference:
+    label: "Human Preference"
+    weight: 0.35
+  knowledge_reasoning:
+    label: "Knowledge & Reasoning"
+    weight: 0.20
+  math:
+    label: "Mathematical Reasoning"
+    weight: 0.15
+  coding:
+    label: "Coding & Engineering"
+    weight: 0.20
+  agentic:
+    label: "Agentic & Tool Use"
+    weight: 0.10
+
+# ---------------------------------------------------------------------------
+# Benchmarks (§4) — global effective weights must sum to 1.0 and match their
+# pillar totals. normalization: blend | elo | log_share | borda_only | minmax_only
+# noise_raw: measurement sigma in RAW units used by the bootstrap when the
+# source publishes no CI (§10).
+# ---------------------------------------------------------------------------
+benchmarks:
+  lm_arena_elo:
+    label: "LMArena Elo (style-controlled)"
+    pillar: human_preference
+    weight: 0.25
+    normalization: elo
+    noise_raw: 8.0          # Elo points
+    higher_better: true
+
+  openrouter_usage:
+    label: "OpenRouter token share"
+    pillar: human_preference
+    weight: 0.10
+    normalization: log_share
+    noise_raw: 0.4          # percentage points
+    higher_better: true
+
+  gpqa_diamond:
+    label: "GPQA Diamond"
+    pillar: knowledge_reasoning
+    weight: 0.08
+    normalization: blend
+    higher_better: true
+
+  livebench_overall:
+    label: "LiveBench (overall)"
+    pillar: knowledge_reasoning
+    weight: 0.06
+    normalization: blend
+    higher_better: true
+
+  seal_average:
+    label: "Scale SEAL (average)"
+    pillar: knowledge_reasoning
+    weight: 0.06
+    normalization: blend
+    higher_better: true
+
+  aime_2025:
+    label: "AIME 2025 (avg, no tools)"
+    pillar: math
+    weight: 0.08
+    normalization: blend
+    higher_better: true
+
+  hmmt_feb_2025:
+    label: "HMMT Feb 2025"
+    pillar: math
+    weight: 0.04
+    normalization: blend
+    higher_better: true
+
+  math_500:
+    label: "MATH-500"
+    pillar: math
+    weight: 0.03
+    normalization: blend
+    higher_better: true
+
+  swebench_verified:
+    label: "SWE-bench Verified"
+    pillar: coding
+    weight: 0.10
+    normalization: blend
+    higher_better: true
+
+  livecodebench:
+    label: "LiveCodeBench (current)"
+    pillar: coding
+    weight: 0.07
+    normalization: blend
+    higher_better: true
+
+  terminal_bench:
+    label: "Terminal-Bench (coding share)"
+    pillar: coding
+    weight: 0.03
+    normalization: blend
+    higher_better: true
+
+  tau2_bench:
+    label: "Tau²-bench (domain avg)"
+    pillar: agentic
+    weight: 0.06
+    normalization: blend
+    higher_better: true
+
+  terminal_bench_agentic:
+    label: "Terminal-Bench (agentic share)"
+    pillar: agentic
+    weight: 0.04
+    normalization: blend
+    alias_of: terminal_bench   # hybrid benchmark: same data, split weight (§4)
+    higher_better: true
