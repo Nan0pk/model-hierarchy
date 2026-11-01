@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-01 18:30 UTC",
+  "generated_at": "2026-11-01 19:12 UTC",
   "tool_version": "1.0.0",
   "method": "model-hierarchy methodology v1.0.0",
   "weights_version": "1.0.0",
@@ -7,31 +7,31 @@
   "demo": true,
   "cohort_size": 12,
   "data_as_of": {
-    "terminal_bench_agentic": "2026-11-01",
-    "livecodebench": "2026-11-01",
-    "seal_average": "2026-11-01",
-    "livebench_overall": "2026-11-01",
-    "lm_arena_elo": "2026-11-01",
-    "math_500": "2026-11-01",
-    "terminal_bench": "2026-11-01",
-    "swebench_verified": "2026-11-01",
+    "gpqa_diamond": "2026-11-01",
     "aime_2025": "2026-11-01",
+    "livecodebench": "2026-11-01",
+    "terminal_bench": "2026-11-01",
+    "lm_arena_elo": "2026-11-01",
+    "livebench_overall": "2026-11-01",
+    "math_500": "2026-11-01",
+    "terminal_bench_agentic": "2026-11-01",
+    "seal_average": "2026-11-01",
+    "openrouter_usage": "2026-11-01",
     "tau2_bench": "2026-11-01",
     "hmmt_feb_2025": "2026-11-01",
-    "openrouter_usage": "2026-11-01",
-    "gpqa_diamond": "2026-11-01"
+    "swebench_verified": "2026-11-01"
   },
   "stale": [],
   "excluded_stale": [],
   "name_reconciliation": {
-    "claude-opus-4.5": "claude opus 4.5",
-    "gpt-5.1": "gpt 5.1",
     "gemini-3-pro": "gemini 3 pro",
+    "gpt-5.1": "gpt 5.1",
+    "claude-opus-4.5": "claude opus 4.5",
     "grok-4.1": "grok 4.1",
-    "kimi-k2.5": "kimi k2.5",
     "deepseek-v3.2": "deepseek v3.2",
-    "glm-4.7": "glm 4.7",
+    "kimi-k2.5": "kimi k2.5",
     "qwen3-max": "qwen3 max",
+    "glm-4.7": "glm 4.7",
     "gpt-5-mini": "gpt 5 mini",
     "minimax-m2.5": "minimax m2.5",
     "mistral-large-3": "mistral large 3",
@@ -42,11 +42,11 @@
       "rank": 1,
       "model": "gpt 5.1",
       "tier": "T1",
-      "g": 93.3,
+      "g": 93.4,
       "g_point": 94.0,
       "ci95": [
-        90.0,
-        95.7
+        89.8,
+        95.6
       ],
       "pillars": {
         "human_preference": {
@@ -148,7 +148,7 @@
       "g": 93.2,
       "g_point": 93.8,
       "ci95": [
-        90.3,
+        90.5,
         95.0
       ],
       "pillars": {
@@ -252,7 +252,7 @@
       "g_point": 91.4,
       "ci95": [
         87.4,
-        93.9
+        94.0
       ],
       "pillars": {
         "human_preference": {
@@ -351,11 +351,11 @@
       "rank": 4,
       "model": "grok 4.1",
       "tier": "T2",
-      "g": 71.2,
+      "g": 71.3,
       "g_point": 71.4,
       "ci95": [
-        67.2,
-        75.4
+        67.0,
+        75.7
       ],
       "pillars": {
         "human_preference": {
@@ -457,7 +457,7 @@
       "g": 65.3,
       "g_point": 66.1,
       "ci95": [
-        61.8,
+        61.4,
         68.9
       ],
       "pillars": {
@@ -560,8 +560,8 @@
       "g": 59.1,
       "g_point": 59.5,
       "ci95": [
-        54.8,
-        64.0
+        54.6,
+        63.8
       ],
       "pillars": {
         "human_preference": {
@@ -663,8 +663,8 @@
       "g": 50.5,
       "g_point": 50.2,
       "ci95": [
-        45.9,
-        55.9
+        46.0,
+        55.6
       ],
       "pillars": {
         "human_preference": {
@@ -763,10 +763,10 @@
       "rank": 8,
       "model": "qwen3 max",
       "tier": "T5",
-      "g": 47.6,
+      "g": 47.8,
       "g_point": 47.0,
       "ci95": [
-        43.7,
+        43.6,
         52.0
       ],
       "pillars": {
@@ -972,8 +972,8 @@
       "g": 29.8,
       "g_point": 29.3,
       "ci95": [
-        25.8,
-        34.6
+        25.9,
+        34.3
       ],
       "pillars": {
         "human_preference": {
@@ -1067,11 +1067,11 @@
       "rank": 11,
       "model": "mistral large 3",
       "tier": "T7",
-      "g": 12.3,
+      "g": 12.4,
       "g_point": 12.0,
       "ci95": [
         8.8,
-        15.4
+        15.3
       ],
       "pillars": {
         "human_preference": {
@@ -1169,7 +1169,7 @@
       "g_point": 5.0,
       "ci95": [
         5.0,
-        7.6
+        7.7
       ],
       "pillars": {
         "human_preference": {
@@ -1442,11 +1442,6 @@
     },
     {
       "a": "gpt 5 mini",
-      "b": "minimax m2.5",
-      "p": 1.0
-    },
-    {
-      "a": "gpt 5 mini",
       "b": "mistral large 3",
       "p": 1.0
     },
@@ -1583,27 +1578,32 @@
     {
       "a": "mistral large 3",
       "b": "llama 4 maverick",
+      "p": 0.9995
+    },
+    {
+      "a": "gpt 5 mini",
+      "b": "minimax m2.5",
       "p": 0.999
     },
     {
       "a": "kimi k2.5",
       "b": "glm 4.7",
-      "p": 0.9985
+      "p": 0.999
     },
     {
       "a": "qwen3 max",
       "b": "gpt 5 mini",
-      "p": 0.9975
+      "p": 0.996
     },
     {
       "a": "grok 4.1",
       "b": "deepseek v3.2",
-      "p": 0.9865
+      "p": 0.987
     },
     {
       "a": "deepseek v3.2",
       "b": "kimi k2.5",
-      "p": 0.981
+      "p": 0.976
     }
   ]
 }
