@@ -148,6 +148,29 @@ def pairwise_probs(draws: dict, models: list) -> dict:
     return probs
 
 
+def benjamini_hochberg(probs: dict, models: list) -> dict:
+    """BH-adjust two-sided bootstrap pairwise tail probabilities.
+
+    Returns one q-value per unordered pair, keyed by a sorted model tuple.
+    These are bootstrap tail probabilities (not analytic p-values); interpret
+    them as a conservative multiplicity-aware separation heuristic.
+    """
+    pairs = []
+    for i, a in enumerate(sorted(models)):
+        for b in sorted(models)[i + 1:]:
+            p = min(1.0, 2.0 * min(probs.get((a, b), 0.5), probs.get((b, a), 0.5)))
+            pairs.append((p, (a, b)))
+    pairs.sort(key=lambda x: x[0])
+    m = len(pairs)
+    qvalues = {}
+    running = 1.0
+    for rank in range(m, 0, -1):
+        p, pair = pairs[rank - 1]
+        running = min(running, p * m / rank)
+        qvalues[pair] = min(1.0, running)
+    return qvalues
+
+
 def dominance_list(probs: dict, models: list, threshold: float) -> list:
     """Directed 'confidently better' pairs with p >= threshold (§10).
 

@@ -12,6 +12,7 @@ import datetime as dt
 from . import METHOD_VERSION, __version__
 from .aggregate import (
     bootstrap,
+    benjamini_hochberg,
     dominance_list,
     pairwise_probs,
     point_estimate,
@@ -83,11 +84,19 @@ def compute(raw, sigma, as_of, cfg, demo: bool = False, reps: int | None = None,
 
     eligible = [m for m, r in point.items() if r["eligible"]]
     probs = pairwise_probs(draws, eligible)
+    qvalues = benjamini_hochberg(probs, eligible)
+    # Retain the existing directional confidence threshold, but only separate
+    # tiers where the pairwise bootstrap evidence survives BH correction.
+    tier_probs = dict(probs)
+    for (a, b), q in qvalues.items():
+        if q > 0.05:
+            tier_probs[(a, b)] = tier_probs[(b, a)] = 0.5
     dom = dominance_list(probs, eligible, cfg.uncertainty["dominance_threshold"])
+    dom = [d for d in dom if qvalues.get(tuple(sorted((d["a"], d["b"]))), 1.0) <= 0.05]
 
     entries = sorted(({"model": m, **stats[m]} for m in eligible), key=lambda e: -e["median"])
     tiers = assign_tiers(
-        entries, probs,
+        entries, tier_probs,
         max_tiers=cfg.tiers_cfg["max_tiers"],
         confidence=cfg.tiers_cfg["separation_confidence"],
     )
@@ -152,6 +161,7 @@ def compute(raw, sigma, as_of, cfg, demo: bool = False, reps: int | None = None,
         "unranked": unranked,
         "tiers": tier_map,
         "dominance": dom,
+        "pairwise_bh_qvalues": {f"{a} | {b}": round(q, 6) for (a, b), q in qvalues.items()},
     }
 
 

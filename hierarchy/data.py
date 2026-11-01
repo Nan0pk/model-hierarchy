@@ -13,6 +13,7 @@ from __future__ import annotations
 import csv
 import datetime as dt
 import json
+import math
 import pathlib
 
 from .config import DATA_DIR
@@ -56,15 +57,23 @@ def load_manual_csv(csv_path: pathlib.Path | None = None) -> dict:
     if not csv_path.exists():
         return snaps
     with open(csv_path, newline="", encoding="utf-8") as fh:
-        for row in csv.DictReader(fh):
+        reader = csv.DictReader(fh)
+        required = {"benchmark", "model", "score", "as_of"}
+        missing = required - set(reader.fieldnames or [])
+        if missing:
+            raise ValueError(f"{csv_path}: missing required CSV columns: {sorted(missing)}")
+        for line, row in enumerate(reader, start=2):
             row = {k.strip(): (v.strip() if isinstance(v, str) else v) for k, v in row.items() if k}
             if not row.get("benchmark") or not row.get("model"):
-                continue
+                raise ValueError(f"{csv_path}:{line}: benchmark and model must be non-empty")
             bid, model = row["benchmark"], row["model"]
             try:
                 score = float(row["score"])
+                if not math.isfinite(score):
+                    raise ValueError
+                dt.date.fromisoformat(row["as_of"])
             except (TypeError, ValueError):
-                continue
+                raise ValueError(f"{csv_path}:{line}: score must be finite and as_of must be YYYY-MM-DD") from None
             entry = {"score": score}
             lo, hi = row.get("ci95_lo"), row.get("ci95_hi")
             try:

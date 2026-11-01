@@ -22,6 +22,7 @@ import pathlib
 import re
 
 import requests
+import requests_cache
 
 from ..config import DATA_DIR
 
@@ -34,14 +35,17 @@ class FetchError(RuntimeError):
     pass
 
 
+_HTTP = requests_cache.CachedSession(".cache/model-hierarchy-http", expire_after=24 * 60 * 60)
+
+
 def _get(url: str, cfg_sources: dict, params: dict | None = None) -> requests.Response:
     defaults = cfg_sources.get("defaults", {})
     headers = {"User-Agent": defaults.get("user_agent", "model-hierarchy")}
     last = None
     for _ in range(int(defaults.get("retries", 2))):
         try:
-            r = requests.get(url, headers=headers, params=params,
-                             timeout=int(defaults.get("timeout_seconds", 20)))
+            r = _HTTP.get(url, headers=headers, params=params,
+                          timeout=int(defaults.get("timeout_seconds", 20)))
             if r.status_code == 200:
                 return r
             last = FetchError(f"{url} -> HTTP {r.status_code}")
