@@ -11,6 +11,20 @@ Verified, LiveCodeBench, Terminal-Bench and Tau²-bench.**
 📖 **The methodology — every weight, every formula, every tradeoff — is specified in
 [METHODOLOGY.md](METHODOLOGY.md).** This README shows you how to run it.
 
+## Refresh the live leaderboard
+
+[**Run a full refresh now →**](https://github.com/Nan0pk/model-hierarchy/actions/workflows/daily.yml)
+
+This opens the repository's `daily` workflow. Select **Run workflow** with branch `main` to run
+fetch → validate → aggregate → render → tests → auto-commit. When the run succeeds, reload the
+[dashboard](https://nan0pk.github.io/model-hierarchy/dashboard/) or README. GitHub requires an
+authenticated owner/contributor to start Actions; a static Pages button cannot safely carry a
+GitHub token or dispatch jobs directly.
+
+The refresh uses trusted configured sources only. If fresh data does not cover at least five
+benchmarks across three pillars, the honest result is still an empty ranked hierarchy—not synthetic
+scores presented as current.
+
 ## Quickstart
 
 ```bash
