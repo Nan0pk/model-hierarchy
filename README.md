@@ -97,7 +97,11 @@ Same tier = statistically indistinguishable on current data (METHODOLOGY.md §11
 
 ## Explore the leaderboard
 
-[Open the live Model Atlas dashboard](https://nan0pk.github.io/model-hierarchy/dashboard/) (published via GitHub Pages). The dashboard source is in [`dashboard/`](dashboard/); serve the repository locally (e.g. `python -m http.server 8000`) and open `/dashboard/` to search models, inspect published confidence intervals, and interactively reweight capability pillars. Personalized rankings are exploratory; they do not recompute statistical tiers or bootstrap intervals. The dashboard reads `output/leaderboard.json` without a backend.
+[Open the live Model Atlas dashboard](https://nan0pk.github.io/model-hierarchy/dashboard/) (published via GitHub Pages). GitHub READMEs cannot run or embed the interactive dashboard itself, so the image below is a static preview; use the link for the live controls. The dashboard source is in [`dashboard/`](dashboard/); serve the repository locally (e.g. `python -m http.server 8000`) and open `/dashboard/` to search models, inspect published confidence intervals, and interactively reweight capability pillars. Personalized rankings are exploratory; they do not recompute statistical tiers or bootstrap intervals. The dashboard reads `output/leaderboard.json` without a backend.
+
+> **Preview uses synthetic demo scores** — illustrative only, not the live ranking.
+>
+> ![Model Atlas dashboard preview with synthetic example rankings](dashboard/preview.svg)
 
 Pairwise tier separations and dominance claims use Benjamini–Hochberg-adjusted bootstrap tail
 probabilities to reduce false discoveries across comparisons. This remains a bootstrap heuristic,
