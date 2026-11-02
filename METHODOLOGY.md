@@ -131,8 +131,7 @@ number; document the substitution in any output you publish if you do.
 **Why these sources and not others.** MMLU-Pro, GSM8K, HumanEval, and MBPP are excluded from the
 default registry: heavily contaminated and/or saturated at the frontier, and their residual
 signal is already carried by their modern successors (LiveBench, AIME/HMMT, LiveCodeBench,
-SWE-bench Verified). They can be added via config without code changes — the registry is data,
-not code.
+SWE-bench Verified). The weight registry is data-driven, but adding an automated source is not configuration-only unless an existing adapter matches its schema and semantics. New source formats require a tested adapter and an explicit provenance/harness decision; unsupported sources must remain manual rather than being scraped opportunistically.
 
 ---
 
@@ -365,10 +364,15 @@ alongside the full table (G-score, CI, pillar subscores, coverage, flags) in
   auto-commit if anything changed. Any single source failing (endpoint moved, HTML changed,
   Cloudflare) is logged and non-fatal: the day's hierarchy is computed from everything that
   succeeded, with staleness flags telling the reader exactly what fell behind.
-- **Guaranteed fallback:** `data/manual/scores.csv`. One row per number
-  (`benchmark,model,score,as_of,source`) — paste from llmstat or any leaderboard page and the
-  full pipeline runs offline. Scrapers rot; manual drops never do. The fetch adapters are
-  convenience, the CSV is the contract.
+- **Guaranteed manual contract:** `data/manual/scores.csv`. One row per number
+  (`benchmark,model,score,as_of,source,notes`) — include a direct source, benchmark release,
+  and harness/settings where applicable. A score from an arbitrary aggregator is not
+  interchangeable with a benchmark-owner result. Scrapers rot; reviewed manual drops remain
+  the fallback.
+- **Automation coverage:** only sources with a maintained primary endpoint and a matching,
+  tested adapter are fetched automatically. `python -m hierarchy validate` lists automatic and
+  manual-only sources. A scraper does not make an outdated release current; `as_of` records the
+  evaluated window/update date and staleness rules still apply.
 - **Name reconciliation (§12.1):** sources disagree on names — Arena reports display names
   ("Claude Opus 5.5 (High)"), OpenRouter reports slugs ("anthropic/claude-opus-5.5"), benchmark
   pages report vendor names. Matching is **exact after canonicalization** (lowercase, drop the

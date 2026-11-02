@@ -18,8 +18,10 @@ from __future__ import annotations
 
 import datetime as dt
 import json
+import math
 import pathlib
 import re
+from html.parser import HTMLParser
 
 import requests
 import requests_cache
@@ -38,9 +40,15 @@ class FetchError(RuntimeError):
 _HTTP = requests_cache.CachedSession(".cache/model-hierarchy-http", expire_after=24 * 60 * 60)
 
 
-def _get(url: str, cfg_sources: dict, params: dict | None = None) -> requests.Response:
+def _get(
+    url: str,
+    cfg_sources: dict,
+    params: dict | None = None,
+    extra_headers: dict | None = None,
+) -> requests.Response:
     defaults = cfg_sources.get("defaults", {})
     headers = {"User-Agent": defaults.get("user_agent", "model-hierarchy")}
+    headers.update(extra_headers or {})
     last = None
     for _ in range(int(defaults.get("retries", 2))):
         try:
@@ -278,6 +286,166 @@ def fetch_openrouter(source: dict, cfg) -> dict:
 
 
 # --------------------------------------------------------------------------
+# Official leaderboard APIs
+# --------------------------------------------------------------------------
+def fetch_swebench(source: dict, cfg) -> dict:
+    """Read the official SWE-bench Verified table, restricted to one harness.
+
+    SWE-bench entries measure model+agent systems, not a model in isolation.
+    The configured harness restriction is mandatory to avoid selecting a best
+    score across unrelated agent scaffolds.
+    """
+    url = source.get("url")
+    spec = source.get("leaderboard_spec") or {}
+    harness = spec.get("agent")
+    if not url or not harness:
+        raise FetchError("swebench source requires url and a fixed leaderboard_spec.agent")
+    try:
+        payload = _get(
+            url,
+            cfg.sources,
+            extra_headers={"Accept": "application/vnd.github.raw+json"},
+        ).json()
+        boards = payload.get("leaderboards", []) if isinstance(payload, dict) else []
+        board_name = spec.get("board", "Verified").casefold()
+        board = next((b for b in boards if str(b.get("name", "")).casefold() == board_name), None)
+        if not board:
+            raise FetchError(f"{url}: leaderboard {board_name!r} missing")
+        latest = {}
+        for row in board.get("results", []):
+            if str(row.get("agent", "")).casefold() != harness.casefold():
+                continue
+            model = row.get("model_display")
+            try:
+                score = float(row["resolved"])
+            except (KeyError, TypeError, ValueError):
+                continue
+            if not model or str(model).casefold() in {"multiple", "undisclosed"} or not math.isfinite(score):
+                continue
+            date = str(row.get("date", ""))
+            if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", date):
+                continue
+            prev = latest.get(str(model))
+            if prev is None or date > prev[0]:
+                latest[str(model)] = (date, score)
+        values = {model: {"score": score} for model, (_, score) in latest.items()}
+        if not values:
+            raise FetchError(f"{url}: no Verified rows for fixed agent {harness!r}")
+        observed = max(date for date, _ in latest.values())
+        as_of = observed
+        return {
+            "benchmark": source.get("benchmark") or _bench_id_for_source(source, cfg),
+            "as_of": as_of,
+            "values": values,
+            "source": url,
+            "provenance_type": "orchestrator_run",
+            "harness": harness,
+        }
+    except (requests.RequestException, ValueError, KeyError, TypeError) as exc:
+        raise FetchError(f"{url}: could not parse SWE-bench leaderboard: {exc}") from exc
+
+
+class _TableParser(HTMLParser):
+    """Small dependency-free HTML table reader for source-owned static boards."""
+
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.tables: list[list[list[str]]] = []
+        self.page_text: list[str] = []
+        self._table_depth = 0
+        self._row: list[str] | None = None
+        self._cell: list[str] | None = None
+
+    def handle_starttag(self, tag, attrs):
+        tag = tag.lower()
+        if tag == "table":
+            self._table_depth += 1
+            if self._table_depth == 1:
+                self.tables.append([])
+        elif self._table_depth == 1 and tag == "tr":
+            self._row = []
+        elif self._table_depth == 1 and tag in {"th", "td"} and self._row is not None:
+            self._cell = []
+
+    def handle_data(self, data):
+        text = data.strip()
+        if text:
+            self.page_text.append(text)
+            if self._cell is not None:
+                self._cell.append(text)
+
+    def handle_endtag(self, tag):
+        tag = tag.lower()
+        if self._table_depth == 1 and tag in {"th", "td"} and self._cell is not None:
+            self._row.append(" ".join(self._cell).strip())
+            self._cell = None
+        elif self._table_depth == 1 and tag == "tr" and self._row is not None:
+            if self._row:
+                self.tables[-1].append(self._row)
+            self._row = None
+        elif tag == "table" and self._table_depth:
+            self._table_depth -= 1
+
+
+def fetch_livecodebench(source: dict, cfg) -> dict:
+    """Fetch the latest official LiveCodeBench leaderboard table.
+
+    The official page declares the evaluated date window; that end date, not
+    the scrape date, is stamped so stale frozen releases are not misrepresented
+    as fresh measurements.
+    """
+    url = source.get("url")
+    spec = source.get("table_spec") or {}
+    if not url or not spec.get("date_regex"):
+        raise FetchError("livecodebench requires url and table_spec.date_regex")
+    try:
+        response = _get(url, cfg.sources)
+        parser = _TableParser()
+        parser.feed(response.text)
+        model_col = score_col = None
+        rows = None
+        for table in parser.tables:
+            if not table:
+                continue
+            headers = [cell.casefold() for cell in table[0]]
+            model_col = next((i for i, h in enumerate(headers) if h == "model"), None)
+            score_col = next((i for i, h in enumerate(headers) if h == "pass@1"), None)
+            if model_col is not None and score_col is not None:
+                rows = table[1:]
+                break
+        if rows is None:
+            raise FetchError(f"{url}: no official table with Model and Pass@1 columns found")
+        values = {}
+        for row in rows:
+            if max(model_col, score_col) >= len(row):
+                continue
+            model = row[model_col]
+            try:
+                score = float(row[score_col].replace("%", ""))
+            except ValueError:
+                continue
+            if model and math.isfinite(score):
+                values[model] = {"score": score}
+        if not values:
+            raise FetchError(f"{url}: official table parsed zero valid model scores")
+        matches = re.findall(spec["date_regex"], " ".join(parser.page_text), flags=re.I)
+        if not matches:
+            raise FetchError(f"{url}: official evaluation window date not found")
+        date_token = matches[-1]
+        month, day, year = map(int, re.split(r"[/.-]", date_token))
+        as_of = dt.date(year, month, day).isoformat()
+        return {
+            "benchmark": source.get("benchmark") or _bench_id_for_source(source, cfg),
+            "as_of": as_of,
+            "values": values,
+            "source": url,
+            "provenance_type": "orchestrator_run",
+        }
+    except (requests.RequestException, ValueError, KeyError, TypeError) as exc:
+        raise FetchError(f"{url}: could not parse official LiveCodeBench board: {exc}") from exc
+
+
+# --------------------------------------------------------------------------
 # Generic JSON URL (config-driven, no code changes to add sources)
 # --------------------------------------------------------------------------
 def fetch_json_url(source: dict, cfg) -> dict:
@@ -333,6 +501,8 @@ ADAPTERS = {
     "lm_arena": fetch_lm_arena,
     "openrouter": fetch_openrouter,
     "json_url": fetch_json_url,
+    "swebench": fetch_swebench,
+    "livecodebench": fetch_livecodebench,
     "llmstat": fetch_llmstat,
 }
 
@@ -344,10 +514,20 @@ def fetch_all(cfg, allow_missing: bool = True, quiet: bool = False) -> tuple[lis
         role = source.get("role", "scored")
         if role not in ("scored",) and not (role == "optional" and source.get("enabled")):
             continue
-        adapter = ADAPTERS.get(source.get("kind"))
-        if adapter is None:
+        kind = source.get("kind")
+        if kind == "manual":
             if not quiet:
-                print(f"  · {sid}: kind '{source.get('kind')}' has no adapter — manual drop expected")
+                print(f"  · {sid}: intentionally manual source — see fallback_note")
+            continue
+        adapter = ADAPTERS.get(kind)
+        if adapter is None:
+            message = (
+                f"source kind {source.get('kind')!r} has no fetch adapter; "
+                "this benchmark is manual-only until an adapter is implemented"
+            )
+            failures.append((sid, message))
+            if not quiet:
+                print(f"  ✘ {sid}: {message}")
             continue
         try:
             snap = adapter(source, cfg)

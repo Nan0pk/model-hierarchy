@@ -51,75 +51,79 @@ sources:
       in percent).
 
   # ---- Scored: capability benchmarks --------------------------------------
-  # Orchestrator-run leaderboards publish JSON in heterogeneous shapes.
-  # Register each as kind: json_url with dot-paths, or paste numbers by hand.
+  # Use only adapters for stable, source-owned endpoints with matching score
+  # semantics. Mark sources kind: manual when no defensible automation exists.
   gpqa_diamond:
     role: scored
-    kind: manual_or_json
-    cadence: weekly
-    url: https://gorilla.cs.berkeley.edu/leaderboard.html
-    fallback_note: Paste GPQA Diamond pass rates from the leaderboard page (or a llmstat mirror) into data/manual/scores.csv.
+    kind: manual
+    cadence: monthly
+    source: https://huggingface.co/datasets/Idavidrein/gpqa
+    fallback_note: No benchmark-operator-run public model leaderboard is available. Record the exact model-card or evaluation report URL, test-time compute, and score in the manual CSV; do not ingest unverified leaderboard aggregations as ground truth.
 
   livebench_overall:
     role: scored
-    kind: json_url
-    cadence: weekly
-    url: https://livebench.ai
-    json_spec:
-      root: data.categories.global
-      model_key: model_display_name
-      score_key: global_qa_index
-    fallback_note: LiveBench serves an embedded JSON table; if the shape moved, paste the overall scores manually.
+    kind: manual
+    cadence: release
+    source: https://livebench.ai
+    fallback_note: The current official site publishes LiveBench 2.0 (agent-task suites), which is not the historical LiveBench overall metric defined by this methodology. Keep manual until the methodology and weights are deliberately migrated to the new benchmark.
 
   seal_average:
     role: scored
-    kind: manual_or_json
+    kind: manual
     cadence: monthly
-    url: https://scale.com/leaderboard
-    fallback_note: SEAL updates monthly; paste the average scores manually when a new edition drops.
+    source: https://scale.com/leaderboard
+    fallback_note: The legacy SEAL average has no confirmed current machine-readable endpoint. Only enter scores tied to the SEAL benchmark and its stated release; do not scrape the current Scale Labs leaderboard as a substitute.
 
   aime_2025:
     role: scored
-    kind: manual_or_json
+    kind: manual
     cadence: monthly
     fallback_note: Average of AIME 2025 (I/II), no-tools setting, vendor-reported or orchestrator-run (preferred).
 
   hmmt_feb_2025:
     role: scored
-    kind: manual_or_json
+    kind: manual
     cadence: monthly
     fallback_note: HMMT Feb 2025 scores, no-tools setting.
 
   math_500:
     role: scored
-    kind: manual_or_json
+    kind: manual
     cadence: quarterly
     fallback_note: Near-saturated legacy anchor (weight 0.03 only).
 
   swebench_verified:
     role: scored
-    kind: manual_or_json
+    kind: swebench
     cadence: weekly
-    url: https://www.swebench.com
-    fallback_note: Verified subset, scaffolding-on, unassisted; orchestrator-run values preferred over vendor posts.
+    url: https://api.github.com/repos/SWE-bench/swe-bench.github.io/contents/data/leaderboards.json
+    benchmark: swebench_verified
+    leaderboard_spec:
+      board: Verified
+      agent: mini-SWE-agent
+    provenance_type: orchestrator_run
+    fallback_note: Official Verified board, restricted to the mini-SWE-agent harness so scores are not selected across unrelated agent scaffolds.
 
   livecodebench:
     role: scored
-    kind: manual_or_json
-    cadence: weekly
-    url: https://livecodebench.github.io
-    fallback_note: Current release window average.
+    kind: livecodebench
+    cadence: release
+    url: https://livecodebench.github.io/leaderboard.html
+    benchmark: livecodebench
+    table_spec:
+      date_regex: 'to (\d{1,2}/\d{1,2}/\d{4})'
+    fallback_note: Official LiveCodeBench leaderboard; the scrape records the end date of the current evaluation window, so stale releases are excluded by the normal staleness policy.
 
   terminal_bench:
     role: scored
-    kind: manual_or_json
+    kind: manual
     cadence: monthly
-    url: https://www.tbench.ai
-    fallback_note: Terminal-Bench 2.x pass rate; feeds BOTH terminal_bench and terminal_bench_agentic (alias).
+    source: https://www.tbench.ai
+    fallback_note: The official board mixes model and agent harnesses. Keep manual until the methodology declares a fixed harness; do not cherry-pick the best agent result per model. One verified score feeds both registered pillar aliases.
 
   tau2_bench:
     role: scored
-    kind: manual_or_json
+    kind: manual
     cadence: monthly
     fallback_note: Average across published Tau²-bench domains.
 
@@ -137,7 +141,7 @@ sources:
   artanalysis_index:
     role: optional
     enabled: false
-    kind: manual_or_json
+    kind: manual
     url: https://artificialanalysis.ai/models/benchmarks
     note: >
       AA Intelligence Index already aggregates GPQA and other registered
