@@ -8,6 +8,7 @@ import sys
 from .config import ConfigError, DEMO_DIR, OUTPUT_DIR, ROOT, load_config
 from .data import load_manual_csv, load_snapshots, merge_snapshots, to_matrix, today
 from .fetch import fetch_all
+from .fetch.base import ADAPTERS
 from .pipeline import compute, tree_text
 from .render import DEMO_MARKERS, README_MARKERS, markdown_table, update_readme, write_outputs
 
@@ -26,6 +27,16 @@ def cmd_validate(args) -> int:
         b = cfg.benchmarks[bid]
         alias = f" (alias_of {b['alias_of']})" if b.get("alias_of") else ""
         print(f"  {bid:<24} {b['pillar']:<20} w={b['weight']:.2f} norm={b['normalization']}{alias}")
+    active = [
+        sid for sid, source in cfg.sources.get("sources", {}).items()
+        if source.get("role", "scored") == "scored" and source.get("kind") in ADAPTERS
+    ]
+    manual = [
+        sid for sid, source in cfg.sources.get("sources", {}).items()
+        if source.get("role", "scored") == "scored" and source.get("kind") == "manual"
+    ]
+    print(f"automatic sources: {', '.join(active) or 'none'}")
+    print(f"manual-only sources: {', '.join(manual) or 'none'}")
     return 0
 
 

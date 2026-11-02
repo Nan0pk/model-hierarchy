@@ -28,11 +28,24 @@ python -m hierarchy fetch --allow-missing   # try live sources (best-effort, sof
 python -m hierarchy run                     # fetch + aggregate + render README/JSON/CSV
 ```
 
-Any source that fails (endpoint moved, HTML changed) is logged and skipped — the hierarchy is
-computed from everything that succeeded, with staleness flags. The **guaranteed** input path is
-[`data/manual/scores.csv`](data/manual/scores.csv): paste numbers from llmstat or any
-leaderboard page (`benchmark,model,score,as_of,source,notes`) and the full pipeline runs
-offline. Scrapers rot; manual drops never do.
+The scheduled job does not magically scrape every registered benchmark. Automatic adapters are
+currently limited to first-party LMArena, OpenRouter, official SWE-bench (fixed `mini-SWE-agent`
+harness), and the official LiveCodeBench table. LiveCodeBench's published window is currently old,
+so the normal staleness policy excludes it rather than treating a fresh scrape as fresh scores.
+
+Several registered metrics are intentionally manual: GPQA has no stable operator-run model board;
+LiveBench's current 2.0 suites no longer match the historical metric in these weights; SEAL's legacy
+average has no confirmed current endpoint; AIME/HMMT/MATH-500 are fixed contests/sets without a
+single comparable live leaderboard; Terminal-Bench mixes agent harnesses; and Tau² lacks a stable
+public machine-readable board. Each adapter/manual status is reported by `python -m hierarchy
+validate` and `python -m hierarchy fetch` so a missing integration is visible instead of silently
+skipped. We will only automate sources with a primary benchmark-owner or established first-party
+endpoint and a score definition that matches the methodology.
+
+Any automatic source that fails (endpoint moved, schema changed) is logged and skipped — the
+hierarchy is computed from valid, sufficiently fresh data only. The **guaranteed** input path is
+[`data/manual/scores.csv`](data/manual/scores.csv): provide `benchmark,model,score,as_of,source,notes`
+for a methodology-compatible score and the pipeline runs offline. Scrapers rot; manual drops never do.
 
 ## Weights at a glance (v1.0.0)
 
