@@ -1,0 +1,135 @@
+{
+  "benchmark": "swebench_verified",
+  "as_of": "2026-02-26",
+  "values": {
+    "Claude 4.5 Opus": {
+      "score": 76.8
+    },
+    "Gemini 3 Flash": {
+      "score": 75.8
+    },
+    "MiniMax M2.5": {
+      "score": 75.8
+    },
+    "Claude 4.6 Opus": {
+      "score": 75.6
+    },
+    "Gemini 3 Pro Preview": {
+      "score": 74.2
+    },
+    "GLM 5": {
+      "score": 72.8
+    },
+    "GPT 5.2": {
+      "score": 72.8
+    },
+    "GPT 5.2 Codex": {
+      "score": 72.8
+    },
+    "Claude 4.5 Sonnet": {
+      "score": 71.4
+    },
+    "Kimi K2.5": {
+      "score": 70.8
+    },
+    "DeepSeek V3.2": {
+      "score": 70.0
+    },
+    "Gemini 3 Pro": {
+      "score": 69.6
+    },
+    "Claude 4 Opus": {
+      "score": 67.6
+    },
+    "Claude 4.5 Haiku": {
+      "score": 66.6
+    },
+    "GPT 5.1": {
+      "score": 66.0
+    },
+    "GPT 5.1 Codex": {
+      "score": 66.0
+    },
+    "GPT 5": {
+      "score": 65.0
+    },
+    "Claude 4 Sonnet": {
+      "score": 64.93
+    },
+    "Kimi K2 Thinking": {
+      "score": 63.4
+    },
+    "MiniMax M2": {
+      "score": 61.0
+    },
+    "DeepSeek V3.2 Reasoner": {
+      "score": 60.0
+    },
+    "GPT 5 mini": {
+      "score": 56.2
+    },
+    "o3": {
+      "score": 58.4
+    },
+    "Devstral Small (2512)": {
+      "score": 56.4
+    },
+    "Qwen3-Coder 480B/A35B Instruct": {
+      "score": 55.4
+    },
+    "GLM 4.6": {
+      "score": 55.4
+    },
+    "GLM 4.5": {
+      "score": 54.2
+    },
+    "Devstral (2512)": {
+      "score": 53.8
+    },
+    "Gemini 2.5 Pro": {
+      "score": 53.6
+    },
+    "Claude 3.7 Sonnet": {
+      "score": 52.8
+    },
+    "o4-mini": {
+      "score": 45.0
+    },
+    "Kimi K2 Instruct": {
+      "score": 43.8
+    },
+    "GPT 4.1": {
+      "score": 39.58
+    },
+    "GPT 5 nano": {
+      "score": 34.8
+    },
+    "Gemini 2.5 Flash": {
+      "score": 28.73
+    },
+    "gpt-oss-120b": {
+      "score": 26.0
+    },
+    "GPT 4.1 mini": {
+      "score": 23.94
+    },
+    "GPT 4o": {
+      "score": 21.62
+    },
+    "Llama 4 Maverick Instruct": {
+      "score": 21.04
+    },
+    "Gemini 2.0 Flash": {
+      "score": 13.52
+    },
+    "Llama 4 Scout Instruct": {
+      "score": 9.06
+    },
+    "Qwen2.5-Coder 32B Instruct": {
+      "score": 9.0
+    }
+  },
+  "source": "https://api.github.com/repos/SWE-bench/swe-bench.github.io/contents/data/leaderboards.json",
+  "provenance_type": "orchestrator_run",
+  "harness": "mini-SWE-agent"
+}

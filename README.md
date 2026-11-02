@@ -138,13 +138,14 @@ not an analytic test or proof of model superiority.
 
 <!-- leaderboard:start -->
 
-Tier hierarchy (G-score 0-100) — generated 2026-11-01 18:30 UTC
+Tier hierarchy (G-score 0-100) — generated 2026-11-02 10:18 UTC
 ────────────────────────────────────────────────────────────────
 ────────────────────────────────────────────────────────────────
 Same tier = statistically indistinguishable on current data (METHODOLOGY.md §11).
 
 | # | Model | Tier | G | 95% CI | Hum. | Know. | Math | Code | Agent | Cov. | Flags |
 |---|-------|------|---|--------|---|---|---|---|---|------|-------|
+*Excluded (>120d): swebench_verified*
 
 *Unranked (insufficient data, §5): `chatgpt 4o latest (20250326)`, `claude fable 5 (high)`, `claude fable 5.1 (max)`, `claude opus 4.1 (20250805)`, `claude opus 4.1 (thinking 16k, 20250805)`, `claude opus 4.5 (20251101)`, `claude opus 4.5 (high, 32k, 20251101)`, `claude opus 4.6`, `claude opus 4.6 (high)`, `claude opus 4.7`, `claude opus 4.7 (high)`, `claude opus 4.8`, `claude opus 4.8 (high)`, `claude opus 5 (high)`, `claude opus 5 (max)` … and 93 more in `output/leaderboard.json`*
 
