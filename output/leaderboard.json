@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-02 10:18 UTC",
+  "generated_at": "2026-11-02 14:22 UTC",
   "tool_version": "1.0.0",
   "method": "model-hierarchy methodology v1.0.0",
   "weights_version": "1.0.0",
@@ -7,67 +7,15 @@
   "demo": false,
   "cohort_size": 0,
   "data_as_of": {
+    "lm_arena_elo": "2026-10-28",
     "swebench_verified": "2026-02-26",
-    "openrouter_usage": "2026-11-02",
-    "lm_arena_elo": "2026-10-28"
+    "openrouter_usage": "2026-11-02"
   },
   "stale": [],
   "excluded_stale": [
     "swebench_verified"
   ],
   "name_reconciliation": {
-    "Claude 4.5 Opus": "claude 4.5 opus",
-    "Gemini 3 Flash": "gemini 3 flash",
-    "MiniMax M2.5": "minimax m2.5",
-    "Claude 4.6 Opus": "claude 4.6 opus",
-    "Gemini 3 Pro Preview": "gemini 3 pro preview",
-    "GLM 5": "glm 5",
-    "GPT 5.2": "gpt 5.2",
-    "GPT 5.2 Codex": "gpt 5.2 codex",
-    "Claude 4.5 Sonnet": "claude 4.5 sonnet",
-    "Kimi K2.5": "kimi k2.5",
-    "DeepSeek V3.2": "deepseek v3.2",
-    "Gemini 3 Pro": "gemini 3 pro",
-    "Claude 4 Opus": "claude 4 opus",
-    "Claude 4.5 Haiku": "claude 4.5 haiku",
-    "GPT 5.1": "gpt 5.1",
-    "GPT 5.1 Codex": "gpt 5.1 codex",
-    "GPT 5": "gpt 5",
-    "Claude 4 Sonnet": "claude 4 sonnet",
-    "Kimi K2 Thinking": "kimi k2 thinking",
-    "MiniMax M2": "minimax m2",
-    "DeepSeek V3.2 Reasoner": "deepseek v3.2 reasoner",
-    "GPT 5 mini": "gpt 5 mini",
-    "o3": "o3",
-    "Devstral Small (2512)": "devstral small (2512)",
-    "Qwen3-Coder 480B/A35B Instruct": "a35b instruct",
-    "GLM 4.6": "glm 4.6",
-    "GLM 4.5": "glm 4.5",
-    "Devstral (2512)": "devstral (2512)",
-    "Gemini 2.5 Pro": "gemini 2.5 pro",
-    "Claude 3.7 Sonnet": "claude 3.7 sonnet",
-    "o4-mini": "o4 mini",
-    "Kimi K2 Instruct": "kimi k2 instruct",
-    "GPT 4.1": "gpt 4.1",
-    "GPT 5 nano": "gpt 5 nano",
-    "Gemini 2.5 Flash": "gemini 2.5 flash",
-    "gpt-oss-120b": "gpt oss 120b",
-    "GPT 4.1 mini": "gpt 4.1 mini",
-    "GPT 4o": "gpt 4o",
-    "Llama 4 Maverick Instruct": "llama 4 maverick instruct",
-    "Gemini 2.0 Flash": "gemini 2.0 flash",
-    "Llama 4 Scout Instruct": "llama 4 scout instruct",
-    "Qwen2.5-Coder 32B Instruct": "qwen2.5 coder 32b instruct",
-    "DeepSeek V4.1 Flash 1017": "deepseek v4.1 flash 1017",
-    "GLM 5.3 Flash": "glm 5.3 flash",
-    "DeepSeek V4.1 Flash": "deepseek v4.1 flash",
-    "GPT-6 Luna": "gpt 6 luna",
-    "Hy4 preview": "hy4 preview",
-    "Claude Opus 5.5": "claude opus 5.5",
-    "Step 5 Preview": "step 5 preview",
-    "MiniMax M3.1 Flash": "minimax m3.1 flash",
-    "GPT-5.6 Luna": "gpt 5.6 luna",
-    "GLM 5.3": "glm 5.3",
     "Gemini 4 Carbon (High)": "gemini 4 carbon (high)",
     "Gemini 4 Argon (High)": "gemini 4 argon (high)",
     "Claude Opus 5.5 (High)": "claude opus 5.5 (high)",
@@ -88,6 +36,7 @@
     "Muse Spark": "muse spark",
     "Kimi K3 (Max)": "kimi k3 (max)",
     "Gemini 3.1 Pro Preview": "gemini 3.1 pro preview",
+    "Gemini 3 Pro": "gemini 3 pro",
     "GPT-5.6 Sol (xHigh)": "gpt 5.6 sol (xhigh)",
     "Gemini 3.6 Flash (High)": "gemini 3.6 flash (high)",
     "Qwen3.8-Max": "qwen3.8 max",
@@ -111,6 +60,7 @@
     "Qwen3.7-Max-Preview": "qwen3.7 max preview",
     "Claude Opus 4.5 (High, 32K, 20251101)": "claude opus 4.5 (high, 32k, 20251101)",
     "GPT-5.5 Instant": "gpt 5.5 instant",
+    "Gemini 3 Flash": "gemini 3 flash",
     "Claude Sonnet 4.6": "claude sonnet 4.6",
     "Grok 4.20 Beta (Reasoning, 0309)": "grok 4.20 beta (reasoning, 0309)",
     "Grok 4.20 Multi-Agent Beta (0309)": "grok 4.20 multi agent beta (0309)",
@@ -147,11 +97,13 @@
     "Claude Opus 4.1 (Thinking 16K, 20250805)": "claude opus 4.1 (thinking 16k, 20250805)",
     "Kimi K2.5 (Thinking)": "kimi k2.5 (thinking)",
     "ERNIE-5.0-Preview (1203)": "ernie 5.0 preview (1203)",
+    "Step 5 Preview": "step 5 preview",
     "Claude Opus 4.1 (20250805)": "claude opus 4.1 (20250805)",
     "MiMo-V2-Pro": "mimo v2 pro",
     "MiMo-V2.6-Flash": "mimo v2.6 flash",
     "GPT-5.4 mini (High)": "gpt 5.4 mini (high)",
     "ERNIE 5.0 (0110)": "ernie 5.0 (0110)",
+    "Gemini 2.5 Pro": "gemini 2.5 pro",
     "GPT-4.5 Preview (2025-02-27)": "gpt 4.5 preview (2025 02 27)",
     "Qwen3.6-Plus": "qwen3.6 plus",
     "ChatGPT-4o Latest (20250326)": "chatgpt 4o latest (20250326)",
@@ -163,12 +115,593 @@
     "GPT-6 Luna (Max)": "gpt 6 luna (max)",
     "MiniMax-M3": "minimax m3",
     "DeepSeek-V4-Flash Preview (High)": "deepseek v4 flash preview (high)",
-    "GPT-5.1": "gpt 5.1"
+    "GPT-5.1": "gpt 5.1",
+    "Gemma 4 26B A4B": "gemma 4 26b a4b",
+    "GPT-5.2 (High)": "gpt 5.2 (high)",
+    "LongCat-Flash-Chat Exp (2602)": "longcat flash chat exp (2602)",
+    "DeepSeek-V4-Flash": "deepseek v4 flash",
+    "Beam 1.0 501B A23B": "beam 1.0 501b a23b",
+    "Qwen3.8-27B": "qwen3.8 27b",
+    "GPT-5.2": "gpt 5.2",
+    "GPT-5 (High)": "gpt 5 (high)",
+    "Qwen3-Max-Preview": "qwen3 max preview",
+    "GLM-5V-Turbo": "glm 5v turbo",
+    "MiMo-V2.5": "mimo v2.5",
+    "Gemini 3.1 Flash-Lite Preview": "gemini 3.1 flash lite preview",
+    "Mistral Large 4": "mistral large 4",
+    "o3 (2025-04-16)": "o3 (2025 04 16)",
+    "MiMo-V2-Omni": "mimo v2 omni",
+    "Kimi K2.5 (Instant)": "kimi k2.5 (instant)",
+    "Grok 4.1 Fast (Reasoning)": "grok 4.1 fast (reasoning)",
+    "Kimi K2 Thinking Turbo": "kimi k2 thinking turbo",
+    "amazon-nova-experimental-chat (26-02-10)": "amazon nova experimental chat (26 02 10)",
+    "NVIDIA-Nemotron-3-Ultra-550B-A55B (NVFP4)": "nvidia nemotron 3 ultra 550b a55b (nvfp4)",
+    "GPT-5 Chat": "gpt 5 chat",
+    "Mistral Medium 3.5": "mistral medium 3.5",
+    "Claude Opus 4 (Thinking 16K, 20250514)": "claude opus 4 (thinking 16k, 20250514)",
+    "DeepSeek-V3.2-Exp (Thinking)": "deepseek v3.2 exp (thinking)",
+    "Muse Glimmer": "muse glimmer",
+    "Claude Haiku 5.5 (High)": "claude haiku 5.5 (high)",
+    "DeepSeek-V3.2": "deepseek v3.2",
+    "GLM-4.6": "glm 4.6",
+    "Qwen3-Max (2025-09-23)": "qwen3 max (2025 09 23)",
+    "DeepSeek-V3.2 (Thinking)": "deepseek v3.2 (thinking)",
+    "Qwen3-235B-A22B-Instruct (2507)": "qwen3 235b a22b instruct (2507)",
+    "DeepSeek-V3.2-Exp": "deepseek v3.2 exp",
+    "DeepSeek-R1 (0528)": "deepseek r1 (0528)",
+    "Kimi K2 Preview (0905)": "kimi k2 preview (0905)",
+    "Grok 4 Fast (Non-Reasoning)": "grok 4 fast (non reasoning)",
+    "ERNIE-5.0-Preview (1022)": "ernie 5.0 preview (1022)",
+    "Kimi K2 Preview (0711)": "kimi k2 preview (0711)",
+    "DeepSeek-V3.1": "deepseek v3.1",
+    "Qwen3.5-122B-A10B": "qwen3.5 122b a10b",
+    "DeepSeek-V3.1-Terminus (Thinking)": "deepseek v3.1 terminus (thinking)",
+    "DeepSeek-V3.1 (Thinking)": "deepseek v3.1 (thinking)",
+    "MiniMax-M2.7": "minimax m2.7",
+    "DeepSeek-V3.1-Terminus": "deepseek v3.1 terminus",
+    "GPT-4.1 (2025-04-14)": "gpt 4.1 (2025 04 14)",
+    "Claude Haiku 4.5 (20251001)": "claude haiku 4.5 (20251001)",
+    "Mistral Large 3": "mistral large 3",
+    "Claude Opus 4 (20250514)": "claude opus 4 (20250514)",
+    "Qwen3-VL-235B-A22B-Instruct": "qwen3 vl 235b a22b instruct",
+    "amazon-nova-experimental-chat (26-01-10)": "amazon nova experimental chat (26 01 10)",
+    "NVIDIA-Nemotron-3.5-Super-VL-120B-A12B (NVFP4)": "nvidia nemotron 3.5 super vl 120b a12b (nvfp4)",
+    "Grok 3 Preview (02-24)": "grok 3 preview (02 24)",
+    "Grok 4 (0709)": "grok 4 (0709)",
+    "GLM-4.5": "glm 4.5",
+    "Gemini 2.5 Flash": "gemini 2.5 flash",
+    "Qwen3.5-27B": "qwen3.5 27b",
+    "Hy3 preview": "hy3 preview",
+    "Mistral Medium 3.1 (2508)": "mistral medium 3.1 (2508)",
+    "Inkling-Small": "inkling small",
+    "Grok 4 Fast (Reasoning)": "grok 4 fast (reasoning)",
+    "Gemini 2.5 Flash Preview (09-2025)": "gemini 2.5 flash preview (09 2025)",
+    "o1 (2024-12-17)": "o1 (2024 12 17)",
+    "Qwen3-235B-A22B (Non-Thinking)": "qwen3 235b a22b (non thinking)",
+    "Claude Sonnet 4 (Thinking 32K, 20250514)": "claude sonnet 4 (thinking 32k, 20250514)",
+    "GPT-5.4 nano (High)": "gpt 5.4 nano (high)",
+    "LongCat-Flash-Chat": "longcat flash chat",
+    "Qwen3-235B-A22B-Thinking (2507)": "qwen3 235b a22b thinking (2507)",
+    "Qwen3-Next-80B-A3B-Instruct": "qwen3 next 80b a3b instruct",
+    "DeepSeek-R1": "deepseek r1",
+    "Qwen3.5-Flash": "qwen3.5 flash",
+    "DeepSeek-V3 (0324)": "deepseek v3 (0324)",
+    "Qwen3-VL-235B-A22B-Thinking": "qwen3 vl 235b a22b thinking",
+    "Hunyuan Vision 1.5 Thinking": "hunyuan vision 1.5 thinking",
+    "Qwen3.5-35B-A3B": "qwen3.5 35b a3b",
+    "Step-3.5-Flash": "step 3.5 flash",
+    "amazon-nova-experimental-chat (12-10)": "amazon nova experimental chat (12 10)",
+    "MiMo-V2-Flash (Non-Thinking)": "mimo v2 flash (non thinking)",
+    "o4-mini (2025-04-16)": "o4 mini (2025 04 16)",
+    "Claude Sonnet 4 (20250514)": "claude sonnet 4 (20250514)",
+    "MiniMax-M2.5": "minimax m2.5",
+    "GPT-5 mini (High)": "gpt 5 mini (high)",
+    "o1-preview": "o1 preview",
+    "Claude 3.7 Sonnet (Thinking 32K, 20250219)": "claude 3.7 sonnet (thinking 32k, 20250219)",
+    "Solar Pro 4": "solar pro 4",
+    "Qwen3-Coder-480B-A35B-Instruct": "qwen3 coder 480b a35b instruct",
+    "Hunyuan T1 (20250711)": "hunyuan t1 (20250711)",
+    "Mistral Medium 3 (2505)": "mistral medium 3 (2505)",
+    "MiMo-V2-Flash (Thinking)": "mimo v2 flash (thinking)",
+    "MiniMax-M2.1 Preview": "minimax m2.1 preview",
+    "Hunyuan TurboS (20250416)": "hunyuan turbos (20250416)",
+    "GPT-4.1 mini (2025-04-14)": "gpt 4.1 mini (2025 04 14)",
+    "Qwen3-30B-A3B-Instruct (2507)": "qwen3 30b a3b instruct (2507)",
+    "Gemini 2.5 Flash-Lite Preview (Non-Thinking, 09-2025)": "gemini 2.5 flash lite preview (non thinking, 09 2025)",
+    "Trinity Large Preview": "trinity large preview",
+    "GLM-4.6V": "glm 4.6v",
+    "Qwen3-235B-A22B": "qwen3 235b a22b",
+    "Gemini 2.5 Flash-Lite Preview (Thinking, 06-17)": "gemini 2.5 flash lite preview (thinking, 06 17)",
+    "Claude 3.5 Sonnet (20241022)": "claude 3.5 sonnet (20241022)",
+    "Qwen2.5-Max": "qwen2.5 max",
+    "GLM-4.5-Air": "glm 4.5 air",
+    "Claude 3.7 Sonnet (20250219)": "claude 3.7 sonnet (20250219)",
+    "Qwen3-Next-80B-A3B-Thinking": "qwen3 next 80b a3b thinking",
+    "Trinity Large Thinking": "trinity large thinking",
+    "Gemma 3 27B IT": "gemma 3 27b it",
+    "GLM-4.7-Flash": "glm 4.7 flash",
+    "MiniMax-M1": "minimax m1",
+    "amazon-nova-experimental-chat (11-10)": "amazon nova experimental chat (11 10)",
+    "Grok 3 Mini (High)": "grok 3 mini (high)",
+    "o3-mini (High)": "o3 mini (high)",
+    "Gemini 2.0 Flash (001)": "gemini 2.0 flash (001)",
+    "NVIDIA-Nemotron-3-Super-120B-A12B": "nvidia nemotron 3 super 120b a12b",
+    "DeepSeek-V3": "deepseek v3",
+    "Grok 3 Mini Beta": "grok 3 mini beta",
+    "Mistral Small 3.2 (2506)": "mistral small 3.2 (2506)",
+    "INTELLECT-3": "intellect 3",
+    "Command A (03-2025)": "command a (03 2025)",
+    "Gemini 2.0 Flash-Lite Preview (02-05)": "gemini 2.0 flash lite preview (02 05)",
+    "NVIDIA-Nemotron-3.5-Lightning-30B-A3B (NVFP4)": "nvidia nemotron 3.5 lightning 30b a3b (nvfp4)",
+    "GLM-4.5V": "glm 4.5v",
+    "gpt-oss-120b": "gpt oss 120b",
+    "Gemini 1.5 Pro (002)": "gemini 1.5 pro (002)",
+    "Step-3": "step 3",
+    "Hunyuan TurboS (20250226)": "hunyuan turbos (20250226)",
+    "amazon-nova-experimental-chat (10-20)": "amazon nova experimental chat (10 20)",
+    "o3-mini": "o3 mini",
+    "Llama 3.1 Nemotron Ultra 253B v1": "llama 3.1 nemotron ultra 253b v1",
+    "Qwen3-32B": "qwen3 32b",
+    "amazon-nova-experimental-chat (10-09)": "amazon nova experimental chat (10 09)",
+    "GPT-4o (2024-05-13)": "gpt 4o (2024 05 13)",
+    "Qwen-Plus (0125)": "qwen plus (0125)",
+    "MiniMax-M2": "minimax m2",
+    "Claude 3.5 Sonnet (20240620)": "claude 3.5 sonnet (20240620)",
+    "Ling-flash-2.0": "ling flash 2.0",
+    "Llama 3.3 Nemotron Super 49B v1.5": "llama 3.3 nemotron super 49b v1.5",
+    "Mercury 2": "mercury 2",
+    "GLM-4-Plus (0111)": "glm 4 plus (0111)",
+    "Gemma 3 12B IT": "gemma 3 12b it",
+    "Hunyuan Turbo (0110)": "hunyuan turbo (0110)",
+    "Granite 4.2 30B": "granite 4.2 30b",
+    "GPT-5 nano (High)": "gpt 5 nano (high)",
+    "o1-mini": "o1 mini",
+    "Gemini Advanced (0514)": "gemini advanced (0514)",
+    "Grok 2 (2024-08-13)": "grok 2 (2024 08 13)",
+    "GPT-4o (2024-08-06)": "gpt 4o (2024 08 06)",
+    "QwQ-32B": "qwq 32b",
+    "Llama 3.1 405B Instruct (BF16)": "llama 3.1 405b instruct (bf16)",
+    "Amazon Nova 2 Lite": "amazon nova 2 lite",
+    "Llama 3.1 405B Instruct (FP8)": "llama 3.1 405b instruct (fp8)",
+    "Step-2 16K Exp (202412)": "step 2 16k exp (202412)",
+    "Olmo 3.1 32B Instruct": "olmo 3.1 32b instruct",
+    "Yi Lightning": "yi lightning",
+    "Llama 3.3 Nemotron Super 49B v1": "llama 3.3 nemotron super 49b v1",
+    "Llama 4 Maverick 17B 128E Instruct": "llama 4 maverick 17b 128e instruct",
+    "Qwen3-30B-A3B": "qwen3 30b a3b",
+    "Hunyuan Large (2025-02-10)": "hunyuan large (2025 02 10)",
+    "Claude 3.5 Haiku (20241022)": "claude 3.5 haiku (20241022)",
+    "GPT-4 Turbo (2024-04-09)": "gpt 4 turbo (2024 04 09)",
+    "Gemini 1.5 Pro (001)": "gemini 1.5 pro (001)",
+    "DeepSeek-V2.5 (1210)": "deepseek v2.5 (1210)",
+    "Ring-flash-2.0": "ring flash 2.0",
+    "GPT-4.1 nano (2025-04-14)": "gpt 4.1 nano (2025 04 14)",
+    "Claude 3 Opus (20240229)": "claude 3 opus (20240229)",
+    "Llama 4 Scout 17B 16E Instruct": "llama 4 scout 17b 16e instruct",
+    "Molmo 2 8B": "molmo 2 8b",
+    "Step-1o Turbo (202506)": "step 1o turbo (202506)",
+    "GLM-4-Plus": "glm 4 plus",
+    "Qwen-Max (0919)": "qwen max (0919)",
+    "Llama 3.3 70B Instruct": "llama 3.3 70b instruct",
+    "GPT-4o mini (2024-07-18)": "gpt 4o mini (2024 07 18)",
+    "Gemma 3n E4B IT": "gemma 3n e4b it",
+    "gpt-oss-20b": "gpt oss 20b",
+    "Qwen2.5-Plus (1127)": "qwen2.5 plus (1127)",
+    "Mistral Large 2 (2407)": "mistral large 2 (2407)",
+    "Athene V2 Chat": "athene v2 chat",
+    "NVIDIA-Nemotron-3-Nano-30B-A3B (BF16)": "nvidia nemotron 3 nano 30b a3b (bf16)",
+    "GPT-4 Turbo Preview (0125)": "gpt 4 turbo preview (0125)",
+    "GPT-4 Turbo Preview (1106)": "gpt 4 turbo preview (1106)",
+    "Hunyuan Standard (2025-02-10)": "hunyuan standard (2025 02 10)",
+    "Gemini 1.5 Flash (002)": "gemini 1.5 flash (002)",
+    "Grok 2 mini (2024-08-13)": "grok 2 mini (2024 08 13)",
+    "DeepSeek-V2.5": "deepseek v2.5",
+    "Athene 70B (0725)": "athene 70b (0725)",
+    "Olmo 3 32B Think": "olmo 3 32b think",
+    "Mercury": "mercury",
+    "Mistral Large (2411)": "mistral large (2411)",
+    "Magistral Medium (2506)": "magistral medium (2506)",
+    "Granite 4.1 8B": "granite 4.1 8b",
+    "Gemma 3 4B IT": "gemma 3 4b it",
+    "Qwen2.5-72B-Instruct": "qwen2.5 72b instruct",
+    "Mistral Small 3.1 24B Instruct (2503)": "mistral small 3.1 24b instruct (2503)",
+    "Llama 3.1 Nemotron 70B Instruct": "llama 3.1 nemotron 70b instruct",
+    "Hunyuan Large Vision": "hunyuan large vision",
+    "Llama 3.1 70B Instruct": "llama 3.1 70b instruct",
+    "Amazon Nova Pro 1.0": "amazon nova pro 1.0",
+    "Granite 4.2 3B": "granite 4.2 3b",
+    "Granite 4.2 8B": "granite 4.2 8b",
+    "Gemma 2 27B IT": "gemma 2 27b it",
+    "Jamba 1.5 Large": "jamba 1.5 large",
+    "Reka Core (20240904)": "reka core (20240904)",
+    "GPT-4 (0314)": "gpt 4 (0314)",
+    "Granite-4.0-H-Small": "granite 4.0 h small",
+    "Llama 3.1 Nemotron 51B Instruct": "llama 3.1 nemotron 51b instruct",
+    "Gemini 1.5 Flash (001)": "gemini 1.5 flash (001)",
+    "Olmo 3.1 32B Think": "olmo 3.1 32b think",
+    "Llama 3.1 Tulu 3 70B": "llama 3.1 tulu 3 70b",
+    "Claude 3 Sonnet (20240229)": "claude 3 sonnet (20240229)",
+    "Gemma 2 9B IT SimPO": "gemma 2 9b it simpo",
+    "Nemotron-4 340B Instruct": "nemotron 4 340b instruct",
+    "Llama 3 70B Instruct": "llama 3 70b instruct",
+    "Command R+ (08-2024)": "command r+ (08 2024)",
+    "GPT-4 (0613)": "gpt 4 (0613)",
+    "Mistral Small 24B Instruct (2501)": "mistral small 24b instruct (2501)",
+    "GLM-4 (0520)": "glm 4 (0520)",
+    "Reka Flash (20240904)": "reka flash (20240904)",
+    "Qwen2.5-Coder-32B-Instruct": "qwen2.5 coder 32b instruct",
+    "Aya Expanse 32B": "aya expanse 32b",
+    "Gemma 2 9B IT": "gemma 2 9b it",
+    "DeepSeek-Coder-V2": "deepseek coder v2",
+    "Qwen2-72B-Instruct": "qwen2 72b instruct",
+    "Command R+": "command r+",
+    "Claude 3 Haiku (20240307)": "claude 3 haiku (20240307)",
+    "Amazon Nova Lite 1.0": "amazon nova lite 1.0",
+    "Gemini 1.5 Flash-8B (001)": "gemini 1.5 flash 8b (001)",
+    "Phi-4": "phi 4",
+    "OLMo 2 32B Instruct (0325)": "olmo 2 32b instruct (0325)",
+    "Command R (08-2024)": "command r (08 2024)",
+    "Mistral Large (2402)": "mistral large (2402)",
+    "Amazon Nova Micro 1.0": "amazon nova micro 1.0",
+    "Jamba 1.5 Mini": "jamba 1.5 mini",
+    "Ministral 8B (2410)": "ministral 8b (2410)",
+    "Gemini Pro (Dev API)": "gemini pro (dev api)",
+    "Qwen1.5-110B-Chat": "qwen1.5 110b chat",
+    "Reka Flash 21B (Online, 20240226)": "reka flash 21b (online, 20240226)",
+    "Qwen1.5-72B-Chat": "qwen1.5 72b chat",
+    "Hunyuan Standard 256K": "hunyuan standard 256k",
+    "Mixtral 8x22B Instruct v0.1": "mixtral 8x22b instruct v0.1",
+    "Command R": "command r",
+    "Reka Flash 21B (20240226)": "reka flash 21b (20240226)",
+    "GPT-3.5 Turbo (0125)": "gpt 3.5 turbo (0125)",
+    "Llama 3 8B Instruct": "llama 3 8b instruct",
+    "Gemini Pro": "gemini pro",
+    "Aya Expanse 8B": "aya expanse 8b",
+    "Mistral Medium": "mistral medium",
+    "Llama 3.1 Tulu 3 8B": "llama 3.1 tulu 3 8b",
+    "Zephyr ORPO 141B A35B v0.1": "zephyr orpo 141b a35b v0.1",
+    "Yi 1.5 34B Chat": "yi 1.5 34b chat",
+    "Llama 3.1 8B Instruct": "llama 3.1 8b instruct",
+    "Granite 3.1 8B Instruct": "granite 3.1 8b instruct",
+    "GPT-3.5 Turbo (1106)": "gpt 3.5 turbo (1106)",
+    "Qwen1.5-32B-Chat": "qwen1.5 32b chat",
+    "Gemma 2 2B IT": "gemma 2 2b it",
+    "Phi-3 Medium 4K Instruct": "phi 3 medium 4k instruct",
+    "Mixtral 8x7B Instruct v0.1": "mixtral 8x7b instruct v0.1",
+    "DBRX Instruct Preview": "dbrx instruct preview",
+    "Qwen1.5-14B-Chat": "qwen1.5 14b chat",
+    "InternLM2.5 20B Chat": "internlm2.5 20b chat",
+    "DeepSeek LLM 67B Chat": "deepseek llm 67b chat",
+    "WizardLM 70B": "wizardlm 70b",
+    "Yi 34B Chat": "yi 34b chat",
+    "Granite 3.0 8B Instruct": "granite 3.0 8b instruct",
+    "OpenChat 3.5": "openchat 3.5",
+    "OpenChat 3.5 (0106)": "openchat 3.5 (0106)",
+    "Gemma 1.1 7B IT": "gemma 1.1 7b it",
+    "Snowflake Arctic Instruct": "snowflake arctic instruct",
+    "Granite 3.1 2B Instruct": "granite 3.1 2b instruct",
+    "Tulu 2 DPO 70B": "tulu 2 dpo 70b",
+    "OpenHermes 2.5 Mistral 7B": "openhermes 2.5 mistral 7b",
+    "Vicuna 33B": "vicuna 33b",
+    "Phi-3 Small 8K Instruct": "phi 3 small 8k instruct",
+    "Starling LM 7B Beta": "starling lm 7b beta",
+    "Llama 2 70B Chat": "llama 2 70b chat",
+    "Starling LM 7B Alpha": "starling lm 7b alpha",
+    "Llama 3.2 3B Instruct": "llama 3.2 3b instruct",
+    "Nous Hermes 2 Mixtral 8x7B DPO": "nous hermes 2 mixtral 8x7b dpo",
+    "Granite 3.0 2B Instruct": "granite 3.0 2b instruct",
+    "Llama 2 70B SteerLM Chat": "llama 2 70b steerlm chat",
+    "QwQ-32B-Preview": "qwq 32b preview",
+    "SOLAR 10.7B Instruct v1.0": "solar 10.7b instruct v1.0",
+    "Dolphin 2.2.1 Mistral 7B": "dolphin 2.2.1 mistral 7b",
+    "MPT 30B Chat": "mpt 30b chat",
+    "WizardLM 13B": "wizardlm 13b",
+    "Mistral 7B Instruct v0.2": "mistral 7b instruct v0.2",
+    "Falcon 180B Chat": "falcon 180b chat",
+    "Qwen1.5-7B-Chat": "qwen1.5 7b chat",
+    "Phi-3 Mini 4K Instruct (June 2024)": "phi 3 mini 4k instruct (june 2024)",
+    "Vicuna 13B": "vicuna 13b",
+    "Llama 2 13B Chat": "llama 2 13b chat",
+    "Qwen-14B-Chat": "qwen 14b chat",
+    "PaLM 2": "palm 2",
+    "Gemma 7B IT": "gemma 7b it",
+    "Code Llama 34B Instruct": "code llama 34b instruct",
+    "Zephyr 7B Beta": "zephyr 7b beta",
+    "Phi-3 Mini 128K Instruct": "phi 3 mini 128k instruct",
+    "Phi-3 Mini 4K Instruct": "phi 3 mini 4k instruct",
+    "Guanaco 33B": "guanaco 33b",
+    "Zephyr 7B Alpha": "zephyr 7b alpha",
+    "StripedHyena Nous 7B": "stripedhyena nous 7b",
+    "Code Llama 70B Instruct": "code llama 70b instruct",
+    "Gemma 1.1 2B IT": "gemma 1.1 2b it",
+    "Vicuna 7B": "vicuna 7b",
+    "SmolLM2 1.7B Instruct": "smollm2 1.7b instruct",
+    "Llama 3.2 1B Instruct": "llama 3.2 1b instruct",
+    "Mistral 7B Instruct": "mistral 7b instruct",
+    "Llama 2 7B Chat": "llama 2 7b chat",
+    "Gemma 2B IT": "gemma 2b it",
+    "Qwen1.5-4B-Chat": "qwen1.5 4b chat",
+    "OLMo 7B Instruct": "olmo 7b instruct",
+    "Koala 13B": "koala 13b",
+    "Alpaca 13B": "alpaca 13b",
+    "GPT4All 13B Snoozy": "gpt4all 13b snoozy",
+    "MPT 7B Chat": "mpt 7b chat",
+    "ChatGLM3 6B": "chatglm3 6b",
+    "RWKV-4 Raven 14B": "rwkv 4 raven 14b",
+    "ChatGLM2 6B": "chatglm2 6b",
+    "OpenAssistant Pythia 12B": "openassistant pythia 12b",
+    "ChatGLM 6B": "chatglm 6b",
+    "FastChat-T5 3B": "fastchat t5 3b",
+    "Dolly 2.0 12B": "dolly 2.0 12b",
+    "LLaMA 13B": "llama 13b",
+    "StableLM Tuned Alpha 7B": "stablelm tuned alpha 7b",
+    "Claude 4.5 Opus": "claude 4.5 opus",
+    "MiniMax M2.5": "minimax m2.5",
+    "Claude 4.6 Opus": "claude 4.6 opus",
+    "Gemini 3 Pro Preview": "gemini 3 pro preview",
+    "GLM 5": "glm 5",
+    "GPT 5.2": "gpt 5.2",
+    "GPT 5.2 Codex": "gpt 5.2 codex",
+    "Claude 4.5 Sonnet": "claude 4.5 sonnet",
+    "Kimi K2.5": "kimi k2.5",
+    "DeepSeek V3.2": "deepseek v3.2",
+    "Claude 4 Opus": "claude 4 opus",
+    "Claude 4.5 Haiku": "claude 4.5 haiku",
+    "GPT 5.1": "gpt 5.1",
+    "GPT 5.1 Codex": "gpt 5.1 codex",
+    "GPT 5": "gpt 5",
+    "Claude 4 Sonnet": "claude 4 sonnet",
+    "Kimi K2 Thinking": "kimi k2 thinking",
+    "MiniMax M2": "minimax m2",
+    "DeepSeek V3.2 Reasoner": "deepseek v3.2 reasoner",
+    "GPT 5 mini": "gpt 5 mini",
+    "o3": "o3",
+    "Devstral Small (2512)": "devstral small (2512)",
+    "Qwen3-Coder 480B/A35B Instruct": "a35b instruct",
+    "GLM 4.6": "glm 4.6",
+    "GLM 4.5": "glm 4.5",
+    "Devstral (2512)": "devstral (2512)",
+    "Claude 3.7 Sonnet": "claude 3.7 sonnet",
+    "o4-mini": "o4 mini",
+    "Kimi K2 Instruct": "kimi k2 instruct",
+    "GPT 4.1": "gpt 4.1",
+    "GPT 5 nano": "gpt 5 nano",
+    "GPT 4.1 mini": "gpt 4.1 mini",
+    "GPT 4o": "gpt 4o",
+    "Llama 4 Maverick Instruct": "llama 4 maverick instruct",
+    "Gemini 2.0 Flash": "gemini 2.0 flash",
+    "Llama 4 Scout Instruct": "llama 4 scout instruct",
+    "Qwen2.5-Coder 32B Instruct": "qwen2.5 coder 32b instruct",
+    "DeepSeek V4.1 Flash 1017": "deepseek v4.1 flash 1017",
+    "GLM 5.3 Flash": "glm 5.3 flash",
+    "DeepSeek V4.1 Flash": "deepseek v4.1 flash",
+    "GPT-6 Luna": "gpt 6 luna",
+    "Hy4 preview": "hy4 preview",
+    "Claude Opus 5.5": "claude opus 5.5",
+    "MiniMax M3.1 Flash": "minimax m3.1 flash",
+    "GPT-5.6 Luna": "gpt 5.6 luna",
+    "GLM 5.3": "glm 5.3"
   },
   "models": [],
   "unranked": [
     {
+      "model": "alpaca 13b",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "amazon nova 2 lite",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "amazon nova experimental chat (10 09)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "amazon nova experimental chat (10 20)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "amazon nova experimental chat (11 10)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "amazon nova experimental chat (12 10)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "amazon nova experimental chat (26 01 10)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "amazon nova experimental chat (26 02 10)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "amazon nova lite 1.0",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "amazon nova micro 1.0",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "amazon nova pro 1.0",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "athene 70b (0725)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "athene v2 chat",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "aya expanse 32b",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "aya expanse 8b",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "beam 1.0 501b a23b",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "chatglm 6b",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "chatglm2 6b",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "chatglm3 6b",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
       "model": "chatgpt 4o latest (20250326)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "claude 3 haiku (20240307)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "claude 3 opus (20240229)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "claude 3 sonnet (20240229)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "claude 3.5 haiku (20241022)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "claude 3.5 sonnet (20240620)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "claude 3.5 sonnet (20241022)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "claude 3.7 sonnet (20250219)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "claude 3.7 sonnet (thinking 32k, 20250219)",
       "n_benchmarks": 1,
       "n_pillars": 1,
       "benchmarks": [
@@ -185,6 +718,38 @@
     },
     {
       "model": "claude fable 5.1 (max)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "claude haiku 4.5 (20251001)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "claude haiku 5.5 (high)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "claude opus 4 (20250514)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "claude opus 4 (thinking 16k, 20250514)",
       "n_benchmarks": 1,
       "n_pillars": 1,
       "benchmarks": [
@@ -304,6 +869,22 @@
       ]
     },
     {
+      "model": "claude sonnet 4 (20250514)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "claude sonnet 4 (thinking 32k, 20250514)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
       "model": "claude sonnet 4.5 (20250929)",
       "n_benchmarks": 1,
       "n_pillars": 1,
@@ -337,6 +918,206 @@
     },
     {
       "model": "claude sonnet 5.5 (xhigh)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "code llama 34b instruct",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "code llama 70b instruct",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "command a (03 2025)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "command r",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "command r (08 2024)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "command r+",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "command r+ (08 2024)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "dbrx instruct preview",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "deepseek coder v2",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "deepseek llm 67b chat",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "deepseek r1",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "deepseek r1 (0528)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "deepseek v2.5",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "deepseek v2.5 (1210)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "deepseek v3",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "deepseek v3 (0324)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "deepseek v3.1",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "deepseek v3.1 (thinking)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "deepseek v3.1 terminus",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "deepseek v3.1 terminus (thinking)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "deepseek v3.2",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "deepseek v3.2 (thinking)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "deepseek v3.2 exp",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "deepseek v3.2 exp (thinking)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "deepseek v4 flash",
       "n_benchmarks": 1,
       "n_pillars": 1,
       "benchmarks": [
@@ -408,7 +1189,31 @@
       ]
     },
     {
+      "model": "dolly 2.0 12b",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "dolphin 2.2.1 mistral 7b",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
       "model": "ernie 5.0 (0110)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "ernie 5.0 preview (1022)",
       "n_benchmarks": 1,
       "n_pillars": 1,
       "benchmarks": [
@@ -425,6 +1230,110 @@
     },
     {
       "model": "ernie 5.1",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "falcon 180b chat",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "fastchat t5 3b",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "gemini 1.5 flash (001)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "gemini 1.5 flash (002)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "gemini 1.5 flash 8b (001)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "gemini 1.5 pro (001)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "gemini 1.5 pro (002)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "gemini 2.0 flash (001)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "gemini 2.0 flash lite preview (02 05)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "gemini 2.5 flash",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "gemini 2.5 flash lite preview (non thinking, 09 2025)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "gemini 2.5 flash lite preview (thinking, 06 17)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "gemini 2.5 flash preview (09 2025)",
       "n_benchmarks": 1,
       "n_pillars": 1,
       "benchmarks": [
@@ -457,6 +1366,14 @@
     },
     {
       "model": "gemini 3 pro",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "gemini 3.1 flash lite preview",
       "n_benchmarks": 1,
       "n_pillars": 1,
       "benchmarks": [
@@ -536,6 +1453,126 @@
       ]
     },
     {
+      "model": "gemini advanced (0514)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "gemini pro",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "gemini pro (dev api)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "gemma 1.1 2b it",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "gemma 1.1 7b it",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "gemma 2 27b it",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "gemma 2 2b it",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "gemma 2 9b it",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "gemma 2 9b it simpo",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "gemma 2b it",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "gemma 3 12b it",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "gemma 3 27b it",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "gemma 3 4b it",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "gemma 3n e4b it",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "gemma 4 26b a4b",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
       "model": "gemma 4 31b",
       "n_benchmarks": 1,
       "n_pillars": 1,
@@ -544,7 +1581,87 @@
       ]
     },
     {
+      "model": "gemma 7b it",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "glm 4 (0520)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "glm 4 plus",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "glm 4 plus (0111)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "glm 4.5",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "glm 4.5 air",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "glm 4.5v",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "glm 4.6",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "glm 4.6v",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
       "model": "glm 4.7",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "glm 4.7 flash",
       "n_benchmarks": 1,
       "n_pillars": 1,
       "benchmarks": [
@@ -601,7 +1718,151 @@
       ]
     },
     {
+      "model": "glm 5v turbo",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "gpt 3.5 turbo (0125)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "gpt 3.5 turbo (1106)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "gpt 4 (0314)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "gpt 4 (0613)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "gpt 4 turbo (2024 04 09)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "gpt 4 turbo preview (0125)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "gpt 4 turbo preview (1106)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "gpt 4.1 (2025 04 14)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "gpt 4.1 mini (2025 04 14)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "gpt 4.1 nano (2025 04 14)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
       "model": "gpt 4.5 preview (2025 02 27)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "gpt 4o (2024 05 13)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "gpt 4o (2024 08 06)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "gpt 4o mini (2024 07 18)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "gpt 5 (high)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "gpt 5 chat",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "gpt 5 mini (high)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "gpt 5 nano (high)",
       "n_benchmarks": 1,
       "n_pillars": 1,
       "benchmarks": [
@@ -618,6 +1879,22 @@
     },
     {
       "model": "gpt 5.1 (high)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "gpt 5.2",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "gpt 5.2 (high)",
       "n_benchmarks": 1,
       "n_pillars": 1,
       "benchmarks": [
@@ -658,6 +1935,14 @@
     },
     {
       "model": "gpt 5.4 mini (high)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "gpt 5.4 nano (high)",
       "n_benchmarks": 1,
       "n_pillars": 1,
       "benchmarks": [
@@ -761,6 +2046,166 @@
       ]
     },
     {
+      "model": "gpt oss 120b",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "gpt oss 20b",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "gpt4all 13b snoozy",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "granite 3.0 2b instruct",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "granite 3.0 8b instruct",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "granite 3.1 2b instruct",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "granite 3.1 8b instruct",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "granite 4.0 h small",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "granite 4.1 8b",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "granite 4.2 30b",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "granite 4.2 3b",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "granite 4.2 8b",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "grok 2 (2024 08 13)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "grok 2 mini (2024 08 13)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "grok 3 mini (high)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "grok 3 mini beta",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "grok 3 preview (02 24)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "grok 4 (0709)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "grok 4 fast (non reasoning)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "grok 4 fast (reasoning)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
       "model": "grok 4.1",
       "n_benchmarks": 1,
       "n_pillars": 1,
@@ -770,6 +2215,14 @@
     },
     {
       "model": "grok 4.1 (thinking)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "grok 4.1 fast (reasoning)",
       "n_benchmarks": 1,
       "n_pillars": 1,
       "benchmarks": [
@@ -833,7 +2286,95 @@
       ]
     },
     {
+      "model": "guanaco 33b",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "hunyuan large (2025 02 10)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "hunyuan large vision",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "hunyuan standard (2025 02 10)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "hunyuan standard 256k",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "hunyuan t1 (20250711)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "hunyuan turbo (0110)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "hunyuan turbos (20250226)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "hunyuan turbos (20250416)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "hunyuan vision 1.5 thinking",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
       "model": "hy3",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "hy3 preview",
       "n_benchmarks": 1,
       "n_pillars": 1,
       "benchmarks": [
@@ -850,6 +2391,78 @@
     },
     {
       "model": "inkling",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "inkling small",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "intellect 3",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "internlm2.5 20b chat",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "jamba 1.5 large",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "jamba 1.5 mini",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "kimi k2 preview (0711)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "kimi k2 preview (0905)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "kimi k2 thinking turbo",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "kimi k2.5 (instant)",
       "n_benchmarks": 1,
       "n_pillars": 1,
       "benchmarks": [
@@ -881,7 +2494,279 @@
       ]
     },
     {
+      "model": "koala 13b",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "ling flash 2.0",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "llama 13b",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "llama 2 13b chat",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "llama 2 70b chat",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "llama 2 70b steerlm chat",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "llama 2 7b chat",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "llama 3 70b instruct",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "llama 3 8b instruct",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "llama 3.1 405b instruct (bf16)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "llama 3.1 405b instruct (fp8)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "llama 3.1 70b instruct",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "llama 3.1 8b instruct",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "llama 3.1 nemotron 51b instruct",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "llama 3.1 nemotron 70b instruct",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "llama 3.1 nemotron ultra 253b v1",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "llama 3.1 tulu 3 70b",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "llama 3.1 tulu 3 8b",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "llama 3.2 1b instruct",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "llama 3.2 3b instruct",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "llama 3.3 70b instruct",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "llama 3.3 nemotron super 49b v1",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "llama 3.3 nemotron super 49b v1.5",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "llama 4 maverick 17b 128e instruct",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "llama 4 scout 17b 16e instruct",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "longcat flash chat",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "longcat flash chat exp (2602)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "magistral medium (2506)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "mercury",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "mercury 2",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "mimo v2 flash (non thinking)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "mimo v2 flash (thinking)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "mimo v2 omni",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
       "model": "mimo v2 pro",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "mimo v2.5",
       "n_benchmarks": 1,
       "n_pillars": 1,
       "benchmarks": [
@@ -913,6 +2798,46 @@
       ]
     },
     {
+      "model": "minimax m1",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "minimax m2",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "minimax m2.1 preview",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "minimax m2.5",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "minimax m2.7",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
       "model": "minimax m3",
       "n_benchmarks": 1,
       "n_pillars": 1,
@@ -926,6 +2851,174 @@
       "n_pillars": 1,
       "benchmarks": [
         "openrouter_usage"
+      ]
+    },
+    {
+      "model": "ministral 8b (2410)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "mistral 7b instruct",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "mistral 7b instruct v0.2",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "mistral large (2402)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "mistral large (2411)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "mistral large 2 (2407)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "mistral large 3",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "mistral large 4",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "mistral medium",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "mistral medium 3 (2505)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "mistral medium 3.1 (2508)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "mistral medium 3.5",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "mistral small 24b instruct (2501)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "mistral small 3.1 24b instruct (2503)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "mistral small 3.2 (2506)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "mixtral 8x22b instruct v0.1",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "mixtral 8x7b instruct v0.1",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "molmo 2 8b",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "mpt 30b chat",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "mpt 7b chat",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "muse glimmer",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
       ]
     },
     {
@@ -969,7 +3062,503 @@
       ]
     },
     {
+      "model": "nemotron 4 340b instruct",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "nous hermes 2 mixtral 8x7b dpo",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "nvidia nemotron 3 nano 30b a3b (bf16)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "nvidia nemotron 3 super 120b a12b",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "nvidia nemotron 3 ultra 550b a55b (nvfp4)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "nvidia nemotron 3.5 lightning 30b a3b (nvfp4)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "nvidia nemotron 3.5 super vl 120b a12b (nvfp4)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "o1 (2024 12 17)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "o1 mini",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "o1 preview",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "o3 (2025 04 16)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "o3 mini",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "o3 mini (high)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "o4 mini (2025 04 16)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "olmo 2 32b instruct (0325)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "olmo 3 32b think",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "olmo 3.1 32b instruct",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "olmo 3.1 32b think",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "olmo 7b instruct",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "openassistant pythia 12b",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "openchat 3.5",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "openchat 3.5 (0106)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "openhermes 2.5 mistral 7b",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "palm 2",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "phi 3 medium 4k instruct",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "phi 3 mini 128k instruct",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "phi 3 mini 4k instruct",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "phi 3 mini 4k instruct (june 2024)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "phi 3 small 8k instruct",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "phi 4",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "qwen 14b chat",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "qwen max (0919)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "qwen plus (0125)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "qwen1.5 110b chat",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "qwen1.5 14b chat",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "qwen1.5 32b chat",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "qwen1.5 4b chat",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "qwen1.5 72b chat",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "qwen1.5 7b chat",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "qwen2 72b instruct",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "qwen2.5 72b instruct",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "qwen2.5 coder 32b instruct",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "qwen2.5 max",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "qwen2.5 plus (1127)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "qwen3 235b a22b",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "qwen3 235b a22b (non thinking)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "qwen3 235b a22b instruct (2507)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "qwen3 235b a22b thinking (2507)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "qwen3 30b a3b",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "qwen3 30b a3b instruct (2507)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "qwen3 32b",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "qwen3 coder 480b a35b instruct",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "qwen3 max (2025 09 23)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "qwen3 max preview",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "qwen3 next 80b a3b instruct",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "qwen3 next 80b a3b thinking",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "qwen3 vl 235b a22b instruct",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "qwen3 vl 235b a22b thinking",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "qwen3.5 122b a10b",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "qwen3.5 27b",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "qwen3.5 35b a3b",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
       "model": "qwen3.5 397b a17b",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "qwen3.5 flash",
       "n_benchmarks": 1,
       "n_pillars": 1,
       "benchmarks": [
@@ -1017,7 +3606,167 @@
       ]
     },
     {
+      "model": "qwen3.8 27b",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
       "model": "qwen3.8 max",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "qwq 32b",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "qwq 32b preview",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "reka core (20240904)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "reka flash (20240904)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "reka flash 21b (20240226)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "reka flash 21b (online, 20240226)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "ring flash 2.0",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "rwkv 4 raven 14b",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "smollm2 1.7b instruct",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "snowflake arctic instruct",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "solar 10.7b instruct v1.0",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "solar pro 4",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "stablelm tuned alpha 7b",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "starling lm 7b alpha",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "starling lm 7b beta",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "step 1o turbo (202506)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "step 2 16k exp (202412)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "step 3",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "step 3.5 flash",
       "n_benchmarks": 1,
       "n_pillars": 1,
       "benchmarks": [
@@ -1031,6 +3780,126 @@
       "benchmarks": [
         "lm_arena_elo",
         "openrouter_usage"
+      ]
+    },
+    {
+      "model": "stripedhyena nous 7b",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "trinity large preview",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "trinity large thinking",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "tulu 2 dpo 70b",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "vicuna 13b",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "vicuna 33b",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "vicuna 7b",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "wizardlm 13b",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "wizardlm 70b",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "yi 1.5 34b chat",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "yi 34b chat",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "yi lightning",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "zephyr 7b alpha",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "zephyr 7b beta",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "zephyr orpo 141b a35b v0.1",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "lm_arena_elo"
       ]
     }
   ],
