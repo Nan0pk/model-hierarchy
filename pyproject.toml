@@ -27,6 +27,7 @@ select = ["E4", "E7", "E9"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+pythonpath = ["."]
 
 [tool.uv]
 dev-dependencies = ["pytest>=8.0", "ruff>=0.6", "hypothesis>=6.100"]
