@@ -113,7 +113,10 @@ def compute(raw, sigma, as_of, cfg, demo: bool = False, reps: int | None = None,
             "tier": model_tier.get(m, "—"),
             "g": round(e["median"] * 100, 1),
             "g_point": round(p["g"] * 100, 1),
-            "ci95": [round(e["lo"] * 100, 1), round(e["hi"] * 100, 1)],
+            "ci95": [
+                min(round(e["lo"] * 100, 1), round(e["median"] * 100, 1)),
+                max(round(e["hi"] * 100, 1), round(e["median"] * 100, 1)),
+            ],
             "pillars": {
                 pid: {
                     "score": round(ps * 100, 1),

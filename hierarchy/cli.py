@@ -5,7 +5,7 @@ from __future__ import annotations
 import argparse
 import sys
 
-from .config import DEMO_DIR, OUTPUT_DIR, ROOT, load_config
+from .config import ConfigError, DEMO_DIR, OUTPUT_DIR, ROOT, load_config
 from .data import load_manual_csv, load_snapshots, merge_snapshots, to_matrix, today
 from .fetch import fetch_all
 from .pipeline import compute, tree_text
@@ -13,7 +13,11 @@ from .render import DEMO_MARKERS, README_MARKERS, markdown_table, update_readme,
 
 
 def cmd_validate(args) -> int:
-    cfg = load_config()
+    try:
+        cfg = load_config()
+    except ConfigError as exc:
+        print(f"config ERROR: {exc}", file=sys.stderr)
+        return 1
     print(f"config OK — methodology v{cfg.version}, config_hash {cfg.config_hash()}")
     print(f"pillars   : " + ", ".join(f"{pid}={w:.2f}" for pid, w in cfg.pillar_weights.items()))
     print(f"benchmarks: {len(cfg.bench_ids())} registered, weights sum "
@@ -73,7 +77,7 @@ def cmd_fetch(args) -> int:
 
 def cmd_run(args) -> int:
     cmd_fetch(argparse.Namespace(allow_missing=True))
-    return cmd_aggregate(argparse.Namespace(reps=None))
+    return cmd_aggregate(argparse.Namespace(reps=args.reps))
 
 
 def cmd_render(args) -> int:
@@ -110,7 +114,8 @@ def main(argv=None) -> int:
     f.add_argument("--allow-missing", action="store_true", default=True,
                    help="exit 0 even if some sources fail (default)")
 
-    sub.add_parser("run", help="fetch + aggregate (the daily job)")
+    r = sub.add_parser("run", help="fetch + aggregate (the daily job)")
+    r.add_argument("--reps", type=int, default=None, help="override bootstrap reps")
 
     args = p.parse_args(argv)
     return {
