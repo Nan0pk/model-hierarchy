@@ -138,7 +138,7 @@ not an analytic test or proof of model superiority.
 
 <!-- leaderboard:start -->
 
-Tier hierarchy (G-score 0-100) — generated 2026-11-02 14:47 UTC
+Tier hierarchy (G-score 0-100) — generated 2026-11-03 13:21 UTC
 ────────────────────────────────────────────────────────────────
 ────────────────────────────────────────────────────────────────
 Same tier = statistically indistinguishable on current data (METHODOLOGY.md §11).
