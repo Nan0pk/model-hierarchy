@@ -45,7 +45,7 @@ python -m hierarchy run                     # fetch + aggregate + render README/
 Automatic adapters currently cover LMArena and OpenRouter, plus Vals AI's independently evaluated
 GPQA Diamond, MMLU-Pro, SWE-bench Verified, and LiveCodeBench tables. Vals marks these benchmark boards
 archived because it no longer reruns saturated benchmarks on new model releases; each snapshot uses
-the evaluation date published on the page (not the scrape date), and the standard 120-day cutoff
+the evaluation date published on the page (not the scrape date), and the standard 90-day cutoff
 excludes older results. SWE-bench is restricted to the fixed `Mini-SWE-agent` harness. Source URLs,
 evaluation dates, provider and harness qualifications are retained in the generated JSON and shown
 in the dashboard's **Benchmark sources and qualifications** section.

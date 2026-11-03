@@ -66,7 +66,7 @@ sources:
       date_regex: '([A-Za-z]{3,9} \d{1,2}, \d{4})'
     provenance_type: independent_evaluation
     qualification: "GPQA Diamond: 198-question Diamond subset; Vals AI prompting and answer parsing; archived board"
-    fallback_note: Vals AI independently evaluates models and publishes the method/date; its GPQA board is archived after saturation and is subject to the standard 120-day cutoff.
+    fallback_note: Vals AI independently evaluates models and publishes the method/date; its GPQA board is archived after saturation and is subject to the standard 90-day cutoff.
 
   mmlu_pro:
     role: scored
@@ -80,7 +80,7 @@ sources:
       date_regex: '([A-Za-z]{3,9} \d{1,2}, \d{4})'
     provenance_type: independent_evaluation
     qualification: "MMLU-Pro: 14-subject academic knowledge benchmark; Vals AI implementation; archived board"
-    fallback_note: Vals AI's independently evaluated MMLU-Pro provides an additional knowledge-reasoning signal; archived results retain their published date and obey the 120-day cutoff.
+    fallback_note: Vals AI's independently evaluated MMLU-Pro provides an additional knowledge-reasoning signal; archived results retain their published date and obey the 90-day cutoff.
 
   livebench_overall:
     role: scored

@@ -48,7 +48,7 @@ def markdown_table(result: dict, top_n: int = 25) -> str:
         lines.append("")
         lines.append(f"*Stale (>14d): {', '.join(result['stale'])}*")
     if result.get("excluded_stale"):
-        lines.append(f"*Excluded (>120d): {', '.join(result['excluded_stale'])}*")
+        lines.append(f"*Excluded (>90d): {', '.join(result['excluded_stale'])}*")
     if result.get("unranked"):
         shown = [f"`{u['model']}`" for u in result["unranked"][:15]]
         more = len(result["unranked"]) - len(shown)

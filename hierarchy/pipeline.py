@@ -30,7 +30,7 @@ def _days_old(date_str: str) -> int:
 
 
 def apply_staleness(raw, sigma, as_of, cfg):
-    """§12: flag stale (>14d) and exclude (>120d) benchmarks from aggregation."""
+    """§12: flag stale (>14d) and exclude benchmarks older than configured cutoff."""
     warn_after = cfg.aggregation["staleness"]["warn_after_days"]
     exclude_after = cfg.aggregation["staleness"]["exclude_after_days"]
     stale, excluded = [], []
