@@ -139,49 +139,17 @@ not an analytic test or proof of model superiority.
 
 <!-- leaderboard:start -->
 
-Tier hierarchy (G-score 0-100) — generated 2026-11-03 19:41 UTC
+Tier hierarchy (G-score 0-100) — generated 2026-11-03 19:53 UTC
 ────────────────────────────────────────────────────────────────
-T1 │ claude opus 4.7 · claude opus 4.8 · gemini 3 pro · gemini 3.1 pro preview · muse spark 1.1
-T2 │ gpt 5.5 · grok 4.5
-T3 │ claude sonnet 4.6 · gemini 3 flash · glm 5.3 flash · kimi k2.6
-T4 │ glm 5.1 · gpt 5.1 · gpt 5.2 · grok 4.3 · inkling · minimax m3
-T5 │ gemini 3.5 flash lite · glm 5 · inkling small · mimo v2.5 pro
-T6 │ deepseek v3.2 (thinking) · gemini 3.1 flash lite preview · glm 4.7 · grok 4.1 fast (reasoning) · mimo v2.5 · minimax m2.7
-T7 │ gpt oss 120b · grok 4 fast (reasoning) · minimax m2.5 · mistral large 3
+T1 │ glm 5.3 flash
 ────────────────────────────────────────────────────────────────
 Same tier = statistically indistinguishable on current data (METHODOLOGY.md §11).
 
 | # | Model | Tier | G | 95% CI | Hum. | Know. | Math | Code | Agent | Cov. | Flags |
 |---|-------|------|---|--------|---|---|---|---|---|------|-------|
-| 1 | `gemini 3.1 pro preview` | T1 | **80.7** | 77.3–82.8 | 95 | 100 | – | 88 | – | 56% | – |
-| 2 | `claude opus 4.8` | T1 | **77.4** | 72.8–80.5 | 86 | 92 | – | 98 | – | 56% | – |
-| 3 | `claude opus 4.7` | T1 | **76.9** | 72.4–81.2 | 100 | 84 | – | 77 | – | 56% | – |
-| 4 | `muse spark 1.1` | T1 | **76.8** | 71.4–81.4 | 98 | 82 | – | 82 | – | 56% | – |
-| 5 | `gemini 3 pro` | T1 | **74.9** | 69.7–79.1 | 94 | 91 | – | 76 | – | 56% | – |
-| 6 | `grok 4.5` | T2 | **74.2** | 70.0–77.5 | 80 | 93 | – | 96 | – | 56% | – |
-| 7 | `gpt 5.5` | T2 | **74.0** | 68.9–78.2 | 88 | 90 | – | 81 | – | 56% | – |
-| 8 | `gemini 3 flash` | T3 | **65.4** | 59.8–70.4 | 85 | 72 | – | 67 | – | 56% | – |
-| 9 | `kimi k2.6` | T3 | **64.2** | 58.7–68.9 | 77 | 72 | – | 77 | – | 56% | – |
-| 10 | `glm 5.3 flash` | T3 | **60.6** | 54.2–66.3 | 77 | 53 | – | 67 | – | 66% | – |
-| 11 | `claude sonnet 4.6` | T3 | **59.5** | 52.9–65.2 | 85 | 57 | – | 60 | – | 56% | – |
-| 12 | `gpt 5.2` | T4 | **56.0** | 51.2–60.3 | 59 | 74 | – | 68 | – | 56% | – |
-| 13 | `inkling` | T4 | **55.3** | 49.7–60.4 | 64 | 60 | – | 75 | – | 56% | – |
-| 14 | `glm 5.1` | T4 | **54.7** | 47.7–61.1 | 80 | 52 | – | 54 | – | 56% | – |
-| 15 | `grok 4.3` | T4 | **53.9** | 48.7–58.8 | 63 | 69 | – | 53 | – | 56% | – |
-| 16 | `minimax m3` | T4 | **52.5** | 47.3–57.3 | 62 | 69 | – | 53 | – | 56% | – |
-| 17 | `gpt 5.1` | T4 | **51.1** | 45.4–55.9 | 61 | 58 | – | 61 | – | 56% | – |
-| 18 | `glm 5` | T5 | **47.4** | 40.7–53.9 | 74 | 39 | – | 44 | – | 56% | – |
-| 19 | `mimo v2.5 pro` | T5 | **47.1** | 39.0–54.3 | 81 | 30 | – | 44 | – | 56% | – |
-| 20 | `gemini 3.5 flash lite` | T5 | **46.9** | 40.7–52.9 | 73 | 41 | – | 38 | – | 56% | – |
-| 21 | `inkling small` | T5 | **40.8** | 35.1–45.8 | 38 | 38 | – | 85 | – | 56% | – |
-| 22 | `mimo v2.5` | T6 | **35.3** | 27.7–41.7 | 58 | 20 | – | 40 | – | 56% | – |
-| 23 | `minimax m2.7` | T6 | **35.2** | 30.3–40.0 | 44 | 35 | – | 36 | – | 56% | – |
-| 24 | `gemini 3.1 flash lite preview` | T6 | **34.6** | 28.8–40.3 | 57 | 33 | – | 24 | – | 56% | – |
-| 25 | `glm 4.7` | T6 | **33.8** | 25.7–41.2 | 63 | 13 | – | 42 | – | 56% | – |
+| 1 | `glm 5.3 flash` | T1 | **55.7** | 55.7–55.7 | 50 | 75 | – | 75 | – | 66% | – |
 
 *Stale (>14d): gpqa_diamond, livecodebench, mmlu_pro, swebench_verified*
-
-*Unranked (insufficient data, §5): `alpaca 13b`, `amazon nova 2 lite`, `amazon nova experimental chat (10 09)`, `amazon nova experimental chat (10 20)`, `amazon nova experimental chat (11 10)`, `amazon nova experimental chat (12 10)`, `amazon nova experimental chat (26 01 10)`, `amazon nova experimental chat (26 02 10)`, `amazon nova lite 1.0`, `amazon nova micro 1.0`, `amazon nova pro 1.0`, `athene 70b (0725)`, `athene v2 chat`, `aya expanse 32b`, `aya expanse 8b` … and 490 more in `output/leaderboard.json`*
 
 <!-- leaderboard:end -->
 
