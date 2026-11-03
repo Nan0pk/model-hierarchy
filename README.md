@@ -139,7 +139,7 @@ not an analytic test or proof of model superiority.
 
 <!-- leaderboard:start -->
 
-Tier hierarchy (G-score 0-100) — generated 2026-11-03 19:53 UTC
+Tier hierarchy (G-score 0-100) — generated 2026-11-03 19:57 UTC
 ────────────────────────────────────────────────────────────────
 T1 │ glm 5.3 flash
 ────────────────────────────────────────────────────────────────
