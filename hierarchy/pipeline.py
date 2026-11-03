@@ -70,6 +70,20 @@ def compute(raw, sigma, as_of, cfg, demo: bool = False, reps: int | None = None,
             seed: int | None = None, name_map: dict | None = None,
             source_info: dict | None = None) -> dict:
     stale, excluded = apply_staleness(raw, sigma, as_of, cfg)
+
+    # Keep the published model roster current, not just the benchmark snapshots:
+    # Arena/Vals tables retain historical models indefinitely. A fresh OpenRouter
+    # usage snapshot is our current-activity signal; models absent from it do not
+    # appear in either ranked or unranked public lists.
+    activity_source = "openrouter_usage"
+    activity_window = cfg.aggregation["staleness"]["warn_after_days"]
+    if activity_source in raw and _days_old(as_of.get(activity_source, "")) <= activity_window:
+        active_models = set(raw[activity_source])
+        raw = {bid: {m: score for m, score in values.items() if m in active_models}
+               for bid, values in raw.items()}
+        sigma = {bid: {m: value for m, value in values.items() if m in active_models}
+                 for bid, values in sigma.items()}
+
     cohort, presence = _cohort(raw, cfg)
 
     # restrict every subsequent step to the cohort (§5)

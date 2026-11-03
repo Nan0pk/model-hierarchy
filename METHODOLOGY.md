@@ -361,6 +361,12 @@ alongside the full table (G-score, CI, pillar subscores, coverage, flags) in
   in output; > 90 days old it is excluded from aggregation (kept in the JSON with
   `excluded_stale: true`). A model's ability doesn't decay — but comparability does, once the
   field has moved.
+- **Current-model roster:** when a fresh OpenRouter usage snapshot (≤14 days old) is available,
+  only models present in that snapshot are eligible to appear in ranked or unranked output. This
+  prevents archived evaluation tables from repopulating public lists with inactive historical
+  models. If that activity snapshot is absent or stale, the pipeline does not apply this roster
+  filter and reports benchmark staleness as above. Unranked candidates remain in JSON for audit,
+  but are not printed in the README or shown on the dashboard.
 - **Daily job** (`.github/workflows/daily.yml`, 06:00 UTC): fetch → aggregate → render →
   auto-commit if anything changed. Any single source failing (endpoint moved, HTML changed,
   Cloudflare) is logged and non-fatal: the day's hierarchy is computed from everything that

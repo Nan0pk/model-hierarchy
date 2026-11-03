@@ -129,3 +129,22 @@ def test_cohort_isolation_normalization():
     swarm_g = {m["model"]: m["g"] for m in swarm["models"]}
     assert base_g == swarm_g                       # identical scores
     assert len(swarm["unranked"]) == 80
+
+
+def test_current_activity_filter_excludes_legacy_models(cfg=None):
+    """A fresh usage list defines the current public model roster."""
+    cfg = load_config()
+    snaps = load_manual_csv(DEMO_DIR / "scores.csv")
+    today = dt.date.today().isoformat()
+    for snap in snaps.values():
+        snap["as_of"] = today
+    raw, sigma, as_of, *_ = to_matrix(snaps, cfg)
+    # Add a legacy model to every benchmark except the current-activity signal.
+    for bid, scores in raw.items():
+        if bid != "openrouter_usage":
+            scores["legacy model x"] = 9999.0
+            sigma[bid]["legacy model x"] = 0.0
+    result = compute(raw, sigma, as_of, cfg, demo=True, reps=100)
+    listed = {entry["model"] for entry in result["models"]}
+    listed.update(entry["model"] for entry in result["unranked"])
+    assert "legacy model x" not in listed
