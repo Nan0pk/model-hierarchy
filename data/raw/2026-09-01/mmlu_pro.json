@@ -1,0 +1,421 @@
+{
+  "benchmark": "mmlu_pro",
+  "as_of": "2026-09-01",
+  "values": {
+    "Claude Fable 5.1": {
+      "score": 92.38
+    },
+    "Claude Opus 5": {
+      "score": 91.59
+    },
+    "Claude Fable 5": {
+      "score": 91.5
+    },
+    "Gemini 3.1 Pro Preview (02/26)": {
+      "score": 90.99
+    },
+    "Gemini 3.8 Flash": {
+      "score": 90.22
+    },
+    "Gemini 3.7 Flash": {
+      "score": 90.12
+    },
+    "Gemini 3 Pro (11/25)": {
+      "score": 90.1
+    },
+    "Claude Opus 4.7": {
+      "score": 89.87
+    },
+    "Claude Opus 4.8": {
+      "score": 89.58
+    },
+    "Gemini 3.5 Flash": {
+      "score": 89.52
+    },
+    "Grok 4.6": {
+      "score": 89.4
+    },
+    "Qwen 3.7 Max": {
+      "score": 89.31
+    },
+    "Gemini 3.6 Flash": {
+      "score": 89.28
+    },
+    "Grok 4.5": {
+      "score": 89.22
+    },
+    "Claude Opus 4.6 (Thinking)": {
+      "score": 89.11
+    },
+    "GPT-5.6 Sol": {
+      "score": 89.1
+    },
+    "Muse Spark 1.1": {
+      "score": 88.73
+    },
+    "Qwen 3.8 Max": {
+      "score": 88.6
+    },
+    "Gemini 3 Flash (12/25)": {
+      "score": 88.59
+    },
+    "Muse Spark 1.2": {
+      "score": 88.28
+    },
+    "GPT 5.5": {
+      "score": 88.14
+    },
+    "Kimi K3": {
+      "score": 87.97
+    },
+    "Claude Opus 4.1 (Thinking)": {
+      "score": 87.92
+    },
+    "Qwen 3.6 Plus": {
+      "score": 87.67
+    },
+    "Kimi K2.6": {
+      "score": 87.57
+    },
+    "Claude Sonnet 5": {
+      "score": 87.55
+    },
+    "GPT 5.4 (xhigh)": {
+      "score": 87.48
+    },
+    "Claude Sonnet 4.5 (Thinking)": {
+      "score": 87.36
+    },
+    "Claude Sonnet 4.6": {
+      "score": 87.34
+    },
+    "Muse Spark": {
+      "score": 87.32
+    },
+    "Claude Opus 4.5 (Thinking)": {
+      "score": 87.26
+    },
+    "DeepSeek V4": {
+      "score": 87.25
+    },
+    "Claude Opus 4.1 (Nonthinking)": {
+      "score": 87.21
+    },
+    "Qwen 3.5 Plus": {
+      "score": 87.18
+    },
+    "MiniMax-M2.1": {
+      "score": 87.05
+    },
+    "DeepSeek V4 Pro 0813": {
+      "score": 86.97
+    },
+    "GLM 5.1": {
+      "score": 86.9
+    },
+    "GLM 5.3": {
+      "score": 86.77
+    },
+    "GLM 5.2": {
+      "score": 86.71
+    },
+    "GPT-5.6 Terra": {
+      "score": 86.66
+    },
+    "GPT 5": {
+      "score": 86.54
+    },
+    "GPT 5.1": {
+      "score": 86.38
+    },
+    "Inkling": {
+      "score": 86.3
+    },
+    "Grok 4.20 (Reasoning)": {
+      "score": 86.25
+    },
+    "Gemini 3.1 Flash Lite Preview": {
+      "score": 86.24
+    },
+    "GPT 5.2": {
+      "score": 86.23
+    },
+    "DeepSeek V4 Flash 0731": {
+      "score": 86.21
+    },
+    "Claude Opus 4 (Nonthinking)": {
+      "score": 86.17
+    },
+    "GLM 5.3 Flash": {
+      "score": 86.06
+    },
+    "GPT-5.6 Luna": {
+      "score": 86.04
+    },
+    "GLM 5": {
+      "score": 86.03
+    },
+    "Kimi K2.5": {
+      "score": 85.91
+    },
+    "Grok 4.3": {
+      "score": 85.84
+    },
+    "Gemini 3.5 Flash Lite": {
+      "score": 85.84
+    },
+    "Nemotron 3 Ultra": {
+      "score": 85.76
+    },
+    "o3": {
+      "score": 85.59
+    },
+    "Claude Opus 4.5 (Nonthinking)": {
+      "score": 85.59
+    },
+    "Inkling Small": {
+      "score": 85.57
+    },
+    "Grok 4": {
+      "score": 85.3
+    },
+    "Qwen 3 Max Thinking": {
+      "score": 84.98
+    },
+    "DeepSeek V3.2 (Thinking)": {
+      "score": 84.92
+    },
+    "MiMo V2.5 Pro": {
+      "score": 84.59
+    },
+    "GPT 5.4 Mini": {
+      "score": 84.55
+    },
+    "Qwen 3 Max": {
+      "score": 84.36
+    },
+    "Qwen 3.8 27B": {
+      "score": 84.34
+    },
+    "MiniMax-M3": {
+      "score": 84.22
+    },
+    "Grok 4.1 Fast (Reasoning)": {
+      "score": 84.18
+    },
+    "Qwen 3.5 Flash": {
+      "score": 84.06
+    },
+    "Gemini 2.5 Pro Exp": {
+      "score": 84.06
+    },
+    "Claude Sonnet 4 (Thinking)": {
+      "score": 83.86
+    },
+    "Gemini 2.5 Flash Preview (9/25) (Nonthinking)": {
+      "score": 83.69
+    },
+    "Gemini 2.5 Flash Preview (9/25) (Thinking)": {
+      "score": 83.66
+    },
+    "Qwen 3 Max Preview": {
+      "score": 83.54
+    },
+    "o1": {
+      "score": 83.49
+    },
+    "DeepSeek R1": {
+      "score": 83.18
+    },
+    "DeepSeek V3.2 (Nonthinking)": {
+      "score": 83.06
+    },
+    "MiMo V2.5": {
+      "score": 82.93
+    },
+    "GLM 4.7": {
+      "score": 82.74
+    },
+    "Claude 3.7 Sonnet (Thinking)": {
+      "score": 82.73
+    },
+    "GPT 5 Mini": {
+      "score": 82.23
+    },
+    "GLM 4.6": {
+      "score": 82.2
+    },
+    "Ling 3.0 Flash": {
+      "score": 82.01
+    },
+    "Grok 3 Mini Reasoning": {
+      "score": 80.01
+    },
+    "Qwen 3 (235B)": {
+      "score": 81.25
+    },
+    "GLM 4.5": {
+      "score": 81.22
+    },
+    "Kimi K2 Thinking": {
+      "score": 81.07
+    },
+    "Claude 3.7 Sonnet (Nonthinking)": {
+      "score": 80.66
+    },
+    "o4 Mini": {
+      "score": 80.56
+    },
+    "GPT 4.1": {
+      "score": 80.5
+    },
+    "MiniMax-M2.7": {
+      "score": 80.43
+    },
+    "MiniMax-M2.5": {
+      "score": 80.09
+    },
+    "Grok 3": {
+      "score": 79.95
+    },
+    "Mistral Large 3": {
+      "score": 79.82
+    },
+    "Grok 4 Fast (Reasoning)": {
+      "score": 79.7
+    },
+    "DeepSeek V3 (03/24/2025)": {
+      "score": 79.47
+    },
+    "Claude Sonnet 4 (Nonthinking)": {
+      "score": 79.43
+    },
+    "Llama 4 Maverick": {
+      "score": 79.42
+    },
+    "Kimi K2 Instruct": {
+      "score": 79.39
+    },
+    "GPT OSS 120B": {
+      "score": 79.17
+    },
+    "Gemini 2.5 Flash Lite (9/25) (Thinking)": {
+      "score": 79.12
+    },
+    "Claude Haiku 4.5 (Thinking)": {
+      "score": 78.72
+    },
+    "o3 Mini": {
+      "score": 78.69
+    },
+    "Gemini 2.5 Flash Lite (9/25) (Nonthinking)": {
+      "score": 78.64
+    },
+    "Claude 3.5 Sonnet Latest": {
+      "score": 78.4
+    },
+    "Gemini 2.0 Flash (001)": {
+      "score": 77.38
+    },
+    "GPT 4.1 Mini": {
+      "score": 77.22
+    },
+    "GPT 5.4 Nano": {
+      "score": 77.17
+    },
+    "GPT 5 Nano": {
+      "score": 76.07
+    },
+    "Grok 2": {
+      "score": 75.47
+    },
+    "Mistral Medium 3.5": {
+      "score": 75.33
+    },
+    "Gemini 1.5 Pro (002)": {
+      "score": 75.29
+    },
+    "Mistral Medium 3.1 (05/2025)": {
+      "score": 75.29
+    },
+    "Grok 4.1 Fast Non-Reasoning": {
+      "score": 75.21
+    },
+    "GPT 4o (2024-08-06)": {
+      "score": 74.13
+    },
+    "DeepSeek V3": {
+      "score": 73.82
+    },
+    "GPT 4o (2024-11-20)": {
+      "score": 72.56
+    },
+    "GPT OSS 20B": {
+      "score": 71.64
+    },
+    "Llama 3.3 Nemotron Super (Nonthinking)": {
+      "score": 70.78
+    },
+    "Grok 4 Fast (Non-Reasoning)": {
+      "score": 70.34
+    },
+    "Llama 3.3 Instruct Turbo (70B)": {
+      "score": 69.86
+    },
+    "Mistral Large (11/2024)": {
+      "score": 69.71
+    },
+    "Llama 4 Scout": {
+      "score": 69.63
+    },
+    "Llama 3.3 Nemotron Super (Thinking)": {
+      "score": 69.58
+    },
+    "Command A": {
+      "score": 69.17
+    },
+    "Laguna XS.2": {
+      "score": 69.05
+    },
+    "Laguna M.1": {
+      "score": 68.84
+    },
+    "Magistral Medium 1.2 (09/2025)": {
+      "score": 68.66
+    },
+    "Mistral Small 3.1 (03/2025)": {
+      "score": 66.02
+    },
+    "Gemini 1.5 Flash (002)": {
+      "score": 65.61
+    },
+    "Mistral Small (02/2024)": {
+      "score": 64.44
+    },
+    "Claude 3.5 Haiku Latest": {
+      "score": 64.12
+    },
+    "GPT 4.1 Nano": {
+      "score": 63.48
+    },
+    "GPT 4o Mini": {
+      "score": 62.73
+    },
+    "Magistral Small 1.2 (09/2025)": {
+      "score": 62.13
+    },
+    "Jamba 1.6 Large": {
+      "score": 49.78
+    },
+    "Command R+": {
+      "score": 44.0
+    },
+    "Jamba 1.6 Mini": {
+      "score": 30.28
+    }
+  },
+  "source": "https://www.vals.ai/benchmarks/mmlu_pro",
+  "provenance_type": "independent_evaluation",
+  "evaluation_provider": "Vals AI",
+  "qualification": "MMLU-Pro: 14-subject academic knowledge benchmark; Vals AI implementation; archived board"
+}

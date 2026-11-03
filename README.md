@@ -139,19 +139,49 @@ not an analytic test or proof of model superiority.
 
 <!-- leaderboard:start -->
 
-Tier hierarchy (G-score 0-100) — generated 2026-11-03 18:08 UTC
+Tier hierarchy (G-score 0-100) — generated 2026-11-03 19:01 UTC
 ────────────────────────────────────────────────────────────────
-T1 │ glm 5.3 flash
+T1 │ claude opus 4.7 · claude opus 4.8 · gemini 3 pro · gemini 3.1 pro preview · muse spark 1.1
+T2 │ gpt 5.5 · grok 4.5
+T3 │ claude sonnet 4.6 · gemini 3 flash · glm 5.3 flash · kimi k2.6
+T4 │ glm 5 · glm 5.1 · gpt 5.1 · gpt 5.2 · grok 4.3 · inkling · mimo v2.5 pro · minimax m3
+T5 │ gemini 3.5 flash lite · inkling small
+T6 │ deepseek v3.2 (thinking) · gemini 3.1 flash lite preview · glm 4.7 · grok 4.1 fast (reasoning) · mimo v2.5 · minimax m2.7
+T7 │ gpt oss 120b · grok 4 fast (reasoning) · minimax m2.5 · mistral large 3
 ────────────────────────────────────────────────────────────────
 Same tier = statistically indistinguishable on current data (METHODOLOGY.md §11).
 
 | # | Model | Tier | G | 95% CI | Hum. | Know. | Math | Code | Agent | Cov. | Flags |
 |---|-------|------|---|--------|---|---|---|---|---|------|-------|
-| 1 | `glm 5.3 flash` | T1 | **54.6** | 54.6–54.6 | 50 | 75 | – | 75 | – | 60% | – |
+| 1 | `gemini 3.1 pro preview` | T1 | **80.7** | 77.0–82.9 | 95 | 100 | – | 88 | – | 56% | – |
+| 2 | `claude opus 4.8` | T1 | **77.4** | 73.0–80.6 | 86 | 92 | – | 98 | – | 56% | – |
+| 3 | `muse spark 1.1` | T1 | **76.9** | 71.1–81.4 | 98 | 82 | – | 82 | – | 56% | – |
+| 4 | `claude opus 4.7` | T1 | **76.9** | 72.2–81.3 | 100 | 84 | – | 77 | – | 56% | – |
+| 5 | `gemini 3 pro` | T1 | **74.8** | 69.9–79.4 | 94 | 91 | – | 76 | – | 56% | – |
+| 6 | `grok 4.5` | T2 | **74.1** | 69.7–77.5 | 80 | 93 | – | 96 | – | 56% | – |
+| 7 | `gpt 5.5` | T2 | **73.8** | 68.8–78.1 | 88 | 90 | – | 81 | – | 56% | – |
+| 8 | `gemini 3 flash` | T3 | **65.4** | 59.6–70.4 | 85 | 72 | – | 67 | – | 56% | – |
+| 9 | `kimi k2.6` | T3 | **64.2** | 58.3–68.8 | 77 | 72 | – | 77 | – | 56% | – |
+| 10 | `glm 5.3 flash` | T3 | **60.6** | 54.6–66.2 | 77 | 53 | – | 67 | – | 66% | – |
+| 11 | `claude sonnet 4.6` | T3 | **59.5** | 53.0–65.2 | 85 | 57 | – | 60 | – | 56% | – |
+| 12 | `gpt 5.2` | T4 | **55.9** | 51.0–60.4 | 59 | 74 | – | 68 | – | 56% | – |
+| 13 | `inkling` | T4 | **55.5** | 50.0–60.4 | 64 | 60 | – | 75 | – | 56% | – |
+| 14 | `glm 5.1` | T4 | **54.8** | 47.7–60.9 | 80 | 52 | – | 54 | – | 56% | – |
+| 15 | `grok 4.3` | T4 | **53.9** | 48.9–58.6 | 63 | 69 | – | 53 | – | 56% | – |
+| 16 | `minimax m3` | T4 | **52.4** | 47.1–57.2 | 62 | 69 | – | 53 | – | 56% | – |
+| 17 | `gpt 5.1` | T4 | **51.1** | 45.4–55.7 | 61 | 58 | – | 61 | – | 56% | – |
+| 18 | `glm 5` | T4 | **47.6** | 40.5–54.0 | 74 | 39 | – | 44 | – | 56% | – |
+| 19 | `mimo v2.5 pro` | T4 | **47.4** | 39.7–54.5 | 81 | 30 | – | 44 | – | 56% | – |
+| 20 | `gemini 3.5 flash lite` | T5 | **46.8** | 40.3–53.2 | 73 | 41 | – | 38 | – | 56% | – |
+| 21 | `inkling small` | T5 | **40.9** | 35.2–46.1 | 38 | 38 | – | 85 | – | 56% | – |
+| 22 | `mimo v2.5` | T6 | **35.3** | 27.8–42.0 | 58 | 20 | – | 40 | – | 56% | – |
+| 23 | `minimax m2.7` | T6 | **35.3** | 30.6–39.6 | 44 | 35 | – | 36 | – | 56% | – |
+| 24 | `gemini 3.1 flash lite preview` | T6 | **34.7** | 28.8–40.8 | 57 | 33 | – | 24 | – | 56% | – |
+| 25 | `glm 4.7` | T6 | **33.9** | 25.6–41.1 | 63 | 13 | – | 42 | – | 56% | – |
 
-*Stale (>14d): gpqa_diamond, livecodebench, swebench_verified*
+*Stale (>14d): gpqa_diamond, livecodebench, mmlu_pro, swebench_verified*
 
-*Unranked (insufficient data, §5): `17 (nonthinking)`, `17 (thinking)`, `2024)`, `2025)`, `24/2025)`, `25)`, `25) (nonthinking)`, `25) (thinking)`, `26)`, `alpaca 13b`, `amazon nova 2 lite`, `amazon nova experimental chat (10 09)`, `amazon nova experimental chat (10 20)`, `amazon nova experimental chat (11 10)`, `amazon nova experimental chat (12 10)` … and 516 more in `output/leaderboard.json`*
+*Unranked (insufficient data, §5): `alpaca 13b`, `amazon nova 2 lite`, `amazon nova experimental chat (10 09)`, `amazon nova experimental chat (10 20)`, `amazon nova experimental chat (11 10)`, `amazon nova experimental chat (12 10)`, `amazon nova experimental chat (26 01 10)`, `amazon nova experimental chat (26 02 10)`, `amazon nova lite 1.0`, `amazon nova micro 1.0`, `amazon nova pro 1.0`, `athene 70b (0725)`, `athene v2 chat`, `aya expanse 32b`, `aya expanse 8b` … and 490 more in `output/leaderboard.json`*
 
 <!-- leaderboard:end -->
 

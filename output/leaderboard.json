@@ -1,27 +1,43 @@
 {
-  "generated_at": "2026-11-03 18:08 UTC",
+  "generated_at": "2026-11-03 19:01 UTC",
   "tool_version": "1.0.0",
-  "method": "model-hierarchy methodology v1.0.0",
-  "weights_version": "1.0.0",
-  "config_hash": "fb982f1f66805d8c",
+  "method": "model-hierarchy methodology v1.1.0",
+  "weights_version": "1.1.0",
+  "config_hash": "b54674641cacbb40",
   "demo": false,
-  "cohort_size": 1,
+  "cohort_size": 31,
   "data_as_of": {
-    "gpqa_diamond": "2026-09-01",
-    "openrouter_usage": "2026-11-03",
-    "swebench_verified": "2026-09-01",
     "livecodebench": "2026-09-01",
-    "lm_arena_elo": "2026-10-28"
+    "openrouter_usage": "2026-11-03",
+    "gpqa_diamond": "2026-09-01",
+    "mmlu_pro": "2026-09-01",
+    "lm_arena_elo": "2026-10-28",
+    "swebench_verified": "2026-09-01"
   },
   "source_provenance": {
+    "livecodebench": {
+      "source": "https://www.vals.ai/benchmarks/lcb",
+      "provenance_type": "independent_evaluation",
+      "evaluation_provider": "Vals AI",
+      "qualification": "LiveCodeBench v6; Code Generation task in Python; Vals AI implementation; archived board"
+    },
+    "openrouter_usage": {
+      "source": "https://openrouter.ai/rankings (share of parsed daily tokens, n=10)"
+    },
     "gpqa_diamond": {
       "source": "https://www.vals.ai/benchmarks/gpqa",
       "provenance_type": "independent_evaluation",
       "evaluation_provider": "Vals AI",
       "qualification": "GPQA Diamond: 198-question Diamond subset; Vals AI prompting and answer parsing; archived board"
     },
-    "openrouter_usage": {
-      "source": "https://openrouter.ai/rankings (share of parsed daily tokens, n=10)"
+    "mmlu_pro": {
+      "source": "https://www.vals.ai/benchmarks/mmlu_pro",
+      "provenance_type": "independent_evaluation",
+      "evaluation_provider": "Vals AI",
+      "qualification": "MMLU-Pro: 14-subject academic knowledge benchmark; Vals AI implementation; archived board"
+    },
+    "lm_arena_elo": {
+      "source": "hf:lmarena-ai/leaderboard-dataset/text_style_control"
     },
     "swebench_verified": {
       "source": "https://www.vals.ai/benchmarks/swebench",
@@ -29,161 +45,158 @@
       "evaluation_provider": "Vals AI",
       "qualification": "SWE-bench Verified; Mini-SWE-agent harness only; archived board",
       "harness": "Mini-SWE-agent"
-    },
-    "livecodebench": {
-      "source": "https://www.vals.ai/benchmarks/lcb",
-      "provenance_type": "independent_evaluation",
-      "evaluation_provider": "Vals AI",
-      "qualification": "LiveCodeBench v6; Code Generation task in Python; Vals AI implementation; archived board"
-    },
-    "lm_arena_elo": {
-      "source": "hf:lmarena-ai/leaderboard-dataset/text_style_control"
     }
   },
   "stale": [
     "gpqa_diamond",
     "livecodebench",
+    "mmlu_pro",
     "swebench_verified"
   ],
   "excluded_stale": [],
   "name_reconciliation": {
-    "Gemini 3.1 Pro Preview (02/26)": "26)",
-    "GPT-5.6 Sol": "gpt 5.6 sol",
-    "Grok 4.6": "grok 4.6",
-    "Gemini 3.8 Flash": "gemini 3.8 flash",
-    "Gemini 3.7 Flash": "gemini 3.7 flash",
-    "Qwen 3.8 Max": "qwen 3.8 max",
-    "Gemini 3.6 Flash": "gemini 3.6 flash",
-    "Claude Opus 5": "claude opus 5",
     "Claude Fable 5.1": "claude fable 5.1",
     "Claude Fable 5": "claude fable 5",
-    "GPT 5.5": "gpt 5.5",
-    "Kimi K3": "kimi k3",
-    "Grok 4.5": "grok 4.5",
-    "Gemini 3.5 Flash": "gemini 3.5 flash",
-    "MiniMax-M3": "minimax m3",
+    "Gemini 3.8 Flash": "gemini 3.8 flash",
+    "Claude Opus 5": "claude opus 5",
+    "Gemini 3.7 Flash": "gemini 3.7 flash",
+    "Gemini 3.1 Pro Preview (02/26)": "gemini 3.1 pro preview",
+    "Grok 4.6": "grok 4.6",
+    "Gemini 3.6 Flash": "gemini 3.6 flash",
+    "GPT 5.2 Codex": "gpt 5.2 codex",
+    "Qwen 3.8 Max": "qwen 3.8 max",
     "Claude Opus 4.8": "claude opus 4.8",
+    "Gemini 3.5 Flash": "gemini 3.5 flash",
     "DeepSeek V4 Pro 0813": "deepseek v4 pro 0813",
-    "GPT-5.6 Luna": "gpt 5.6 luna",
-    "Gemini 3 Pro (11/25)": "25)",
-    "GPT 5.2": "gpt 5.2",
-    "GPT 5.4 (xhigh)": "gpt 5.4 (xhigh)",
-    "Grok 4.3": "grok 4.3",
-    "Muse Spark 1.1": "muse spark 1.1",
-    "GPT-5.6 Terra": "gpt 5.6 terra",
-    "Qwen 3.7 Max": "qwen 3.7 max",
-    "Claude Opus 4.7": "claude opus 4.7",
-    "DeepSeek V4 Flash 0731": "deepseek v4 flash 0731",
-    "Muse Spark": "muse spark",
-    "Claude Opus 4.6 (Thinking)": "claude opus 4.6 (thinking)",
     "DeepSeek V4": "deepseek v4",
+    "Grok 4.5": "grok 4.5",
+    "GPT 5.3 Codex": "gpt 5.3 codex",
+    "DeepSeek V4 Flash 0731": "deepseek v4 flash 0731",
+    "Kimi K3": "kimi k3",
+    "Qwen 3.7 Max": "qwen 3.7 max",
     "Kimi K2.6": "kimi k2.6",
-    "Claude Sonnet 5": "claude sonnet 5",
-    "Qwen 3.8 27B": "qwen 3.8 27b",
-    "Grok 4.20 (Reasoning)": "grok 4.20 (reasoning)",
-    "Grok 4": "grok 4",
-    "GLM 5.3": "glm 5.3",
-    "Gemini 3 Flash (12/25)": "25)",
-    "Qwen 3.5 Plus": "qwen 3.5 plus",
-    "Qwen 3.6 Plus": "qwen 3.6 plus",
-    "Inkling": "inkling",
+    "GPT 5 Mini": "gpt 5 mini",
     "GPT 5.1": "gpt 5.1",
-    "MiniMax-M2.7": "minimax m2.7",
-    "GLM 5.3 Flash": "glm 5.3 flash",
+    "Gemini 3 Pro (11/25)": "gemini 3 pro",
     "Nemotron 3 Ultra": "nemotron 3 ultra",
-    "Claude Opus 4.5 (Thinking)": "claude opus 4.5 (thinking)",
+    "Qwen 3.6 Plus": "qwen 3.6 plus",
+    "Inkling Small": "inkling small",
+    "GPT-5.6 Terra": "gpt 5.6 terra",
     "GPT 5": "gpt 5",
-    "GLM 5.2": "glm 5.2",
-    "Claude Sonnet 4.6": "claude sonnet 4.6",
-    "Grok 4 Fast (Reasoning)": "grok 4 fast (reasoning)",
+    "Muse Spark 1.1": "muse spark 1.1",
+    "Gemini 3 Flash (12/25)": "gemini 3 flash",
+    "GPT 5.1 Codex": "gpt 5.1 codex",
+    "Inkling": "inkling",
+    "GPT 5.2": "gpt 5.2",
+    "Qwen 3.5 Plus": "qwen 3.5 plus",
+    "GPT 5.5": "gpt 5.5",
+    "Claude Opus 4.7": "claude opus 4.7",
+    "GPT 5 Codex": "gpt 5 codex",
+    "Claude Opus 4.6 (Thinking)": "claude opus 4.6 (thinking)",
+    "Grok 4.3": "grok 4.3",
+    "Grok 4.20 (Reasoning)": "grok 4.20 (reasoning)",
+    "GPT 5.4 (xhigh)": "gpt 5.4 (xhigh)",
+    "GPT 5.4 Nano": "gpt 5.4 nano",
+    "Qwen 3.8 27B": "qwen 3.8 27b",
     "Ling 3.0 Flash": "ling 3.0 flash",
-    "Qwen 3 Max Thinking": "qwen 3 max thinking",
-    "GLM 5.1": "glm 5.1",
-    "Grok 4.1 Fast (Reasoning)": "grok 4.1 fast (reasoning)",
     "o3": "o3",
     "Kimi K2.5": "kimi k2.5",
-    "Gemini 3.5 Flash Lite": "gemini 3.5 flash lite",
-    "Inkling Small": "inkling small",
-    "GLM 5": "glm 5",
-    "GPT 5.4 Mini": "gpt 5.4 mini",
+    "Claude Opus 4.5 (Thinking)": "claude opus 4.5 (thinking)",
+    "GPT 5.1 Codex Max": "gpt 5.1 codex max",
     "Qwen 3.5 Flash": "qwen 3.5 flash",
-    "MiMo V2.5 Pro": "mimo v2.5 pro",
-    "MiniMax-M2.5": "minimax m2.5",
-    "Claude Sonnet 4.5 (Thinking)": "claude sonnet 4.5 (thinking)",
-    "Gemini 2.5 Flash Preview (9/25) (Nonthinking)": "25) (nonthinking)",
-    "MiMo V2.5": "mimo v2.5",
-    "Gemini 3.1 Flash Lite Preview": "gemini 3.1 flash lite preview",
-    "Gemini 2.5 Pro Exp": "gemini 2.5 pro exp",
-    "GPT 5 Mini": "gpt 5 mini",
-    "DeepSeek V3.2 (Thinking)": "deepseek v3.2 (thinking)",
+    "Grok 4": "grok 4",
+    "GPT OSS 120B": "gpt oss 120b",
+    "GPT-5.6 Sol": "gpt 5.6 sol",
+    "Claude Sonnet 5": "claude sonnet 5",
     "GLM 4.7": "glm 4.7",
-    "Claude Opus 4.5 (Nonthinking)": "claude opus 4.5 (nonthinking)",
+    "o4 Mini": "o4 mini",
+    "MiniMax-M3": "minimax m3",
+    "Claude Sonnet 4.6": "claude sonnet 4.6",
+    "Kimi K2.7 Code": "kimi k2.7 code",
+    "GLM 5": "glm 5",
+    "MiniMax-M2.1": "minimax m2.1",
+    "MiMo V2.5": "mimo v2.5",
+    "GPT 5.4 Mini": "gpt 5.4 mini",
+    "GLM 5.1": "glm 5.1",
+    "MiMo V2.5 Pro": "mimo v2.5 pro",
+    "GLM 4.6": "glm 4.6",
+    "DeepSeek V3.2 (Thinking)": "deepseek v3.2 (thinking)",
+    "Grok 4.1 Fast (Reasoning)": "grok 4.1 fast (reasoning)",
+    "GLM 5.3": "glm 5.3",
+    "GLM 5.3 Flash": "glm 5.3 flash",
+    "GPT OSS 20B": "gpt oss 20b",
+    "Gemini 3.1 Flash Lite Preview": "gemini 3.1 flash lite preview",
+    "MiniMax-M2.7": "minimax m2.7",
+    "MiniMax-M2.5": "minimax m2.5",
+    "Gemini 2.5 Pro Preview": "gemini 2.5 pro preview",
+    "Gemini 3.5 Flash Lite": "gemini 3.5 flash lite",
+    "Grok 4 Fast (Reasoning)": "grok 4 fast (reasoning)",
     "Qwen 3 Max": "qwen 3 max",
     "Grok 3 Mini Reasoning": "grok 3 mini reasoning",
-    "GPT OSS 120B": "gpt oss 120b",
-    "MiniMax-M2.1": "minimax m2.1",
-    "Kimi K2 Thinking": "kimi k2 thinking",
-    "Qwen 3 Max Preview": "qwen 3 max preview",
-    "GPT 5.4 Nano": "gpt 5.4 nano",
-    "Gemini 2.5 Flash Preview (9/25) (Thinking)": "25) (thinking)",
-    "Claude Opus 4.1 (Thinking)": "claude opus 4.1 (thinking)",
-    "DeepSeek V3.2 (Nonthinking)": "deepseek v3.2 (nonthinking)",
+    "Gemini 2.5 Flash Preview (9/25) (Thinking)": "gemini 2.5 flash preview (9/25) (thinking)",
+    "Gemini 2.5 Flash Preview (9/25) (Nonthinking)": "gemini 2.5 flash preview (9/25) (nonthinking)",
+    "Claude Opus 4.5 (Nonthinking)": "claude opus 4.5 (nonthinking)",
+    "Magistral Medium 1.2 (09/2025)": "magistral medium 1.2 (09/2025)",
+    "Claude Sonnet 4.5 (Thinking)": "claude sonnet 4.5 (thinking)",
+    "Magistral Small 1.2 (09/2025)": "magistral small 1.2 (09/2025)",
     "o3 Mini": "o3 mini",
-    "Claude 3.7 Sonnet (Thinking)": "claude 3.7 sonnet (thinking)",
-    "Claude Sonnet 4 (Thinking)": "claude sonnet 4 (thinking)",
-    "o4 Mini": "o4 mini",
-    "GLM 4.6": "glm 4.6",
-    "Grok 3": "grok 3",
-    "o1": "o1",
-    "Claude Haiku 4.5 (Thinking)": "claude haiku 4.5 (thinking)",
-    "GLM 4.5": "glm 4.5",
-    "Claude Opus 4 (Nonthinking)": "claude opus 4 (nonthinking)",
-    "Kimi K2 Instruct": "kimi k2 instruct",
-    "Gemini 2.5 Flash Lite (9/25) (Thinking)": "25) (thinking)",
+    "Gemini 2.5 Flash Lite (9/25) (Thinking)": "gemini 2.5 flash lite (9/25) (thinking)",
     "Qwen 3 (235B)": "qwen 3 (235b)",
-    "Claude Opus 4.1 (Nonthinking)": "claude opus 4.1 (nonthinking)",
-    "Llama 4 Maverick": "llama 4 maverick",
-    "Claude Sonnet 4 (Nonthinking)": "claude sonnet 4 (nonthinking)",
-    "GPT OSS 20B": "gpt oss 20b",
-    "Mistral Large 3": "mistral large 3",
-    "GPT 4.1 Mini": "gpt 4.1 mini",
-    "Claude 3.7 Sonnet (Nonthinking)": "claude 3.7 sonnet (nonthinking)",
-    "GPT 4.1": "gpt 4.1",
-    "Gemini 2.0 Flash (001)": "gemini 2.0 flash (001)",
-    "Grok 4.1 Fast Non-Reasoning": "grok 4.1 fast non reasoning",
-    "Gemini 2.5 Flash Lite (9/25) (Nonthinking)": "25) (nonthinking)",
+    "Kimi K2 Instruct": "kimi k2 instruct",
+    "DeepSeek R1": "deepseek r1",
     "GPT 5 Nano": "gpt 5 nano",
-    "Llama 3.3 Nemotron Super (Thinking)": "llama 3.3 nemotron super (thinking)",
-    "Magistral Medium 1.2 (09/2025)": "2025)",
-    "Grok 4 Fast (Non-Reasoning)": "grok 4 fast (non reasoning)",
-    "DeepSeek V3 (03/24/2025)": "24/2025)",
-    "Claude 3.5 Sonnet Latest": "claude 3.5 sonnet latest",
-    "MiMo V2 Flash": "mimo v2 flash",
-    "Gemini 1.5 Pro (002)": "gemini 1.5 pro (002)",
-    "Magistral Small 1.2 (09/2025)": "2025)",
-    "Gemini 2.5 Flash Preview 4/17 (Nonthinking)": "17 (nonthinking)",
-    "Laguna XS.2": "laguna xs.2",
-    "DeepSeek V3": "deepseek v3",
-    "GPT 4o (2024-11-20)": "gpt 4o (2024 11 20)",
-    "GPT 4.1 Nano": "gpt 4.1 nano",
-    "Mistral Small (02/2024)": "2024)",
-    "Grok 2": "grok 2",
-    "GPT 4o (2024-05-13)": "gpt 4o (2024 05 13)",
-    "Llama 3.3 Instruct Turbo (70B)": "llama 3.3 instruct turbo (70b)",
-    "Command A": "command a",
-    "Mistral Large (11/2024)": "2024)",
-    "Llama 3.3 Nemotron Super (Nonthinking)": "llama 3.3 nemotron super (nonthinking)",
-    "Llama 4 Scout": "llama 4 scout",
-    "Gemini 1.5 Flash (002)": "gemini 1.5 flash (002)",
-    "Mistral Small 3.1 (03/2025)": "2025)",
-    "GPT 4o Mini": "gpt 4o mini",
-    "Claude 3.5 Haiku Latest": "claude 3.5 haiku latest",
-    "Jamba 1.6 Large": "jamba 1.6 large",
-    "Mistral Medium 3.5": "mistral medium 3.5",
-    "Jamba 1.6 Mini": "jamba 1.6 mini",
-    "Command R+": "command r+",
-    "GPT 3.5": "gpt 3.5",
+    "Claude Opus 4 (Thinking)": "claude opus 4 (thinking)",
+    "DeepSeek V3.2 (Nonthinking)": "deepseek v3.2 (nonthinking)",
+    "GLM 5.2": "glm 5.2",
     "Laguna M.1": "laguna m.1",
+    "Laguna XS.2": "laguna xs.2",
+    "Gemini 2.5 Flash Lite (9/25) (Nonthinking)": "gemini 2.5 flash lite (9/25) (nonthinking)",
+    "GLM 4.5": "glm 4.5",
+    "Qwen 3 Max Preview": "qwen 3 max preview",
+    "Claude Opus 4.1 (Thinking)": "claude opus 4.1 (thinking)",
+    "DeepSeek V3 (03/24/2025)": "deepseek v3 (03/24/2025)",
+    "Claude Opus 4.1 (Nonthinking)": "claude opus 4.1 (nonthinking)",
+    "Kimi K2 Thinking": "kimi k2 thinking",
+    "Claude Opus 4 (Nonthinking)": "claude opus 4 (nonthinking)",
+    "Claude Sonnet 4 (Thinking)": "claude sonnet 4 (thinking)",
+    "Grok Code Fast": "grok code fast",
+    "Claude 3.7 Sonnet (Thinking)": "claude 3.7 sonnet (thinking)",
+    "Claude Sonnet 4 (Nonthinking)": "claude sonnet 4 (nonthinking)",
+    "Llama 3.3 Nemotron Super (Thinking)": "llama 3.3 nemotron super (thinking)",
+    "GPT 4.1 Mini": "gpt 4.1 mini",
+    "Gemini 2.5 Flash Preview 4/17 (Nonthinking)": "gemini 2.5 flash preview 4/17 (nonthinking)",
+    "Claude 3.7 Sonnet (Nonthinking)": "claude 3.7 sonnet (nonthinking)",
+    "Mistral Large 3": "mistral large 3",
+    "GPT 4.1": "gpt 4.1",
+    "Grok 3": "grok 3",
+    "Devstral 2": "devstral 2",
+    "o1": "o1",
+    "Claude 3.5 Sonnet Latest": "claude 3.5 sonnet latest",
+    "Llama 4 Maverick": "llama 4 maverick",
+    "Gemini 2.5 Flash Preview 4/17 (Thinking)": "gemini 2.5 flash preview 4/17 (thinking)",
+    "Grok 4 Fast (Non-Reasoning)": "grok 4 fast (non reasoning)",
+    "Mistral Medium 3.1 (05/2025)": "mistral medium 3.1 (05/2025)",
+    "Gemini 2.0 Flash (001)": "gemini 2.0 flash (001)",
+    "GPT 4o (2024-11-20)": "gpt 4o (2024 11 20)",
+    "Devstral Small 2": "devstral small 2",
+    "GPT 4.1 Nano": "gpt 4.1 nano",
+    "Grok 4.1 Fast Non-Reasoning": "grok 4.1 fast non reasoning",
+    "Claude 3.5 Haiku Latest": "claude 3.5 haiku latest",
+    "Gemini 1.5 Pro (002)": "gemini 1.5 pro (002)",
+    "Claude Haiku 4.5 (Thinking)": "claude haiku 4.5 (thinking)",
+    "Grok 2": "grok 2",
+    "Llama 4 Scout": "llama 4 scout",
+    "Mistral Large (11/2024)": "mistral large (11/2024)",
+    "Gemini 1.5 Flash (002)": "gemini 1.5 flash (002)",
+    "Llama 3.3 Instruct Turbo (70B)": "llama 3.3 instruct turbo (70b)",
+    "Llama 3.3 Nemotron Super (Nonthinking)": "llama 3.3 nemotron super (nonthinking)",
+    "Command A": "command a",
+    "Mistral Small 3.1 (03/2025)": "mistral small 3.1 (03/2025)",
+    "GPT 4o Mini": "gpt 4o mini",
+    "Jamba 1.6 Large": "jamba 1.6 large",
+    "Command R+": "command r+",
+    "Mistral Small (02/2024)": "mistral small (02/2024)",
+    "Jamba 1.6 Mini": "jamba 1.6 mini",
     "DeepSeek V4.1 Flash 1017": "deepseek v4.1 flash 1017",
     "DeepSeek V4.1 Flash": "deepseek v4.1 flash",
     "Hy4 preview": "hy4 preview",
@@ -191,26 +204,18 @@
     "Claude Opus 5.5": "claude opus 5.5",
     "MiniMax M3.1 Flash": "minimax m3.1 flash",
     "Step 5 Preview": "step 5 preview",
+    "GPT-5.6 Luna": "gpt 5.6 luna",
     "GPT-6.1 Sol": "gpt 6.1 sol",
+    "Muse Spark": "muse spark",
+    "Qwen 3 Max Thinking": "qwen 3 max thinking",
+    "Gemini 2.5 Pro Exp": "gemini 2.5 pro exp",
+    "MiMo V2 Flash": "mimo v2 flash",
+    "DeepSeek V3": "deepseek v3",
+    "GPT 4o (2024-05-13)": "gpt 4o (2024 05 13)",
+    "Mistral Medium 3.5": "mistral medium 3.5",
+    "GPT 3.5": "gpt 3.5",
     "Muse Spark 1.2": "muse spark 1.2",
-    "Kimi K2.7 Code": "kimi k2.7 code",
-    "GPT 5.3 Codex": "gpt 5.3 codex",
-    "Qwen 3.6 Max Preview": "qwen 3.6 max preview",
-    "GPT 5.2 Codex": "gpt 5.2 codex",
-    "Qwen 3.6 27B": "qwen 3.6 27b",
-    "Devstral 2": "devstral 2",
-    "Gemini 2.5 Pro": "gemini 2.5 pro",
-    "Nemotron 3.5 Lightning": "nemotron 3.5 lightning",
-    "GPT 5.1 Codex": "gpt 5.1 codex",
-    "GPT 5 Codex": "gpt 5 codex",
-    "GPT 5.1 Codex Max": "gpt 5.1 codex max",
-    "Gemini 2.5 Pro Preview": "gemini 2.5 pro preview",
-    "DeepSeek R1": "deepseek r1",
-    "Claude Opus 4 (Thinking)": "claude opus 4 (thinking)",
-    "Grok Code Fast": "grok code fast",
-    "Gemini 2.5 Flash Preview 4/17 (Thinking)": "17 (thinking)",
-    "Mistral Medium 3.1 (05/2025)": "2025)",
-    "Devstral Small 2": "devstral small 2",
+    "GPT 4o (2024-08-06)": "gpt 4o (2024 08 06)",
     "Gemini 4 Carbon (High)": "gemini 4 carbon (high)",
     "Gemini 4 Argon (High)": "gemini 4 argon (high)",
     "Claude Opus 5.5 (High)": "claude opus 5.5 (high)",
@@ -290,6 +295,7 @@
     "MiMo-V2.6-Flash": "mimo v2.6 flash",
     "GPT-5.4 mini (High)": "gpt 5.4 mini (high)",
     "ERNIE 5.0 (0110)": "ernie 5.0 (0110)",
+    "Gemini 2.5 Pro": "gemini 2.5 pro",
     "GPT-4.5 Preview (2025-02-27)": "gpt 4.5 preview (2025 02 27)",
     "Qwen3.6-Plus": "qwen3.6 plus",
     "ChatGPT-4o Latest (20250326)": "chatgpt 4o latest (20250326)",
@@ -606,37 +612,535 @@
     "FastChat-T5 3B": "fastchat t5 3b",
     "Dolly 2.0 12B": "dolly 2.0 12b",
     "LLaMA 13B": "llama 13b",
-    "StableLM Tuned Alpha 7B": "stablelm tuned alpha 7b"
+    "StableLM Tuned Alpha 7B": "stablelm tuned alpha 7b",
+    "Qwen 3.6 Max Preview": "qwen 3.6 max preview",
+    "Qwen 3.6 27B": "qwen 3.6 27b",
+    "Nemotron 3.5 Lightning": "nemotron 3.5 lightning"
   },
   "models": [
     {
       "rank": 1,
-      "model": "glm 5.3 flash",
+      "model": "gemini 3.1 pro preview",
       "tier": "T1",
-      "g": 54.6,
-      "g_point": 54.6,
+      "g": 80.7,
+      "g_point": 81.9,
       "ci95": [
-        54.6,
-        54.6
+        77.0,
+        82.9
       ],
       "pillars": {
         "human_preference": {
-          "score": 50.0,
+          "score": 95.2,
+          "coverage": 0.714
+        },
+        "knowledge_reasoning": {
+          "score": 100.0,
+          "coverage": 0.7
+        },
+        "coding": {
+          "score": 87.5,
+          "coverage": 0.85
+        }
+      },
+      "benchmarks": {
+        "lm_arena_elo": {
+          "raw": 1486.8999611035829,
+          "value": 95.2,
+          "as_of": "2026-10-28"
+        },
+        "gpqa_diamond": {
+          "raw": 95.45,
+          "value": 100.0,
+          "as_of": "2026-09-01"
+        },
+        "mmlu_pro": {
+          "raw": 90.99,
+          "value": 100.0,
+          "as_of": "2026-09-01"
+        },
+        "swebench_verified": {
+          "raw": 78.8,
+          "value": 78.8,
+          "as_of": "2026-09-01"
+        },
+        "livecodebench": {
+          "raw": 88.48,
+          "value": 100.0,
+          "as_of": "2026-09-01"
+        }
+      },
+      "coverage": 0.56,
+      "n_benchmarks": 5,
+      "flags": []
+    },
+    {
+      "rank": 2,
+      "model": "claude opus 4.8",
+      "tier": "T1",
+      "g": 77.4,
+      "g_point": 78.9,
+      "ci95": [
+        73.0,
+        80.6
+      ],
+      "pillars": {
+        "human_preference": {
+          "score": 86.4,
+          "coverage": 0.714
+        },
+        "knowledge_reasoning": {
+          "score": 91.9,
+          "coverage": 0.7
+        },
+        "coding": {
+          "score": 98.3,
+          "coverage": 0.85
+        }
+      },
+      "benchmarks": {
+        "lm_arena_elo": {
+          "raw": 1474.4403985039223,
+          "value": 86.4,
+          "as_of": "2026-10-28"
+        },
+        "gpqa_diamond": {
+          "raw": 92.42,
+          "value": 91.0,
+          "as_of": "2026-09-01"
+        },
+        "mmlu_pro": {
+          "raw": 89.58,
+          "value": 93.0,
+          "as_of": "2026-09-01"
+        },
+        "swebench_verified": {
+          "raw": 88.6,
+          "value": 98.3,
+          "as_of": "2026-09-01"
+        },
+        "livecodebench": {
+          "raw": 87.82,
+          "value": 98.3,
+          "as_of": "2026-09-01"
+        }
+      },
+      "coverage": 0.56,
+      "n_benchmarks": 5,
+      "flags": []
+    },
+    {
+      "rank": 3,
+      "model": "muse spark 1.1",
+      "tier": "T1",
+      "g": 76.9,
+      "g_point": 77.3,
+      "ci95": [
+        71.1,
+        81.4
+      ],
+      "pillars": {
+        "human_preference": {
+          "score": 97.5,
+          "coverage": 0.714
+        },
+        "knowledge_reasoning": {
+          "score": 82.2,
+          "coverage": 0.7
+        },
+        "coding": {
+          "score": 82.2,
+          "coverage": 0.85
+        }
+      },
+      "benchmarks": {
+        "lm_arena_elo": {
+          "raw": 1490.2351603730194,
+          "value": 97.5,
+          "as_of": "2026-10-28"
+        },
+        "gpqa_diamond": {
+          "raw": 91.16,
+          "value": 79.8,
+          "as_of": "2026-09-01"
+        },
+        "mmlu_pro": {
+          "raw": 88.73,
+          "value": 85.5,
+          "as_of": "2026-09-01"
+        },
+        "swebench_verified": {
+          "raw": 82.0,
+          "value": 84.8,
+          "as_of": "2026-09-01"
+        },
+        "livecodebench": {
+          "raw": 85.91,
+          "value": 78.6,
+          "as_of": "2026-09-01"
+        }
+      },
+      "coverage": 0.56,
+      "n_benchmarks": 5,
+      "flags": []
+    },
+    {
+      "rank": 4,
+      "model": "claude opus 4.7",
+      "tier": "T1",
+      "g": 76.9,
+      "g_point": 77.2,
+      "ci95": [
+        72.2,
+        81.3
+      ],
+      "pillars": {
+        "human_preference": {
+          "score": 100.0,
+          "coverage": 0.714
+        },
+        "knowledge_reasoning": {
+          "score": 83.7,
+          "coverage": 0.7
+        },
+        "coding": {
+          "score": 76.8,
+          "coverage": 0.85
+        }
+      },
+      "benchmarks": {
+        "lm_arena_elo": {
+          "raw": 1493.7218399926346,
+          "value": 100.0,
+          "as_of": "2026-10-28"
+        },
+        "gpqa_diamond": {
+          "raw": 90.15,
+          "value": 74.4,
+          "as_of": "2026-09-01"
+        },
+        "mmlu_pro": {
+          "raw": 89.87,
+          "value": 96.1,
+          "as_of": "2026-09-01"
+        },
+        "swebench_verified": {
+          "raw": 82.0,
+          "value": 84.8,
+          "as_of": "2026-09-01"
+        },
+        "livecodebench": {
+          "raw": 85.07,
+          "value": 65.4,
+          "as_of": "2026-09-01"
+        }
+      },
+      "coverage": 0.56,
+      "n_benchmarks": 5,
+      "flags": []
+    },
+    {
+      "rank": 5,
+      "model": "gemini 3 pro",
+      "tier": "T1",
+      "g": 74.8,
+      "g_point": 76.6,
+      "ci95": [
+        69.9,
+        79.4
+      ],
+      "pillars": {
+        "human_preference": {
+          "score": 94.2,
+          "coverage": 0.714
+        },
+        "knowledge_reasoning": {
+          "score": 91.2,
+          "coverage": 0.7
+        },
+        "coding": {
+          "score": 76.3,
+          "coverage": 0.85
+        }
+      },
+      "benchmarks": {
+        "lm_arena_elo": {
+          "raw": 1485.4329182845129,
+          "value": 94.2,
+          "as_of": "2026-10-28"
+        },
+        "gpqa_diamond": {
+          "raw": 91.67,
+          "value": 85.8,
+          "as_of": "2026-09-01"
+        },
+        "mmlu_pro": {
+          "raw": 90.1,
+          "value": 98.3,
+          "as_of": "2026-09-01"
+        },
+        "swebench_verified": {
+          "raw": 76.4,
+          "value": 70.4,
+          "as_of": "2026-09-01"
+        },
+        "livecodebench": {
+          "raw": 86.41,
+          "value": 84.8,
+          "as_of": "2026-09-01"
+        }
+      },
+      "coverage": 0.56,
+      "n_benchmarks": 5,
+      "flags": []
+    },
+    {
+      "rank": 6,
+      "model": "grok 4.5",
+      "tier": "T2",
+      "g": 74.1,
+      "g_point": 75.9,
+      "ci95": [
+        69.7,
+        77.5
+      ],
+      "pillars": {
+        "human_preference": {
+          "score": 80.1,
+          "coverage": 0.714
+        },
+        "knowledge_reasoning": {
+          "score": 93.4,
+          "coverage": 0.7
+        },
+        "coding": {
+          "score": 95.5,
+          "coverage": 0.85
+        }
+      },
+      "benchmarks": {
+        "lm_arena_elo": {
+          "raw": 1465.4464199324245,
+          "value": 80.1,
+          "as_of": "2026-10-28"
+        },
+        "gpqa_diamond": {
+          "raw": 92.93,
+          "value": 96.2,
+          "as_of": "2026-09-01"
+        },
+        "mmlu_pro": {
+          "raw": 89.22,
+          "value": 89.6,
+          "as_of": "2026-09-01"
+        },
+        "swebench_verified": {
+          "raw": 86.6,
+          "value": 95.6,
+          "as_of": "2026-09-01"
+        },
+        "livecodebench": {
+          "raw": 87.35,
+          "value": 95.3,
+          "as_of": "2026-09-01"
+        }
+      },
+      "coverage": 0.56,
+      "n_benchmarks": 5,
+      "flags": []
+    },
+    {
+      "rank": 7,
+      "model": "gpt 5.5",
+      "tier": "T2",
+      "g": 73.8,
+      "g_point": 75.2,
+      "ci95": [
+        68.8,
+        78.1
+      ],
+      "pillars": {
+        "human_preference": {
+          "score": 88.0,
+          "coverage": 0.714
+        },
+        "knowledge_reasoning": {
+          "score": 90.2,
+          "coverage": 0.7
+        },
+        "coding": {
+          "score": 80.9,
+          "coverage": 0.85
+        }
+      },
+      "benchmarks": {
+        "lm_arena_elo": {
+          "raw": 1476.6501726608242,
+          "value": 88.0,
+          "as_of": "2026-10-28"
+        },
+        "gpqa_diamond": {
+          "raw": 93.18,
+          "value": 98.3,
+          "as_of": "2026-09-01"
+        },
+        "mmlu_pro": {
+          "raw": 88.14,
+          "value": 79.3,
+          "as_of": "2026-09-01"
+        },
+        "swebench_verified": {
+          "raw": 82.6,
+          "value": 89.6,
+          "as_of": "2026-09-01"
+        },
+        "livecodebench": {
+          "raw": 85.3,
+          "value": 68.4,
+          "as_of": "2026-09-01"
+        }
+      },
+      "coverage": 0.56,
+      "n_benchmarks": 5,
+      "flags": []
+    },
+    {
+      "rank": 8,
+      "model": "gemini 3 flash",
+      "tier": "T3",
+      "g": 65.4,
+      "g_point": 66.2,
+      "ci95": [
+        59.6,
+        70.4
+      ],
+      "pillars": {
+        "human_preference": {
+          "score": 85.2,
+          "coverage": 0.714
+        },
+        "knowledge_reasoning": {
+          "score": 71.6,
+          "coverage": 0.7
+        },
+        "coding": {
+          "score": 67.0,
+          "coverage": 0.85
+        }
+      },
+      "benchmarks": {
+        "lm_arena_elo": {
+          "raw": 1472.7476280219503,
+          "value": 85.2,
+          "as_of": "2026-10-28"
+        },
+        "gpqa_diamond": {
+          "raw": 87.88,
+          "value": 62.9,
+          "as_of": "2026-09-01"
+        },
+        "mmlu_pro": {
+          "raw": 88.59,
+          "value": 83.2,
+          "as_of": "2026-09-01"
+        },
+        "swebench_verified": {
+          "raw": 75.0,
+          "value": 61.4,
+          "as_of": "2026-09-01"
+        },
+        "livecodebench": {
+          "raw": 85.59,
+          "value": 75.1,
+          "as_of": "2026-09-01"
+        }
+      },
+      "coverage": 0.56,
+      "n_benchmarks": 5,
+      "flags": []
+    },
+    {
+      "rank": 9,
+      "model": "kimi k2.6",
+      "tier": "T3",
+      "g": 64.2,
+      "g_point": 65.5,
+      "ci95": [
+        58.3,
+        68.8
+      ],
+      "pillars": {
+        "human_preference": {
+          "score": 76.9,
+          "coverage": 0.714
+        },
+        "knowledge_reasoning": {
+          "score": 71.6,
+          "coverage": 0.7
+        },
+        "coding": {
+          "score": 77.0,
+          "coverage": 0.85
+        }
+      },
+      "benchmarks": {
+        "lm_arena_elo": {
+          "raw": 1460.9562197110456,
+          "value": 76.9,
+          "as_of": "2026-10-28"
+        },
+        "gpqa_diamond": {
+          "raw": 89.14,
+          "value": 69.1,
+          "as_of": "2026-09-01"
+        },
+        "mmlu_pro": {
+          "raw": 87.57,
+          "value": 74.9,
+          "as_of": "2026-09-01"
+        },
+        "swebench_verified": {
+          "raw": 76.2,
+          "value": 67.7,
+          "as_of": "2026-09-01"
+        },
+        "livecodebench": {
+          "raw": 86.77,
+          "value": 90.3,
+          "as_of": "2026-09-01"
+        }
+      },
+      "coverage": 0.56,
+      "n_benchmarks": 5,
+      "flags": []
+    },
+    {
+      "rank": 10,
+      "model": "glm 5.3 flash",
+      "tier": "T3",
+      "g": 60.6,
+      "g_point": 60.2,
+      "ci95": [
+        54.6,
+        66.2
+      ],
+      "pillars": {
+        "human_preference": {
+          "score": 77.1,
           "coverage": 1.0
         },
         "knowledge_reasoning": {
-          "score": 75.0,
-          "coverage": 0.4
+          "score": 52.9,
+          "coverage": 0.7
         },
         "coding": {
-          "score": 75.0,
+          "score": 66.6,
           "coverage": 0.85
         }
       },
       "benchmarks": {
         "lm_arena_elo": {
           "raw": 1476.515607263063,
-          "value": 50.0,
+          "value": 87.9,
           "as_of": "2026-10-28"
         },
         "openrouter_usage": {
@@ -646,108 +1150,1186 @@
         },
         "gpqa_diamond": {
           "raw": 86.36,
-          "value": 75.0,
+          "value": 50.7,
+          "as_of": "2026-09-01"
+        },
+        "mmlu_pro": {
+          "raw": 86.06,
+          "value": 55.8,
           "as_of": "2026-09-01"
         },
         "swebench_verified": {
           "raw": 92.0,
-          "value": 75.0,
+          "value": 100.0,
           "as_of": "2026-09-01"
         },
         "livecodebench": {
           "raw": 80.51,
-          "value": 75.0,
+          "value": 18.8,
           "as_of": "2026-09-01"
         }
       },
-      "coverage": 0.6,
+      "coverage": 0.66,
+      "n_benchmarks": 6,
+      "flags": []
+    },
+    {
+      "rank": 11,
+      "model": "claude sonnet 4.6",
+      "tier": "T3",
+      "g": 59.5,
+      "g_point": 60.4,
+      "ci95": [
+        53.0,
+        65.2
+      ],
+      "pillars": {
+        "human_preference": {
+          "score": 84.7,
+          "coverage": 0.714
+        },
+        "knowledge_reasoning": {
+          "score": 57.3,
+          "coverage": 0.7
+        },
+        "coding": {
+          "score": 59.9,
+          "coverage": 0.85
+        }
+      },
+      "benchmarks": {
+        "lm_arena_elo": {
+          "raw": 1471.9506765539006,
+          "value": 84.7,
+          "as_of": "2026-10-28"
+        },
+        "gpqa_diamond": {
+          "raw": 85.61,
+          "value": 46.3,
+          "as_of": "2026-09-01"
+        },
+        "mmlu_pro": {
+          "raw": 87.34,
+          "value": 72.1,
+          "as_of": "2026-09-01"
+        },
+        "swebench_verified": {
+          "raw": 77.4,
+          "value": 74.0,
+          "as_of": "2026-09-01"
+        },
+        "livecodebench": {
+          "raw": 82.09,
+          "value": 39.7,
+          "as_of": "2026-09-01"
+        }
+      },
+      "coverage": 0.56,
+      "n_benchmarks": 5,
+      "flags": []
+    },
+    {
+      "rank": 12,
+      "model": "gpt 5.2",
+      "tier": "T4",
+      "g": 55.9,
+      "g_point": 56.4,
+      "ci95": [
+        51.0,
+        60.4
+      ],
+      "pillars": {
+        "human_preference": {
+          "score": 59.0,
+          "coverage": 0.714
+        },
+        "knowledge_reasoning": {
+          "score": 74.0,
+          "coverage": 0.7
+        },
+        "coding": {
+          "score": 67.6,
+          "coverage": 0.85
+        }
+      },
+      "benchmarks": {
+        "lm_arena_elo": {
+          "raw": 1435.5539664924265,
+          "value": 59.0,
+          "as_of": "2026-10-28"
+        },
+        "gpqa_diamond": {
+          "raw": 91.67,
+          "value": 85.8,
+          "as_of": "2026-09-01"
+        },
+        "mmlu_pro": {
+          "raw": 86.23,
+          "value": 58.3,
+          "as_of": "2026-09-01"
+        },
+        "swebench_verified": {
+          "raw": 75.8,
+          "value": 65.6,
+          "as_of": "2026-09-01"
+        },
+        "livecodebench": {
+          "raw": 85.36,
+          "value": 70.4,
+          "as_of": "2026-09-01"
+        }
+      },
+      "coverage": 0.56,
+      "n_benchmarks": 5,
+      "flags": []
+    },
+    {
+      "rank": 13,
+      "model": "inkling",
+      "tier": "T4",
+      "g": 55.5,
+      "g_point": 56.8,
+      "ci95": [
+        50.0,
+        60.4
+      ],
+      "pillars": {
+        "human_preference": {
+          "score": 63.7,
+          "coverage": 0.714
+        },
+        "knowledge_reasoning": {
+          "score": 60.0,
+          "coverage": 0.7
+        },
+        "coding": {
+          "score": 74.7,
+          "coverage": 0.85
+        }
+      },
+      "benchmarks": {
+        "lm_arena_elo": {
+          "raw": 1442.201111233133,
+          "value": 63.7,
+          "as_of": "2026-10-28"
+        },
+        "gpqa_diamond": {
+          "raw": 87.12,
+          "value": 58.4,
+          "as_of": "2026-09-01"
+        },
+        "mmlu_pro": {
+          "raw": 86.3,
+          "value": 62.0,
+          "as_of": "2026-09-01"
+        },
+        "swebench_verified": {
+          "raw": 77.6,
+          "value": 75.8,
+          "as_of": "2026-09-01"
+        },
+        "livecodebench": {
+          "raw": 85.52,
+          "value": 73.0,
+          "as_of": "2026-09-01"
+        }
+      },
+      "coverage": 0.56,
+      "n_benchmarks": 5,
+      "flags": []
+    },
+    {
+      "rank": 14,
+      "model": "glm 5.1",
+      "tier": "T4",
+      "g": 54.8,
+      "g_point": 55.6,
+      "ci95": [
+        47.7,
+        60.9
+      ],
+      "pillars": {
+        "human_preference": {
+          "score": 80.0,
+          "coverage": 0.714
+        },
+        "knowledge_reasoning": {
+          "score": 51.5,
+          "coverage": 0.7
+        },
+        "coding": {
+          "score": 54.0,
+          "coverage": 0.85
+        }
+      },
+      "benchmarks": {
+        "lm_arena_elo": {
+          "raw": 1465.3780546778316,
+          "value": 80.0,
+          "as_of": "2026-10-28"
+        },
+        "gpqa_diamond": {
+          "raw": 84.52,
+          "value": 39.0,
+          "as_of": "2026-09-01"
+        },
+        "mmlu_pro": {
+          "raw": 86.9,
+          "value": 68.2,
+          "as_of": "2026-09-01"
+        },
+        "swebench_verified": {
+          "raw": 76.4,
+          "value": 70.4,
+          "as_of": "2026-09-01"
+        },
+        "livecodebench": {
+          "raw": 81.38,
+          "value": 30.6,
+          "as_of": "2026-09-01"
+        }
+      },
+      "coverage": 0.56,
+      "n_benchmarks": 5,
+      "flags": []
+    },
+    {
+      "rank": 15,
+      "model": "grok 4.3",
+      "tier": "T4",
+      "g": 53.9,
+      "g_point": 53.6,
+      "ci95": [
+        48.9,
+        58.6
+      ],
+      "pillars": {
+        "human_preference": {
+          "score": 63.3,
+          "coverage": 0.714
+        },
+        "knowledge_reasoning": {
+          "score": 68.7,
+          "coverage": 0.7
+        },
+        "coding": {
+          "score": 53.3,
+          "coverage": 0.85
+        }
+      },
+      "benchmarks": {
+        "lm_arena_elo": {
+          "raw": 1441.6307836382434,
+          "value": 63.3,
+          "as_of": "2026-10-28"
+        },
+        "gpqa_diamond": {
+          "raw": 91.41,
+          "value": 82.4,
+          "as_of": "2026-09-01"
+        },
+        "mmlu_pro": {
+          "raw": 85.84,
+          "value": 50.6,
+          "as_of": "2026-09-01"
+        },
+        "swebench_verified": {
+          "raw": 71.4,
+          "value": 48.3,
+          "as_of": "2026-09-01"
+        },
+        "livecodebench": {
+          "raw": 84.49,
+          "value": 60.3,
+          "as_of": "2026-09-01"
+        }
+      },
+      "coverage": 0.56,
+      "n_benchmarks": 5,
+      "flags": []
+    },
+    {
+      "rank": 16,
+      "model": "minimax m3",
+      "tier": "T4",
+      "g": 52.4,
+      "g_point": 52.9,
+      "ci95": [
+        47.1,
+        57.2
+      ],
+      "pillars": {
+        "human_preference": {
+          "score": 61.6,
+          "coverage": 0.714
+        },
+        "knowledge_reasoning": {
+          "score": 68.6,
+          "coverage": 0.7
+        },
+        "coding": {
+          "score": 53.3,
+          "coverage": 0.85
+        }
+      },
+      "benchmarks": {
+        "lm_arena_elo": {
+          "raw": 1439.2396535610842,
+          "value": 61.6,
+          "as_of": "2026-10-28"
+        },
+        "gpqa_diamond": {
+          "raw": 92.68,
+          "value": 93.6,
+          "as_of": "2026-09-01"
+        },
+        "mmlu_pro": {
+          "raw": 84.22,
+          "value": 35.1,
+          "as_of": "2026-09-01"
+        },
+        "swebench_verified": {
+          "raw": 75.0,
+          "value": 61.4,
+          "as_of": "2026-09-01"
+        },
+        "livecodebench": {
+          "raw": 82.15,
+          "value": 41.7,
+          "as_of": "2026-09-01"
+        }
+      },
+      "coverage": 0.56,
+      "n_benchmarks": 5,
+      "flags": []
+    },
+    {
+      "rank": 17,
+      "model": "gpt 5.1",
+      "tier": "T4",
+      "g": 51.1,
+      "g_point": 52.3,
+      "ci95": [
+        45.4,
+        55.7
+      ],
+      "pillars": {
+        "human_preference": {
+          "score": 61.1,
+          "coverage": 0.714
+        },
+        "knowledge_reasoning": {
+          "score": 58.4,
+          "coverage": 0.7
+        },
+        "coding": {
+          "score": 60.8,
+          "coverage": 0.85
+        }
+      },
+      "benchmarks": {
+        "lm_arena_elo": {
+          "raw": 1438.53353429247,
+          "value": 61.1,
+          "as_of": "2026-10-28"
+        },
+        "gpqa_diamond": {
+          "raw": 86.62,
+          "value": 54.1,
+          "as_of": "2026-09-01"
+        },
+        "mmlu_pro": {
+          "raw": 86.38,
+          "value": 64.0,
+          "as_of": "2026-09-01"
+        },
+        "swebench_verified": {
+          "raw": 69.8,
+          "value": 42.4,
+          "as_of": "2026-09-01"
+        },
+        "livecodebench": {
+          "raw": 86.49,
+          "value": 87.0,
+          "as_of": "2026-09-01"
+        }
+      },
+      "coverage": 0.56,
+      "n_benchmarks": 5,
+      "flags": []
+    },
+    {
+      "rank": 18,
+      "model": "glm 5",
+      "tier": "T4",
+      "g": 47.6,
+      "g_point": 47.1,
+      "ci95": [
+        40.5,
+        54.0
+      ],
+      "pillars": {
+        "human_preference": {
+          "score": 74.3,
+          "coverage": 0.714
+        },
+        "knowledge_reasoning": {
+          "score": 39.1,
+          "coverage": 0.7
+        },
+        "coding": {
+          "score": 43.5,
+          "coverage": 0.85
+        }
+      },
+      "benchmarks": {
+        "lm_arena_elo": {
+          "raw": 1457.2370395963933,
+          "value": 74.3,
+          "as_of": "2026-10-28"
+        },
+        "gpqa_diamond": {
+          "raw": 83.33,
+          "value": 28.0,
+          "as_of": "2026-09-01"
+        },
+        "mmlu_pro": {
+          "raw": 86.03,
+          "value": 54.0,
+          "as_of": "2026-09-01"
+        },
+        "swebench_verified": {
+          "raw": 71.4,
+          "value": 48.3,
+          "as_of": "2026-09-01"
+        },
+        "livecodebench": {
+          "raw": 81.87,
+          "value": 36.8,
+          "as_of": "2026-09-01"
+        }
+      },
+      "coverage": 0.56,
+      "n_benchmarks": 5,
+      "flags": []
+    },
+    {
+      "rank": 19,
+      "model": "mimo v2.5 pro",
+      "tier": "T4",
+      "g": 47.4,
+      "g_point": 45.9,
+      "ci95": [
+        39.7,
+        54.5
+      ],
+      "pillars": {
+        "human_preference": {
+          "score": 80.9,
+          "coverage": 0.714
+        },
+        "knowledge_reasoning": {
+          "score": 30.0,
+          "coverage": 0.7
+        },
+        "coding": {
+          "score": 44.3,
+          "coverage": 0.85
+        }
+      },
+      "benchmarks": {
+        "lm_arena_elo": {
+          "raw": 1466.599824571988,
+          "value": 80.9,
+          "as_of": "2026-10-28"
+        },
+        "gpqa_diamond": {
+          "raw": 82.58,
+          "value": 23.6,
+          "as_of": "2026-09-01"
+        },
+        "mmlu_pro": {
+          "raw": 84.59,
+          "value": 38.6,
+          "as_of": "2026-09-01"
+        },
+        "swebench_verified": {
+          "raw": 74.0,
+          "value": 55.3,
+          "as_of": "2026-09-01"
+        },
+        "livecodebench": {
+          "raw": 81.35,
+          "value": 28.7,
+          "as_of": "2026-09-01"
+        }
+      },
+      "coverage": 0.56,
+      "n_benchmarks": 5,
+      "flags": []
+    },
+    {
+      "rank": 20,
+      "model": "gemini 3.5 flash lite",
+      "tier": "T5",
+      "g": 46.8,
+      "g_point": 45.4,
+      "ci95": [
+        40.3,
+        53.2
+      ],
+      "pillars": {
+        "human_preference": {
+          "score": 73.2,
+          "coverage": 0.714
+        },
+        "knowledge_reasoning": {
+          "score": 40.6,
+          "coverage": 0.7
+        },
+        "coding": {
+          "score": 37.5,
+          "coverage": 0.85
+        }
+      },
+      "benchmarks": {
+        "lm_arena_elo": {
+          "raw": 1455.6556795012555,
+          "value": 73.2,
+          "as_of": "2026-10-28"
+        },
+        "gpqa_diamond": {
+          "raw": 83.84,
+          "value": 33.2,
+          "as_of": "2026-09-01"
+        },
+        "mmlu_pro": {
+          "raw": 85.84,
+          "value": 50.6,
+          "as_of": "2026-09-01"
+        },
+        "swebench_verified": {
+          "raw": 75.0,
+          "value": 61.4,
+          "as_of": "2026-09-01"
+        },
+        "livecodebench": {
+          "raw": 79.01,
+          "value": 3.4,
+          "as_of": "2026-09-01"
+        }
+      },
+      "coverage": 0.56,
+      "n_benchmarks": 5,
+      "flags": []
+    },
+    {
+      "rank": 21,
+      "model": "inkling small",
+      "tier": "T5",
+      "g": 40.9,
+      "g_point": 40.6,
+      "ci95": [
+        35.2,
+        46.1
+      ],
+      "pillars": {
+        "human_preference": {
+          "score": 37.9,
+          "coverage": 0.714
+        },
+        "knowledge_reasoning": {
+          "score": 37.5,
+          "coverage": 0.7
+        },
+        "coding": {
+          "score": 84.6,
+          "coverage": 0.85
+        }
+      },
+      "benchmarks": {
+        "lm_arena_elo": {
+          "raw": 1405.5220424213123,
+          "value": 37.9,
+          "as_of": "2026-10-28"
+        },
+        "gpqa_diamond": {
+          "raw": 83.59,
+          "value": 30.6,
+          "as_of": "2026-09-01"
+        },
+        "mmlu_pro": {
+          "raw": 85.57,
+          "value": 46.7,
+          "as_of": "2026-09-01"
+        },
+        "swebench_verified": {
+          "raw": 82.2,
+          "value": 87.5,
+          "as_of": "2026-09-01"
+        },
+        "livecodebench": {
+          "raw": 85.93,
+          "value": 80.4,
+          "as_of": "2026-09-01"
+        }
+      },
+      "coverage": 0.56,
+      "n_benchmarks": 5,
+      "flags": []
+    },
+    {
+      "rank": 22,
+      "model": "mimo v2.5",
+      "tier": "T6",
+      "g": 35.3,
+      "g_point": 34.5,
+      "ci95": [
+        27.8,
+        42.0
+      ],
+      "pillars": {
+        "human_preference": {
+          "score": 57.9,
+          "coverage": 0.714
+        },
+        "knowledge_reasoning": {
+          "score": 20.4,
+          "coverage": 0.7
+        },
+        "coding": {
+          "score": 40.3,
+          "coverage": 0.85
+        }
+      },
+      "benchmarks": {
+        "lm_arena_elo": {
+          "raw": 1433.911643961388,
+          "value": 57.9,
+          "as_of": "2026-10-28"
+        },
+        "gpqa_diamond": {
+          "raw": 81.57,
+          "value": 16.6,
+          "as_of": "2026-09-01"
+        },
+        "mmlu_pro": {
+          "raw": 82.93,
+          "value": 25.5,
+          "as_of": "2026-09-01"
+        },
+        "swebench_verified": {
+          "raw": 71.0,
+          "value": 45.4,
+          "as_of": "2026-09-01"
+        },
+        "livecodebench": {
+          "raw": 81.51,
+          "value": 33.0,
+          "as_of": "2026-09-01"
+        }
+      },
+      "coverage": 0.56,
+      "n_benchmarks": 5,
+      "flags": []
+    },
+    {
+      "rank": 23,
+      "model": "minimax m2.7",
+      "tier": "T6",
+      "g": 35.3,
+      "g_point": 34.4,
+      "ci95": [
+        30.6,
+        39.6
+      ],
+      "pillars": {
+        "human_preference": {
+          "score": 44.5,
+          "coverage": 0.714
+        },
+        "knowledge_reasoning": {
+          "score": 35.2,
+          "coverage": 0.7
+        },
+        "coding": {
+          "score": 36.4,
+          "coverage": 0.85
+        }
+      },
+      "benchmarks": {
+        "lm_arena_elo": {
+          "raw": 1414.9866250132586,
+          "value": 44.5,
+          "as_of": "2026-10-28"
+        },
+        "gpqa_diamond": {
+          "raw": 86.62,
+          "value": 54.1,
+          "as_of": "2026-09-01"
+        },
+        "mmlu_pro": {
+          "raw": 80.43,
+          "value": 9.9,
+          "as_of": "2026-09-01"
+        },
+        "swebench_verified": {
+          "raw": 73.8,
+          "value": 53.4,
+          "as_of": "2026-09-01"
+        },
+        "livecodebench": {
+          "raw": 79.93,
+          "value": 12.1,
+          "as_of": "2026-09-01"
+        }
+      },
+      "coverage": 0.56,
+      "n_benchmarks": 5,
+      "flags": []
+    },
+    {
+      "rank": 24,
+      "model": "gemini 3.1 flash lite preview",
+      "tier": "T6",
+      "g": 34.7,
+      "g_point": 33.9,
+      "ci95": [
+        28.8,
+        40.8
+      ],
+      "pillars": {
+        "human_preference": {
+          "score": 57.2,
+          "coverage": 0.714
+        },
+        "knowledge_reasoning": {
+          "score": 33.2,
+          "coverage": 0.7
+        },
+        "coding": {
+          "score": 23.7,
+          "coverage": 0.85
+        }
+      },
+      "benchmarks": {
+        "lm_arena_elo": {
+          "raw": 1432.9025098722193,
+          "value": 57.2,
+          "as_of": "2026-10-28"
+        },
+        "gpqa_diamond": {
+          "raw": 81.06,
+          "value": 13.1,
+          "as_of": "2026-09-01"
+        },
+        "mmlu_pro": {
+          "raw": 86.24,
+          "value": 60.0,
+          "as_of": "2026-09-01"
+        },
+        "swebench_verified": {
+          "raw": 62.8,
+          "value": 29.8,
+          "as_of": "2026-09-01"
+        },
+        "livecodebench": {
+          "raw": 80.12,
+          "value": 14.9,
+          "as_of": "2026-09-01"
+        }
+      },
+      "coverage": 0.56,
+      "n_benchmarks": 5,
+      "flags": []
+    },
+    {
+      "rank": 25,
+      "model": "glm 4.7",
+      "tier": "T6",
+      "g": 33.9,
+      "g_point": 32.4,
+      "ci95": [
+        25.6,
+        41.1
+      ],
+      "pillars": {
+        "human_preference": {
+          "score": 63.1,
+          "coverage": 0.714
+        },
+        "knowledge_reasoning": {
+          "score": 13.3,
+          "coverage": 0.7
+        },
+        "coding": {
+          "score": 41.8,
+          "coverage": 0.85
+        }
+      },
+      "benchmarks": {
+        "lm_arena_elo": {
+          "raw": 1441.3419390936074,
+          "value": 63.1,
+          "as_of": "2026-10-28"
+        },
+        "gpqa_diamond": {
+          "raw": 80.05,
+          "value": 6.1,
+          "as_of": "2026-09-01"
+        },
+        "mmlu_pro": {
+          "raw": 82.74,
+          "value": 22.9,
+          "as_of": "2026-09-01"
+        },
+        "swebench_verified": {
+          "raw": 69.4,
+          "value": 40.3,
+          "as_of": "2026-09-01"
+        },
+        "livecodebench": {
+          "raw": 82.23,
+          "value": 43.8,
+          "as_of": "2026-09-01"
+        }
+      },
+      "coverage": 0.56,
+      "n_benchmarks": 5,
+      "flags": []
+    },
+    {
+      "rank": 26,
+      "model": "deepseek v3.2 (thinking)",
+      "tier": "T6",
+      "g": 32.1,
+      "g_point": 31.0,
+      "ci95": [
+        26.3,
+        38.2
+      ],
+      "pillars": {
+        "human_preference": {
+          "score": 49.7,
+          "coverage": 0.714
+        },
+        "knowledge_reasoning": {
+          "score": 22.9,
+          "coverage": 0.7
+        },
+        "coding": {
+          "score": 31.1,
+          "coverage": 0.85
+        }
+      },
+      "benchmarks": {
+        "lm_arena_elo": {
+          "raw": 1422.3419295440324,
+          "value": 49.7,
+          "as_of": "2026-10-28"
+        },
+        "gpqa_diamond": {
+          "raw": 80.3,
+          "value": 8.7,
+          "as_of": "2026-09-01"
+        },
+        "mmlu_pro": {
+          "raw": 84.92,
+          "value": 41.9,
+          "as_of": "2026-09-01"
+        },
+        "swebench_verified": {
+          "raw": 67.6,
+          "value": 36.7,
+          "as_of": "2026-09-01"
+        },
+        "livecodebench": {
+          "raw": 80.69,
+          "value": 23.2,
+          "as_of": "2026-09-01"
+        }
+      },
+      "coverage": 0.56,
+      "n_benchmarks": 5,
+      "flags": []
+    },
+    {
+      "rank": 27,
+      "model": "grok 4.1 fast (reasoning)",
+      "tier": "T6",
+      "g": 28.7,
+      "g_point": 27.1,
+      "ci95": [
+        21.0,
+        35.4
+      ],
+      "pillars": {
+        "human_preference": {
+          "score": 55.3,
+          "coverage": 0.714
+        },
+        "knowledge_reasoning": {
+          "score": 35.2,
+          "coverage": 0.7
+        },
+        "coding": {
+          "score": 10.2,
+          "coverage": 0.85
+        }
+      },
+      "benchmarks": {
+        "lm_arena_elo": {
+          "raw": 1430.3037614229347,
+          "value": 55.3,
+          "as_of": "2026-10-28"
+        },
+        "gpqa_diamond": {
+          "raw": 84.34,
+          "value": 36.7,
+          "as_of": "2026-09-01"
+        },
+        "mmlu_pro": {
+          "raw": 84.18,
+          "value": 33.3,
+          "as_of": "2026-09-01"
+        },
+        "swebench_verified": {
+          "raw": 41.4,
+          "value": 2.5,
+          "as_of": "2026-09-01"
+        },
+        "livecodebench": {
+          "raw": 80.64,
+          "value": 21.3,
+          "as_of": "2026-09-01"
+        }
+      },
+      "coverage": 0.56,
+      "n_benchmarks": 5,
+      "flags": []
+    },
+    {
+      "rank": 28,
+      "model": "minimax m2.5",
+      "tier": "T7",
+      "g": 22.6,
+      "g_point": 21.5,
+      "ci95": [
+        16.7,
+        27.5
+      ],
+      "pillars": {
+        "human_preference": {
+          "score": 27.4,
+          "coverage": 0.714
+        },
+        "knowledge_reasoning": {
+          "score": 14.3,
+          "coverage": 0.7
+        },
+        "coding": {
+          "score": 36.2,
+          "coverage": 0.85
+        }
+      },
+      "benchmarks": {
+        "lm_arena_elo": {
+          "raw": 1390.6240740058358,
+          "value": 27.4,
+          "as_of": "2026-10-28"
+        },
+        "gpqa_diamond": {
+          "raw": 82.07,
+          "value": 20.1,
+          "as_of": "2026-09-01"
+        },
+        "mmlu_pro": {
+          "raw": 80.09,
+          "value": 6.6,
+          "as_of": "2026-09-01"
+        },
+        "swebench_verified": {
+          "raw": 74.2,
+          "value": 57.2,
+          "as_of": "2026-09-01"
+        },
+        "livecodebench": {
+          "raw": 79.21,
+          "value": 6.3,
+          "as_of": "2026-09-01"
+        }
+      },
+      "coverage": 0.56,
+      "n_benchmarks": 5,
+      "flags": []
+    },
+    {
+      "rank": 29,
+      "model": "grok 4 fast (reasoning)",
+      "tier": "T7",
+      "g": 20.8,
+      "g_point": 18.4,
+      "ci95": [
+        16.4,
+        26.9
+      ],
+      "pillars": {
+        "human_preference": {
+          "score": 37.7,
+          "coverage": 0.714
+        },
+        "knowledge_reasoning": {
+          "score": 25.8,
+          "coverage": 0.7
+        },
+        "coding": {
+          "score": 6.3,
+          "coverage": 0.85
+        }
+      },
+      "benchmarks": {
+        "lm_arena_elo": {
+          "raw": 1405.2840068203932,
+          "value": 37.7,
+          "as_of": "2026-10-28"
+        },
+        "gpqa_diamond": {
+          "raw": 85.35,
+          "value": 43.7,
+          "as_of": "2026-09-01"
+        },
+        "mmlu_pro": {
+          "raw": 79.7,
+          "value": 2.0,
+          "as_of": "2026-09-01"
+        },
+        "swebench_verified": {
+          "raw": 45.4,
+          "value": 9.3,
+          "as_of": "2026-09-01"
+        },
+        "livecodebench": {
+          "raw": 78.97,
+          "value": 2.0,
+          "as_of": "2026-09-01"
+        }
+      },
+      "coverage": 0.56,
+      "n_benchmarks": 5,
+      "flags": []
+    },
+    {
+      "rank": 30,
+      "model": "mistral large 3",
+      "tier": "T7",
+      "g": 12.1,
+      "g_point": 12.0,
+      "ci95": [
+        11.6,
+        14.7
+      ],
+      "pillars": {
+        "human_preference": {
+          "score": 44.1,
+          "coverage": 0.714
+        },
+        "knowledge_reasoning": {
+          "score": 5.0,
+          "coverage": 0.7
+        },
+        "coding": {
+          "score": 5.0,
+          "coverage": 0.85
+        }
+      },
+      "benchmarks": {
+        "lm_arena_elo": {
+          "raw": 1414.3493437488055,
+          "value": 44.1,
+          "as_of": "2026-10-28"
+        },
+        "gpqa_diamond": {
+          "raw": 68.43,
+          "value": 2.0,
+          "as_of": "2026-09-01"
+        },
+        "mmlu_pro": {
+          "raw": 79.82,
+          "value": 3.6,
+          "as_of": "2026-09-01"
+        },
+        "swebench_verified": {
+          "raw": 41.4,
+          "value": 2.5,
+          "as_of": "2026-09-01"
+        },
+        "livecodebench": {
+          "raw": 55.34,
+          "value": 2.0,
+          "as_of": "2026-09-01"
+        }
+      },
+      "coverage": 0.56,
+      "n_benchmarks": 5,
+      "flags": []
+    },
+    {
+      "rank": 31,
+      "model": "gpt oss 120b",
+      "tier": "T7",
+      "g": 6.6,
+      "g_point": 6.5,
+      "ci95": [
+        5.3,
+        8.4
+      ],
+      "pillars": {
+        "human_preference": {
+          "score": 5.0,
+          "coverage": 0.714
+        },
+        "knowledge_reasoning": {
+          "score": 5.0,
+          "coverage": 0.7
+        },
+        "coding": {
+          "score": 22.3,
+          "coverage": 0.85
+        }
+      },
+      "benchmarks": {
+        "lm_arena_elo": {
+          "raw": 1351.7369452850648,
+          "value": 2.0,
+          "as_of": "2026-10-28"
+        },
+        "gpqa_diamond": {
+          "raw": 78.54,
+          "value": 2.0,
+          "as_of": "2026-09-01"
+        },
+        "mmlu_pro": {
+          "raw": 79.17,
+          "value": 2.0,
+          "as_of": "2026-09-01"
+        },
+        "swebench_verified": {
+          "raw": 33.6,
+          "value": 2.0,
+          "as_of": "2026-09-01"
+        },
+        "livecodebench": {
+          "raw": 83.23,
+          "value": 51.3,
+          "as_of": "2026-09-01"
+        }
+      },
+      "coverage": 0.56,
       "n_benchmarks": 5,
       "flags": []
     }
   ],
   "unranked": [
-    {
-      "model": "17 (nonthinking)",
-      "n_benchmarks": 2,
-      "n_pillars": 2,
-      "benchmarks": [
-        "gpqa_diamond",
-        "livecodebench"
-      ]
-    },
-    {
-      "model": "17 (thinking)",
-      "n_benchmarks": 1,
-      "n_pillars": 1,
-      "benchmarks": [
-        "livecodebench"
-      ]
-    },
-    {
-      "model": "2024)",
-      "n_benchmarks": 2,
-      "n_pillars": 2,
-      "benchmarks": [
-        "gpqa_diamond",
-        "livecodebench"
-      ]
-    },
-    {
-      "model": "2025)",
-      "n_benchmarks": 2,
-      "n_pillars": 2,
-      "benchmarks": [
-        "gpqa_diamond",
-        "livecodebench"
-      ]
-    },
-    {
-      "model": "24/2025)",
-      "n_benchmarks": 2,
-      "n_pillars": 2,
-      "benchmarks": [
-        "gpqa_diamond",
-        "livecodebench"
-      ]
-    },
-    {
-      "model": "25)",
-      "n_benchmarks": 3,
-      "n_pillars": 2,
-      "benchmarks": [
-        "gpqa_diamond",
-        "livecodebench",
-        "swebench_verified"
-      ]
-    },
-    {
-      "model": "25) (nonthinking)",
-      "n_benchmarks": 2,
-      "n_pillars": 2,
-      "benchmarks": [
-        "gpqa_diamond",
-        "livecodebench"
-      ]
-    },
-    {
-      "model": "25) (thinking)",
-      "n_benchmarks": 2,
-      "n_pillars": 2,
-      "benchmarks": [
-        "gpqa_diamond",
-        "livecodebench"
-      ]
-    },
-    {
-      "model": "26)",
-      "n_benchmarks": 3,
-      "n_pillars": 2,
-      "benchmarks": [
-        "gpqa_diamond",
-        "livecodebench",
-        "swebench_verified"
-      ]
-    },
     {
       "model": "alpaca 13b",
       "n_benchmarks": 1,
@@ -942,11 +2524,12 @@
     },
     {
       "model": "claude 3.5 haiku latest",
-      "n_benchmarks": 2,
+      "n_benchmarks": 3,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
-        "livecodebench"
+        "livecodebench",
+        "mmlu_pro"
       ]
     },
     {
@@ -967,11 +2550,12 @@
     },
     {
       "model": "claude 3.5 sonnet latest",
-      "n_benchmarks": 2,
+      "n_benchmarks": 3,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
-        "livecodebench"
+        "livecodebench",
+        "mmlu_pro"
       ]
     },
     {
@@ -984,11 +2568,12 @@
     },
     {
       "model": "claude 3.7 sonnet (nonthinking)",
-      "n_benchmarks": 2,
+      "n_benchmarks": 3,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
-        "livecodebench"
+        "livecodebench",
+        "mmlu_pro"
       ]
     },
     {
@@ -1001,20 +2586,22 @@
     },
     {
       "model": "claude 3.7 sonnet (thinking)",
-      "n_benchmarks": 2,
-      "n_pillars": 2,
-      "benchmarks": [
-        "gpqa_diamond",
-        "livecodebench"
-      ]
-    },
-    {
-      "model": "claude fable 5",
       "n_benchmarks": 3,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
         "livecodebench",
+        "mmlu_pro"
+      ]
+    },
+    {
+      "model": "claude fable 5",
+      "n_benchmarks": 4,
+      "n_pillars": 2,
+      "benchmarks": [
+        "gpqa_diamond",
+        "livecodebench",
+        "mmlu_pro",
         "swebench_verified"
       ]
     },
@@ -1028,11 +2615,12 @@
     },
     {
       "model": "claude fable 5.1",
-      "n_benchmarks": 2,
+      "n_benchmarks": 3,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
-        "livecodebench"
+        "livecodebench",
+        "mmlu_pro"
       ]
     },
     {
@@ -1053,11 +2641,12 @@
     },
     {
       "model": "claude haiku 4.5 (thinking)",
-      "n_benchmarks": 3,
+      "n_benchmarks": 4,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
         "livecodebench",
+        "mmlu_pro",
         "swebench_verified"
       ]
     },
@@ -1079,11 +2668,12 @@
     },
     {
       "model": "claude opus 4 (nonthinking)",
-      "n_benchmarks": 2,
+      "n_benchmarks": 3,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
-        "livecodebench"
+        "livecodebench",
+        "mmlu_pro"
       ]
     },
     {
@@ -1112,11 +2702,12 @@
     },
     {
       "model": "claude opus 4.1 (nonthinking)",
-      "n_benchmarks": 2,
+      "n_benchmarks": 3,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
-        "livecodebench"
+        "livecodebench",
+        "mmlu_pro"
       ]
     },
     {
@@ -1129,11 +2720,12 @@
     },
     {
       "model": "claude opus 4.1 (thinking)",
-      "n_benchmarks": 2,
+      "n_benchmarks": 3,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
-        "livecodebench"
+        "livecodebench",
+        "mmlu_pro"
       ]
     },
     {
@@ -1154,20 +2746,22 @@
     },
     {
       "model": "claude opus 4.5 (nonthinking)",
-      "n_benchmarks": 2,
-      "n_pillars": 2,
-      "benchmarks": [
-        "gpqa_diamond",
-        "livecodebench"
-      ]
-    },
-    {
-      "model": "claude opus 4.5 (thinking)",
       "n_benchmarks": 3,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
         "livecodebench",
+        "mmlu_pro"
+      ]
+    },
+    {
+      "model": "claude opus 4.5 (thinking)",
+      "n_benchmarks": 4,
+      "n_pillars": 2,
+      "benchmarks": [
+        "gpqa_diamond",
+        "livecodebench",
+        "mmlu_pro",
         "swebench_verified"
       ]
     },
@@ -1189,22 +2783,12 @@
     },
     {
       "model": "claude opus 4.6 (thinking)",
-      "n_benchmarks": 3,
+      "n_benchmarks": 4,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
         "livecodebench",
-        "swebench_verified"
-      ]
-    },
-    {
-      "model": "claude opus 4.7",
-      "n_benchmarks": 4,
-      "n_pillars": 3,
-      "benchmarks": [
-        "gpqa_diamond",
-        "livecodebench",
-        "lm_arena_elo",
+        "mmlu_pro",
         "swebench_verified"
       ]
     },
@@ -1217,17 +2801,6 @@
       ]
     },
     {
-      "model": "claude opus 4.8",
-      "n_benchmarks": 4,
-      "n_pillars": 3,
-      "benchmarks": [
-        "gpqa_diamond",
-        "livecodebench",
-        "lm_arena_elo",
-        "swebench_verified"
-      ]
-    },
-    {
       "model": "claude opus 4.8 (high)",
       "n_benchmarks": 1,
       "n_pillars": 1,
@@ -1237,11 +2810,12 @@
     },
     {
       "model": "claude opus 5",
-      "n_benchmarks": 3,
+      "n_benchmarks": 4,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
         "livecodebench",
+        "mmlu_pro",
         "swebench_verified"
       ]
     },
@@ -1287,11 +2861,12 @@
     },
     {
       "model": "claude sonnet 4 (nonthinking)",
-      "n_benchmarks": 2,
+      "n_benchmarks": 3,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
-        "livecodebench"
+        "livecodebench",
+        "mmlu_pro"
       ]
     },
     {
@@ -1304,11 +2879,12 @@
     },
     {
       "model": "claude sonnet 4 (thinking)",
-      "n_benchmarks": 2,
+      "n_benchmarks": 3,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
-        "livecodebench"
+        "livecodebench",
+        "mmlu_pro"
       ]
     },
     {
@@ -1329,32 +2905,23 @@
     },
     {
       "model": "claude sonnet 4.5 (thinking)",
-      "n_benchmarks": 3,
+      "n_benchmarks": 4,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
         "livecodebench",
-        "swebench_verified"
-      ]
-    },
-    {
-      "model": "claude sonnet 4.6",
-      "n_benchmarks": 4,
-      "n_pillars": 3,
-      "benchmarks": [
-        "gpqa_diamond",
-        "livecodebench",
-        "lm_arena_elo",
+        "mmlu_pro",
         "swebench_verified"
       ]
     },
     {
       "model": "claude sonnet 5",
-      "n_benchmarks": 3,
+      "n_benchmarks": 4,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
         "livecodebench",
+        "mmlu_pro",
         "swebench_verified"
       ]
     },
@@ -1392,11 +2959,12 @@
     },
     {
       "model": "command a",
-      "n_benchmarks": 3,
+      "n_benchmarks": 4,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
         "livecodebench",
+        "mmlu_pro",
         "swebench_verified"
       ]
     },
@@ -1426,12 +2994,13 @@
     },
     {
       "model": "command r+",
-      "n_benchmarks": 3,
+      "n_benchmarks": 4,
       "n_pillars": 3,
       "benchmarks": [
         "gpqa_diamond",
         "livecodebench",
-        "lm_arena_elo"
+        "lm_arena_elo",
+        "mmlu_pro"
       ]
     },
     {
@@ -1468,11 +3037,12 @@
     },
     {
       "model": "deepseek r1",
-      "n_benchmarks": 2,
-      "n_pillars": 2,
+      "n_benchmarks": 3,
+      "n_pillars": 3,
       "benchmarks": [
         "livecodebench",
-        "lm_arena_elo"
+        "lm_arena_elo",
+        "mmlu_pro"
       ]
     },
     {
@@ -1501,11 +3071,22 @@
     },
     {
       "model": "deepseek v3",
-      "n_benchmarks": 2,
+      "n_benchmarks": 3,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
-        "lm_arena_elo"
+        "lm_arena_elo",
+        "mmlu_pro"
+      ]
+    },
+    {
+      "model": "deepseek v3 (03/24/2025)",
+      "n_benchmarks": 3,
+      "n_pillars": 2,
+      "benchmarks": [
+        "gpqa_diamond",
+        "livecodebench",
+        "mmlu_pro"
       ]
     },
     {
@@ -1558,22 +3139,12 @@
     },
     {
       "model": "deepseek v3.2 (nonthinking)",
-      "n_benchmarks": 2,
+      "n_benchmarks": 3,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
-        "livecodebench"
-      ]
-    },
-    {
-      "model": "deepseek v3.2 (thinking)",
-      "n_benchmarks": 4,
-      "n_pillars": 3,
-      "benchmarks": [
-        "gpqa_diamond",
         "livecodebench",
-        "lm_arena_elo",
-        "swebench_verified"
+        "mmlu_pro"
       ]
     },
     {
@@ -1594,11 +3165,12 @@
     },
     {
       "model": "deepseek v4",
-      "n_benchmarks": 3,
+      "n_benchmarks": 4,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
         "livecodebench",
+        "mmlu_pro",
         "swebench_verified"
       ]
     },
@@ -1612,11 +3184,12 @@
     },
     {
       "model": "deepseek v4 flash 0731",
-      "n_benchmarks": 3,
+      "n_benchmarks": 4,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
         "livecodebench",
+        "mmlu_pro",
         "swebench_verified"
       ]
     },
@@ -1646,11 +3219,12 @@
     },
     {
       "model": "deepseek v4 pro 0813",
-      "n_benchmarks": 3,
+      "n_benchmarks": 4,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
         "livecodebench",
+        "mmlu_pro",
         "swebench_verified"
       ]
     },
@@ -1785,12 +3359,13 @@
     },
     {
       "model": "gemini 1.5 flash (002)",
-      "n_benchmarks": 3,
+      "n_benchmarks": 4,
       "n_pillars": 3,
       "benchmarks": [
         "gpqa_diamond",
         "livecodebench",
-        "lm_arena_elo"
+        "lm_arena_elo",
+        "mmlu_pro"
       ]
     },
     {
@@ -1811,22 +3386,24 @@
     },
     {
       "model": "gemini 1.5 pro (002)",
-      "n_benchmarks": 3,
+      "n_benchmarks": 4,
       "n_pillars": 3,
       "benchmarks": [
         "gpqa_diamond",
         "livecodebench",
-        "lm_arena_elo"
+        "lm_arena_elo",
+        "mmlu_pro"
       ]
     },
     {
       "model": "gemini 2.0 flash (001)",
-      "n_benchmarks": 3,
+      "n_benchmarks": 4,
       "n_pillars": 3,
       "benchmarks": [
         "gpqa_diamond",
         "livecodebench",
-        "lm_arena_elo"
+        "lm_arena_elo",
+        "mmlu_pro"
       ]
     },
     {
@@ -1843,6 +3420,26 @@
       "n_pillars": 1,
       "benchmarks": [
         "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "gemini 2.5 flash lite (9/25) (nonthinking)",
+      "n_benchmarks": 3,
+      "n_pillars": 2,
+      "benchmarks": [
+        "gpqa_diamond",
+        "livecodebench",
+        "mmlu_pro"
+      ]
+    },
+    {
+      "model": "gemini 2.5 flash lite (9/25) (thinking)",
+      "n_benchmarks": 3,
+      "n_pillars": 2,
+      "benchmarks": [
+        "gpqa_diamond",
+        "livecodebench",
+        "mmlu_pro"
       ]
     },
     {
@@ -1870,6 +3467,43 @@
       ]
     },
     {
+      "model": "gemini 2.5 flash preview (9/25) (nonthinking)",
+      "n_benchmarks": 3,
+      "n_pillars": 2,
+      "benchmarks": [
+        "gpqa_diamond",
+        "livecodebench",
+        "mmlu_pro"
+      ]
+    },
+    {
+      "model": "gemini 2.5 flash preview (9/25) (thinking)",
+      "n_benchmarks": 3,
+      "n_pillars": 2,
+      "benchmarks": [
+        "gpqa_diamond",
+        "livecodebench",
+        "mmlu_pro"
+      ]
+    },
+    {
+      "model": "gemini 2.5 flash preview 4/17 (nonthinking)",
+      "n_benchmarks": 2,
+      "n_pillars": 2,
+      "benchmarks": [
+        "gpqa_diamond",
+        "livecodebench"
+      ]
+    },
+    {
+      "model": "gemini 2.5 flash preview 4/17 (thinking)",
+      "n_benchmarks": 1,
+      "n_pillars": 1,
+      "benchmarks": [
+        "livecodebench"
+      ]
+    },
+    {
       "model": "gemini 2.5 pro",
       "n_benchmarks": 2,
       "n_pillars": 2,
@@ -1880,10 +3514,11 @@
     },
     {
       "model": "gemini 2.5 pro exp",
-      "n_benchmarks": 1,
+      "n_benchmarks": 2,
       "n_pillars": 1,
       "benchmarks": [
-        "gpqa_diamond"
+        "gpqa_diamond",
+        "mmlu_pro"
       ]
     },
     {
@@ -1895,14 +3530,6 @@
       ]
     },
     {
-      "model": "gemini 3 flash",
-      "n_benchmarks": 1,
-      "n_pillars": 1,
-      "benchmarks": [
-        "lm_arena_elo"
-      ]
-    },
-    {
       "model": "gemini 3 flash (minimal)",
       "n_benchmarks": 1,
       "n_pillars": 1,
@@ -1911,39 +3538,13 @@
       ]
     },
     {
-      "model": "gemini 3 pro",
-      "n_benchmarks": 1,
-      "n_pillars": 1,
-      "benchmarks": [
-        "lm_arena_elo"
-      ]
-    },
-    {
-      "model": "gemini 3.1 flash lite preview",
-      "n_benchmarks": 4,
-      "n_pillars": 3,
-      "benchmarks": [
-        "gpqa_diamond",
-        "livecodebench",
-        "lm_arena_elo",
-        "swebench_verified"
-      ]
-    },
-    {
-      "model": "gemini 3.1 pro preview",
-      "n_benchmarks": 1,
-      "n_pillars": 1,
-      "benchmarks": [
-        "lm_arena_elo"
-      ]
-    },
-    {
       "model": "gemini 3.5 flash",
-      "n_benchmarks": 3,
+      "n_benchmarks": 4,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
         "livecodebench",
+        "mmlu_pro",
         "swebench_verified"
       ]
     },
@@ -1964,23 +3565,13 @@
       ]
     },
     {
-      "model": "gemini 3.5 flash lite",
-      "n_benchmarks": 4,
-      "n_pillars": 3,
-      "benchmarks": [
-        "gpqa_diamond",
-        "livecodebench",
-        "lm_arena_elo",
-        "swebench_verified"
-      ]
-    },
-    {
       "model": "gemini 3.6 flash",
-      "n_benchmarks": 3,
+      "n_benchmarks": 4,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
         "livecodebench",
+        "mmlu_pro",
         "swebench_verified"
       ]
     },
@@ -1994,11 +3585,12 @@
     },
     {
       "model": "gemini 3.7 flash",
-      "n_benchmarks": 3,
+      "n_benchmarks": 4,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
         "livecodebench",
+        "mmlu_pro",
         "swebench_verified"
       ]
     },
@@ -2012,11 +3604,12 @@
     },
     {
       "model": "gemini 3.8 flash",
-      "n_benchmarks": 3,
+      "n_benchmarks": 4,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
         "livecodebench",
+        "mmlu_pro",
         "swebench_verified"
       ]
     },
@@ -2206,12 +3799,13 @@
     },
     {
       "model": "glm 4.5",
-      "n_benchmarks": 3,
+      "n_benchmarks": 4,
       "n_pillars": 3,
       "benchmarks": [
         "gpqa_diamond",
         "livecodebench",
-        "lm_arena_elo"
+        "lm_arena_elo",
+        "mmlu_pro"
       ]
     },
     {
@@ -2232,12 +3826,13 @@
     },
     {
       "model": "glm 4.6",
-      "n_benchmarks": 3,
+      "n_benchmarks": 4,
       "n_pillars": 3,
       "benchmarks": [
         "gpqa_diamond",
         "livecodebench",
-        "lm_arena_elo"
+        "lm_arena_elo",
+        "mmlu_pro"
       ]
     },
     {
@@ -2249,17 +3844,6 @@
       ]
     },
     {
-      "model": "glm 4.7",
-      "n_benchmarks": 4,
-      "n_pillars": 3,
-      "benchmarks": [
-        "gpqa_diamond",
-        "livecodebench",
-        "lm_arena_elo",
-        "swebench_verified"
-      ]
-    },
-    {
       "model": "glm 4.7 flash",
       "n_benchmarks": 1,
       "n_pillars": 1,
@@ -2268,34 +3852,13 @@
       ]
     },
     {
-      "model": "glm 5",
-      "n_benchmarks": 4,
-      "n_pillars": 3,
-      "benchmarks": [
-        "gpqa_diamond",
-        "livecodebench",
-        "lm_arena_elo",
-        "swebench_verified"
-      ]
-    },
-    {
-      "model": "glm 5.1",
-      "n_benchmarks": 4,
-      "n_pillars": 3,
-      "benchmarks": [
-        "gpqa_diamond",
-        "livecodebench",
-        "lm_arena_elo",
-        "swebench_verified"
-      ]
-    },
-    {
       "model": "glm 5.2",
-      "n_benchmarks": 3,
+      "n_benchmarks": 4,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
         "livecodebench",
+        "mmlu_pro",
         "swebench_verified"
       ]
     },
@@ -2309,11 +3872,12 @@
     },
     {
       "model": "glm 5.3",
-      "n_benchmarks": 3,
+      "n_benchmarks": 4,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
         "livecodebench",
+        "mmlu_pro",
         "swebench_verified"
       ]
     },
@@ -2399,11 +3963,12 @@
     },
     {
       "model": "gpt 4.1",
-      "n_benchmarks": 2,
+      "n_benchmarks": 3,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
-        "livecodebench"
+        "livecodebench",
+        "mmlu_pro"
       ]
     },
     {
@@ -2416,11 +3981,12 @@
     },
     {
       "model": "gpt 4.1 mini",
-      "n_benchmarks": 2,
+      "n_benchmarks": 3,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
-        "livecodebench"
+        "livecodebench",
+        "mmlu_pro"
       ]
     },
     {
@@ -2433,11 +3999,12 @@
     },
     {
       "model": "gpt 4.1 nano",
-      "n_benchmarks": 2,
+      "n_benchmarks": 3,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
-        "livecodebench"
+        "livecodebench",
+        "mmlu_pro"
       ]
     },
     {
@@ -2467,28 +4034,31 @@
     },
     {
       "model": "gpt 4o (2024 08 06)",
-      "n_benchmarks": 1,
-      "n_pillars": 1,
+      "n_benchmarks": 2,
+      "n_pillars": 2,
       "benchmarks": [
-        "lm_arena_elo"
+        "lm_arena_elo",
+        "mmlu_pro"
       ]
     },
     {
       "model": "gpt 4o (2024 11 20)",
-      "n_benchmarks": 2,
+      "n_benchmarks": 3,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
-        "livecodebench"
+        "livecodebench",
+        "mmlu_pro"
       ]
     },
     {
       "model": "gpt 4o mini",
-      "n_benchmarks": 2,
+      "n_benchmarks": 3,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
-        "livecodebench"
+        "livecodebench",
+        "mmlu_pro"
       ]
     },
     {
@@ -2501,11 +4071,12 @@
     },
     {
       "model": "gpt 5",
-      "n_benchmarks": 3,
+      "n_benchmarks": 4,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
         "livecodebench",
+        "mmlu_pro",
         "swebench_verified"
       ]
     },
@@ -2535,11 +4106,12 @@
     },
     {
       "model": "gpt 5 mini",
-      "n_benchmarks": 3,
+      "n_benchmarks": 4,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
         "livecodebench",
+        "mmlu_pro",
         "swebench_verified"
       ]
     },
@@ -2553,11 +4125,12 @@
     },
     {
       "model": "gpt 5 nano",
-      "n_benchmarks": 2,
+      "n_benchmarks": 3,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
-        "livecodebench"
+        "livecodebench",
+        "mmlu_pro"
       ]
     },
     {
@@ -2566,17 +4139,6 @@
       "n_pillars": 1,
       "benchmarks": [
         "lm_arena_elo"
-      ]
-    },
-    {
-      "model": "gpt 5.1",
-      "n_benchmarks": 4,
-      "n_pillars": 3,
-      "benchmarks": [
-        "gpqa_diamond",
-        "livecodebench",
-        "lm_arena_elo",
-        "swebench_verified"
       ]
     },
     {
@@ -2601,17 +4163,6 @@
       "n_pillars": 1,
       "benchmarks": [
         "livecodebench"
-      ]
-    },
-    {
-      "model": "gpt 5.2",
-      "n_benchmarks": 4,
-      "n_pillars": 3,
-      "benchmarks": [
-        "gpqa_diamond",
-        "livecodebench",
-        "lm_arena_elo",
-        "swebench_verified"
       ]
     },
     {
@@ -2674,21 +4225,23 @@
     },
     {
       "model": "gpt 5.4 (xhigh)",
-      "n_benchmarks": 3,
+      "n_benchmarks": 4,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
         "livecodebench",
+        "mmlu_pro",
         "swebench_verified"
       ]
     },
     {
       "model": "gpt 5.4 mini",
-      "n_benchmarks": 3,
+      "n_benchmarks": 4,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
         "livecodebench",
+        "mmlu_pro",
         "swebench_verified"
       ]
     },
@@ -2702,11 +4255,12 @@
     },
     {
       "model": "gpt 5.4 nano",
-      "n_benchmarks": 3,
+      "n_benchmarks": 4,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
         "livecodebench",
+        "mmlu_pro",
         "swebench_verified"
       ]
     },
@@ -2716,17 +4270,6 @@
       "n_pillars": 1,
       "benchmarks": [
         "lm_arena_elo"
-      ]
-    },
-    {
-      "model": "gpt 5.5",
-      "n_benchmarks": 4,
-      "n_pillars": 3,
-      "benchmarks": [
-        "gpqa_diamond",
-        "livecodebench",
-        "lm_arena_elo",
-        "swebench_verified"
       ]
     },
     {
@@ -2747,10 +4290,11 @@
     },
     {
       "model": "gpt 5.6 luna",
-      "n_benchmarks": 3,
+      "n_benchmarks": 4,
       "n_pillars": 3,
       "benchmarks": [
         "gpqa_diamond",
+        "mmlu_pro",
         "openrouter_usage",
         "swebench_verified"
       ]
@@ -2765,11 +4309,12 @@
     },
     {
       "model": "gpt 5.6 sol",
-      "n_benchmarks": 3,
+      "n_benchmarks": 4,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
         "livecodebench",
+        "mmlu_pro",
         "swebench_verified"
       ]
     },
@@ -2783,11 +4328,12 @@
     },
     {
       "model": "gpt 5.6 terra",
-      "n_benchmarks": 3,
+      "n_benchmarks": 4,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
         "livecodebench",
+        "mmlu_pro",
         "swebench_verified"
       ]
     },
@@ -2848,24 +4394,14 @@
       ]
     },
     {
-      "model": "gpt oss 120b",
+      "model": "gpt oss 20b",
       "n_benchmarks": 4,
       "n_pillars": 3,
       "benchmarks": [
         "gpqa_diamond",
         "livecodebench",
         "lm_arena_elo",
-        "swebench_verified"
-      ]
-    },
-    {
-      "model": "gpt oss 20b",
-      "n_benchmarks": 3,
-      "n_pillars": 3,
-      "benchmarks": [
-        "gpqa_diamond",
-        "livecodebench",
-        "lm_arena_elo"
+        "mmlu_pro"
       ]
     },
     {
@@ -2950,11 +4486,12 @@
     },
     {
       "model": "grok 2",
-      "n_benchmarks": 2,
+      "n_benchmarks": 3,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
-        "livecodebench"
+        "livecodebench",
+        "mmlu_pro"
       ]
     },
     {
@@ -2975,11 +4512,12 @@
     },
     {
       "model": "grok 3",
-      "n_benchmarks": 2,
+      "n_benchmarks": 3,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
-        "livecodebench"
+        "livecodebench",
+        "mmlu_pro"
       ]
     },
     {
@@ -3000,11 +4538,12 @@
     },
     {
       "model": "grok 3 mini reasoning",
-      "n_benchmarks": 2,
+      "n_benchmarks": 3,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
-        "livecodebench"
+        "livecodebench",
+        "mmlu_pro"
       ]
     },
     {
@@ -3017,11 +4556,12 @@
     },
     {
       "model": "grok 4",
-      "n_benchmarks": 3,
+      "n_benchmarks": 4,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
         "livecodebench",
+        "mmlu_pro",
         "swebench_verified"
       ]
     },
@@ -3035,23 +4575,13 @@
     },
     {
       "model": "grok 4 fast (non reasoning)",
-      "n_benchmarks": 3,
-      "n_pillars": 3,
-      "benchmarks": [
-        "gpqa_diamond",
-        "livecodebench",
-        "lm_arena_elo"
-      ]
-    },
-    {
-      "model": "grok 4 fast (reasoning)",
       "n_benchmarks": 4,
       "n_pillars": 3,
       "benchmarks": [
         "gpqa_diamond",
         "livecodebench",
         "lm_arena_elo",
-        "swebench_verified"
+        "mmlu_pro"
       ]
     },
     {
@@ -3071,32 +4601,23 @@
       ]
     },
     {
-      "model": "grok 4.1 fast (reasoning)",
-      "n_benchmarks": 4,
-      "n_pillars": 3,
-      "benchmarks": [
-        "gpqa_diamond",
-        "livecodebench",
-        "lm_arena_elo",
-        "swebench_verified"
-      ]
-    },
-    {
       "model": "grok 4.1 fast non reasoning",
-      "n_benchmarks": 2,
-      "n_pillars": 2,
-      "benchmarks": [
-        "gpqa_diamond",
-        "livecodebench"
-      ]
-    },
-    {
-      "model": "grok 4.20 (reasoning)",
       "n_benchmarks": 3,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
         "livecodebench",
+        "mmlu_pro"
+      ]
+    },
+    {
+      "model": "grok 4.20 (reasoning)",
+      "n_benchmarks": 4,
+      "n_pillars": 2,
+      "benchmarks": [
+        "gpqa_diamond",
+        "livecodebench",
+        "mmlu_pro",
         "swebench_verified"
       ]
     },
@@ -3125,34 +4646,13 @@
       ]
     },
     {
-      "model": "grok 4.3",
-      "n_benchmarks": 4,
-      "n_pillars": 3,
-      "benchmarks": [
-        "gpqa_diamond",
-        "livecodebench",
-        "lm_arena_elo",
-        "swebench_verified"
-      ]
-    },
-    {
-      "model": "grok 4.5",
-      "n_benchmarks": 4,
-      "n_pillars": 3,
-      "benchmarks": [
-        "gpqa_diamond",
-        "livecodebench",
-        "lm_arena_elo",
-        "swebench_verified"
-      ]
-    },
-    {
       "model": "grok 4.6",
-      "n_benchmarks": 3,
+      "n_benchmarks": 4,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
         "livecodebench",
+        "mmlu_pro",
         "swebench_verified"
       ]
     },
@@ -3285,28 +4785,6 @@
       ]
     },
     {
-      "model": "inkling",
-      "n_benchmarks": 4,
-      "n_pillars": 3,
-      "benchmarks": [
-        "gpqa_diamond",
-        "livecodebench",
-        "lm_arena_elo",
-        "swebench_verified"
-      ]
-    },
-    {
-      "model": "inkling small",
-      "n_benchmarks": 4,
-      "n_pillars": 3,
-      "benchmarks": [
-        "gpqa_diamond",
-        "livecodebench",
-        "lm_arena_elo",
-        "swebench_verified"
-      ]
-    },
-    {
       "model": "intellect 3",
       "n_benchmarks": 1,
       "n_pillars": 1,
@@ -3340,29 +4818,32 @@
     },
     {
       "model": "jamba 1.6 large",
-      "n_benchmarks": 2,
+      "n_benchmarks": 3,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
-        "livecodebench"
+        "livecodebench",
+        "mmlu_pro"
       ]
     },
     {
       "model": "jamba 1.6 mini",
-      "n_benchmarks": 2,
+      "n_benchmarks": 3,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
-        "livecodebench"
+        "livecodebench",
+        "mmlu_pro"
       ]
     },
     {
       "model": "kimi k2 instruct",
-      "n_benchmarks": 2,
+      "n_benchmarks": 3,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
-        "livecodebench"
+        "livecodebench",
+        "mmlu_pro"
       ]
     },
     {
@@ -3383,11 +4864,12 @@
     },
     {
       "model": "kimi k2 thinking",
-      "n_benchmarks": 3,
+      "n_benchmarks": 4,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
         "livecodebench",
+        "mmlu_pro",
         "swebench_verified"
       ]
     },
@@ -3401,11 +4883,12 @@
     },
     {
       "model": "kimi k2.5",
-      "n_benchmarks": 3,
+      "n_benchmarks": 4,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
         "livecodebench",
+        "mmlu_pro",
         "swebench_verified"
       ]
     },
@@ -3426,17 +4909,6 @@
       ]
     },
     {
-      "model": "kimi k2.6",
-      "n_benchmarks": 4,
-      "n_pillars": 3,
-      "benchmarks": [
-        "gpqa_diamond",
-        "livecodebench",
-        "lm_arena_elo",
-        "swebench_verified"
-      ]
-    },
-    {
       "model": "kimi k2.7 code",
       "n_benchmarks": 2,
       "n_pillars": 1,
@@ -3447,11 +4919,12 @@
     },
     {
       "model": "kimi k3",
-      "n_benchmarks": 3,
+      "n_benchmarks": 4,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
         "livecodebench",
+        "mmlu_pro",
         "swebench_verified"
       ]
     },
@@ -3473,31 +4946,34 @@
     },
     {
       "model": "laguna m.1",
-      "n_benchmarks": 3,
+      "n_benchmarks": 4,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
         "livecodebench",
+        "mmlu_pro",
         "swebench_verified"
       ]
     },
     {
       "model": "laguna xs.2",
-      "n_benchmarks": 3,
+      "n_benchmarks": 4,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
         "livecodebench",
+        "mmlu_pro",
         "swebench_verified"
       ]
     },
     {
       "model": "ling 3.0 flash",
-      "n_benchmarks": 3,
+      "n_benchmarks": 4,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
         "livecodebench",
+        "mmlu_pro",
         "swebench_verified"
       ]
     },
@@ -3663,29 +5139,32 @@
     },
     {
       "model": "llama 3.3 instruct turbo (70b)",
-      "n_benchmarks": 2,
+      "n_benchmarks": 3,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
-        "livecodebench"
+        "livecodebench",
+        "mmlu_pro"
       ]
     },
     {
       "model": "llama 3.3 nemotron super (nonthinking)",
-      "n_benchmarks": 2,
+      "n_benchmarks": 3,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
-        "livecodebench"
+        "livecodebench",
+        "mmlu_pro"
       ]
     },
     {
       "model": "llama 3.3 nemotron super (thinking)",
-      "n_benchmarks": 2,
+      "n_benchmarks": 3,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
-        "livecodebench"
+        "livecodebench",
+        "mmlu_pro"
       ]
     },
     {
@@ -3706,11 +5185,12 @@
     },
     {
       "model": "llama 4 maverick",
-      "n_benchmarks": 2,
+      "n_benchmarks": 3,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
-        "livecodebench"
+        "livecodebench",
+        "mmlu_pro"
       ]
     },
     {
@@ -3723,11 +5203,12 @@
     },
     {
       "model": "llama 4 scout",
-      "n_benchmarks": 2,
+      "n_benchmarks": 3,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
-        "livecodebench"
+        "livecodebench",
+        "mmlu_pro"
       ]
     },
     {
@@ -3760,6 +5241,26 @@
       "n_pillars": 1,
       "benchmarks": [
         "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "magistral medium 1.2 (09/2025)",
+      "n_benchmarks": 3,
+      "n_pillars": 2,
+      "benchmarks": [
+        "gpqa_diamond",
+        "livecodebench",
+        "mmlu_pro"
+      ]
+    },
+    {
+      "model": "magistral small 1.2 (09/2025)",
+      "n_benchmarks": 3,
+      "n_pillars": 2,
+      "benchmarks": [
+        "gpqa_diamond",
+        "livecodebench",
+        "mmlu_pro"
       ]
     },
     {
@@ -3819,28 +5320,6 @@
       ]
     },
     {
-      "model": "mimo v2.5",
-      "n_benchmarks": 4,
-      "n_pillars": 3,
-      "benchmarks": [
-        "gpqa_diamond",
-        "livecodebench",
-        "lm_arena_elo",
-        "swebench_verified"
-      ]
-    },
-    {
-      "model": "mimo v2.5 pro",
-      "n_benchmarks": 4,
-      "n_pillars": 3,
-      "benchmarks": [
-        "gpqa_diamond",
-        "livecodebench",
-        "lm_arena_elo",
-        "swebench_verified"
-      ]
-    },
-    {
       "model": "mimo v2.6 flash",
       "n_benchmarks": 1,
       "n_pillars": 1,
@@ -3874,11 +5353,12 @@
     },
     {
       "model": "minimax m2.1",
-      "n_benchmarks": 3,
+      "n_benchmarks": 4,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
         "livecodebench",
+        "mmlu_pro",
         "swebench_verified"
       ]
     },
@@ -3888,39 +5368,6 @@
       "n_pillars": 1,
       "benchmarks": [
         "lm_arena_elo"
-      ]
-    },
-    {
-      "model": "minimax m2.5",
-      "n_benchmarks": 4,
-      "n_pillars": 3,
-      "benchmarks": [
-        "gpqa_diamond",
-        "livecodebench",
-        "lm_arena_elo",
-        "swebench_verified"
-      ]
-    },
-    {
-      "model": "minimax m2.7",
-      "n_benchmarks": 4,
-      "n_pillars": 3,
-      "benchmarks": [
-        "gpqa_diamond",
-        "livecodebench",
-        "lm_arena_elo",
-        "swebench_verified"
-      ]
-    },
-    {
-      "model": "minimax m3",
-      "n_benchmarks": 4,
-      "n_pillars": 3,
-      "benchmarks": [
-        "gpqa_diamond",
-        "livecodebench",
-        "lm_arena_elo",
-        "swebench_verified"
       ]
     },
     {
@@ -3956,6 +5403,16 @@
       ]
     },
     {
+      "model": "mistral large (11/2024)",
+      "n_benchmarks": 3,
+      "n_pillars": 2,
+      "benchmarks": [
+        "gpqa_diamond",
+        "livecodebench",
+        "mmlu_pro"
+      ]
+    },
+    {
       "model": "mistral large (2402)",
       "n_benchmarks": 1,
       "n_pillars": 1,
@@ -3977,17 +5434,6 @@
       "n_pillars": 1,
       "benchmarks": [
         "lm_arena_elo"
-      ]
-    },
-    {
-      "model": "mistral large 3",
-      "n_benchmarks": 4,
-      "n_pillars": 3,
-      "benchmarks": [
-        "gpqa_diamond",
-        "livecodebench",
-        "lm_arena_elo",
-        "swebench_verified"
       ]
     },
     {
@@ -4015,6 +5461,15 @@
       ]
     },
     {
+      "model": "mistral medium 3.1 (05/2025)",
+      "n_benchmarks": 2,
+      "n_pillars": 2,
+      "benchmarks": [
+        "livecodebench",
+        "mmlu_pro"
+      ]
+    },
+    {
       "model": "mistral medium 3.1 (2508)",
       "n_benchmarks": 1,
       "n_pillars": 1,
@@ -4024,12 +5479,23 @@
     },
     {
       "model": "mistral medium 3.5",
-      "n_benchmarks": 3,
+      "n_benchmarks": 4,
       "n_pillars": 3,
       "benchmarks": [
         "gpqa_diamond",
         "lm_arena_elo",
+        "mmlu_pro",
         "swebench_verified"
+      ]
+    },
+    {
+      "model": "mistral small (02/2024)",
+      "n_benchmarks": 3,
+      "n_pillars": 2,
+      "benchmarks": [
+        "gpqa_diamond",
+        "livecodebench",
+        "mmlu_pro"
       ]
     },
     {
@@ -4038,6 +5504,16 @@
       "n_pillars": 1,
       "benchmarks": [
         "lm_arena_elo"
+      ]
+    },
+    {
+      "model": "mistral small 3.1 (03/2025)",
+      "n_benchmarks": 3,
+      "n_pillars": 2,
+      "benchmarks": [
+        "gpqa_diamond",
+        "livecodebench",
+        "mmlu_pro"
       ]
     },
     {
@@ -4106,30 +5582,21 @@
     },
     {
       "model": "muse spark",
-      "n_benchmarks": 3,
-      "n_pillars": 3,
-      "benchmarks": [
-        "gpqa_diamond",
-        "lm_arena_elo",
-        "swebench_verified"
-      ]
-    },
-    {
-      "model": "muse spark 1.1",
       "n_benchmarks": 4,
       "n_pillars": 3,
       "benchmarks": [
         "gpqa_diamond",
-        "livecodebench",
         "lm_arena_elo",
+        "mmlu_pro",
         "swebench_verified"
       ]
     },
     {
       "model": "muse spark 1.2",
-      "n_benchmarks": 1,
-      "n_pillars": 1,
+      "n_benchmarks": 2,
+      "n_pillars": 2,
       "benchmarks": [
+        "mmlu_pro",
         "swebench_verified"
       ]
     },
@@ -4159,11 +5626,12 @@
     },
     {
       "model": "nemotron 3 ultra",
-      "n_benchmarks": 3,
+      "n_benchmarks": 4,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
         "livecodebench",
+        "mmlu_pro",
         "swebench_verified"
       ]
     },
@@ -4233,11 +5701,12 @@
     },
     {
       "model": "o1",
-      "n_benchmarks": 2,
+      "n_benchmarks": 3,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
-        "livecodebench"
+        "livecodebench",
+        "mmlu_pro"
       ]
     },
     {
@@ -4266,11 +5735,12 @@
     },
     {
       "model": "o3",
-      "n_benchmarks": 2,
+      "n_benchmarks": 3,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
-        "livecodebench"
+        "livecodebench",
+        "mmlu_pro"
       ]
     },
     {
@@ -4283,12 +5753,13 @@
     },
     {
       "model": "o3 mini",
-      "n_benchmarks": 3,
+      "n_benchmarks": 4,
       "n_pillars": 3,
       "benchmarks": [
         "gpqa_diamond",
         "livecodebench",
-        "lm_arena_elo"
+        "lm_arena_elo",
+        "mmlu_pro"
       ]
     },
     {
@@ -4301,11 +5772,12 @@
     },
     {
       "model": "o4 mini",
-      "n_benchmarks": 2,
+      "n_benchmarks": 3,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
-        "livecodebench"
+        "livecodebench",
+        "mmlu_pro"
       ]
     },
     {
@@ -4454,56 +5926,62 @@
     },
     {
       "model": "qwen 3 (235b)",
-      "n_benchmarks": 2,
-      "n_pillars": 2,
-      "benchmarks": [
-        "gpqa_diamond",
-        "livecodebench"
-      ]
-    },
-    {
-      "model": "qwen 3 max",
-      "n_benchmarks": 2,
-      "n_pillars": 2,
-      "benchmarks": [
-        "gpqa_diamond",
-        "livecodebench"
-      ]
-    },
-    {
-      "model": "qwen 3 max preview",
-      "n_benchmarks": 2,
-      "n_pillars": 2,
-      "benchmarks": [
-        "gpqa_diamond",
-        "livecodebench"
-      ]
-    },
-    {
-      "model": "qwen 3 max thinking",
-      "n_benchmarks": 1,
-      "n_pillars": 1,
-      "benchmarks": [
-        "gpqa_diamond"
-      ]
-    },
-    {
-      "model": "qwen 3.5 flash",
       "n_benchmarks": 3,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
         "livecodebench",
+        "mmlu_pro"
+      ]
+    },
+    {
+      "model": "qwen 3 max",
+      "n_benchmarks": 3,
+      "n_pillars": 2,
+      "benchmarks": [
+        "gpqa_diamond",
+        "livecodebench",
+        "mmlu_pro"
+      ]
+    },
+    {
+      "model": "qwen 3 max preview",
+      "n_benchmarks": 3,
+      "n_pillars": 2,
+      "benchmarks": [
+        "gpqa_diamond",
+        "livecodebench",
+        "mmlu_pro"
+      ]
+    },
+    {
+      "model": "qwen 3 max thinking",
+      "n_benchmarks": 2,
+      "n_pillars": 1,
+      "benchmarks": [
+        "gpqa_diamond",
+        "mmlu_pro"
+      ]
+    },
+    {
+      "model": "qwen 3.5 flash",
+      "n_benchmarks": 4,
+      "n_pillars": 2,
+      "benchmarks": [
+        "gpqa_diamond",
+        "livecodebench",
+        "mmlu_pro",
         "swebench_verified"
       ]
     },
     {
       "model": "qwen 3.5 plus",
-      "n_benchmarks": 3,
+      "n_benchmarks": 4,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
         "livecodebench",
+        "mmlu_pro",
         "swebench_verified"
       ]
     },
@@ -4525,41 +6003,45 @@
     },
     {
       "model": "qwen 3.6 plus",
-      "n_benchmarks": 3,
+      "n_benchmarks": 4,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
         "livecodebench",
+        "mmlu_pro",
         "swebench_verified"
       ]
     },
     {
       "model": "qwen 3.7 max",
-      "n_benchmarks": 3,
+      "n_benchmarks": 4,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
         "livecodebench",
+        "mmlu_pro",
         "swebench_verified"
       ]
     },
     {
       "model": "qwen 3.8 27b",
-      "n_benchmarks": 3,
+      "n_benchmarks": 4,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
         "livecodebench",
+        "mmlu_pro",
         "swebench_verified"
       ]
     },
     {
       "model": "qwen 3.8 max",
-      "n_benchmarks": 3,
+      "n_benchmarks": 4,
       "n_pillars": 2,
       "benchmarks": [
         "gpqa_diamond",
         "livecodebench",
+        "mmlu_pro",
         "swebench_verified"
       ]
     },
@@ -5159,9 +6641,2368 @@
   ],
   "tiers": {
     "T1": [
-      "glm 5.3 flash"
+      "gemini 3.1 pro preview",
+      "claude opus 4.8",
+      "muse spark 1.1",
+      "claude opus 4.7",
+      "gemini 3 pro"
+    ],
+    "T2": [
+      "grok 4.5",
+      "gpt 5.5"
+    ],
+    "T3": [
+      "gemini 3 flash",
+      "kimi k2.6",
+      "glm 5.3 flash",
+      "claude sonnet 4.6"
+    ],
+    "T4": [
+      "gpt 5.2",
+      "inkling",
+      "glm 5.1",
+      "grok 4.3",
+      "minimax m3",
+      "gpt 5.1",
+      "glm 5",
+      "mimo v2.5 pro"
+    ],
+    "T5": [
+      "gemini 3.5 flash lite",
+      "inkling small"
+    ],
+    "T6": [
+      "mimo v2.5",
+      "minimax m2.7",
+      "gemini 3.1 flash lite preview",
+      "glm 4.7",
+      "deepseek v3.2 (thinking)",
+      "grok 4.1 fast (reasoning)"
+    ],
+    "T7": [
+      "minimax m2.5",
+      "grok 4 fast (reasoning)",
+      "mistral large 3",
+      "gpt oss 120b"
     ]
   },
-  "dominance": [],
-  "pairwise_bh_qvalues": {}
+  "dominance": [
+    {
+      "a": "claude opus 4.7",
+      "b": "claude sonnet 4.6",
+      "p": 1.0
+    },
+    {
+      "a": "claude opus 4.7",
+      "b": "deepseek v3.2 (thinking)",
+      "p": 1.0
+    },
+    {
+      "a": "claude opus 4.7",
+      "b": "gemini 3.1 flash lite preview",
+      "p": 1.0
+    },
+    {
+      "a": "claude opus 4.7",
+      "b": "gemini 3.5 flash lite",
+      "p": 1.0
+    },
+    {
+      "a": "claude opus 4.7",
+      "b": "glm 4.7",
+      "p": 1.0
+    },
+    {
+      "a": "claude opus 4.7",
+      "b": "glm 5",
+      "p": 1.0
+    },
+    {
+      "a": "claude opus 4.7",
+      "b": "glm 5.1",
+      "p": 1.0
+    },
+    {
+      "a": "claude opus 4.7",
+      "b": "glm 5.3 flash",
+      "p": 1.0
+    },
+    {
+      "a": "claude opus 4.7",
+      "b": "gpt 5.1",
+      "p": 1.0
+    },
+    {
+      "a": "claude opus 4.7",
+      "b": "gpt 5.2",
+      "p": 1.0
+    },
+    {
+      "a": "claude opus 4.7",
+      "b": "gpt oss 120b",
+      "p": 1.0
+    },
+    {
+      "a": "claude opus 4.7",
+      "b": "grok 4 fast (reasoning)",
+      "p": 1.0
+    },
+    {
+      "a": "claude opus 4.7",
+      "b": "grok 4.1 fast (reasoning)",
+      "p": 1.0
+    },
+    {
+      "a": "claude opus 4.7",
+      "b": "grok 4.3",
+      "p": 1.0
+    },
+    {
+      "a": "claude opus 4.7",
+      "b": "inkling",
+      "p": 1.0
+    },
+    {
+      "a": "claude opus 4.7",
+      "b": "inkling small",
+      "p": 1.0
+    },
+    {
+      "a": "claude opus 4.7",
+      "b": "kimi k2.6",
+      "p": 1.0
+    },
+    {
+      "a": "claude opus 4.7",
+      "b": "mimo v2.5",
+      "p": 1.0
+    },
+    {
+      "a": "claude opus 4.7",
+      "b": "mimo v2.5 pro",
+      "p": 1.0
+    },
+    {
+      "a": "claude opus 4.7",
+      "b": "minimax m2.5",
+      "p": 1.0
+    },
+    {
+      "a": "claude opus 4.7",
+      "b": "minimax m2.7",
+      "p": 1.0
+    },
+    {
+      "a": "claude opus 4.7",
+      "b": "minimax m3",
+      "p": 1.0
+    },
+    {
+      "a": "claude opus 4.7",
+      "b": "mistral large 3",
+      "p": 1.0
+    },
+    {
+      "a": "claude opus 4.8",
+      "b": "claude sonnet 4.6",
+      "p": 1.0
+    },
+    {
+      "a": "claude opus 4.8",
+      "b": "deepseek v3.2 (thinking)",
+      "p": 1.0
+    },
+    {
+      "a": "claude opus 4.8",
+      "b": "gemini 3 flash",
+      "p": 1.0
+    },
+    {
+      "a": "claude opus 4.8",
+      "b": "gemini 3.1 flash lite preview",
+      "p": 1.0
+    },
+    {
+      "a": "claude opus 4.8",
+      "b": "gemini 3.5 flash lite",
+      "p": 1.0
+    },
+    {
+      "a": "claude opus 4.8",
+      "b": "glm 4.7",
+      "p": 1.0
+    },
+    {
+      "a": "claude opus 4.8",
+      "b": "glm 5",
+      "p": 1.0
+    },
+    {
+      "a": "claude opus 4.8",
+      "b": "glm 5.1",
+      "p": 1.0
+    },
+    {
+      "a": "claude opus 4.8",
+      "b": "glm 5.3 flash",
+      "p": 1.0
+    },
+    {
+      "a": "claude opus 4.8",
+      "b": "gpt 5.1",
+      "p": 1.0
+    },
+    {
+      "a": "claude opus 4.8",
+      "b": "gpt 5.2",
+      "p": 1.0
+    },
+    {
+      "a": "claude opus 4.8",
+      "b": "gpt oss 120b",
+      "p": 1.0
+    },
+    {
+      "a": "claude opus 4.8",
+      "b": "grok 4 fast (reasoning)",
+      "p": 1.0
+    },
+    {
+      "a": "claude opus 4.8",
+      "b": "grok 4.1 fast (reasoning)",
+      "p": 1.0
+    },
+    {
+      "a": "claude opus 4.8",
+      "b": "grok 4.3",
+      "p": 1.0
+    },
+    {
+      "a": "claude opus 4.8",
+      "b": "inkling",
+      "p": 1.0
+    },
+    {
+      "a": "claude opus 4.8",
+      "b": "inkling small",
+      "p": 1.0
+    },
+    {
+      "a": "claude opus 4.8",
+      "b": "kimi k2.6",
+      "p": 1.0
+    },
+    {
+      "a": "claude opus 4.8",
+      "b": "mimo v2.5",
+      "p": 1.0
+    },
+    {
+      "a": "claude opus 4.8",
+      "b": "mimo v2.5 pro",
+      "p": 1.0
+    },
+    {
+      "a": "claude opus 4.8",
+      "b": "minimax m2.5",
+      "p": 1.0
+    },
+    {
+      "a": "claude opus 4.8",
+      "b": "minimax m2.7",
+      "p": 1.0
+    },
+    {
+      "a": "claude opus 4.8",
+      "b": "minimax m3",
+      "p": 1.0
+    },
+    {
+      "a": "claude opus 4.8",
+      "b": "mistral large 3",
+      "p": 1.0
+    },
+    {
+      "a": "claude sonnet 4.6",
+      "b": "deepseek v3.2 (thinking)",
+      "p": 1.0
+    },
+    {
+      "a": "claude sonnet 4.6",
+      "b": "gemini 3.1 flash lite preview",
+      "p": 1.0
+    },
+    {
+      "a": "claude sonnet 4.6",
+      "b": "glm 4.7",
+      "p": 1.0
+    },
+    {
+      "a": "claude sonnet 4.6",
+      "b": "gpt oss 120b",
+      "p": 1.0
+    },
+    {
+      "a": "claude sonnet 4.6",
+      "b": "grok 4 fast (reasoning)",
+      "p": 1.0
+    },
+    {
+      "a": "claude sonnet 4.6",
+      "b": "grok 4.1 fast (reasoning)",
+      "p": 1.0
+    },
+    {
+      "a": "claude sonnet 4.6",
+      "b": "inkling small",
+      "p": 1.0
+    },
+    {
+      "a": "claude sonnet 4.6",
+      "b": "mimo v2.5",
+      "p": 1.0
+    },
+    {
+      "a": "claude sonnet 4.6",
+      "b": "minimax m2.5",
+      "p": 1.0
+    },
+    {
+      "a": "claude sonnet 4.6",
+      "b": "minimax m2.7",
+      "p": 1.0
+    },
+    {
+      "a": "claude sonnet 4.6",
+      "b": "mistral large 3",
+      "p": 1.0
+    },
+    {
+      "a": "deepseek v3.2 (thinking)",
+      "b": "gpt oss 120b",
+      "p": 1.0
+    },
+    {
+      "a": "deepseek v3.2 (thinking)",
+      "b": "mistral large 3",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3 flash",
+      "b": "deepseek v3.2 (thinking)",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3 flash",
+      "b": "gemini 3.1 flash lite preview",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3 flash",
+      "b": "gemini 3.5 flash lite",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3 flash",
+      "b": "glm 4.7",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3 flash",
+      "b": "glm 5",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3 flash",
+      "b": "gpt 5.1",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3 flash",
+      "b": "gpt oss 120b",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3 flash",
+      "b": "grok 4 fast (reasoning)",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3 flash",
+      "b": "grok 4.1 fast (reasoning)",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3 flash",
+      "b": "inkling small",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3 flash",
+      "b": "mimo v2.5",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3 flash",
+      "b": "mimo v2.5 pro",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3 flash",
+      "b": "minimax m2.5",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3 flash",
+      "b": "minimax m2.7",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3 flash",
+      "b": "mistral large 3",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3 pro",
+      "b": "claude sonnet 4.6",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3 pro",
+      "b": "deepseek v3.2 (thinking)",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3 pro",
+      "b": "gemini 3.1 flash lite preview",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3 pro",
+      "b": "gemini 3.5 flash lite",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3 pro",
+      "b": "glm 4.7",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3 pro",
+      "b": "glm 5",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3 pro",
+      "b": "glm 5.1",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3 pro",
+      "b": "glm 5.3 flash",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3 pro",
+      "b": "gpt 5.1",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3 pro",
+      "b": "gpt 5.2",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3 pro",
+      "b": "gpt oss 120b",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3 pro",
+      "b": "grok 4 fast (reasoning)",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3 pro",
+      "b": "grok 4.1 fast (reasoning)",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3 pro",
+      "b": "grok 4.3",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3 pro",
+      "b": "inkling",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3 pro",
+      "b": "inkling small",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3 pro",
+      "b": "mimo v2.5",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3 pro",
+      "b": "mimo v2.5 pro",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3 pro",
+      "b": "minimax m2.5",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3 pro",
+      "b": "minimax m2.7",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3 pro",
+      "b": "minimax m3",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3 pro",
+      "b": "mistral large 3",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3.1 flash lite preview",
+      "b": "gpt oss 120b",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3.1 flash lite preview",
+      "b": "grok 4 fast (reasoning)",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3.1 flash lite preview",
+      "b": "mistral large 3",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3.1 pro preview",
+      "b": "claude sonnet 4.6",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3.1 pro preview",
+      "b": "deepseek v3.2 (thinking)",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3.1 pro preview",
+      "b": "gemini 3 flash",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3.1 pro preview",
+      "b": "gemini 3.1 flash lite preview",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3.1 pro preview",
+      "b": "gemini 3.5 flash lite",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3.1 pro preview",
+      "b": "glm 4.7",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3.1 pro preview",
+      "b": "glm 5",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3.1 pro preview",
+      "b": "glm 5.1",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3.1 pro preview",
+      "b": "glm 5.3 flash",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3.1 pro preview",
+      "b": "gpt 5.1",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3.1 pro preview",
+      "b": "gpt 5.2",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3.1 pro preview",
+      "b": "gpt oss 120b",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3.1 pro preview",
+      "b": "grok 4 fast (reasoning)",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3.1 pro preview",
+      "b": "grok 4.1 fast (reasoning)",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3.1 pro preview",
+      "b": "grok 4.3",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3.1 pro preview",
+      "b": "inkling",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3.1 pro preview",
+      "b": "inkling small",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3.1 pro preview",
+      "b": "kimi k2.6",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3.1 pro preview",
+      "b": "mimo v2.5",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3.1 pro preview",
+      "b": "mimo v2.5 pro",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3.1 pro preview",
+      "b": "minimax m2.5",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3.1 pro preview",
+      "b": "minimax m2.7",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3.1 pro preview",
+      "b": "minimax m3",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3.1 pro preview",
+      "b": "mistral large 3",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3.5 flash lite",
+      "b": "gpt oss 120b",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3.5 flash lite",
+      "b": "grok 4 fast (reasoning)",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3.5 flash lite",
+      "b": "grok 4.1 fast (reasoning)",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3.5 flash lite",
+      "b": "minimax m2.5",
+      "p": 1.0
+    },
+    {
+      "a": "gemini 3.5 flash lite",
+      "b": "mistral large 3",
+      "p": 1.0
+    },
+    {
+      "a": "glm 4.7",
+      "b": "gpt oss 120b",
+      "p": 1.0
+    },
+    {
+      "a": "glm 4.7",
+      "b": "mistral large 3",
+      "p": 1.0
+    },
+    {
+      "a": "glm 5",
+      "b": "deepseek v3.2 (thinking)",
+      "p": 1.0
+    },
+    {
+      "a": "glm 5",
+      "b": "gpt oss 120b",
+      "p": 1.0
+    },
+    {
+      "a": "glm 5",
+      "b": "grok 4 fast (reasoning)",
+      "p": 1.0
+    },
+    {
+      "a": "glm 5",
+      "b": "grok 4.1 fast (reasoning)",
+      "p": 1.0
+    },
+    {
+      "a": "glm 5",
+      "b": "minimax m2.5",
+      "p": 1.0
+    },
+    {
+      "a": "glm 5",
+      "b": "mistral large 3",
+      "p": 1.0
+    },
+    {
+      "a": "glm 5.1",
+      "b": "deepseek v3.2 (thinking)",
+      "p": 1.0
+    },
+    {
+      "a": "glm 5.1",
+      "b": "gemini 3.1 flash lite preview",
+      "p": 1.0
+    },
+    {
+      "a": "glm 5.1",
+      "b": "glm 4.7",
+      "p": 1.0
+    },
+    {
+      "a": "glm 5.1",
+      "b": "gpt oss 120b",
+      "p": 1.0
+    },
+    {
+      "a": "glm 5.1",
+      "b": "grok 4 fast (reasoning)",
+      "p": 1.0
+    },
+    {
+      "a": "glm 5.1",
+      "b": "grok 4.1 fast (reasoning)",
+      "p": 1.0
+    },
+    {
+      "a": "glm 5.1",
+      "b": "mimo v2.5",
+      "p": 1.0
+    },
+    {
+      "a": "glm 5.1",
+      "b": "minimax m2.5",
+      "p": 1.0
+    },
+    {
+      "a": "glm 5.1",
+      "b": "minimax m2.7",
+      "p": 1.0
+    },
+    {
+      "a": "glm 5.1",
+      "b": "mistral large 3",
+      "p": 1.0
+    },
+    {
+      "a": "glm 5.3 flash",
+      "b": "deepseek v3.2 (thinking)",
+      "p": 1.0
+    },
+    {
+      "a": "glm 5.3 flash",
+      "b": "gemini 3.1 flash lite preview",
+      "p": 1.0
+    },
+    {
+      "a": "glm 5.3 flash",
+      "b": "glm 4.7",
+      "p": 1.0
+    },
+    {
+      "a": "glm 5.3 flash",
+      "b": "gpt oss 120b",
+      "p": 1.0
+    },
+    {
+      "a": "glm 5.3 flash",
+      "b": "grok 4 fast (reasoning)",
+      "p": 1.0
+    },
+    {
+      "a": "glm 5.3 flash",
+      "b": "grok 4.1 fast (reasoning)",
+      "p": 1.0
+    },
+    {
+      "a": "glm 5.3 flash",
+      "b": "inkling small",
+      "p": 1.0
+    },
+    {
+      "a": "glm 5.3 flash",
+      "b": "mimo v2.5",
+      "p": 1.0
+    },
+    {
+      "a": "glm 5.3 flash",
+      "b": "minimax m2.5",
+      "p": 1.0
+    },
+    {
+      "a": "glm 5.3 flash",
+      "b": "minimax m2.7",
+      "p": 1.0
+    },
+    {
+      "a": "glm 5.3 flash",
+      "b": "mistral large 3",
+      "p": 1.0
+    },
+    {
+      "a": "gpt 5.1",
+      "b": "deepseek v3.2 (thinking)",
+      "p": 1.0
+    },
+    {
+      "a": "gpt 5.1",
+      "b": "gemini 3.1 flash lite preview",
+      "p": 1.0
+    },
+    {
+      "a": "gpt 5.1",
+      "b": "glm 4.7",
+      "p": 1.0
+    },
+    {
+      "a": "gpt 5.1",
+      "b": "gpt oss 120b",
+      "p": 1.0
+    },
+    {
+      "a": "gpt 5.1",
+      "b": "grok 4 fast (reasoning)",
+      "p": 1.0
+    },
+    {
+      "a": "gpt 5.1",
+      "b": "grok 4.1 fast (reasoning)",
+      "p": 1.0
+    },
+    {
+      "a": "gpt 5.1",
+      "b": "minimax m2.5",
+      "p": 1.0
+    },
+    {
+      "a": "gpt 5.1",
+      "b": "minimax m2.7",
+      "p": 1.0
+    },
+    {
+      "a": "gpt 5.1",
+      "b": "mistral large 3",
+      "p": 1.0
+    },
+    {
+      "a": "gpt 5.2",
+      "b": "deepseek v3.2 (thinking)",
+      "p": 1.0
+    },
+    {
+      "a": "gpt 5.2",
+      "b": "gemini 3.1 flash lite preview",
+      "p": 1.0
+    },
+    {
+      "a": "gpt 5.2",
+      "b": "glm 4.7",
+      "p": 1.0
+    },
+    {
+      "a": "gpt 5.2",
+      "b": "gpt oss 120b",
+      "p": 1.0
+    },
+    {
+      "a": "gpt 5.2",
+      "b": "grok 4 fast (reasoning)",
+      "p": 1.0
+    },
+    {
+      "a": "gpt 5.2",
+      "b": "grok 4.1 fast (reasoning)",
+      "p": 1.0
+    },
+    {
+      "a": "gpt 5.2",
+      "b": "inkling small",
+      "p": 1.0
+    },
+    {
+      "a": "gpt 5.2",
+      "b": "mimo v2.5",
+      "p": 1.0
+    },
+    {
+      "a": "gpt 5.2",
+      "b": "minimax m2.5",
+      "p": 1.0
+    },
+    {
+      "a": "gpt 5.2",
+      "b": "minimax m2.7",
+      "p": 1.0
+    },
+    {
+      "a": "gpt 5.2",
+      "b": "mistral large 3",
+      "p": 1.0
+    },
+    {
+      "a": "gpt 5.5",
+      "b": "claude sonnet 4.6",
+      "p": 1.0
+    },
+    {
+      "a": "gpt 5.5",
+      "b": "deepseek v3.2 (thinking)",
+      "p": 1.0
+    },
+    {
+      "a": "gpt 5.5",
+      "b": "gemini 3.1 flash lite preview",
+      "p": 1.0
+    },
+    {
+      "a": "gpt 5.5",
+      "b": "gemini 3.5 flash lite",
+      "p": 1.0
+    },
+    {
+      "a": "gpt 5.5",
+      "b": "glm 4.7",
+      "p": 1.0
+    },
+    {
+      "a": "gpt 5.5",
+      "b": "glm 5",
+      "p": 1.0
+    },
+    {
+      "a": "gpt 5.5",
+      "b": "glm 5.1",
+      "p": 1.0
+    },
+    {
+      "a": "gpt 5.5",
+      "b": "glm 5.3 flash",
+      "p": 1.0
+    },
+    {
+      "a": "gpt 5.5",
+      "b": "gpt 5.1",
+      "p": 1.0
+    },
+    {
+      "a": "gpt 5.5",
+      "b": "gpt 5.2",
+      "p": 1.0
+    },
+    {
+      "a": "gpt 5.5",
+      "b": "gpt oss 120b",
+      "p": 1.0
+    },
+    {
+      "a": "gpt 5.5",
+      "b": "grok 4 fast (reasoning)",
+      "p": 1.0
+    },
+    {
+      "a": "gpt 5.5",
+      "b": "grok 4.1 fast (reasoning)",
+      "p": 1.0
+    },
+    {
+      "a": "gpt 5.5",
+      "b": "grok 4.3",
+      "p": 1.0
+    },
+    {
+      "a": "gpt 5.5",
+      "b": "inkling",
+      "p": 1.0
+    },
+    {
+      "a": "gpt 5.5",
+      "b": "inkling small",
+      "p": 1.0
+    },
+    {
+      "a": "gpt 5.5",
+      "b": "mimo v2.5",
+      "p": 1.0
+    },
+    {
+      "a": "gpt 5.5",
+      "b": "mimo v2.5 pro",
+      "p": 1.0
+    },
+    {
+      "a": "gpt 5.5",
+      "b": "minimax m2.5",
+      "p": 1.0
+    },
+    {
+      "a": "gpt 5.5",
+      "b": "minimax m2.7",
+      "p": 1.0
+    },
+    {
+      "a": "gpt 5.5",
+      "b": "minimax m3",
+      "p": 1.0
+    },
+    {
+      "a": "gpt 5.5",
+      "b": "mistral large 3",
+      "p": 1.0
+    },
+    {
+      "a": "grok 4 fast (reasoning)",
+      "b": "gpt oss 120b",
+      "p": 1.0
+    },
+    {
+      "a": "grok 4 fast (reasoning)",
+      "b": "mistral large 3",
+      "p": 1.0
+    },
+    {
+      "a": "grok 4.1 fast (reasoning)",
+      "b": "gpt oss 120b",
+      "p": 1.0
+    },
+    {
+      "a": "grok 4.1 fast (reasoning)",
+      "b": "mistral large 3",
+      "p": 1.0
+    },
+    {
+      "a": "grok 4.3",
+      "b": "deepseek v3.2 (thinking)",
+      "p": 1.0
+    },
+    {
+      "a": "grok 4.3",
+      "b": "gemini 3.1 flash lite preview",
+      "p": 1.0
+    },
+    {
+      "a": "grok 4.3",
+      "b": "glm 4.7",
+      "p": 1.0
+    },
+    {
+      "a": "grok 4.3",
+      "b": "gpt oss 120b",
+      "p": 1.0
+    },
+    {
+      "a": "grok 4.3",
+      "b": "grok 4 fast (reasoning)",
+      "p": 1.0
+    },
+    {
+      "a": "grok 4.3",
+      "b": "grok 4.1 fast (reasoning)",
+      "p": 1.0
+    },
+    {
+      "a": "grok 4.3",
+      "b": "inkling small",
+      "p": 1.0
+    },
+    {
+      "a": "grok 4.3",
+      "b": "mimo v2.5",
+      "p": 1.0
+    },
+    {
+      "a": "grok 4.3",
+      "b": "minimax m2.5",
+      "p": 1.0
+    },
+    {
+      "a": "grok 4.3",
+      "b": "minimax m2.7",
+      "p": 1.0
+    },
+    {
+      "a": "grok 4.3",
+      "b": "mistral large 3",
+      "p": 1.0
+    },
+    {
+      "a": "grok 4.5",
+      "b": "claude sonnet 4.6",
+      "p": 1.0
+    },
+    {
+      "a": "grok 4.5",
+      "b": "deepseek v3.2 (thinking)",
+      "p": 1.0
+    },
+    {
+      "a": "grok 4.5",
+      "b": "gemini 3.1 flash lite preview",
+      "p": 1.0
+    },
+    {
+      "a": "grok 4.5",
+      "b": "gemini 3.5 flash lite",
+      "p": 1.0
+    },
+    {
+      "a": "grok 4.5",
+      "b": "glm 4.7",
+      "p": 1.0
+    },
+    {
+      "a": "grok 4.5",
+      "b": "glm 5",
+      "p": 1.0
+    },
+    {
+      "a": "grok 4.5",
+      "b": "glm 5.1",
+      "p": 1.0
+    },
+    {
+      "a": "grok 4.5",
+      "b": "glm 5.3 flash",
+      "p": 1.0
+    },
+    {
+      "a": "grok 4.5",
+      "b": "gpt 5.1",
+      "p": 1.0
+    },
+    {
+      "a": "grok 4.5",
+      "b": "gpt 5.2",
+      "p": 1.0
+    },
+    {
+      "a": "grok 4.5",
+      "b": "gpt oss 120b",
+      "p": 1.0
+    },
+    {
+      "a": "grok 4.5",
+      "b": "grok 4 fast (reasoning)",
+      "p": 1.0
+    },
+    {
+      "a": "grok 4.5",
+      "b": "grok 4.1 fast (reasoning)",
+      "p": 1.0
+    },
+    {
+      "a": "grok 4.5",
+      "b": "grok 4.3",
+      "p": 1.0
+    },
+    {
+      "a": "grok 4.5",
+      "b": "inkling",
+      "p": 1.0
+    },
+    {
+      "a": "grok 4.5",
+      "b": "inkling small",
+      "p": 1.0
+    },
+    {
+      "a": "grok 4.5",
+      "b": "mimo v2.5",
+      "p": 1.0
+    },
+    {
+      "a": "grok 4.5",
+      "b": "mimo v2.5 pro",
+      "p": 1.0
+    },
+    {
+      "a": "grok 4.5",
+      "b": "minimax m2.5",
+      "p": 1.0
+    },
+    {
+      "a": "grok 4.5",
+      "b": "minimax m2.7",
+      "p": 1.0
+    },
+    {
+      "a": "grok 4.5",
+      "b": "minimax m3",
+      "p": 1.0
+    },
+    {
+      "a": "grok 4.5",
+      "b": "mistral large 3",
+      "p": 1.0
+    },
+    {
+      "a": "inkling",
+      "b": "deepseek v3.2 (thinking)",
+      "p": 1.0
+    },
+    {
+      "a": "inkling",
+      "b": "gemini 3.1 flash lite preview",
+      "p": 1.0
+    },
+    {
+      "a": "inkling",
+      "b": "glm 4.7",
+      "p": 1.0
+    },
+    {
+      "a": "inkling",
+      "b": "gpt oss 120b",
+      "p": 1.0
+    },
+    {
+      "a": "inkling",
+      "b": "grok 4 fast (reasoning)",
+      "p": 1.0
+    },
+    {
+      "a": "inkling",
+      "b": "grok 4.1 fast (reasoning)",
+      "p": 1.0
+    },
+    {
+      "a": "inkling",
+      "b": "inkling small",
+      "p": 1.0
+    },
+    {
+      "a": "inkling",
+      "b": "mimo v2.5",
+      "p": 1.0
+    },
+    {
+      "a": "inkling",
+      "b": "minimax m2.5",
+      "p": 1.0
+    },
+    {
+      "a": "inkling",
+      "b": "minimax m2.7",
+      "p": 1.0
+    },
+    {
+      "a": "inkling",
+      "b": "mistral large 3",
+      "p": 1.0
+    },
+    {
+      "a": "inkling small",
+      "b": "gpt oss 120b",
+      "p": 1.0
+    },
+    {
+      "a": "inkling small",
+      "b": "grok 4 fast (reasoning)",
+      "p": 1.0
+    },
+    {
+      "a": "inkling small",
+      "b": "minimax m2.5",
+      "p": 1.0
+    },
+    {
+      "a": "inkling small",
+      "b": "mistral large 3",
+      "p": 1.0
+    },
+    {
+      "a": "kimi k2.6",
+      "b": "deepseek v3.2 (thinking)",
+      "p": 1.0
+    },
+    {
+      "a": "kimi k2.6",
+      "b": "gemini 3.1 flash lite preview",
+      "p": 1.0
+    },
+    {
+      "a": "kimi k2.6",
+      "b": "gemini 3.5 flash lite",
+      "p": 1.0
+    },
+    {
+      "a": "kimi k2.6",
+      "b": "glm 4.7",
+      "p": 1.0
+    },
+    {
+      "a": "kimi k2.6",
+      "b": "glm 5",
+      "p": 1.0
+    },
+    {
+      "a": "kimi k2.6",
+      "b": "gpt oss 120b",
+      "p": 1.0
+    },
+    {
+      "a": "kimi k2.6",
+      "b": "grok 4 fast (reasoning)",
+      "p": 1.0
+    },
+    {
+      "a": "kimi k2.6",
+      "b": "grok 4.1 fast (reasoning)",
+      "p": 1.0
+    },
+    {
+      "a": "kimi k2.6",
+      "b": "inkling small",
+      "p": 1.0
+    },
+    {
+      "a": "kimi k2.6",
+      "b": "mimo v2.5",
+      "p": 1.0
+    },
+    {
+      "a": "kimi k2.6",
+      "b": "mimo v2.5 pro",
+      "p": 1.0
+    },
+    {
+      "a": "kimi k2.6",
+      "b": "minimax m2.5",
+      "p": 1.0
+    },
+    {
+      "a": "kimi k2.6",
+      "b": "minimax m2.7",
+      "p": 1.0
+    },
+    {
+      "a": "kimi k2.6",
+      "b": "mistral large 3",
+      "p": 1.0
+    },
+    {
+      "a": "mimo v2.5",
+      "b": "gpt oss 120b",
+      "p": 1.0
+    },
+    {
+      "a": "mimo v2.5",
+      "b": "mistral large 3",
+      "p": 1.0
+    },
+    {
+      "a": "mimo v2.5 pro",
+      "b": "gpt oss 120b",
+      "p": 1.0
+    },
+    {
+      "a": "mimo v2.5 pro",
+      "b": "grok 4 fast (reasoning)",
+      "p": 1.0
+    },
+    {
+      "a": "mimo v2.5 pro",
+      "b": "grok 4.1 fast (reasoning)",
+      "p": 1.0
+    },
+    {
+      "a": "mimo v2.5 pro",
+      "b": "minimax m2.5",
+      "p": 1.0
+    },
+    {
+      "a": "mimo v2.5 pro",
+      "b": "mistral large 3",
+      "p": 1.0
+    },
+    {
+      "a": "minimax m2.5",
+      "b": "gpt oss 120b",
+      "p": 1.0
+    },
+    {
+      "a": "minimax m2.5",
+      "b": "mistral large 3",
+      "p": 1.0
+    },
+    {
+      "a": "minimax m2.7",
+      "b": "gpt oss 120b",
+      "p": 1.0
+    },
+    {
+      "a": "minimax m2.7",
+      "b": "mistral large 3",
+      "p": 1.0
+    },
+    {
+      "a": "minimax m3",
+      "b": "deepseek v3.2 (thinking)",
+      "p": 1.0
+    },
+    {
+      "a": "minimax m3",
+      "b": "gemini 3.1 flash lite preview",
+      "p": 1.0
+    },
+    {
+      "a": "minimax m3",
+      "b": "glm 4.7",
+      "p": 1.0
+    },
+    {
+      "a": "minimax m3",
+      "b": "gpt oss 120b",
+      "p": 1.0
+    },
+    {
+      "a": "minimax m3",
+      "b": "grok 4 fast (reasoning)",
+      "p": 1.0
+    },
+    {
+      "a": "minimax m3",
+      "b": "grok 4.1 fast (reasoning)",
+      "p": 1.0
+    },
+    {
+      "a": "minimax m3",
+      "b": "mimo v2.5",
+      "p": 1.0
+    },
+    {
+      "a": "minimax m3",
+      "b": "minimax m2.5",
+      "p": 1.0
+    },
+    {
+      "a": "minimax m3",
+      "b": "minimax m2.7",
+      "p": 1.0
+    },
+    {
+      "a": "minimax m3",
+      "b": "mistral large 3",
+      "p": 1.0
+    },
+    {
+      "a": "mistral large 3",
+      "b": "gpt oss 120b",
+      "p": 1.0
+    },
+    {
+      "a": "muse spark 1.1",
+      "b": "claude sonnet 4.6",
+      "p": 1.0
+    },
+    {
+      "a": "muse spark 1.1",
+      "b": "deepseek v3.2 (thinking)",
+      "p": 1.0
+    },
+    {
+      "a": "muse spark 1.1",
+      "b": "gemini 3.1 flash lite preview",
+      "p": 1.0
+    },
+    {
+      "a": "muse spark 1.1",
+      "b": "gemini 3.5 flash lite",
+      "p": 1.0
+    },
+    {
+      "a": "muse spark 1.1",
+      "b": "glm 4.7",
+      "p": 1.0
+    },
+    {
+      "a": "muse spark 1.1",
+      "b": "glm 5",
+      "p": 1.0
+    },
+    {
+      "a": "muse spark 1.1",
+      "b": "glm 5.1",
+      "p": 1.0
+    },
+    {
+      "a": "muse spark 1.1",
+      "b": "glm 5.3 flash",
+      "p": 1.0
+    },
+    {
+      "a": "muse spark 1.1",
+      "b": "gpt 5.1",
+      "p": 1.0
+    },
+    {
+      "a": "muse spark 1.1",
+      "b": "gpt 5.2",
+      "p": 1.0
+    },
+    {
+      "a": "muse spark 1.1",
+      "b": "gpt oss 120b",
+      "p": 1.0
+    },
+    {
+      "a": "muse spark 1.1",
+      "b": "grok 4 fast (reasoning)",
+      "p": 1.0
+    },
+    {
+      "a": "muse spark 1.1",
+      "b": "grok 4.1 fast (reasoning)",
+      "p": 1.0
+    },
+    {
+      "a": "muse spark 1.1",
+      "b": "grok 4.3",
+      "p": 1.0
+    },
+    {
+      "a": "muse spark 1.1",
+      "b": "inkling",
+      "p": 1.0
+    },
+    {
+      "a": "muse spark 1.1",
+      "b": "inkling small",
+      "p": 1.0
+    },
+    {
+      "a": "muse spark 1.1",
+      "b": "kimi k2.6",
+      "p": 1.0
+    },
+    {
+      "a": "muse spark 1.1",
+      "b": "mimo v2.5",
+      "p": 1.0
+    },
+    {
+      "a": "muse spark 1.1",
+      "b": "mimo v2.5 pro",
+      "p": 1.0
+    },
+    {
+      "a": "muse spark 1.1",
+      "b": "minimax m2.5",
+      "p": 1.0
+    },
+    {
+      "a": "muse spark 1.1",
+      "b": "minimax m2.7",
+      "p": 1.0
+    },
+    {
+      "a": "muse spark 1.1",
+      "b": "minimax m3",
+      "p": 1.0
+    },
+    {
+      "a": "muse spark 1.1",
+      "b": "mistral large 3",
+      "p": 1.0
+    },
+    {
+      "a": "claude opus 4.7",
+      "b": "gemini 3 flash",
+      "p": 0.9995
+    },
+    {
+      "a": "gemini 3 flash",
+      "b": "grok 4.3",
+      "p": 0.9995
+    },
+    {
+      "a": "gemini 3.5 flash lite",
+      "b": "deepseek v3.2 (thinking)",
+      "p": 0.9995
+    },
+    {
+      "a": "glm 5.1",
+      "b": "inkling small",
+      "p": 0.9995
+    },
+    {
+      "a": "gpt 5.1",
+      "b": "mimo v2.5",
+      "p": 0.9995
+    },
+    {
+      "a": "kimi k2.6",
+      "b": "gpt 5.1",
+      "p": 0.9995
+    },
+    {
+      "a": "minimax m2.7",
+      "b": "grok 4 fast (reasoning)",
+      "p": 0.9995
+    },
+    {
+      "a": "minimax m2.7",
+      "b": "minimax m2.5",
+      "p": 0.9995
+    },
+    {
+      "a": "gemini 3.1 flash lite preview",
+      "b": "minimax m2.5",
+      "p": 0.999
+    },
+    {
+      "a": "glm 5.3 flash",
+      "b": "gemini 3.5 flash lite",
+      "p": 0.999
+    },
+    {
+      "a": "gpt 5.5",
+      "b": "kimi k2.6",
+      "p": 0.999
+    },
+    {
+      "a": "grok 4.5",
+      "b": "kimi k2.6",
+      "p": 0.999
+    },
+    {
+      "a": "kimi k2.6",
+      "b": "minimax m3",
+      "p": 0.999
+    },
+    {
+      "a": "minimax m3",
+      "b": "inkling small",
+      "p": 0.999
+    },
+    {
+      "a": "gemini 3 flash",
+      "b": "minimax m3",
+      "p": 0.9985
+    },
+    {
+      "a": "gemini 3.5 flash lite",
+      "b": "minimax m2.7",
+      "p": 0.9985
+    },
+    {
+      "a": "mimo v2.5 pro",
+      "b": "deepseek v3.2 (thinking)",
+      "p": 0.9985
+    },
+    {
+      "a": "muse spark 1.1",
+      "b": "gemini 3 flash",
+      "p": 0.9985
+    },
+    {
+      "a": "claude sonnet 4.6",
+      "b": "gemini 3.5 flash lite",
+      "p": 0.998
+    },
+    {
+      "a": "gemini 3 pro",
+      "b": "kimi k2.6",
+      "p": 0.998
+    },
+    {
+      "a": "glm 5",
+      "b": "minimax m2.7",
+      "p": 0.998
+    },
+    {
+      "a": "mimo v2.5",
+      "b": "grok 4 fast (reasoning)",
+      "p": 0.998
+    },
+    {
+      "a": "glm 5.3 flash",
+      "b": "glm 5",
+      "p": 0.997
+    },
+    {
+      "a": "glm 5.3 flash",
+      "b": "mimo v2.5 pro",
+      "p": 0.997
+    },
+    {
+      "a": "inkling small",
+      "b": "grok 4.1 fast (reasoning)",
+      "p": 0.997
+    },
+    {
+      "a": "mimo v2.5",
+      "b": "minimax m2.5",
+      "p": 0.997
+    },
+    {
+      "a": "glm 5",
+      "b": "gemini 3.1 flash lite preview",
+      "p": 0.9965
+    },
+    {
+      "a": "claude sonnet 4.6",
+      "b": "glm 5",
+      "p": 0.996
+    },
+    {
+      "a": "gemini 3 flash",
+      "b": "gpt 5.2",
+      "p": 0.9955
+    },
+    {
+      "a": "gemini 3.5 flash lite",
+      "b": "gemini 3.1 flash lite preview",
+      "p": 0.9955
+    },
+    {
+      "a": "gemini 3.5 flash lite",
+      "b": "glm 4.7",
+      "p": 0.9955
+    },
+    {
+      "a": "gemini 3 pro",
+      "b": "gemini 3 flash",
+      "p": 0.995
+    },
+    {
+      "a": "gemini 3 flash",
+      "b": "inkling",
+      "p": 0.9945
+    },
+    {
+      "a": "gpt 5.1",
+      "b": "inkling small",
+      "p": 0.9945
+    },
+    {
+      "a": "kimi k2.6",
+      "b": "grok 4.3",
+      "p": 0.9945
+    },
+    {
+      "a": "mimo v2.5 pro",
+      "b": "minimax m2.7",
+      "p": 0.9945
+    },
+    {
+      "a": "mimo v2.5 pro",
+      "b": "gemini 3.1 flash lite preview",
+      "p": 0.994
+    },
+    {
+      "a": "gemini 3.1 pro preview",
+      "b": "grok 4.5",
+      "p": 0.9935
+    },
+    {
+      "a": "gpt 5.5",
+      "b": "gemini 3 flash",
+      "p": 0.9935
+    },
+    {
+      "a": "glm 4.7",
+      "b": "grok 4 fast (reasoning)",
+      "p": 0.993
+    },
+    {
+      "a": "glm 5.3 flash",
+      "b": "gpt 5.1",
+      "p": 0.993
+    },
+    {
+      "a": "mimo v2.5 pro",
+      "b": "glm 4.7",
+      "p": 0.993
+    },
+    {
+      "a": "gemini 3.5 flash lite",
+      "b": "mimo v2.5",
+      "p": 0.9925
+    },
+    {
+      "a": "glm 5",
+      "b": "glm 4.7",
+      "p": 0.9925
+    },
+    {
+      "a": "grok 4.5",
+      "b": "gemini 3 flash",
+      "p": 0.9925
+    },
+    {
+      "a": "deepseek v3.2 (thinking)",
+      "b": "grok 4 fast (reasoning)",
+      "p": 0.9915
+    },
+    {
+      "a": "claude sonnet 4.6",
+      "b": "mimo v2.5 pro",
+      "p": 0.991
+    },
+    {
+      "a": "kimi k2.6",
+      "b": "gpt 5.2",
+      "p": 0.991
+    },
+    {
+      "a": "gemini 3 flash",
+      "b": "glm 5.1",
+      "p": 0.9905
+    },
+    {
+      "a": "gemini 3.1 pro preview",
+      "b": "gpt 5.5",
+      "p": 0.9905
+    },
+    {
+      "a": "glm 5",
+      "b": "mimo v2.5",
+      "p": 0.9905
+    },
+    {
+      "a": "deepseek v3.2 (thinking)",
+      "b": "minimax m2.5",
+      "p": 0.99
+    },
+    {
+      "a": "glm 4.7",
+      "b": "minimax m2.5",
+      "p": 0.99
+    },
+    {
+      "a": "gpt 5.2",
+      "b": "gemini 3.5 flash lite",
+      "p": 0.9875
+    },
+    {
+      "a": "mimo v2.5 pro",
+      "b": "mimo v2.5",
+      "p": 0.9875
+    },
+    {
+      "a": "kimi k2.6",
+      "b": "glm 5.1",
+      "p": 0.986
+    },
+    {
+      "a": "kimi k2.6",
+      "b": "inkling",
+      "p": 0.9855
+    },
+    {
+      "a": "inkling small",
+      "b": "deepseek v3.2 (thinking)",
+      "p": 0.9825
+    },
+    {
+      "a": "claude sonnet 4.6",
+      "b": "gpt 5.1",
+      "p": 0.9805
+    }
+  ],
+  "pairwise_bh_qvalues": {
+    "mimo v2.5 | minimax m2.7": 0.987,
+    "glm 5 | mimo v2.5 pro": 0.973093,
+    "gpt 5.5 | grok 4.5": 0.962138,
+    "claude opus 4.7 | muse spark 1.1": 0.962138,
+    "gemini 3.5 flash lite | mimo v2.5 pro": 0.944121,
+    "glm 5.1 | inkling": 0.903717,
+    "claude opus 4.8 | muse spark 1.1": 0.898595,
+    "gpt 5.2 | inkling": 0.898526,
+    "gemini 3.1 flash lite preview | glm 4.7": 0.898526,
+    "gemini 3.1 flash lite preview | mimo v2.5": 0.898526,
+    "claude opus 4.7 | claude opus 4.8": 0.898526,
+    "gemini 3.5 flash lite | glm 5": 0.897225,
+    "gemini 3.1 flash lite preview | minimax m2.7": 0.893046,
+    "glm 5.1 | grok 4.3": 0.852843,
+    "gemini 3 pro | grok 4.5": 0.848548,
+    "claude sonnet 4.6 | glm 5.3 flash": 0.8463,
+    "gemini 3 flash | kimi k2.6": 0.833686,
+    "glm 4.7 | mimo v2.5": 0.826205,
+    "glm 4.7 | minimax m2.7": 0.824933,
+    "glm 5.1 | gpt 5.2": 0.809058,
+    "gemini 3 pro | gpt 5.5": 0.800427,
+    "deepseek v3.2 (thinking) | glm 4.7": 0.767669,
+    "grok 4.3 | minimax m3": 0.750508,
+    "grok 4 fast (reasoning) | minimax m2.5": 0.74905,
+    "gpt 5.1 | minimax m3": 0.734932,
+    "grok 4.3 | inkling": 0.693273,
+    "gemini 3 pro | muse spark 1.1": 0.630239,
+    "glm 5.1 | minimax m3": 0.60726,
+    "claude opus 4.7 | gemini 3 pro": 0.600137,
+    "gpt 5.2 | grok 4.3": 0.600137,
+    "deepseek v3.2 (thinking) | gemini 3.1 flash lite preview": 0.552655,
+    "deepseek v3.2 (thinking) | mimo v2.5": 0.5475,
+    "deepseek v3.2 (thinking) | grok 4.1 fast (reasoning)": 0.525139,
+    "claude opus 4.8 | gemini 3 pro": 0.508056,
+    "gpt 5.1 | grok 4.3": 0.472552,
+    "glm 5 | gpt 5.1": 0.465,
+    "inkling | minimax m3": 0.444406,
+    "deepseek v3.2 (thinking) | minimax m2.7": 0.442185,
+    "gpt 5.1 | mimo v2.5 pro": 0.434508,
+    "gpt 5.5 | muse spark 1.1": 0.434437,
+    "grok 4.5 | muse spark 1.1": 0.433271,
+    "claude sonnet 4.6 | gpt 5.2": 0.425519,
+    "glm 5.3 flash | kimi k2.6": 0.412234,
+    "glm 5.1 | gpt 5.1": 0.412109,
+    "claude opus 4.7 | gpt 5.5": 0.40867,
+    "claude opus 4.7 | grok 4.5": 0.3875,
+    "glm 4.7 | grok 4.1 fast (reasoning)": 0.378437,
+    "claude sonnet 4.6 | inkling": 0.37378,
+    "claude sonnet 4.6 | glm 5.1": 0.373561,
+    "gemini 3.5 flash lite | gpt 5.1": 0.366635,
+    "gpt 5.2 | minimax m3": 0.351831,
+    "claude opus 4.8 | gpt 5.5": 0.302138,
+    "claude opus 4.8 | grok 4.5": 0.296114,
+    "mimo v2.5 pro | minimax m3": 0.291189,
+    "gemini 3 flash | glm 5.3 flash": 0.286241,
+    "claude sonnet 4.6 | kimi k2.6": 0.283537,
+    "glm 5 | minimax m3": 0.280819,
+    "glm 5.3 flash | gpt 5.2": 0.259853,
+    "gpt 5.1 | inkling": 0.257064,
+    "grok 4.1 fast (reasoning) | minimax m2.5": 0.255406,
+    "gemini 3.1 flash lite preview | grok 4.1 fast (reasoning)": 0.243407,
+    "inkling small | mimo v2.5": 0.240557,
+    "claude opus 4.7 | gemini 3.1 pro preview": 0.238846,
+    "gemini 3.1 pro preview | muse spark 1.1": 0.234813,
+    "glm 5.3 flash | inkling": 0.234239,
+    "grok 4.1 fast (reasoning) | mimo v2.5": 0.233662,
+    "glm 5.1 | glm 5.3 flash": 0.227256,
+    "gemini 3.5 flash lite | minimax m3": 0.206796,
+    "inkling small | mimo v2.5 pro": 0.204975,
+    "gemini 3.5 flash lite | inkling small": 0.197273,
+    "claude sonnet 4.6 | gemini 3 flash": 0.196595,
+    "gpt 5.1 | gpt 5.2": 0.194734,
+    "claude opus 4.8 | gemini 3.1 pro preview": 0.18813,
+    "claude sonnet 4.6 | grok 4.3": 0.181492,
+    "glm 4.7 | inkling small": 0.17601,
+    "glm 5.1 | mimo v2.5 pro": 0.174077,
+    "glm 5 | glm 5.1": 0.173329,
+    "grok 4.1 fast (reasoning) | minimax m2.7": 0.171379,
+    "grok 4 fast (reasoning) | grok 4.1 fast (reasoning)": 0.169419,
+    "glm 5 | inkling small": 0.163834,
+    "glm 5 | grok 4.3": 0.163052,
+    "grok 4.3 | mimo v2.5 pro": 0.158633,
+    "gemini 3.1 flash lite preview | inkling small": 0.140836,
+    "gemini 3.5 flash lite | glm 5.1": 0.133901,
+    "inkling small | minimax m2.7": 0.12815,
+    "claude sonnet 4.6 | minimax m3": 0.11625,
+    "gemini 3.5 flash lite | grok 4.3": 0.104288,
+    "glm 5.3 flash | grok 4.3": 0.093492,
+    "glm 5 | inkling": 0.08634,
+    "inkling | mimo v2.5 pro": 0.084096,
+    "gemini 3 pro | gemini 3.1 pro preview": 0.07068,
+    "gemini 3.5 flash lite | inkling": 0.060922,
+    "gpt 5.2 | mimo v2.5 pro": 0.059839,
+    "glm 5 | gpt 5.2": 0.05375,
+    "glm 5.3 flash | minimax m3": 0.050135,
+    "claude sonnet 4.6 | gpt 5.1": 0.049014,
+    "deepseek v3.2 (thinking) | inkling small": 0.044106,
+    "inkling | kimi k2.6": 0.036644,
+    "glm 5.1 | kimi k2.6": 0.035477,
+    "mimo v2.5 | mimo v2.5 pro": 0.031762,
+    "gemini 3.5 flash lite | gpt 5.2": 0.031762,
+    "glm 4.7 | minimax m2.5": 0.025549,
+    "deepseek v3.2 (thinking) | minimax m2.5": 0.025549,
+    "glm 5 | mimo v2.5": 0.024406,
+    "gemini 3.1 pro preview | gpt 5.5": 0.024406,
+    "gemini 3 flash | glm 5.1": 0.024406,
+    "gpt 5.2 | kimi k2.6": 0.023315,
+    "claude sonnet 4.6 | mimo v2.5 pro": 0.023315,
+    "deepseek v3.2 (thinking) | grok 4 fast (reasoning)": 0.022143,
+    "glm 4.7 | glm 5": 0.019593,
+    "gemini 3.5 flash lite | mimo v2.5": 0.019593,
+    "gemini 3 flash | grok 4.5": 0.019593,
+    "glm 5.3 flash | gpt 5.1": 0.018442,
+    "glm 4.7 | mimo v2.5 pro": 0.018442,
+    "glm 4.7 | grok 4 fast (reasoning)": 0.018442,
+    "gemini 3.1 pro preview | grok 4.5": 0.017271,
+    "gemini 3 flash | gpt 5.5": 0.017271,
+    "gemini 3.1 flash lite preview | mimo v2.5 pro": 0.016034,
+    "mimo v2.5 pro | minimax m2.7": 0.014741,
+    "grok 4.3 | kimi k2.6": 0.014741,
+    "gpt 5.1 | inkling small": 0.014741,
+    "gemini 3 flash | inkling": 0.014741,
+    "gemini 3 flash | gemini 3 pro": 0.013557,
+    "gemini 3.5 flash lite | glm 4.7": 0.012237,
+    "gemini 3.1 flash lite preview | gemini 3.5 flash lite": 0.012237,
+    "gemini 3 flash | gpt 5.2": 0.012237,
+    "claude sonnet 4.6 | glm 5": 0.010973,
+    "gemini 3.1 flash lite preview | glm 5": 0.00963,
+    "mimo v2.5 | minimax m2.5": 0.008279,
+    "grok 4.1 fast (reasoning) | inkling small": 0.008279,
+    "glm 5.3 flash | mimo v2.5 pro": 0.008279,
+    "glm 5 | glm 5.3 flash": 0.008279,
+    "grok 4 fast (reasoning) | mimo v2.5": 0.005586,
+    "glm 5 | minimax m2.7": 0.005586,
+    "gemini 3 pro | kimi k2.6": 0.005586,
+    "claude sonnet 4.6 | gemini 3.5 flash lite": 0.005586,
+    "gemini 3.5 flash lite | minimax m2.7": 0.00424,
+    "gemini 3 flash | muse spark 1.1": 0.00424,
+    "gemini 3 flash | minimax m3": 0.00424,
+    "deepseek v3.2 (thinking) | mimo v2.5 pro": 0.00424,
+    "kimi k2.6 | minimax m3": 0.002862,
+    "inkling small | minimax m3": 0.002862,
+    "grok 4.5 | kimi k2.6": 0.002862,
+    "gpt 5.5 | kimi k2.6": 0.002862,
+    "gemini 3.5 flash lite | glm 5.3 flash": 0.002862,
+    "gemini 3.1 flash lite preview | minimax m2.5": 0.002862,
+    "minimax m2.5 | minimax m2.7": 0.001458,
+    "grok 4 fast (reasoning) | minimax m2.7": 0.001458,
+    "gpt 5.1 | mimo v2.5": 0.001458,
+    "gpt 5.1 | kimi k2.6": 0.001458,
+    "glm 5.1 | inkling small": 0.001458,
+    "gemini 3 flash | grok 4.3": 0.001458,
+    "deepseek v3.2 (thinking) | gemini 3.5 flash lite": 0.001458,
+    "claude opus 4.7 | gemini 3 flash": 0.001458,
+    "mistral large 3 | muse spark 1.1": 0.0,
+    "minimax m3 | muse spark 1.1": 0.0,
+    "minimax m3 | mistral large 3": 0.0,
+    "minimax m2.7 | muse spark 1.1": 0.0,
+    "minimax m2.7 | mistral large 3": 0.0,
+    "minimax m2.7 | minimax m3": 0.0,
+    "minimax m2.5 | muse spark 1.1": 0.0,
+    "minimax m2.5 | mistral large 3": 0.0,
+    "minimax m2.5 | minimax m3": 0.0,
+    "mimo v2.5 pro | muse spark 1.1": 0.0,
+    "mimo v2.5 pro | mistral large 3": 0.0,
+    "mimo v2.5 pro | minimax m2.5": 0.0,
+    "mimo v2.5 | muse spark 1.1": 0.0,
+    "mimo v2.5 | mistral large 3": 0.0,
+    "mimo v2.5 | minimax m3": 0.0,
+    "kimi k2.6 | muse spark 1.1": 0.0,
+    "kimi k2.6 | mistral large 3": 0.0,
+    "kimi k2.6 | minimax m2.7": 0.0,
+    "kimi k2.6 | minimax m2.5": 0.0,
+    "kimi k2.6 | mimo v2.5 pro": 0.0,
+    "kimi k2.6 | mimo v2.5": 0.0,
+    "inkling small | muse spark 1.1": 0.0,
+    "inkling small | mistral large 3": 0.0,
+    "inkling small | minimax m2.5": 0.0,
+    "inkling small | kimi k2.6": 0.0,
+    "inkling | muse spark 1.1": 0.0,
+    "inkling | mistral large 3": 0.0,
+    "inkling | minimax m2.7": 0.0,
+    "inkling | minimax m2.5": 0.0,
+    "inkling | mimo v2.5": 0.0,
+    "inkling | inkling small": 0.0,
+    "grok 4.5 | mistral large 3": 0.0,
+    "grok 4.5 | minimax m3": 0.0,
+    "grok 4.5 | minimax m2.7": 0.0,
+    "grok 4.5 | minimax m2.5": 0.0,
+    "grok 4.5 | mimo v2.5 pro": 0.0,
+    "grok 4.5 | mimo v2.5": 0.0,
+    "grok 4.5 | inkling small": 0.0,
+    "grok 4.5 | inkling": 0.0,
+    "grok 4.3 | muse spark 1.1": 0.0,
+    "grok 4.3 | mistral large 3": 0.0,
+    "grok 4.3 | minimax m2.7": 0.0,
+    "grok 4.3 | minimax m2.5": 0.0,
+    "grok 4.3 | mimo v2.5": 0.0,
+    "grok 4.3 | inkling small": 0.0,
+    "grok 4.3 | grok 4.5": 0.0,
+    "grok 4.1 fast (reasoning) | muse spark 1.1": 0.0,
+    "grok 4.1 fast (reasoning) | mistral large 3": 0.0,
+    "grok 4.1 fast (reasoning) | minimax m3": 0.0,
+    "grok 4.1 fast (reasoning) | mimo v2.5 pro": 0.0,
+    "grok 4.1 fast (reasoning) | kimi k2.6": 0.0,
+    "grok 4.1 fast (reasoning) | inkling": 0.0,
+    "grok 4.1 fast (reasoning) | grok 4.5": 0.0,
+    "grok 4.1 fast (reasoning) | grok 4.3": 0.0,
+    "grok 4 fast (reasoning) | muse spark 1.1": 0.0,
+    "grok 4 fast (reasoning) | mistral large 3": 0.0,
+    "grok 4 fast (reasoning) | minimax m3": 0.0,
+    "grok 4 fast (reasoning) | mimo v2.5 pro": 0.0,
+    "grok 4 fast (reasoning) | kimi k2.6": 0.0,
+    "grok 4 fast (reasoning) | inkling small": 0.0,
+    "grok 4 fast (reasoning) | inkling": 0.0,
+    "grok 4 fast (reasoning) | grok 4.5": 0.0,
+    "grok 4 fast (reasoning) | grok 4.3": 0.0,
+    "gpt oss 120b | muse spark 1.1": 0.0,
+    "gpt oss 120b | mistral large 3": 0.0,
+    "gpt oss 120b | minimax m3": 0.0,
+    "gpt oss 120b | minimax m2.7": 0.0,
+    "gpt oss 120b | minimax m2.5": 0.0,
+    "gpt oss 120b | mimo v2.5 pro": 0.0,
+    "gpt oss 120b | mimo v2.5": 0.0,
+    "gpt oss 120b | kimi k2.6": 0.0,
+    "gpt oss 120b | inkling small": 0.0,
+    "gpt oss 120b | inkling": 0.0,
+    "gpt oss 120b | grok 4.5": 0.0,
+    "gpt oss 120b | grok 4.3": 0.0,
+    "gpt oss 120b | grok 4.1 fast (reasoning)": 0.0,
+    "gpt oss 120b | grok 4 fast (reasoning)": 0.0,
+    "gpt 5.5 | mistral large 3": 0.0,
+    "gpt 5.5 | minimax m3": 0.0,
+    "gpt 5.5 | minimax m2.7": 0.0,
+    "gpt 5.5 | minimax m2.5": 0.0,
+    "gpt 5.5 | mimo v2.5 pro": 0.0,
+    "gpt 5.5 | mimo v2.5": 0.0,
+    "gpt 5.5 | inkling small": 0.0,
+    "gpt 5.5 | inkling": 0.0,
+    "gpt 5.5 | grok 4.3": 0.0,
+    "gpt 5.5 | grok 4.1 fast (reasoning)": 0.0,
+    "gpt 5.5 | grok 4 fast (reasoning)": 0.0,
+    "gpt 5.5 | gpt oss 120b": 0.0,
+    "gpt 5.2 | muse spark 1.1": 0.0,
+    "gpt 5.2 | mistral large 3": 0.0,
+    "gpt 5.2 | minimax m2.7": 0.0,
+    "gpt 5.2 | minimax m2.5": 0.0,
+    "gpt 5.2 | mimo v2.5": 0.0,
+    "gpt 5.2 | inkling small": 0.0,
+    "gpt 5.2 | grok 4.5": 0.0,
+    "gpt 5.2 | grok 4.1 fast (reasoning)": 0.0,
+    "gpt 5.2 | grok 4 fast (reasoning)": 0.0,
+    "gpt 5.2 | gpt oss 120b": 0.0,
+    "gpt 5.2 | gpt 5.5": 0.0,
+    "gpt 5.1 | muse spark 1.1": 0.0,
+    "gpt 5.1 | mistral large 3": 0.0,
+    "gpt 5.1 | minimax m2.7": 0.0,
+    "gpt 5.1 | minimax m2.5": 0.0,
+    "gpt 5.1 | grok 4.5": 0.0,
+    "gpt 5.1 | grok 4.1 fast (reasoning)": 0.0,
+    "gpt 5.1 | grok 4 fast (reasoning)": 0.0,
+    "gpt 5.1 | gpt oss 120b": 0.0,
+    "gpt 5.1 | gpt 5.5": 0.0,
+    "glm 5.3 flash | muse spark 1.1": 0.0,
+    "glm 5.3 flash | mistral large 3": 0.0,
+    "glm 5.3 flash | minimax m2.7": 0.0,
+    "glm 5.3 flash | minimax m2.5": 0.0,
+    "glm 5.3 flash | mimo v2.5": 0.0,
+    "glm 5.3 flash | inkling small": 0.0,
+    "glm 5.3 flash | grok 4.5": 0.0,
+    "glm 5.3 flash | grok 4.1 fast (reasoning)": 0.0,
+    "glm 5.3 flash | grok 4 fast (reasoning)": 0.0,
+    "glm 5.3 flash | gpt oss 120b": 0.0,
+    "glm 5.3 flash | gpt 5.5": 0.0,
+    "glm 5.1 | muse spark 1.1": 0.0,
+    "glm 5.1 | mistral large 3": 0.0,
+    "glm 5.1 | minimax m2.7": 0.0,
+    "glm 5.1 | minimax m2.5": 0.0,
+    "glm 5.1 | mimo v2.5": 0.0,
+    "glm 5.1 | grok 4.5": 0.0,
+    "glm 5.1 | grok 4.1 fast (reasoning)": 0.0,
+    "glm 5.1 | grok 4 fast (reasoning)": 0.0,
+    "glm 5.1 | gpt oss 120b": 0.0,
+    "glm 5.1 | gpt 5.5": 0.0,
+    "glm 5 | muse spark 1.1": 0.0,
+    "glm 5 | mistral large 3": 0.0,
+    "glm 5 | minimax m2.5": 0.0,
+    "glm 5 | kimi k2.6": 0.0,
+    "glm 5 | grok 4.5": 0.0,
+    "glm 5 | grok 4.1 fast (reasoning)": 0.0,
+    "glm 5 | grok 4 fast (reasoning)": 0.0,
+    "glm 5 | gpt oss 120b": 0.0,
+    "glm 5 | gpt 5.5": 0.0,
+    "glm 4.7 | muse spark 1.1": 0.0,
+    "glm 4.7 | mistral large 3": 0.0,
+    "glm 4.7 | minimax m3": 0.0,
+    "glm 4.7 | kimi k2.6": 0.0,
+    "glm 4.7 | inkling": 0.0,
+    "glm 4.7 | grok 4.5": 0.0,
+    "glm 4.7 | grok 4.3": 0.0,
+    "glm 4.7 | gpt oss 120b": 0.0,
+    "glm 4.7 | gpt 5.5": 0.0,
+    "glm 4.7 | gpt 5.2": 0.0,
+    "glm 4.7 | gpt 5.1": 0.0,
+    "glm 4.7 | glm 5.3 flash": 0.0,
+    "glm 4.7 | glm 5.1": 0.0,
+    "gemini 3.5 flash lite | muse spark 1.1": 0.0,
+    "gemini 3.5 flash lite | mistral large 3": 0.0,
+    "gemini 3.5 flash lite | minimax m2.5": 0.0,
+    "gemini 3.5 flash lite | kimi k2.6": 0.0,
+    "gemini 3.5 flash lite | grok 4.5": 0.0,
+    "gemini 3.5 flash lite | grok 4.1 fast (reasoning)": 0.0,
+    "gemini 3.5 flash lite | grok 4 fast (reasoning)": 0.0,
+    "gemini 3.5 flash lite | gpt oss 120b": 0.0,
+    "gemini 3.5 flash lite | gpt 5.5": 0.0,
+    "gemini 3.1 pro preview | mistral large 3": 0.0,
+    "gemini 3.1 pro preview | minimax m3": 0.0,
+    "gemini 3.1 pro preview | minimax m2.7": 0.0,
+    "gemini 3.1 pro preview | minimax m2.5": 0.0,
+    "gemini 3.1 pro preview | mimo v2.5 pro": 0.0,
+    "gemini 3.1 pro preview | mimo v2.5": 0.0,
+    "gemini 3.1 pro preview | kimi k2.6": 0.0,
+    "gemini 3.1 pro preview | inkling small": 0.0,
+    "gemini 3.1 pro preview | inkling": 0.0,
+    "gemini 3.1 pro preview | grok 4.3": 0.0,
+    "gemini 3.1 pro preview | grok 4.1 fast (reasoning)": 0.0,
+    "gemini 3.1 pro preview | grok 4 fast (reasoning)": 0.0,
+    "gemini 3.1 pro preview | gpt oss 120b": 0.0,
+    "gemini 3.1 pro preview | gpt 5.2": 0.0,
+    "gemini 3.1 pro preview | gpt 5.1": 0.0,
+    "gemini 3.1 pro preview | glm 5.3 flash": 0.0,
+    "gemini 3.1 pro preview | glm 5.1": 0.0,
+    "gemini 3.1 pro preview | glm 5": 0.0,
+    "gemini 3.1 pro preview | glm 4.7": 0.0,
+    "gemini 3.1 pro preview | gemini 3.5 flash lite": 0.0,
+    "gemini 3.1 flash lite preview | muse spark 1.1": 0.0,
+    "gemini 3.1 flash lite preview | mistral large 3": 0.0,
+    "gemini 3.1 flash lite preview | minimax m3": 0.0,
+    "gemini 3.1 flash lite preview | kimi k2.6": 0.0,
+    "gemini 3.1 flash lite preview | inkling": 0.0,
+    "gemini 3.1 flash lite preview | grok 4.5": 0.0,
+    "gemini 3.1 flash lite preview | grok 4.3": 0.0,
+    "gemini 3.1 flash lite preview | grok 4 fast (reasoning)": 0.0,
+    "gemini 3.1 flash lite preview | gpt oss 120b": 0.0,
+    "gemini 3.1 flash lite preview | gpt 5.5": 0.0,
+    "gemini 3.1 flash lite preview | gpt 5.2": 0.0,
+    "gemini 3.1 flash lite preview | gpt 5.1": 0.0,
+    "gemini 3.1 flash lite preview | glm 5.3 flash": 0.0,
+    "gemini 3.1 flash lite preview | glm 5.1": 0.0,
+    "gemini 3.1 flash lite preview | gemini 3.1 pro preview": 0.0,
+    "gemini 3 pro | mistral large 3": 0.0,
+    "gemini 3 pro | minimax m3": 0.0,
+    "gemini 3 pro | minimax m2.7": 0.0,
+    "gemini 3 pro | minimax m2.5": 0.0,
+    "gemini 3 pro | mimo v2.5 pro": 0.0,
+    "gemini 3 pro | mimo v2.5": 0.0,
+    "gemini 3 pro | inkling small": 0.0,
+    "gemini 3 pro | inkling": 0.0,
+    "gemini 3 pro | grok 4.3": 0.0,
+    "gemini 3 pro | grok 4.1 fast (reasoning)": 0.0,
+    "gemini 3 pro | grok 4 fast (reasoning)": 0.0,
+    "gemini 3 pro | gpt oss 120b": 0.0,
+    "gemini 3 pro | gpt 5.2": 0.0,
+    "gemini 3 pro | gpt 5.1": 0.0,
+    "gemini 3 pro | glm 5.3 flash": 0.0,
+    "gemini 3 pro | glm 5.1": 0.0,
+    "gemini 3 pro | glm 5": 0.0,
+    "gemini 3 pro | glm 4.7": 0.0,
+    "gemini 3 pro | gemini 3.5 flash lite": 0.0,
+    "gemini 3 pro | gemini 3.1 flash lite preview": 0.0,
+    "gemini 3 flash | mistral large 3": 0.0,
+    "gemini 3 flash | minimax m2.7": 0.0,
+    "gemini 3 flash | minimax m2.5": 0.0,
+    "gemini 3 flash | mimo v2.5 pro": 0.0,
+    "gemini 3 flash | mimo v2.5": 0.0,
+    "gemini 3 flash | inkling small": 0.0,
+    "gemini 3 flash | grok 4.1 fast (reasoning)": 0.0,
+    "gemini 3 flash | grok 4 fast (reasoning)": 0.0,
+    "gemini 3 flash | gpt oss 120b": 0.0,
+    "gemini 3 flash | gpt 5.1": 0.0,
+    "gemini 3 flash | glm 5": 0.0,
+    "gemini 3 flash | glm 4.7": 0.0,
+    "gemini 3 flash | gemini 3.5 flash lite": 0.0,
+    "gemini 3 flash | gemini 3.1 pro preview": 0.0,
+    "gemini 3 flash | gemini 3.1 flash lite preview": 0.0,
+    "deepseek v3.2 (thinking) | muse spark 1.1": 0.0,
+    "deepseek v3.2 (thinking) | mistral large 3": 0.0,
+    "deepseek v3.2 (thinking) | minimax m3": 0.0,
+    "deepseek v3.2 (thinking) | kimi k2.6": 0.0,
+    "deepseek v3.2 (thinking) | inkling": 0.0,
+    "deepseek v3.2 (thinking) | grok 4.5": 0.0,
+    "deepseek v3.2 (thinking) | grok 4.3": 0.0,
+    "deepseek v3.2 (thinking) | gpt oss 120b": 0.0,
+    "deepseek v3.2 (thinking) | gpt 5.5": 0.0,
+    "deepseek v3.2 (thinking) | gpt 5.2": 0.0,
+    "deepseek v3.2 (thinking) | gpt 5.1": 0.0,
+    "deepseek v3.2 (thinking) | glm 5.3 flash": 0.0,
+    "deepseek v3.2 (thinking) | glm 5.1": 0.0,
+    "deepseek v3.2 (thinking) | glm 5": 0.0,
+    "deepseek v3.2 (thinking) | gemini 3.1 pro preview": 0.0,
+    "deepseek v3.2 (thinking) | gemini 3 pro": 0.0,
+    "deepseek v3.2 (thinking) | gemini 3 flash": 0.0,
+    "claude sonnet 4.6 | muse spark 1.1": 0.0,
+    "claude sonnet 4.6 | mistral large 3": 0.0,
+    "claude sonnet 4.6 | minimax m2.7": 0.0,
+    "claude sonnet 4.6 | minimax m2.5": 0.0,
+    "claude sonnet 4.6 | mimo v2.5": 0.0,
+    "claude sonnet 4.6 | inkling small": 0.0,
+    "claude sonnet 4.6 | grok 4.5": 0.0,
+    "claude sonnet 4.6 | grok 4.1 fast (reasoning)": 0.0,
+    "claude sonnet 4.6 | grok 4 fast (reasoning)": 0.0,
+    "claude sonnet 4.6 | gpt oss 120b": 0.0,
+    "claude sonnet 4.6 | gpt 5.5": 0.0,
+    "claude sonnet 4.6 | glm 4.7": 0.0,
+    "claude sonnet 4.6 | gemini 3.1 pro preview": 0.0,
+    "claude sonnet 4.6 | gemini 3.1 flash lite preview": 0.0,
+    "claude sonnet 4.6 | gemini 3 pro": 0.0,
+    "claude sonnet 4.6 | deepseek v3.2 (thinking)": 0.0,
+    "claude opus 4.8 | mistral large 3": 0.0,
+    "claude opus 4.8 | minimax m3": 0.0,
+    "claude opus 4.8 | minimax m2.7": 0.0,
+    "claude opus 4.8 | minimax m2.5": 0.0,
+    "claude opus 4.8 | mimo v2.5 pro": 0.0,
+    "claude opus 4.8 | mimo v2.5": 0.0,
+    "claude opus 4.8 | kimi k2.6": 0.0,
+    "claude opus 4.8 | inkling small": 0.0,
+    "claude opus 4.8 | inkling": 0.0,
+    "claude opus 4.8 | grok 4.3": 0.0,
+    "claude opus 4.8 | grok 4.1 fast (reasoning)": 0.0,
+    "claude opus 4.8 | grok 4 fast (reasoning)": 0.0,
+    "claude opus 4.8 | gpt oss 120b": 0.0,
+    "claude opus 4.8 | gpt 5.2": 0.0,
+    "claude opus 4.8 | gpt 5.1": 0.0,
+    "claude opus 4.8 | glm 5.3 flash": 0.0,
+    "claude opus 4.8 | glm 5.1": 0.0,
+    "claude opus 4.8 | glm 5": 0.0,
+    "claude opus 4.8 | glm 4.7": 0.0,
+    "claude opus 4.8 | gemini 3.5 flash lite": 0.0,
+    "claude opus 4.8 | gemini 3.1 flash lite preview": 0.0,
+    "claude opus 4.8 | gemini 3 flash": 0.0,
+    "claude opus 4.8 | deepseek v3.2 (thinking)": 0.0,
+    "claude opus 4.8 | claude sonnet 4.6": 0.0,
+    "claude opus 4.7 | mistral large 3": 0.0,
+    "claude opus 4.7 | minimax m3": 0.0,
+    "claude opus 4.7 | minimax m2.7": 0.0,
+    "claude opus 4.7 | minimax m2.5": 0.0,
+    "claude opus 4.7 | mimo v2.5 pro": 0.0,
+    "claude opus 4.7 | mimo v2.5": 0.0,
+    "claude opus 4.7 | kimi k2.6": 0.0,
+    "claude opus 4.7 | inkling small": 0.0,
+    "claude opus 4.7 | inkling": 0.0,
+    "claude opus 4.7 | grok 4.3": 0.0,
+    "claude opus 4.7 | grok 4.1 fast (reasoning)": 0.0,
+    "claude opus 4.7 | grok 4 fast (reasoning)": 0.0,
+    "claude opus 4.7 | gpt oss 120b": 0.0,
+    "claude opus 4.7 | gpt 5.2": 0.0,
+    "claude opus 4.7 | gpt 5.1": 0.0,
+    "claude opus 4.7 | glm 5.3 flash": 0.0,
+    "claude opus 4.7 | glm 5.1": 0.0,
+    "claude opus 4.7 | glm 5": 0.0,
+    "claude opus 4.7 | glm 4.7": 0.0,
+    "claude opus 4.7 | gemini 3.5 flash lite": 0.0,
+    "claude opus 4.7 | gemini 3.1 flash lite preview": 0.0,
+    "claude opus 4.7 | deepseek v3.2 (thinking)": 0.0,
+    "claude opus 4.7 | claude sonnet 4.6": 0.0
+  }
 }
