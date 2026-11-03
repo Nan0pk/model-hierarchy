@@ -100,14 +100,11 @@ def merge_snapshots(*snapshot_dicts: dict) -> dict:
     return merged
 
 
-def to_matrix(snapshots: dict, cfg) -> tuple[dict, dict, dict, set, dict]:
-    """Snapshots -> (raw, sigma, as_of, skipped, name_map), expanding aliases.
+def to_matrix(snapshots: dict, cfg) -> tuple[dict, dict, dict, set, dict, dict]:
+    """Snapshots -> score matrices plus benchmark-level source provenance.
 
-    raw      : {bench_id: {canonical_model: raw_score}}
-    sigma    : {bench_id: {canonical_model: noise sigma in RAW units}}  (§10)
-    as_of    : {bench_id: date}
-    skipped  : unregistered benchmark ids (config is the contract)
-    name_map : {original_name: canonical_name} for the reconciliation report
+    Returns raw scores, noise, evaluation dates, skipped benchmark IDs,
+    name reconciliation, and source/methodology metadata.
     """
     registered = set(cfg.bench_ids())
     # map alias -> source benchmark snapshot
@@ -121,6 +118,7 @@ def to_matrix(snapshots: dict, cfg) -> tuple[dict, dict, dict, set, dict]:
     sigma: dict[str, dict[str, float]] = {}
     as_of: dict[str, str] = {}
     name_map: dict[str, str] = {}
+    source_info: dict[str, dict] = {}
     skipped = set(snapshots) - registered - {cfg.alias_source(b) for b in registered if cfg.alias_source(b)}
     for bid, snap in resolved.items():
         vals = snap.get("values", {})
@@ -140,11 +138,16 @@ def to_matrix(snapshots: dict, cfg) -> tuple[dict, dict, dict, set, dict]:
             else:
                 sigma[bid][cname] = cfg.bench_noise_raw(bid)
         as_of[bid] = str(snap.get("as_of", today()))
+        source_info[bid] = {
+            key: snap[key]
+            for key in ("source", "provenance_type", "evaluation_provider", "qualification", "harness")
+            if snap.get(key) is not None
+        }
 
-    return raw, sigma, as_of, skipped, name_map
+    return raw, sigma, as_of, skipped, name_map, source_info
 
 
-def load_all(cfg, manual_csv: pathlib.Path | None = None) -> tuple[dict, dict, dict, set, dict]:
+def load_all(cfg, manual_csv: pathlib.Path | None = None) -> tuple[dict, dict, dict, set, dict, dict]:
     """Standard load path: committed snapshots + manual CSV, newest wins."""
     manual = load_manual_csv(manual_csv or (DATA_DIR / "manual" / "scores.csv"))
     snaps = merge_snapshots(load_snapshots(), manual)

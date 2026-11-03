@@ -51,14 +51,22 @@ sources:
       in percent).
 
   # ---- Scored: capability benchmarks --------------------------------------
-  # Use only adapters for stable, source-owned endpoints with matching score
-  # semantics. Mark sources kind: manual when no defensible automation exists.
+  # Use adapters for benchmark-owner or independently evaluated endpoints with
+  # explicit score semantics, dates, and compatible methodologies. Mark all
+  # unverified or mismatched sources manual; never use scrape time as freshness.
   gpqa_diamond:
     role: scored
-    kind: manual
+    kind: vals_table
     cadence: monthly
-    source: https://huggingface.co/datasets/Idavidrein/gpqa
-    fallback_note: No benchmark-operator-run public model leaderboard is available. Record the exact model-card or evaluation report URL, test-time compute, and score in the manual CSV; do not ingest unverified leaderboard aggregations as ground truth.
+    url: https://www.vals.ai/benchmarks/gpqa
+    benchmark: gpqa_diamond
+    table_spec:
+      model_header: Model
+      score_header: Accuracy
+      date_regex: '([A-Za-z]{3,9} \d{1,2}, \d{4})'
+    provenance_type: independent_evaluation
+    qualification: "GPQA Diamond: 198-question Diamond subset; Vals AI prompting and answer parsing; archived board"
+    fallback_note: Vals AI independently evaluates models and publishes the method/date; its GPQA board is archived after saturation and is subject to the standard 120-day cutoff.
 
   livebench_overall:
     role: scored
@@ -94,25 +102,33 @@ sources:
 
   swebench_verified:
     role: scored
-    kind: swebench
-    cadence: weekly
-    url: https://api.github.com/repos/SWE-bench/swe-bench.github.io/contents/data/leaderboards.json
+    kind: vals_table
+    cadence: monthly
+    url: https://www.vals.ai/benchmarks/swebench
     benchmark: swebench_verified
-    leaderboard_spec:
-      board: Verified
-      agent: mini-SWE-agent
-    provenance_type: orchestrator_run
-    fallback_note: Official Verified board, restricted to the mini-SWE-agent harness so scores are not selected across unrelated agent scaffolds.
+    table_spec:
+      model_header: Model
+      score_header: Score
+      date_regex: '([A-Za-z]{3,9} \d{1,2}, \d{4})'
+      filter_header: Harness
+      filter_value: Mini-SWE-agent
+    provenance_type: independent_evaluation
+    qualification: "SWE-bench Verified; Mini-SWE-agent harness only; archived board"
+    fallback_note: Vals AI's current archived leaderboard evaluates a fixed Mini-SWE-agent harness; other mixed-harness boards are not pooled.
 
   livecodebench:
     role: scored
-    kind: livecodebench
-    cadence: release
-    url: https://livecodebench.github.io/leaderboard.html
+    kind: vals_table
+    cadence: monthly
+    url: https://www.vals.ai/benchmarks/lcb
     benchmark: livecodebench
     table_spec:
-      date_regex: 'to (\d{1,2}/\d{1,2}/\d{4})'
-    fallback_note: Official LiveCodeBench leaderboard; the scrape records the end date of the current evaluation window, so stale releases are excluded by the normal staleness policy.
+      model_header: Model
+      score_header: Accuracy
+      date_regex: '([A-Za-z]{3,9} \d{1,2}, \d{4})'
+    provenance_type: independent_evaluation
+    qualification: "LiveCodeBench v6; Code Generation task in Python; Vals AI implementation; archived board"
+    fallback_note: Uses Vals AI's independently evaluated LiveCodeBench results and published evaluation date; this is not the stale official scrape or LiveBench.
 
   terminal_bench:
     role: scored

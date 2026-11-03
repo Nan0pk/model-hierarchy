@@ -67,7 +67,8 @@ def _cohort(raw, cfg) -> tuple[list, dict]:
 
 
 def compute(raw, sigma, as_of, cfg, demo: bool = False, reps: int | None = None,
-            seed: int | None = None, name_map: dict | None = None) -> dict:
+            seed: int | None = None, name_map: dict | None = None,
+            source_info: dict | None = None) -> dict:
     stale, excluded = apply_staleness(raw, sigma, as_of, cfg)
     cohort, presence = _cohort(raw, cfg)
 
@@ -157,6 +158,7 @@ def compute(raw, sigma, as_of, cfg, demo: bool = False, reps: int | None = None,
         "demo": demo,
         "cohort_size": len(cohort),
         "data_as_of": as_of,
+        "source_provenance": source_info or {},
         "stale": sorted(stale),
         "excluded_stale": sorted(excluded),
         "name_reconciliation": name_map or {},

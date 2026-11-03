@@ -22,7 +22,7 @@ def result():
     snaps = load_manual_csv(DEMO_DIR / "scores.csv")
     for snap in snaps.values():  # re-date: keeps this test valid forever
         snap["as_of"] = dt.date.today().isoformat()
-    raw, sigma, as_of, skipped, _ = to_matrix(snaps, cfg)
+    raw, sigma, as_of, skipped, _, _ = to_matrix(snaps, cfg)
     assert skipped == set()
     return compute(raw, sigma, as_of, cfg, demo=True, reps=300)
 
@@ -110,7 +110,7 @@ def test_cohort_isolation_normalization():
     snaps = load_manual_csv(DEMO_DIR / "scores.csv")
     for snap in snaps.values():
         snap["as_of"] = dt.date.today().isoformat()
-    raw, sigma, as_of, _, _ = to_matrix(snaps, cfg)
+    raw, sigma, as_of, _, _, _ = to_matrix(snaps, cfg)
 
     # a swarm of non-cohort models touching only two benchmarks (1 pillar)
     noisy = {b: dict(models) for b, models in raw.items()}   # deep enough: rows copied

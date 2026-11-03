@@ -288,63 +288,6 @@ def fetch_openrouter(source: dict, cfg) -> dict:
 # --------------------------------------------------------------------------
 # Official leaderboard APIs
 # --------------------------------------------------------------------------
-def fetch_swebench(source: dict, cfg) -> dict:
-    """Read the official SWE-bench Verified table, restricted to one harness.
-
-    SWE-bench entries measure model+agent systems, not a model in isolation.
-    The configured harness restriction is mandatory to avoid selecting a best
-    score across unrelated agent scaffolds.
-    """
-    url = source.get("url")
-    spec = source.get("leaderboard_spec") or {}
-    harness = spec.get("agent")
-    if not url or not harness:
-        raise FetchError("swebench source requires url and a fixed leaderboard_spec.agent")
-    try:
-        payload = _get(
-            url,
-            cfg.sources,
-            extra_headers={"Accept": "application/vnd.github.raw+json"},
-        ).json()
-        boards = payload.get("leaderboards", []) if isinstance(payload, dict) else []
-        board_name = spec.get("board", "Verified").casefold()
-        board = next((b for b in boards if str(b.get("name", "")).casefold() == board_name), None)
-        if not board:
-            raise FetchError(f"{url}: leaderboard {board_name!r} missing")
-        latest = {}
-        for row in board.get("results", []):
-            if str(row.get("agent", "")).casefold() != harness.casefold():
-                continue
-            model = row.get("model_display")
-            try:
-                score = float(row["resolved"])
-            except (KeyError, TypeError, ValueError):
-                continue
-            if not model or str(model).casefold() in {"multiple", "undisclosed"} or not math.isfinite(score):
-                continue
-            date = str(row.get("date", ""))
-            if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", date):
-                continue
-            prev = latest.get(str(model))
-            if prev is None or date > prev[0]:
-                latest[str(model)] = (date, score)
-        values = {model: {"score": score} for model, (_, score) in latest.items()}
-        if not values:
-            raise FetchError(f"{url}: no Verified rows for fixed agent {harness!r}")
-        observed = max(date for date, _ in latest.values())
-        as_of = observed
-        return {
-            "benchmark": source.get("benchmark") or _bench_id_for_source(source, cfg),
-            "as_of": as_of,
-            "values": values,
-            "source": url,
-            "provenance_type": "orchestrator_run",
-            "harness": harness,
-        }
-    except (requests.RequestException, ValueError, KeyError, TypeError) as exc:
-        raise FetchError(f"{url}: could not parse SWE-bench leaderboard: {exc}") from exc
-
-
 class _TableParser(HTMLParser):
     """Small dependency-free HTML table reader for source-owned static boards."""
 
@@ -385,6 +328,89 @@ class _TableParser(HTMLParser):
             self._row = None
         elif tag == "table" and self._table_depth:
             self._table_depth -= 1
+
+
+def fetch_vals_table(source: dict, cfg) -> dict:
+    """Fetch a methodology-documented Vals AI independent benchmark result table.
+
+    Vals runs the benchmark itself and publishes its evaluation date and
+    methodology. Optional fixed-column filters (e.g. SWE harness) prevent
+    mixing materially different evaluation setups.
+    """
+    url = source.get("url")
+    spec = source.get("table_spec") or {}
+    required = ("model_header", "score_header", "date_regex")
+    if not url or any(not spec.get(k) for k in required):
+        raise FetchError("vals_table requires url and model_header, score_header, date_regex")
+    try:
+        response = _get(url, cfg.sources)
+        parser = _TableParser()
+        parser.feed(response.text)
+        model_col = score_col = filter_col = None
+        rows = None
+        for table in parser.tables:
+            if not table:
+                continue
+            headers = [" ".join(cell.casefold().split()) for cell in table[0]]
+            model_col = next((i for i, h in enumerate(headers) if h == spec["model_header"].casefold()), None)
+            score_col = next((i for i, h in enumerate(headers) if h == spec["score_header"].casefold()), None)
+            filter_col = None
+            if spec.get("filter_header"):
+                filter_col = next((i for i, h in enumerate(headers) if h == spec["filter_header"].casefold()), None)
+            if model_col is not None and score_col is not None and (
+                not spec.get("filter_header") or filter_col is not None
+            ):
+                rows = table[1:]
+                break
+        if rows is None:
+            raise FetchError(f"{url}: no results table matches the configured headers")
+        expected_filter = str(spec.get("filter_value", "")).casefold()
+        values = {}
+        for row in rows:
+            needed_col = max(model_col, score_col, filter_col if filter_col is not None else 0)
+            if needed_col >= len(row):
+                continue
+            if filter_col is not None and row[filter_col].casefold() != expected_filter:
+                continue
+            model = row[model_col]
+            try:
+                score = float(row[score_col].replace("%", "").replace(",", ""))
+            except ValueError:
+                continue
+            if model and math.isfinite(score):
+                values[model] = {"score": score}
+        if not values:
+            raise FetchError(f"{url}: no valid rows after table and evaluation filters")
+        date_matches = re.findall(spec["date_regex"], " ".join(parser.page_text), flags=re.I)
+        if not date_matches:
+            raise FetchError(f"{url}: benchmark evaluation date not found")
+        # Choose the newest explicitly published evaluation date, never the
+        # scrape date, as the snapshot's freshness signal.
+        dates = []
+        for token in date_matches:
+            token = token.strip()
+            try:
+                parsed = dt.datetime.strptime(token, "%b %d, %Y")
+            except ValueError:
+                try:
+                    parsed = dt.datetime.strptime(token, "%B %d, %Y")
+                except ValueError:
+                    month, day, year = map(int, re.split(r"[/.-]", token))
+                    parsed = dt.datetime(year, month, day)
+            dates.append(parsed.date())
+        as_of = max(dates).isoformat()
+        return {
+            "benchmark": source.get("benchmark") or _bench_id_for_source(source, cfg),
+            "as_of": as_of,
+            "values": values,
+            "source": url,
+            "provenance_type": "independent_evaluation",
+            "evaluation_provider": "Vals AI",
+            **({"qualification": source["qualification"]} if source.get("qualification") else {}),
+            **({"harness": spec["filter_value"]} if spec.get("filter_value") else {}),
+        }
+    except (requests.RequestException, ValueError, KeyError, TypeError) as exc:
+        raise FetchError(f"{url}: could not parse Vals AI results table: {exc}") from exc
 
 
 def fetch_livecodebench(source: dict, cfg) -> dict:
@@ -501,7 +527,7 @@ ADAPTERS = {
     "lm_arena": fetch_lm_arena,
     "openrouter": fetch_openrouter,
     "json_url": fetch_json_url,
-    "swebench": fetch_swebench,
+    "vals_table": fetch_vals_table,
     "livecodebench": fetch_livecodebench,
     "llmstat": fetch_llmstat,
 }

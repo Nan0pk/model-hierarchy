@@ -4,7 +4,7 @@ import pytest
 
 from hierarchy.config import load_config
 from hierarchy.fetch import base
-from hierarchy.fetch.base import FetchError, fetch_all, fetch_livecodebench, fetch_swebench
+from hierarchy.fetch.base import FetchError, fetch_all, fetch_livecodebench, fetch_vals_table
 
 
 @pytest.fixture
@@ -12,39 +12,55 @@ def cfg():
     return load_config()
 
 
-def test_swebench_uses_fixed_agent_and_latest_model_row(monkeypatch, cfg):
-    payload = {
-        "leaderboards": [
-            {"name": "Lite", "results": [{"model_display": "Wrong", "resolved": 99}]},
-            {
-                "name": "Verified",
-                "results": [
-                    {"agent": "mini-SWE-agent", "model_display": "Model X", "resolved": 60, "date": "2025-01-01"},
-                    {"agent": "mini-SWE-agent", "model_display": "Model X", "resolved": 70, "date": "2025-02-01"},
-                    {"agent": "Other Agent", "model_display": "Model X", "resolved": 99, "date": "2025-03-01"},
-                    {"agent": "mini-SWE-agent", "model_display": "Multiple", "resolved": 100, "date": "2025-03-01"},
-                ],
-            },
-        ]
+def test_vals_table_parses_published_date_and_score(monkeypatch, cfg):
+    html = """
+    <p>GPQA Diamond • Sep 01, 2026</p>
+    <table><thead><tr><th>Rank</th><th>Model</th><th>Accuracy</th></tr></thead>
+    <tbody><tr><td>1</td><td>Model X</td><td>95.45%</td></tr>
+    <tr><td>2</td><td>Model Y</td><td>92.1%</td></tr></tbody></table>
+    """
+    monkeypatch.setattr(base, "_get", lambda *args, **kwargs: SimpleNamespace(text=html))
+    source = {
+        "benchmark": "gpqa_diamond",
+        "url": "https://example.test/gpqa",
+        "qualification": "198-item Diamond subset",
+        "table_spec": {
+            "model_header": "Model",
+            "score_header": "Accuracy",
+            "date_regex": r"([A-Za-z]{3,9} \d{1,2}, \d{4})",
+        },
     }
-    monkeypatch.setattr(base, "_get", lambda *args, **kwargs: SimpleNamespace(json=lambda: payload))
+
+    snap = fetch_vals_table(source, cfg)
+
+    assert snap["values"] == {"Model X": {"score": 95.45}, "Model Y": {"score": 92.1}}
+    assert snap["as_of"] == "2026-09-01"
+    assert snap["provenance_type"] == "independent_evaluation"
+    assert snap["qualification"] == "198-item Diamond subset"
+
+
+def test_vals_table_filters_to_fixed_swe_harness(monkeypatch, cfg):
+    html = """
+    <p>SWE-bench • Sep 01, 2026</p>
+    <table><tr><th>Model</th><th>Harness</th><th>Score</th></tr>
+    <tr><td>Model X</td><td>Mini-SWE-agent</td><td>70.2%</td></tr>
+    <tr><td>Model X</td><td>Other Agent</td><td>99%</td></tr></table>
+    """
+    monkeypatch.setattr(base, "_get", lambda *args, **kwargs: SimpleNamespace(text=html))
     source = {
         "benchmark": "swebench_verified",
-        "url": "https://example.test/leaderboards.json",
-        "leaderboard_spec": {"board": "Verified", "agent": "mini-SWE-agent"},
+        "url": "https://example.test/swebench",
+        "table_spec": {
+            "model_header": "Model", "score_header": "Score",
+            "date_regex": r"([A-Za-z]{3,9} \d{1,2}, \d{4})",
+            "filter_header": "Harness", "filter_value": "Mini-SWE-agent",
+        },
     }
 
-    snap = fetch_swebench(source, cfg)
+    snap = fetch_vals_table(source, cfg)
 
-    assert snap["values"] == {"Model X": {"score": 70.0}}
-    assert snap["as_of"] == "2025-02-01"
-    assert snap["harness"] == "mini-SWE-agent"
-
-
-def test_swebench_refuses_unscoped_agent_mixing(monkeypatch, cfg):
-    source = {"url": "https://example.test/data.json", "leaderboard_spec": {"board": "Verified"}}
-    with pytest.raises(FetchError, match="fixed leaderboard_spec.agent"):
-        fetch_swebench(source, cfg)
+    assert snap["values"] == {"Model X": {"score": 70.2}}
+    assert snap["harness"] == "Mini-SWE-agent"
 
 
 def test_livecodebench_reads_official_table_and_window_end(monkeypatch, cfg):

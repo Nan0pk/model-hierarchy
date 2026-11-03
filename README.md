@@ -42,19 +42,20 @@ python -m hierarchy fetch --allow-missing   # try live sources (best-effort, sof
 python -m hierarchy run                     # fetch + aggregate + render README/JSON/CSV
 ```
 
-The scheduled job does not magically scrape every registered benchmark. Automatic adapters are
-currently limited to first-party LMArena, OpenRouter, official SWE-bench (fixed `mini-SWE-agent`
-harness), and the official LiveCodeBench table. LiveCodeBench's published window is currently old,
-so the normal staleness policy excludes it rather than treating a fresh scrape as fresh scores.
+Automatic adapters currently cover LMArena and OpenRouter, plus Vals AI's independently evaluated
+GPQA Diamond, SWE-bench Verified, and LiveCodeBench tables. Vals marks these benchmark boards
+archived because it no longer reruns saturated benchmarks on new model releases; each snapshot uses
+the evaluation date published on the page (not the scrape date), and the standard 120-day cutoff
+excludes older results. SWE-bench is restricted to the fixed `Mini-SWE-agent` harness. Source URLs,
+evaluation dates, provider and harness qualifications are retained in the generated JSON and shown
+in the dashboard's **Benchmark sources and qualifications** section.
 
-Several registered metrics are intentionally manual: GPQA has no stable operator-run model board;
-LiveBench's current 2.0 suites no longer match the historical metric in these weights; SEAL's legacy
-average has no confirmed current endpoint; AIME/HMMT/MATH-500 are fixed contests/sets without a
-single comparable live leaderboard; Terminal-Bench mixes agent harnesses; and Tau² lacks a stable
-public machine-readable board. Each adapter/manual status is reported by `python -m hierarchy
-validate` and `python -m hierarchy fetch` so a missing integration is visible instead of silently
-skipped. We will only automate sources with a primary benchmark-owner or established first-party
-endpoint and a score definition that matches the methodology.
+Several metrics remain intentionally manual: LiveBench 2.0 no longer matches the historical metric
+in these weights; SEAL's legacy average has no confirmed current endpoint; AIME/HMMT/MATH-500 are
+fixed contests/sets without a single comparable live leaderboard; Terminal-Bench mixes agent
+harnesses; and Tau² lacks a stable public machine-readable board. Each adapter/manual status is
+reported by `python -m hierarchy validate` and `python -m hierarchy fetch` so a missing integration
+is visible instead of silently skipped. Never scrape a page's retrieval date as benchmark freshness.
 
 Any automatic source that fails (endpoint moved, schema changed) is logged and skipped — the
 hierarchy is computed from valid, sufficiently fresh data only. The **guaranteed** input path is
