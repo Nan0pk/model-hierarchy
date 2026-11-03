@@ -40,12 +40,12 @@ def cmd_validate(args) -> int:
     return 0
 
 
-def _run_matrix(raw, sigma, as_of, cfg, demo: bool, reps=None, name_map=None) -> int:
+def _run_matrix(raw, sigma, as_of, cfg, demo: bool, reps=None, name_map=None, source_info=None) -> int:
     if not raw:
         print("No data found. Run `python -m hierarchy fetch --allow-missing` and/or fill "
               "data/manual/scores.csv (see config/sources.yaml fallback_note per benchmark).")
         return 1
-    result = compute(raw, sigma, as_of, cfg, demo=demo, reps=reps, name_map=name_map)
+    result = compute(raw, sigma, as_of, cfg, demo=demo, reps=reps, name_map=name_map, source_info=source_info)
     json_path, csv_path = write_outputs(result, OUTPUT_DIR, demo=demo)
     table = markdown_table(result)
     readme = ROOT / "README.md"
@@ -62,19 +62,19 @@ def cmd_demo(args) -> int:
     snaps = load_manual_csv(DEMO_DIR / "scores.csv")
     for snap in snaps.values():  # keep the demo evergreen: re-date to today
         snap["as_of"] = today()
-    raw, sigma, as_of, skipped, name_map = to_matrix(snaps, cfg)
+    raw, sigma, as_of, skipped, name_map, source_info = to_matrix(snaps, cfg)
     if skipped:
         print(f"demo CSV: skipping unregistered benchmarks: {sorted(skipped)}")
-    return _run_matrix(raw, sigma, as_of, cfg, demo=True, reps=args.reps, name_map=name_map)
+    return _run_matrix(raw, sigma, as_of, cfg, demo=True, reps=args.reps, name_map=name_map, source_info=source_info)
 
 
 def cmd_aggregate(args) -> int:
     cfg = load_config()
     snaps = merge_snapshots(load_snapshots(), load_manual_csv())
-    raw, sigma, as_of, skipped, name_map = to_matrix(snaps, cfg)
+    raw, sigma, as_of, skipped, name_map, source_info = to_matrix(snaps, cfg)
     if skipped:
         print(f"skipping unregistered benchmarks: {sorted(skipped)}")
-    return _run_matrix(raw, sigma, as_of, cfg, demo=False, reps=args.reps, name_map=name_map)
+    return _run_matrix(raw, sigma, as_of, cfg, demo=False, reps=args.reps, name_map=name_map, source_info=source_info)
 
 
 def cmd_fetch(args) -> int:
