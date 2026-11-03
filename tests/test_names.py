@@ -7,6 +7,8 @@ def test_display_names_and_slugs_canonicalize_identically():
     assert canonical("Claude Opus 5.5 (High)") == "claude opus 5.5 (high)"
     assert canonical("anthropic/claude-opus-5.5") == "claude opus 5.5"
     assert canonical("Google/Gemini-3-Pro") == "gemini 3 pro"
+    assert canonical("Gemini 3.1 Pro Preview (02/26)") == "gemini 3.1 pro preview"
+    assert canonical("Gemini 3 Pro (11/25)") == "gemini 3 pro"
     assert canonical("  GPT-5.1 ") == "gpt 5.1"
 
 

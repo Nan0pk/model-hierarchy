@@ -36,7 +36,9 @@ def canonical(name: str) -> str:
     if _ALIASES is None:
         _ALIASES = _load_aliases()
     n = str(name).strip().lower()
-    if "/" in n:  # openrouter-style slug: keep the model part
+    # OpenRouter IDs have a compact provider/model slug (e.g. openai/gpt-4o).
+    # Do not treat slashes in human-readable dates like "(02/26)" as prefixes.
+    if re.fullmatch(r"[a-z0-9_.-]+/[a-z0-9_.:-]+", n):
         n = n.split("/", 1)[1]
     n = re.sub(r"[\s\-_]+", " ", n).strip()  # '.' stays: version syntax (5.5 ≠ 5 5)
     n = re.sub(r"\s+", " ", n)

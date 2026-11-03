@@ -77,7 +77,7 @@ def test_full_coverage_models_have_no_penalty(result):
 
 def test_provenance_is_stamped(result):
     assert result["demo"] is True
-    assert result["weights_version"] == "1.0.0"
+    assert result["weights_version"] == "1.1.0"
     assert result["config_hash"]
     assert result["data_as_of"]
 

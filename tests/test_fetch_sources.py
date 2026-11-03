@@ -4,12 +4,37 @@ import pytest
 
 from hierarchy.config import load_config
 from hierarchy.fetch import base
-from hierarchy.fetch.base import FetchError, fetch_all, fetch_livecodebench, fetch_vals_table
+from hierarchy.fetch.base import FetchError, fetch_all, fetch_livecodebench, fetch_openrouter, fetch_vals_table
 
 
 @pytest.fixture
 def cfg():
     return load_config()
+
+
+def test_openrouter_uses_published_data_date_and_marks_limited_denominator(monkeypatch, cfg):
+    rows = "".join(
+        f"<tr><th>Model {i}</th><td>{100-i}T tokens</td></tr>" for i in range(6)
+    )
+    html = f"""
+    <p>Usage data through Nov 2, 2026</p>
+    <table><caption>Model rankings by tokens processed</caption>{rows}</table>
+    """
+    monkeypatch.setattr(base, "_get", lambda *args, **kwargs: SimpleNamespace(text=html))
+    snap = fetch_openrouter({"endpoints": ["https://openrouter.ai/rankings"]}, cfg)
+
+    assert snap["as_of"] == "2026-11-02"
+    assert snap["source"] == "https://openrouter.ai/rankings"
+    assert len(snap["values"]) == 6
+    assert "normalized within parsed rows only" in snap["qualification"]
+
+
+def test_openrouter_refuses_to_use_scrape_date(monkeypatch, cfg):
+    rows = "".join(f"<tr><th>Model {i}</th><td>{100-i}T tokens</td></tr>" for i in range(6))
+    html = f"<table><caption>Model rankings by tokens processed</caption>{rows}</table>"
+    monkeypatch.setattr(base, "_get", lambda *args, **kwargs: SimpleNamespace(text=html))
+    with pytest.raises(FetchError, match="published usage date not found"):
+        fetch_openrouter({"endpoints": ["https://openrouter.ai/rankings"]}, cfg)
 
 
 def test_vals_table_parses_published_date_and_score(monkeypatch, cfg):

@@ -1,7 +1,7 @@
 # Model Hierarchy — Aggregation Methodology
 
-**Version 1.0.0** · This document is the normative specification of how this repo turns a dozen
-public benchmarks into one daily, reality-anchored hierarchy of frontier models.
+**Version 1.1.0** · This document is the normative specification of how this repo turns fourteen
+registered benchmark signals into one daily, reality-anchored hierarchy of frontier models.
 Every number in the pipeline lives in [`config/weights.yaml`](config/weights.yaml) and must stay
 in sync with this document (enforced by `tests/test_weights.py`).
 
@@ -99,16 +99,17 @@ each other":
 | 1 | LMArena Elo (style-controlled) | Human Preference | **0.25** | `elo` | n/a (human votes) | Anchor signal. Millions of pairwise human votes, Bradley-Terry Elo. Style-controlled variant strips verbosity/markdown bias; raw Elo used only as fallback. |
 | 2 | OpenRouter token share | Human Preference | **0.10** | `log_share` | n/a (revealed preference) | What people route real work through, at real cost. Log-transformed because share is heavy-tailed and price-skewed. |
 | 3 | GPQA Diamond | Knowledge & Reasoning | **0.08** | `blend` | Hard, recent, expert-written | Diamond subset of graduate-level science MCQ. |
-| 4 | LiveBench (overall) | Knowledge & Reasoning | **0.06** | `blend` | Monthly-refreshed questions | Contamination-resistant by design; orchestrator-run, not vendor-reported. |
-| 5 | Scale SEAL (average) | Knowledge & Reasoning | **0.06** | `blend` | Private held-out tasks | Contamination-proof: questions are not public. |
-| 6 | AIME 2025 (avg, no tools) | Math | **0.08** | `blend` | Post-cutoff competition | Frontier math; averaging across the 2025 sets tames single-sitting variance. |
-| 7 | HMMT Feb 2025 | Math | **0.04** | `blend` | Post-cutoff competition | Brutally hard, spreads the top better than AIME. |
-| 8 | MATH-500 | Math | **0.03** | `blend` | Legacy (saturating) | Kept as a historical anchor; near-saturation is why its weight is small. |
-| 9 | SWE-bench Verified | Coding | **0.10** | `blend` | Human-validated post-cutoff tasks | Real GitHub issues, agentic pipeline; the single most consequential capability benchmark. |
-| 10 | LiveCodeBench (current) | Coding | **0.07** | `blend` | Rolling fresh problems | Contamination-resistant competitive coding. |
-| 11 | Terminal-Bench — coding share | Coding | **0.03** | `blend` | Post-cutoff tasks | Terminal-native agent tasks; **hybrid benchmark** (see note). |
-| 12 | Tau²-bench (domain avg) | Agentic | **0.06** | `blend` | Simulated customers/tools | Tool-use with verifiable success states across domains. |
-| 13 | Terminal-Bench — agentic share | Agentic | **0.04** | `blend` | Post-cutoff tasks | Same data as #11, agentic lens; **hybrid benchmark** (see note). |
+| 4 | MMLU-Pro | Knowledge & Reasoning | **0.06** | `blend` | 14-subject academic knowledge test | Independent Vals AI evaluation; archived Sep 1, 2026 board, subject to 120-day cutoff. |
+| 5 | LiveBench (overall) | Knowledge & Reasoning | **0.03** | `blend` | Monthly-refreshed questions | Contamination-resistant by design; orchestrator-run, not vendor-reported. |
+| 6 | Scale SEAL (average) | Knowledge & Reasoning | **0.03** | `blend` | Private held-out tasks | Contamination-proof: questions are not public. |
+| 7 | AIME 2025 (avg, no tools) | Math | **0.08** | `blend` | Post-cutoff competition | Frontier math; averaging across the 2025 sets tames single-sitting variance. |
+| 8 | HMMT Feb 2025 | Math | **0.04** | `blend` | Post-cutoff competition | Brutally hard, spreads the top better than AIME. |
+| 9 | MATH-500 | Math | **0.03** | `blend` | Legacy (saturating) | Kept as a historical anchor; near-saturation is why its weight is small. |
+| 10 | SWE-bench Verified | Coding | **0.10** | `blend` | Human-validated post-cutoff tasks | Real GitHub issues, agentic pipeline; the single most consequential capability benchmark. |
+| 11 | LiveCodeBench (current) | Coding | **0.07** | `blend` | Rolling fresh problems | Contamination-resistant competitive coding. |
+| 12 | Terminal-Bench — coding share | Coding | **0.03** | `blend` | Post-cutoff tasks | Terminal-native agent tasks; **hybrid benchmark** (see note). |
+| 13 | Tau²-bench (domain avg) | Agentic | **0.06** | `blend` | Simulated customers/tools | Tool-use with verifiable success states across domains. |
+| 14 | Terminal-Bench — agentic share | Agentic | **0.04** | `blend` | Post-cutoff tasks | Same data as #11, agentic lens; **hybrid benchmark** (see note). |
 | | **Total** | | **1.00** | | | |
 
 **Hybrid benchmarks.** Terminal-Bench measures coding *and* agentic skill in one number, so it
@@ -279,7 +280,7 @@ A fully covered model is untouched (multiplier = 1.00). Example haircuts:
 
 | Situation | C | Multiplier |
 |---|---|---|
-| All 13 benchmarks | 1.00 | 1.00 |
+| All 14 benchmarks | 1.00 | 1.00 |
 | Missing all of P5 (0.10) | 0.90 | 0.97 |
 | Missing LMArena (0.25) | 0.75 | 0.925 |
 | Missing P1 entirely (0.35) | 0.65 | 0.895 |
@@ -428,7 +429,7 @@ alongside the full table (G-score, CI, pillar subscores, coverage, flags) in
 
 ## 15. Governance and versioning
 
-- The methodology is semver'd (`1.0.0`). Any change to a weight, pillar, normalization mode, or
+- The methodology is semver'd (`1.1.0`). Any change to a weight, pillar, normalization mode, or
   structural formula bumps the version, gets a changelog line below, and updates
   `tests/test_weights.py` in the same commit — CI fails otherwise.
 - Weight changes must state the pillar-level rationale in the PR description (which real-world
@@ -438,6 +439,7 @@ alongside the full table (G-score, CI, pillar subscores, coverage, flags) in
 
 **Changelog**
 
+- `1.1.0` (2026-11-03) — add independently evaluated MMLU-Pro as a knowledge signal; rebalance within the knowledge pillar (LiveBench and SEAL 0.06 → 0.03 each) to keep pillar/global weights unchanged and widen eligible cross-source coverage where the published overlap supports it.
 - `1.0.0` (2026-11-02) — initial public methodology: 5 pillars, 13 registered benchmark weights
   summing to 1.00, two-level geometric aggregation, 0.70/0.30 coverage penalty, 2,000-rep
   parametric bootstrap, 7-tier anchored separation rule.

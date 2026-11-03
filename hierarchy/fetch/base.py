@@ -17,6 +17,7 @@ Adapter order for LMArena (canonical first):
 from __future__ import annotations
 
 import datetime as dt
+import html as html_lib
 import json
 import math
 import pathlib
@@ -240,8 +241,8 @@ def fetch_openrouter(source: dict, cfg) -> dict:
     url = (source.get("endpoints") or ["https://openrouter.ai/rankings"])[0]
     html = _get(url, cfg.sources).text
 
-    # the page renders several or-table tables; we need the one captioned
-    # "Model rankings by tokens processed" (most recent complete day)
+    # Use the visible model-ranking table (the page's default This Week view),
+    # not its separate daily/monthly text summaries or author market-share table.
     rows: list[tuple[str, float]] = []
     for table in re.findall(r"<table.*?</table>", html, re.S):
         if "Model rankings by tokens processed" not in table:
@@ -272,6 +273,13 @@ def fetch_openrouter(source: dict, cfg) -> dict:
             "from openrouter.ai/rankings into data/manual/scores.csv "
             "(benchmark=openrouter_usage)."
         )
+    plain = html_lib.unescape(re.sub(r"<[^>]+>", " ", html))
+    date_match = re.search(
+        r"Usage\s*data\s*through\s*([A-Za-z]+ \d{1,2}, \d{4})", plain, re.I
+    )
+    if not date_match:
+        raise FetchError(f"{url}: published usage date not found; refusing to use scrape time")
+    as_of = dt.datetime.strptime(date_match.group(1), "%b %d, %Y").date().isoformat()
     total = sum(t for _, t in rows)
     values = {
         model: {"score": round(100.0 * tokens / total, 4), "tokens": tokens}
@@ -279,9 +287,11 @@ def fetch_openrouter(source: dict, cfg) -> dict:
     }
     return {
         "benchmark": "openrouter_usage",
-        "as_of": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d"),
+        "as_of": as_of,
         "values": values,
-        "source": f"{url} (share of parsed daily tokens, n={len(rows)})",
+        "source": url,
+        "provenance_type": "usage_aggregate",
+        "qualification": f"Top {len(rows)} visible weekly-ranking rows; share normalized within parsed rows only, not global traffic share",
     }
 
 

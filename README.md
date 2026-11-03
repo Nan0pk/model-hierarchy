@@ -43,7 +43,7 @@ python -m hierarchy run                     # fetch + aggregate + render README/
 ```
 
 Automatic adapters currently cover LMArena and OpenRouter, plus Vals AI's independently evaluated
-GPQA Diamond, SWE-bench Verified, and LiveCodeBench tables. Vals marks these benchmark boards
+GPQA Diamond, MMLU-Pro, SWE-bench Verified, and LiveCodeBench tables. Vals marks these benchmark boards
 archived because it no longer reruns saturated benchmarks on new model releases; each snapshot uses
 the evaluation date published on the page (not the scrape date), and the standard 120-day cutoff
 excludes older results. SWE-bench is restricted to the fixed `Mini-SWE-agent` harness. Source URLs,
@@ -62,12 +62,12 @@ hierarchy is computed from valid, sufficiently fresh data only. The **guaranteed
 [`data/manual/scores.csv`](data/manual/scores.csv): provide `benchmark,model,score,as_of,source,notes`
 for a methodology-compatible score and the pipeline runs offline. Scrapers rot; manual drops never do.
 
-## Weights at a glance (v1.0.0)
+## Weights at a glance (v1.1.0)
 
 | Pillar | Weight | Benchmarks (global weights) |
 |---|---|---|
 | Human Preference | **0.35** | LMArena style-controlled Elo (0.25), OpenRouter token share (0.10) |
-| Knowledge & Reasoning | **0.20** | GPQA Diamond (0.08), LiveBench (0.06), Scale SEAL (0.06) |
+| Knowledge & Reasoning | **0.20** | GPQA Diamond (0.08), MMLU-Pro (0.06), LiveBench (0.03), Scale SEAL (0.03) |
 | Math | **0.15** | AIME 2025 (0.08), HMMT Feb 2025 (0.04), MATH-500 (0.03) |
 | Coding | **0.20** | SWE-bench Verified (0.10), LiveCodeBench (0.07), Terminal-Bench coding share (0.03) |
 | Agentic | **0.10** | Tau²-bench (0.06), Terminal-Bench agentic share (0.04) |
