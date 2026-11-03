@@ -19,7 +19,7 @@ aggregation:
     min_benchmarks: 5
   staleness:                             # (§12)
     warn_after_days: 14
-    exclude_after_days: 120
+    exclude_after_days: 90
 
 uncertainty:                             # (§10)
   bootstrap_reps: 2000

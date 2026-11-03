@@ -358,7 +358,7 @@ alongside the full table (G-score, CI, pillar subscores, coverage, flags) in
 
 - Every snapshot records `as_of` (the date the *source* last updated, not the fetch date).
 - **Staleness policy:** a benchmark whose newest snapshot is > 14 days old is flagged `stale`
-  in output; > 120 days old it is excluded from aggregation (kept in the JSON with
+  in output; > 90 days old it is excluded from aggregation (kept in the JSON with
   `excluded_stale: true`). A model's ability doesn't decay — but comparability does, once the
   field has moved.
 - **Daily job** (`.github/workflows/daily.yml`, 06:00 UTC): fetch → aggregate → render →
