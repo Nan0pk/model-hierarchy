@@ -1,4 +1,4 @@
-"""Pins config/weights.yaml to METHODOLOGY.md v1.0.0 (§3, §4, §9, §10).
+"""Pins config/weights.yaml to METHODOLOGY.md v1.1.0 (§3, §4, §9, §10).
 
 If you intentionally change a weight: bump the methodology version, add a
 changelog line, and update the expected numbers here in the same commit.
@@ -15,7 +15,7 @@ def cfg() -> Config:
 
 
 def test_loads_and_hashes(cfg):
-    assert cfg.version == "1.0.0"
+    assert cfg.version == "1.1.0"
     assert len(cfg.config_hash()) == 16
 
 
@@ -45,8 +45,9 @@ def test_headline_benchmark_weights(cfg):
         "lm_arena_elo": 0.25,
         "openrouter_usage": 0.10,
         "gpqa_diamond": 0.08,
-        "livebench_overall": 0.06,
-        "seal_average": 0.06,
+        "mmlu_pro": 0.06,
+        "livebench_overall": 0.03,
+        "seal_average": 0.03,
         "aime_2025": 0.08,
         "hmmt_feb_2025": 0.04,
         "math_500": 0.03,

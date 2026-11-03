@@ -12,6 +12,12 @@
 # ============================================================================
 
 aliases:
+  # Vals AI appends release-month labels to these exact Gemini model IDs;
+  # LMArena omits the suffix, and the provider's model pages confirm the same model.
+  "gemini 3.1 pro preview (02/26)": "gemini 3.1 pro preview"
+  "gemini 3 pro (11/25)": "gemini 3 pro"
+  "gemini 3 flash (12/25)": "gemini 3 flash"
+
   # examples — extend as your sources require:
   # "chatgpt 4o latest": "gpt 4o latest"
   # "gemini flash latest": "gemini 2.0 flash"

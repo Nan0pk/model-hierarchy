@@ -1,7 +1,7 @@
 """Config loading + validation against METHODOLOGY.md contracts (§3, §4, §9, §10).
 
 Every check here is a methodology guarantee; tests/test_weights.py pins the
-actual v1.0.0 numbers.
+actual v1.1.0 numbers.
 """
 
 from __future__ import annotations

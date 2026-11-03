@@ -1,11 +1,11 @@
 # ============================================================================
-# Model Hierarchy — authoritative weights (methodology v1.0.0)
+# Model Hierarchy — authoritative weights (methodology v1.1.0)
 # Normative spec: METHODOLOGY.md §3, §4, §9, §10. Any change here MUST bump
 # `version`, add a METHODOLOGY.md changelog line, and update tests/test_weights.py
 # in the same commit.
 # ============================================================================
 
-version: "1.0.0"
+version: "1.1.0"
 
 aggregation:
   method: two_level_weighted_geometric   # arithmetic within pillar (§7), geometric across (§8)
@@ -81,17 +81,24 @@ benchmarks:
     normalization: blend
     higher_better: true
 
+  mmlu_pro:
+    label: "MMLU-Pro"
+    pillar: knowledge_reasoning
+    weight: 0.06
+    normalization: blend
+    higher_better: true
+
   livebench_overall:
     label: "LiveBench (overall)"
     pillar: knowledge_reasoning
-    weight: 0.06
+    weight: 0.03
     normalization: blend
     higher_better: true
 
   seal_average:
     label: "Scale SEAL (average)"
     pillar: knowledge_reasoning
-    weight: 0.06
+    weight: 0.03
     normalization: blend
     higher_better: true
 
