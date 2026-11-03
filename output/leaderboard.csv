@@ -1,1 +1,2 @@
-rank,model,tier,g,ci_lo,ci_hi,coverage,flags
+rank,model,tier,g,ci_lo,ci_hi,human_preference,knowledge_reasoning,math,coding,agentic,coverage,flags
+1,glm 5.3 flash,T1,54.6,54.6,54.6,50.0,75.0,,75.0,,0.6,

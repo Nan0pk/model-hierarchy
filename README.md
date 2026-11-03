@@ -139,18 +139,19 @@ not an analytic test or proof of model superiority.
 
 <!-- leaderboard:start -->
 
-Tier hierarchy (G-score 0-100) — generated 2026-11-03 13:21 UTC
+Tier hierarchy (G-score 0-100) — generated 2026-11-03 18:08 UTC
 ────────────────────────────────────────────────────────────────
+T1 │ glm 5.3 flash
 ────────────────────────────────────────────────────────────────
 Same tier = statistically indistinguishable on current data (METHODOLOGY.md §11).
 
 | # | Model | Tier | G | 95% CI | Hum. | Know. | Math | Code | Agent | Cov. | Flags |
 |---|-------|------|---|--------|---|---|---|---|---|------|-------|
-*Excluded (>120d): swebench_verified*
+| 1 | `glm 5.3 flash` | T1 | **54.6** | 54.6–54.6 | 50 | 75 | – | 75 | – | 60% | – |
 
-*Unranked (insufficient data, §5): `chatgpt 4o latest (20250326)`, `claude fable 5 (high)`, `claude fable 5.1 (max)`, `claude opus 4.1 (20250805)`, `claude opus 4.1 (thinking 16k, 20250805)`, `claude opus 4.5 (20251101)`, `claude opus 4.5 (high, 32k, 20251101)`, `claude opus 4.6`, `claude opus 4.6 (high)`, `claude opus 4.7`, `claude opus 4.7 (high)`, `claude opus 4.8`, `claude opus 4.8 (high)`, `claude opus 5 (high)`, `claude opus 5 (max)` … and 93 more in `output/leaderboard.json`*
+*Stale (>14d): gpqa_diamond, livecodebench, swebench_verified*
 
-*No tiers yet — tier assignment requires data from at least 3 pillars (§5). Fill `data/manual/scores.csv` or wire more sources in `config/sources.yaml`.*
+*Unranked (insufficient data, §5): `17 (nonthinking)`, `17 (thinking)`, `2024)`, `2025)`, `24/2025)`, `25)`, `25) (nonthinking)`, `25) (thinking)`, `26)`, `alpaca 13b`, `amazon nova 2 lite`, `amazon nova experimental chat (10 09)`, `amazon nova experimental chat (10 20)`, `amazon nova experimental chat (11 10)`, `amazon nova experimental chat (12 10)` … and 516 more in `output/leaderboard.json`*
 
 <!-- leaderboard:end -->
 

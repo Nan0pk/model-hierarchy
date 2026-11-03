@@ -1,0 +1,421 @@
+{
+  "benchmark": "gpqa_diamond",
+  "as_of": "2026-09-01",
+  "values": {
+    "Gemini 3.1 Pro Preview (02/26)": {
+      "score": 95.45
+    },
+    "GPT-5.6 Sol": {
+      "score": 95.2
+    },
+    "Grok 4.6": {
+      "score": 94.7
+    },
+    "Gemini 3.8 Flash": {
+      "score": 94.44
+    },
+    "Gemini 3.7 Flash": {
+      "score": 93.94
+    },
+    "Qwen 3.8 Max": {
+      "score": 93.69
+    },
+    "Gemini 3.6 Flash": {
+      "score": 93.43
+    },
+    "Claude Opus 5": {
+      "score": 93.43
+    },
+    "Claude Fable 5.1": {
+      "score": 93.43
+    },
+    "Claude Fable 5": {
+      "score": 93.18
+    },
+    "GPT 5.5": {
+      "score": 93.18
+    },
+    "Kimi K3": {
+      "score": 92.93
+    },
+    "Grok 4.5": {
+      "score": 92.93
+    },
+    "Gemini 3.5 Flash": {
+      "score": 92.68
+    },
+    "MiniMax-M3": {
+      "score": 92.68
+    },
+    "Claude Opus 4.8": {
+      "score": 92.42
+    },
+    "DeepSeek V4 Pro 0813": {
+      "score": 92.42
+    },
+    "GPT-5.6 Luna": {
+      "score": 91.67
+    },
+    "Gemini 3 Pro (11/25)": {
+      "score": 91.67
+    },
+    "GPT 5.2": {
+      "score": 91.67
+    },
+    "GPT 5.4 (xhigh)": {
+      "score": 91.67
+    },
+    "Grok 4.3": {
+      "score": 91.41
+    },
+    "Muse Spark 1.1": {
+      "score": 91.16
+    },
+    "GPT-5.6 Terra": {
+      "score": 90.91
+    },
+    "Qwen 3.7 Max": {
+      "score": 90.15
+    },
+    "Claude Opus 4.7": {
+      "score": 90.15
+    },
+    "DeepSeek V4 Flash 0731": {
+      "score": 89.9
+    },
+    "Muse Spark": {
+      "score": 89.65
+    },
+    "Claude Opus 4.6 (Thinking)": {
+      "score": 89.65
+    },
+    "DeepSeek V4": {
+      "score": 89.39
+    },
+    "Kimi K2.6": {
+      "score": 89.14
+    },
+    "Claude Sonnet 5": {
+      "score": 88.89
+    },
+    "Qwen 3.8 27B": {
+      "score": 88.89
+    },
+    "Grok 4.20 (Reasoning)": {
+      "score": 88.64
+    },
+    "Grok 4": {
+      "score": 88.13
+    },
+    "GLM 5.3": {
+      "score": 88.13
+    },
+    "Gemini 3 Flash (12/25)": {
+      "score": 87.88
+    },
+    "Qwen 3.5 Plus": {
+      "score": 87.37
+    },
+    "Qwen 3.6 Plus": {
+      "score": 87.37
+    },
+    "Inkling": {
+      "score": 87.12
+    },
+    "GPT 5.1": {
+      "score": 86.62
+    },
+    "MiniMax-M2.7": {
+      "score": 86.62
+    },
+    "GLM 5.3 Flash": {
+      "score": 86.36
+    },
+    "Nemotron 3 Ultra": {
+      "score": 86.11
+    },
+    "Claude Opus 4.5 (Thinking)": {
+      "score": 85.86
+    },
+    "GPT 5": {
+      "score": 85.61
+    },
+    "GLM 5.2": {
+      "score": 85.61
+    },
+    "Claude Sonnet 4.6": {
+      "score": 85.61
+    },
+    "Grok 4 Fast (Reasoning)": {
+      "score": 85.35
+    },
+    "Ling 3.0 Flash": {
+      "score": 84.85
+    },
+    "Qwen 3 Max Thinking": {
+      "score": 84.85
+    },
+    "GLM 5.1": {
+      "score": 84.52
+    },
+    "Grok 4.1 Fast (Reasoning)": {
+      "score": 84.34
+    },
+    "o3": {
+      "score": 84.09
+    },
+    "Kimi K2.5": {
+      "score": 84.09
+    },
+    "Gemini 3.5 Flash Lite": {
+      "score": 83.84
+    },
+    "Inkling Small": {
+      "score": 83.59
+    },
+    "GLM 5": {
+      "score": 83.33
+    },
+    "GPT 5.4 Mini": {
+      "score": 83.08
+    },
+    "Qwen 3.5 Flash": {
+      "score": 82.83
+    },
+    "MiMo V2.5 Pro": {
+      "score": 82.58
+    },
+    "MiniMax-M2.5": {
+      "score": 82.07
+    },
+    "Claude Sonnet 4.5 (Thinking)": {
+      "score": 81.63
+    },
+    "Gemini 2.5 Flash Preview (9/25) (Nonthinking)": {
+      "score": 81.57
+    },
+    "MiMo V2.5": {
+      "score": 81.57
+    },
+    "Gemini 3.1 Flash Lite Preview": {
+      "score": 81.06
+    },
+    "Gemini 2.5 Pro Exp": {
+      "score": 80.81
+    },
+    "GPT 5 Mini": {
+      "score": 80.3
+    },
+    "DeepSeek V3.2 (Thinking)": {
+      "score": 80.3
+    },
+    "GLM 4.7": {
+      "score": 80.05
+    },
+    "Claude Opus 4.5 (Nonthinking)": {
+      "score": 79.55
+    },
+    "Qwen 3 Max": {
+      "score": 79.55
+    },
+    "Grok 3 Mini Reasoning": {
+      "score": 72.98
+    },
+    "GPT OSS 120B": {
+      "score": 78.54
+    },
+    "MiniMax-M2.1": {
+      "score": 78.54
+    },
+    "Kimi K2 Thinking": {
+      "score": 78.54
+    },
+    "Qwen 3 Max Preview": {
+      "score": 77.78
+    },
+    "GPT 5.4 Nano": {
+      "score": 77.53
+    },
+    "Gemini 2.5 Flash Preview (9/25) (Thinking)": {
+      "score": 76.52
+    },
+    "Claude Opus 4.1 (Thinking)": {
+      "score": 76.26
+    },
+    "DeepSeek V3.2 (Nonthinking)": {
+      "score": 76.26
+    },
+    "o3 Mini": {
+      "score": 75.5
+    },
+    "Claude 3.7 Sonnet (Thinking)": {
+      "score": 75.25
+    },
+    "Claude Sonnet 4 (Thinking)": {
+      "score": 75.0
+    },
+    "o4 Mini": {
+      "score": 74.5
+    },
+    "GLM 4.6": {
+      "score": 74.5
+    },
+    "Grok 3": {
+      "score": 74.24
+    },
+    "o1": {
+      "score": 73.23
+    },
+    "Claude Haiku 4.5 (Thinking)": {
+      "score": 72.22
+    },
+    "GLM 4.5": {
+      "score": 72.22
+    },
+    "Claude Opus 4 (Nonthinking)": {
+      "score": 71.72
+    },
+    "Kimi K2 Instruct": {
+      "score": 71.46
+    },
+    "Gemini 2.5 Flash Lite (9/25) (Thinking)": {
+      "score": 70.2
+    },
+    "Qwen 3 (235B)": {
+      "score": 70.2
+    },
+    "Claude Opus 4.1 (Nonthinking)": {
+      "score": 69.95
+    },
+    "Llama 4 Maverick": {
+      "score": 69.44
+    },
+    "Claude Sonnet 4 (Nonthinking)": {
+      "score": 69.44
+    },
+    "GPT OSS 20B": {
+      "score": 68.94
+    },
+    "Mistral Large 3": {
+      "score": 68.43
+    },
+    "GPT 4.1 Mini": {
+      "score": 67.93
+    },
+    "Claude 3.7 Sonnet (Nonthinking)": {
+      "score": 67.42
+    },
+    "GPT 4.1": {
+      "score": 65.4
+    },
+    "Gemini 2.0 Flash (001)": {
+      "score": 65.15
+    },
+    "Grok 4.1 Fast Non-Reasoning": {
+      "score": 65.15
+    },
+    "Gemini 2.5 Flash Lite (9/25) (Nonthinking)": {
+      "score": 64.14
+    },
+    "GPT 5 Nano": {
+      "score": 63.38
+    },
+    "Llama 3.3 Nemotron Super (Thinking)": {
+      "score": 62.37
+    },
+    "Magistral Medium 1.2 (09/2025)": {
+      "score": 62.37
+    },
+    "Grok 4 Fast (Non-Reasoning)": {
+      "score": 62.12
+    },
+    "DeepSeek V3 (03/24/2025)": {
+      "score": 61.62
+    },
+    "Claude 3.5 Sonnet Latest": {
+      "score": 59.34
+    },
+    "MiMo V2 Flash": {
+      "score": 59.34
+    },
+    "Gemini 1.5 Pro (002)": {
+      "score": 58.33
+    },
+    "Magistral Small 1.2 (09/2025)": {
+      "score": 58.33
+    },
+    "Gemini 2.5 Flash Preview 4/17 (Nonthinking)": {
+      "score": 57.58
+    },
+    "Laguna XS.2": {
+      "score": 55.05
+    },
+    "DeepSeek V3": {
+      "score": 54.55
+    },
+    "GPT 4o (2024-11-20)": {
+      "score": 53.79
+    },
+    "GPT 4.1 Nano": {
+      "score": 50.76
+    },
+    "Mistral Small (02/2024)": {
+      "score": 50.76
+    },
+    "Grok 2": {
+      "score": 50.76
+    },
+    "GPT 4o (2024-05-13)": {
+      "score": 50.25
+    },
+    "Llama 3.3 Instruct Turbo (70B)": {
+      "score": 50.0
+    },
+    "Command A": {
+      "score": 48.48
+    },
+    "Mistral Large (11/2024)": {
+      "score": 47.73
+    },
+    "Llama 3.3 Nemotron Super (Nonthinking)": {
+      "score": 47.73
+    },
+    "Llama 4 Scout": {
+      "score": 46.97
+    },
+    "Gemini 1.5 Flash (002)": {
+      "score": 45.96
+    },
+    "Mistral Small 3.1 (03/2025)": {
+      "score": 44.19
+    },
+    "GPT 4o Mini": {
+      "score": 44.19
+    },
+    "Claude 3.5 Haiku Latest": {
+      "score": 37.88
+    },
+    "Jamba 1.6 Large": {
+      "score": 36.11
+    },
+    "Mistral Medium 3.5": {
+      "score": 34.85
+    },
+    "Jamba 1.6 Mini": {
+      "score": 32.07
+    },
+    "Command R+": {
+      "score": 31.06
+    },
+    "GPT 3.5": {
+      "score": 30.56
+    },
+    "Laguna M.1": {
+      "score": 27.02
+    }
+  },
+  "source": "https://www.vals.ai/benchmarks/gpqa",
+  "provenance_type": "independent_evaluation",
+  "evaluation_provider": "Vals AI",
+  "qualification": "GPQA Diamond: 198-question Diamond subset; Vals AI prompting and answer parsing; archived board"
+}
