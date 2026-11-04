@@ -1,22 +1,22 @@
 {
   "artificial_analysis": {
     "status": "failed",
-    "error": "https://artificialanalysis.ai/leaderboards/models -> SSLError",
-    "attempted_at": "2026-11-03T20:20:20+00:00"
+    "error": "Artificial Analysis current index is not v5.0; review the metric version",
+    "attempted_at": "2026-11-04T18:09:02+00:00"
   },
   "arena_text": {
     "status": "failed",
-    "error": "https://datasets-server.huggingface.co/filter -> SSLError",
-    "attempted_at": "2026-11-03T20:20:20+00:00"
+    "error": "https://datasets-server.huggingface.co/filter -> HTTP 500",
+    "attempted_at": "2026-11-04T18:09:22+00:00"
   },
   "livebench": {
     "status": "failed",
-    "error": "https://livebench.ai/ -> SSLError",
-    "attempted_at": "2026-11-03T20:20:20+00:00"
+    "error": "Required leaderboard headers missing; page/schema may have changed",
+    "attempted_at": "2026-11-04T18:09:22+00:00"
   },
   "terminal_bench": {
     "status": "failed",
-    "error": "https://www.tbench.ai/ -> SSLError",
-    "attempted_at": "2026-11-03T20:20:20+00:00"
+    "error": "Required leaderboard headers missing; page/schema may have changed",
+    "attempted_at": "2026-11-04T18:09:22+00:00"
   }
 }

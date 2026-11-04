@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "methodology_version": "2.0.0",
-  "generated_at": "2026-11-04T16:45:45+00:00",
+  "generated_at": "2026-11-04T18:09:22+00:00",
   "default_board": "artificial_analysis",
   "config_hash": "96c9f21a3accd50f",
   "freshness": {
@@ -969,8 +969,8 @@
       ],
       "last_fetch": {
         "status": "failed",
-        "error": "https://artificialanalysis.ai/leaderboards/models -> SSLError",
-        "attempted_at": "2026-11-03T20:20:20+00:00"
+        "error": "Artificial Analysis current index is not v5.0; review the metric version",
+        "attempted_at": "2026-11-04T18:09:02+00:00"
       },
       "published_at": null,
       "observed_at": "2026-11-03",
@@ -5631,8 +5631,8 @@
       ],
       "last_fetch": {
         "status": "failed",
-        "error": "https://datasets-server.huggingface.co/filter -> SSLError",
-        "attempted_at": "2026-11-03T20:20:20+00:00"
+        "error": "https://datasets-server.huggingface.co/filter -> HTTP 500",
+        "attempted_at": "2026-11-04T18:09:22+00:00"
       },
       "published_at": "2026-10-28",
       "observed_at": null,
@@ -6183,8 +6183,8 @@
       ],
       "last_fetch": {
         "status": "failed",
-        "error": "https://livebench.ai/ -> SSLError",
-        "attempted_at": "2026-11-03T20:20:20+00:00"
+        "error": "Required leaderboard headers missing; page/schema may have changed",
+        "attempted_at": "2026-11-04T18:09:22+00:00"
       },
       "published_at": null,
       "observed_at": "2026-11-03",
@@ -6447,8 +6447,8 @@
       ],
       "last_fetch": {
         "status": "failed",
-        "error": "https://www.tbench.ai/ -> SSLError",
-        "attempted_at": "2026-11-03T20:20:20+00:00"
+        "error": "Required leaderboard headers missing; page/schema may have changed",
+        "attempted_at": "2026-11-04T18:09:22+00:00"
       },
       "published_at": null,
       "observed_at": "2026-11-03",
