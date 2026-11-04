@@ -1,7 +1,7 @@
 # ============================================================================
 # Model Hierarchy — data sources (fetch layer)
 # Where numbers come from and how hard to try before falling back to
-# data/manual/scores.csv (the guaranteed path, METHODOLOGY.md §12).
+# data/manual/scores.csv (see METHODOLOGY.md §6).
 #
 # roles:
 #   scored      - fetched numbers feed the aggregate directly
@@ -16,28 +16,22 @@ defaults:
   user_agent: "model-hierarchy/1.0 (+https://github.com/Nan0pk/model-hierarchy)"
 
 sources:
-  # ---- Scored: Pillar 1 (Human Preference) --------------------------------
+  # ---- Human preference; usage below is contextual only -------------------
   lm_arena_elo:
     role: scored
     kind: lm_arena
     cadence: daily
-    # Adapter order (hierarchy/fetch/base.py):
-    # 1) CANONICAL: official HF dataset lmarena-ai/leaderboard-dataset
-    #    (CC-BY-4.0) via the public datasets-server JSON API — config
-    #    text_style_control, split latest, category=overall; carries per-model
-    #    95% CIs and the leaderboard publish date.
-    # 2) Community mirror API (clean JSON) as fallback.
-    # 3) Manual drop into data/manual/scores.csv.
+    # Canonical complete style-control dataset only. No raw-score mirror or
+    # partial first-rows fallback. Public native boards are configured separately
+    # in config/leaderboards.yaml and never scored in these legacy slots.
     canonical: https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset
-    endpoints:
-      - https://api.wulong.dev/arena-ai-leaderboards/v1/leaderboard?name=text
     fallback_note: >
-      If both paths fail, copy Elo + CI from lmarena.ai/leaderboard
+      If the official dataset fails, copy style-controlled rating + CI from lmarena.ai/leaderboard
       (style-control column) into data/manual/scores.csv with
       benchmark=lm_arena_elo.
 
   openrouter_usage:
-    role: scored
+    role: context
     kind: openrouter
     cadence: daily
     # Adapter parses the server-rendered table captioned "Model rankings by
@@ -49,6 +43,8 @@ sources:
       If the page shape changes, copy top-model token shares into
       data/manual/scores.csv with benchmark=openrouter_usage (score = share
       in percent).
+
+  # Usage is context only: never an eligibility gate or capability score.
 
   # ---- Scored: capability benchmarks --------------------------------------
   # Use adapters for benchmark-owner or independently evaluated endpoints with

@@ -9,8 +9,10 @@ from .config import ConfigError, DEMO_DIR, OUTPUT_DIR, ROOT, load_config
 from .data import load_manual_csv, load_snapshots, merge_snapshots, to_matrix, today
 from .fetch import fetch_all
 from .fetch.base import ADAPTERS
+from .fetch.boards import fetch_boards
+from .boards import load_board_config, build_board_report, write_board_outputs, board_markdown
 from .pipeline import compute, tree_text
-from .render import DEMO_MARKERS, README_MARKERS, markdown_table, update_readme, write_outputs
+from .render import BOARD_MARKERS, DEMO_MARKERS, README_MARKERS, markdown_table, update_readme, write_outputs
 
 
 def cmd_validate(args) -> int:
@@ -37,14 +39,23 @@ def cmd_validate(args) -> int:
     ]
     print(f"automatic sources: {', '.join(active) or 'none'}")
     print(f"manual-only sources: {', '.join(manual) or 'none'}")
+    for bid, spec in load_board_config()["boards"].items():
+        print(f"native board: {bid} — {spec['version']} ({spec['kind']})")
+    return 0
+
+
+def cmd_boards(args) -> int:
+    report = build_board_report()
+    path = write_board_outputs(report)
+    update_readme(ROOT / "README.md", board_markdown(report), BOARD_MARKERS)
+    print(f"Source-native rankings: {sum(b['n_scored'] for b in report['boards'].values())} "
+          f"scored entries across {len(report['boards'])} boards -> {path.relative_to(ROOT)}")
+    for issue in report["validation_issues"]:
+        print(f"snapshot warning: {issue}", file=sys.stderr)
     return 0
 
 
 def _run_matrix(raw, sigma, as_of, cfg, demo: bool, reps=None, name_map=None, source_info=None) -> int:
-    if not raw:
-        print("No data found. Run `python -m hierarchy fetch --allow-missing` and/or fill "
-              "data/manual/scores.csv (see config/sources.yaml fallback_note per benchmark).")
-        return 1
     result = compute(raw, sigma, as_of, cfg, demo=demo, reps=reps, name_map=name_map, source_info=source_info)
     json_path, csv_path = write_outputs(result, OUTPUT_DIR, demo=demo)
     table = markdown_table(result)
@@ -62,6 +73,8 @@ def cmd_demo(args) -> int:
     snaps = load_manual_csv(DEMO_DIR / "scores.csv")
     for snap in snaps.values():  # keep the demo evergreen: re-date to today
         snap["as_of"] = today()
+        for entry in snap["values"].values():
+            entry["as_of"] = today()
     raw, sigma, as_of, skipped, name_map, source_info = to_matrix(snaps, cfg)
     if skipped:
         print(f"demo CSV: skipping unregistered benchmarks: {sorted(skipped)}")
@@ -69,6 +82,7 @@ def cmd_demo(args) -> int:
 
 
 def cmd_aggregate(args) -> int:
+    cmd_boards(args)
     cfg = load_config()
     snaps = merge_snapshots(load_snapshots(), load_manual_csv())
     raw, sigma, as_of, skipped, name_map, source_info = to_matrix(snaps, cfg)
@@ -79,7 +93,10 @@ def cmd_aggregate(args) -> int:
 
 def cmd_fetch(args) -> int:
     cfg = load_config()
-    written, failures = fetch_all(cfg, allow_missing=args.allow_missing)
+    written, failures = fetch_all(cfg, allow_missing=True)
+    native_written, native_failures = fetch_boards(cfg)
+    written += native_written
+    failures += native_failures
     print(f"fetch done: {len(written)} written, {len(failures)} failed (see messages above).")
     if failures and not args.allow_missing:
         return 1
@@ -87,11 +104,13 @@ def cmd_fetch(args) -> int:
 
 
 def cmd_run(args) -> int:
-    cmd_fetch(argparse.Namespace(allow_missing=True))
-    return cmd_aggregate(argparse.Namespace(reps=args.reps))
+    status = cmd_fetch(argparse.Namespace(allow_missing=not getattr(args, "strict", False)))
+    result = cmd_aggregate(argparse.Namespace(reps=args.reps))
+    return status or result
 
 
 def cmd_render(args) -> int:
+    cmd_boards(args)
     import json
     cfg = load_config()
     path = OUTPUT_DIR / "leaderboard.json"
@@ -113,6 +132,7 @@ def main(argv=None) -> int:
     sub = p.add_subparsers(dest="cmd", required=True)
 
     sub.add_parser("validate", help="check config ↔ methodology consistency")
+    sub.add_parser("boards", help="publish source-native rankings from retained snapshots (offline)")
 
     d = sub.add_parser("demo", help="end-to-end run on bundled synthetic demo data")
     d.add_argument("--reps", type=int, default=None, help="override bootstrap reps")
@@ -122,15 +142,20 @@ def main(argv=None) -> int:
     sub.add_parser("render", help="re-render README from output/leaderboard.json")
 
     f = sub.add_parser("fetch", help="run fetch adapters (soft-fail per source)")
-    f.add_argument("--allow-missing", action="store_true", default=True,
-                   help="exit 0 even if some sources fail (default)")
+    mode = f.add_mutually_exclusive_group()
+    mode.add_argument("--allow-missing", dest="allow_missing", action="store_true", default=True,
+                      help="retain last valid snapshots when sources fail (default)")
+    mode.add_argument("--strict", dest="allow_missing", action="store_false",
+                      help="exit nonzero if any automatic source fails")
 
     r = sub.add_parser("run", help="fetch + aggregate (the daily job)")
     r.add_argument("--reps", type=int, default=None, help="override bootstrap reps")
+    r.add_argument("--strict", action="store_true", help="exit nonzero on any refresh failure")
 
     args = p.parse_args(argv)
     return {
         "validate": cmd_validate,
+        "boards": cmd_boards,
         "demo": cmd_demo,
         "aggregate": cmd_aggregate,
         "fetch": cmd_fetch,

@@ -1,0 +1,24 @@
+model,harness,score,margin,release_date
+Opus 5.5 (max),Claude Code,64.8,3.1,2026-09-22
+Sonnet 5.5 (max),Claude Code,61.8,2.9,2026-09-28
+GPT-6 Astra (max),Codex,58.2,2.8,2026-09-03
+GPT-6.1 Sol (max),Codex,58.2,3.1,2026-09-29
+Fable 5.1 (max),Claude Code,57.9,3.8,2026-09-01
+Opus 5 (xhigh),Claude Code,53.9,3.2,2026-07-24
+GPT-6 Sol (max),Codex,49.4,3.2,2026-09-22
+Fable 5 (max),Claude Code,44.5,3.8,2026-06-09
+GLM-5.3 (max),Claude Code,41.8,3.2,2026-08-14
+Grok 4.7 (xhigh),Grok Build,37.6,3.5,2026-09-21
+GPT-5.6 Sol (max),Codex,37.3,3.8,2026-06-26
+GLM-5.3-Flash (none),Claude Code,35.8,3.5,2026-08-26
+Qwen3.8-Max-0902 (max),Claude Code,27.0,3.8,2026-09-02
+Opus 4.8 (max),Claude Code,23.6,3.6,2026-05-28
+GPT-5.6 Terra (max),Codex,21.5,3.3,2026-06-26
+Grok 4.6 (high),Grok Build,20.3,3.1,2026-08-12
+Gemini 3.8 Flash (high),mini-SWE-agent,19.1,3.4,2026-09-02
+GPT-5.6 Luna (max),Codex,17.3,2.8,2026-06-26
+GPT-6 Luna (max),Codex,16.4,2.7,2026-09-22
+Muse Spark 1.3 (xhigh),Muse Code,14.5,2.9,2026-09-02
+Grok 4.5 (high),Grok Build,12.4,2.6,2026-07-16
+Sonnet 5 (max),Claude Code,12.4,3.1,2026-06-30
+Gemini 3.7 Flash (high),mini-SWE-agent,11.2,2.4,2026-08-13

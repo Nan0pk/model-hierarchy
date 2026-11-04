@@ -11,7 +11,7 @@ import random
 
 from .normalize import normalize_all
 
-PREFERENCE_BENCHES = ("lm_arena_elo", "openrouter_usage")
+PREFERENCE_BENCHES = ("lm_arena_elo",)
 
 
 # --------------------------------------------------------------------------
@@ -58,7 +58,8 @@ def pillar_and_g(vmat: dict, cfg) -> dict:
         g_final = g * penalty
 
         n_pillars = len(pillar_scores)
-        eligible = n_pillars >= min_pillars and len(present_bench) >= min_bench
+        n_independent = len({cfg.alias_source(b) or b for b in present_bench})
+        eligible = n_pillars >= min_pillars and n_independent >= min_bench
         flags = []
         if not any(b in PREFERENCE_BENCHES for b in present_bench):
             flags.append("no_preference_signal")
@@ -74,7 +75,7 @@ def pillar_and_g(vmat: dict, cfg) -> dict:
             "coverage": C,
             "penalty": penalty,
             "n_pillars": n_pillars,
-            "n_benchmarks": len(present_bench),
+            "n_benchmarks": n_independent,
             "eligible": eligible,
             "flags": flags,
         }
@@ -96,20 +97,25 @@ def bootstrap(raw: dict, sigma: dict, cfg, reps: int | None = None, seed: int | 
     Returns draws = {model: [G per rep]}.
     """
     u = cfg.uncertainty
-    reps = int(reps or u["bootstrap_reps"])
+    reps = int(u["bootstrap_reps"] if reps is None else reps)
+    if reps < 2:
+        raise ValueError("bootstrap repetitions must be >= 2")
     rng = random.Random(u["seed"] if seed is None else seed)
     models = sorted({m for bench in raw.values() for m in bench})
     draws: dict[str, list[float]] = {m: [] for m in models}
 
-    benches = list(raw.keys())
+    benches = sorted(raw)
     for _ in range(reps):
-        pert = {
-            b: {
-                m: v + rng.gauss(0, sigma.get(b, {}).get(m, 0.0))
-                for m, v in raw[b].items()
-            }
-            for b in benches
-        }
+        pert = {}
+        shared = {}
+        for b in benches:
+            source = cfg.alias_source(b) or b
+            for m in sorted(raw[b]):
+                value = raw[b][m]
+                key = (source, m)
+                if key not in shared:
+                    shared[key] = rng.gauss(0, sigma.get(b, {}).get(m, 0.0))
+                pert.setdefault(b, {})[m] = value + shared[key]
         res = pillar_and_g(normalize_all(pert, cfg), cfg)
         for m in models:
             draws[m].append(res[m]["g"])
@@ -136,14 +142,14 @@ def summarize_draws(draws: dict) -> dict:
 
 
 def pairwise_probs(draws: dict, models: list) -> dict:
-    """P[A > B] per ordered pair, computed across bootstrap draws (§10)."""
+    """P[A > B] + 0.5 P[A = B] per ordered pair, computed across bootstrap draws (§10)."""
     probs = {}
     for a in models:
         for b in models:
             if a == b:
                 continue
             da, db = draws[a], draws[b]
-            wins = sum(1 for x, y in zip(da, db) if x > y)
+            wins = sum(1 if x > y else 0.5 if x == y else 0 for x, y in zip(da, db))
             probs[(a, b)] = wins / len(da)
     return probs
 

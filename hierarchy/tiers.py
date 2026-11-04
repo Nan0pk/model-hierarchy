@@ -2,8 +2,8 @@
 
 Greedy, anchored separation: walk down the median-sorted list; a new tier opens
 when the candidate is separated from the CURRENT TIER'S ANCHOR (its best
-member) — by disjoint bootstrap CIs or P(anchor > candidate) >= threshold.
-Same tier means statistically indistinguishable on current data.
+member) — by multiplicity-adjusted P(anchor > candidate) >= threshold.
+Tiers are heuristic groups, not evidence of equivalence.
 """
 
 from __future__ import annotations
@@ -24,8 +24,7 @@ def assign_tiers(
 
     for cand in entries[1:]:
         separated = (
-            cand["hi"] < anchor["lo"]
-            or probs.get((anchor["model"], cand["model"]), 0.0) >= confidence
+            probs.get((anchor["model"], cand["model"]), 0.0) >= confidence
         )
         if separated and len(tiers) < max_tiers - 1:
             tiers.append(current)
@@ -50,5 +49,5 @@ def hierarchy_tree(tier_map: dict, generated_at: str, demo: bool = False) -> str
     for label in sorted(tier_map, key=lambda t: int(t[1:])):
         lines.append(f"{label} │ " + " · ".join(sorted(tier_map[label])))
     lines.append("─" * 64)
-    lines.append("Same tier = statistically indistinguishable on current data (METHODOLOGY.md §11).")
+    lines.append("Tiers are a bootstrap grouping heuristic, not proof of equivalence (METHODOLOGY.md).")
     return "\n".join(lines)

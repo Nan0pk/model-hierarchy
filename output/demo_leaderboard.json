@@ -1,25 +1,814 @@
 {
-  "generated_at": "2026-11-01 19:12 UTC",
-  "tool_version": "1.0.0",
-  "method": "model-hierarchy methodology v1.0.0",
-  "weights_version": "1.0.0",
-  "config_hash": "a74f071e60b8e92c",
+  "generated_at": "2026-11-03 20:25 UTC",
+  "tool_version": "2.0.0",
+  "method": "Experimental composite · methodology v2.0.0",
+  "weights_version": "2.0.0",
+  "config_hash": "d96bdaeb6a73ef51",
+  "data_hash": "be22d93f69e73ad07e8abbf8051cb10f2595a62cf4e9697c398368857c473183",
+  "bootstrap_reps": 2000,
+  "seed": 42,
   "demo": true,
   "cohort_size": 12,
   "data_as_of": {
-    "gpqa_diamond": "2026-11-01",
-    "aime_2025": "2026-11-01",
-    "livecodebench": "2026-11-01",
-    "terminal_bench": "2026-11-01",
-    "lm_arena_elo": "2026-11-01",
-    "livebench_overall": "2026-11-01",
-    "math_500": "2026-11-01",
-    "terminal_bench_agentic": "2026-11-01",
-    "seal_average": "2026-11-01",
-    "openrouter_usage": "2026-11-01",
-    "tau2_bench": "2026-11-01",
-    "hmmt_feb_2025": "2026-11-01",
-    "swebench_verified": "2026-11-01"
+    "lm_arena_elo": "2026-11-03",
+    "gpqa_diamond": "2026-11-03",
+    "livebench_overall": "2026-11-03",
+    "seal_average": "2026-11-03",
+    "aime_2025": "2026-11-03",
+    "hmmt_feb_2025": "2026-11-03",
+    "math_500": "2026-11-03",
+    "swebench_verified": "2026-11-03",
+    "livecodebench": "2026-11-03",
+    "terminal_bench": "2026-11-03",
+    "tau2_bench": "2026-11-03",
+    "terminal_bench_agentic": "2026-11-03"
+  },
+  "pillar_weights": {
+    "human_preference": 0.35,
+    "knowledge_reasoning": 0.2,
+    "math": 0.15,
+    "coding": 0.2,
+    "agentic": 0.1
+  },
+  "aggregation": {
+    "method": "two_level_weighted_geometric",
+    "value_floor": 0.02,
+    "pillar_floor": 0.05,
+    "coverage_penalty": {
+      "base": 0.7,
+      "span": 0.3
+    },
+    "eligibility": {
+      "min_pillars": 3,
+      "min_benchmarks": 5,
+      "min_cohort_size": 5,
+      "min_comparators": 3,
+      "require_all_pillars": true
+    },
+    "staleness": {
+      "warn_after_days": 14,
+      "exclude_after_days": 90
+    }
+  },
+  "source_provenance": {
+    "lm_arena_elo": {
+      "observations": {
+        "gemini 3 pro": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "style-controlled elo"
+        },
+        "gpt 5.1": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "style-controlled elo"
+        },
+        "claude opus 4.5": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "style-controlled elo"
+        },
+        "grok 4.1": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "style-controlled elo"
+        },
+        "kimi k2.5": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "style-controlled elo"
+        },
+        "glm 4.7": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "style-controlled elo"
+        },
+        "deepseek v3.2": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "style-controlled elo"
+        },
+        "qwen3 max": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "style-controlled elo"
+        },
+        "gpt 5 mini": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "style-controlled elo"
+        },
+        "minimax m2.5": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "style-controlled elo"
+        },
+        "mistral large 3": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "style-controlled elo"
+        },
+        "llama 4 maverick": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "style-controlled elo"
+        }
+      }
+    },
+    "gpqa_diamond": {
+      "observations": {
+        "gemini 3 pro": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass rate"
+        },
+        "gpt 5.1": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass rate"
+        },
+        "claude opus 4.5": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass rate"
+        },
+        "grok 4.1": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass rate"
+        },
+        "deepseek v3.2": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass rate"
+        },
+        "kimi k2.5": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass rate"
+        },
+        "qwen3 max": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass rate"
+        },
+        "glm 4.7": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass rate"
+        },
+        "gpt 5 mini": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass rate"
+        },
+        "minimax m2.5": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass rate"
+        },
+        "mistral large 3": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass rate"
+        },
+        "llama 4 maverick": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass rate"
+        }
+      }
+    },
+    "livebench_overall": {
+      "observations": {
+        "gpt 5.1": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "overall index"
+        },
+        "claude opus 4.5": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "overall index"
+        },
+        "gemini 3 pro": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "overall index"
+        },
+        "grok 4.1": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "overall index"
+        },
+        "deepseek v3.2": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "overall index"
+        },
+        "kimi k2.5": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "overall index"
+        },
+        "glm 4.7": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "overall index"
+        },
+        "qwen3 max": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "overall index"
+        },
+        "gpt 5 mini": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "overall index"
+        },
+        "minimax m2.5": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "overall index"
+        },
+        "mistral large 3": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "overall index"
+        },
+        "llama 4 maverick": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "overall index"
+        }
+      }
+    },
+    "seal_average": {
+      "observations": {
+        "gpt 5.1": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "seal average"
+        },
+        "claude opus 4.5": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "seal average"
+        },
+        "gemini 3 pro": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "seal average"
+        },
+        "grok 4.1": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "seal average"
+        },
+        "deepseek v3.2": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "seal average"
+        },
+        "kimi k2.5": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "seal average"
+        },
+        "glm 4.7": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "seal average"
+        },
+        "qwen3 max": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "seal average"
+        },
+        "gpt 5 mini": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "seal average"
+        },
+        "minimax m2.5": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "seal average"
+        },
+        "llama 4 maverick": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "seal average"
+        }
+      }
+    },
+    "aime_2025": {
+      "observations": {
+        "gemini 3 pro": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "avg no-tools"
+        },
+        "gpt 5.1": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "avg no-tools"
+        },
+        "claude opus 4.5": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "avg no-tools"
+        },
+        "grok 4.1": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "avg no-tools"
+        },
+        "deepseek v3.2": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "avg no-tools"
+        },
+        "kimi k2.5": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "avg no-tools"
+        },
+        "glm 4.7": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "avg no-tools"
+        },
+        "qwen3 max": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "avg no-tools"
+        },
+        "gpt 5 mini": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "avg no-tools"
+        },
+        "minimax m2.5": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "avg no-tools"
+        },
+        "mistral large 3": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "avg no-tools"
+        },
+        "llama 4 maverick": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "avg no-tools"
+        }
+      }
+    },
+    "hmmt_feb_2025": {
+      "observations": {
+        "gemini 3 pro": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass rate"
+        },
+        "gpt 5.1": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass rate"
+        },
+        "claude opus 4.5": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass rate"
+        },
+        "grok 4.1": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass rate"
+        },
+        "deepseek v3.2": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass rate"
+        },
+        "kimi k2.5": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass rate"
+        },
+        "glm 4.7": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass rate"
+        },
+        "qwen3 max": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass rate"
+        },
+        "gpt 5 mini": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass rate"
+        },
+        "mistral large 3": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass rate"
+        },
+        "llama 4 maverick": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass rate"
+        }
+      }
+    },
+    "math_500": {
+      "observations": {
+        "gpt 5.1": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "accuracy"
+        },
+        "gemini 3 pro": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "accuracy"
+        },
+        "claude opus 4.5": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "accuracy"
+        },
+        "grok 4.1": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "accuracy"
+        },
+        "deepseek v3.2": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "accuracy"
+        },
+        "kimi k2.5": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "accuracy"
+        },
+        "glm 4.7": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "accuracy"
+        },
+        "qwen3 max": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "accuracy"
+        },
+        "gpt 5 mini": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "accuracy"
+        },
+        "minimax m2.5": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "accuracy"
+        },
+        "mistral large 3": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "accuracy"
+        },
+        "llama 4 maverick": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "accuracy"
+        }
+      }
+    },
+    "swebench_verified": {
+      "observations": {
+        "claude opus 4.5": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "resolved %"
+        },
+        "gpt 5.1": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "resolved %"
+        },
+        "gemini 3 pro": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "resolved %"
+        },
+        "grok 4.1": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "resolved %"
+        },
+        "kimi k2.5": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "resolved %"
+        },
+        "deepseek v3.2": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "resolved %"
+        },
+        "glm 4.7": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "resolved %"
+        },
+        "qwen3 max": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "resolved %"
+        },
+        "gpt 5 mini": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "resolved %"
+        },
+        "minimax m2.5": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "resolved %"
+        },
+        "mistral large 3": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "resolved %"
+        },
+        "llama 4 maverick": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "resolved %"
+        }
+      }
+    },
+    "livecodebench": {
+      "observations": {
+        "gpt 5.1": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass@1 current window"
+        },
+        "gemini 3 pro": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass@1 current window"
+        },
+        "claude opus 4.5": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass@1 current window"
+        },
+        "deepseek v3.2": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass@1 current window"
+        },
+        "grok 4.1": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass@1 current window"
+        },
+        "kimi k2.5": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass@1 current window"
+        },
+        "glm 4.7": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass@1 current window"
+        },
+        "qwen3 max": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass@1 current window"
+        },
+        "gpt 5 mini": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass@1 current window"
+        },
+        "minimax m2.5": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass@1 current window"
+        },
+        "mistral large 3": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass@1 current window"
+        },
+        "llama 4 maverick": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass@1 current window"
+        }
+      }
+    },
+    "terminal_bench": {
+      "observations": {
+        "claude opus 4.5": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass rate"
+        },
+        "gpt 5.1": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass rate"
+        },
+        "gemini 3 pro": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass rate"
+        },
+        "grok 4.1": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass rate"
+        },
+        "kimi k2.5": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass rate"
+        },
+        "deepseek v3.2": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass rate"
+        },
+        "glm 4.7": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass rate"
+        },
+        "qwen3 max": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass rate"
+        },
+        "gpt 5 mini": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass rate"
+        },
+        "minimax m2.5": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass rate"
+        },
+        "mistral large 3": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass rate"
+        },
+        "llama 4 maverick": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass rate"
+        }
+      }
+    },
+    "tau2_bench": {
+      "observations": {
+        "gpt 5.1": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "domain avg success"
+        },
+        "claude opus 4.5": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "domain avg success"
+        },
+        "gemini 3 pro": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "domain avg success"
+        },
+        "grok 4.1": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "domain avg success"
+        },
+        "deepseek v3.2": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "domain avg success"
+        },
+        "kimi k2.5": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "domain avg success"
+        },
+        "glm 4.7": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "domain avg success"
+        },
+        "qwen3 max": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "domain avg success"
+        },
+        "gpt 5 mini": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "domain avg success"
+        },
+        "minimax m2.5": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "domain avg success"
+        },
+        "mistral large 3": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "domain avg success"
+        },
+        "llama 4 maverick": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "domain avg success"
+        }
+      }
+    },
+    "terminal_bench_agentic": {
+      "observations": {
+        "claude opus 4.5": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass rate"
+        },
+        "gpt 5.1": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass rate"
+        },
+        "gemini 3 pro": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass rate"
+        },
+        "grok 4.1": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass rate"
+        },
+        "kimi k2.5": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass rate"
+        },
+        "deepseek v3.2": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass rate"
+        },
+        "glm 4.7": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass rate"
+        },
+        "qwen3 max": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass rate"
+        },
+        "gpt 5 mini": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass rate"
+        },
+        "minimax m2.5": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass rate"
+        },
+        "mistral large 3": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass rate"
+        },
+        "llama 4 maverick": {
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "notes": "pass rate"
+        }
+      }
+    }
   },
   "stale": [],
   "excluded_stale": [],
@@ -28,10 +817,10 @@
     "gpt-5.1": "gpt 5.1",
     "claude-opus-4.5": "claude opus 4.5",
     "grok-4.1": "grok 4.1",
-    "deepseek-v3.2": "deepseek v3.2",
     "kimi-k2.5": "kimi k2.5",
-    "qwen3-max": "qwen3 max",
     "glm-4.7": "glm 4.7",
+    "deepseek-v3.2": "deepseek v3.2",
+    "qwen3-max": "qwen3 max",
     "gpt-5-mini": "gpt 5 mini",
     "minimax-m2.5": "minimax m2.5",
     "mistral-large-3": "mistral large 3",
@@ -42,20 +831,20 @@
       "rank": 1,
       "model": "gpt 5.1",
       "tier": "T1",
-      "g": 93.4,
-      "g_point": 94.0,
+      "g": 93.6,
+      "g_point": 94.4,
       "ci95": [
-        89.8,
-        95.6
+        89.1,
+        95.9
       ],
       "pillars": {
         "human_preference": {
-          "score": 90.8,
+          "score": 97.5,
           "coverage": 1.0
         },
         "knowledge_reasoning": {
-          "score": 97.4,
-          "coverage": 1.0
+          "score": 96.4,
+          "coverage": 0.7
         },
         "math": {
           "score": 94.2,
@@ -74,91 +863,110 @@
         "lm_arena_elo": {
           "raw": 1488.0,
           "value": 97.5,
-          "as_of": "2026-11-01"
-        },
-        "openrouter_usage": {
-          "raw": 9.0,
-          "value": 74.1,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "gpqa_diamond": {
           "raw": 90.0,
           "value": 93.6,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "livebench_overall": {
           "raw": 68.0,
           "value": 100.0,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "seal_average": {
           "raw": 55.0,
           "value": 100.0,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "aime_2025": {
           "raw": 99.0,
           "value": 94.8,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "hmmt_feb_2025": {
           "raw": 30.0,
           "value": 90.2,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "math_500": {
           "raw": 100.0,
           "value": 97.7,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "swebench_verified": {
           "raw": 78.0,
           "value": 94.1,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "livecodebench": {
           "raw": 82.0,
           "value": 100.0,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "terminal_bench": {
           "raw": 55.0,
           "value": 93.8,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "tau2_bench": {
           "raw": 85.0,
           "value": 93.9,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "terminal_bench_agentic": {
           "raw": 55.0,
           "value": 93.8,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         }
       },
-      "coverage": 1.0,
-      "n_benchmarks": 13,
+      "coverage": 0.94,
+      "n_benchmarks": 11,
       "flags": []
     },
     {
       "rank": 2,
       "model": "gemini 3 pro",
       "tier": "T1",
-      "g": 93.2,
+      "g": 93.0,
       "g_point": 93.8,
       "ci95": [
-        90.5,
-        95.0
+        89.4,
+        94.8
       ],
       "pillars": {
         "human_preference": {
-          "score": 95.5,
+          "score": 100.0,
           "coverage": 1.0
         },
         "knowledge_reasoning": {
-          "score": 96.6,
-          "coverage": 1.0
+          "score": 97.5,
+          "coverage": 0.7
         },
         "math": {
           "score": 99.5,
@@ -177,91 +985,110 @@
         "lm_arena_elo": {
           "raw": 1492.0,
           "value": 100.0,
-          "as_of": "2026-11-01"
-        },
-        "openrouter_usage": {
-          "raw": 12.5,
-          "value": 84.1,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "gpqa_diamond": {
           "raw": 92.0,
           "value": 100.0,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "livebench_overall": {
           "raw": 67.0,
           "value": 94.5,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "seal_average": {
           "raw": 54.0,
           "value": 94.0,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "aime_2025": {
           "raw": 100.0,
           "value": 100.0,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "hmmt_feb_2025": {
           "raw": 35.0,
           "value": 100.0,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "math_500": {
           "raw": 100.0,
           "value": 97.7,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "swebench_verified": {
           "raw": 76.0,
           "value": 86.6,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "livecodebench": {
           "raw": 80.0,
           "value": 94.0,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "terminal_bench": {
           "raw": 52.0,
           "value": 85.5,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "tau2_bench": {
           "raw": 80.0,
           "value": 83.5,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "terminal_bench_agentic": {
           "raw": 52.0,
           "value": 85.5,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         }
       },
-      "coverage": 1.0,
-      "n_benchmarks": 13,
+      "coverage": 0.94,
+      "n_benchmarks": 11,
       "flags": []
     },
     {
       "rank": 3,
       "model": "claude opus 4.5",
       "tier": "T1",
-      "g": 90.9,
-      "g_point": 91.4,
+      "g": 88.8,
+      "g_point": 89.6,
       "ci95": [
-        87.4,
-        94.0
+        84.1,
+        92.8
       ],
       "pillars": {
         "human_preference": {
-          "score": 93.3,
+          "score": 93.2,
           "coverage": 1.0
         },
         "knowledge_reasoning": {
-          "score": 86.5,
-          "coverage": 1.0
+          "score": 86.0,
+          "coverage": 0.7
         },
         "math": {
           "score": 83.8,
@@ -280,91 +1107,110 @@
         "lm_arena_elo": {
           "raw": 1481.0,
           "value": 93.2,
-          "as_of": "2026-11-01"
-        },
-        "openrouter_usage": {
-          "raw": 17.0,
-          "value": 93.5,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "gpqa_diamond": {
           "raw": 88.0,
           "value": 85.0,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "livebench_overall": {
           "raw": 66.0,
           "value": 87.9,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "seal_average": {
           "raw": 53.0,
           "value": 86.9,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "aime_2025": {
           "raw": 95.0,
           "value": 84.8,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "hmmt_feb_2025": {
           "raw": 28.0,
           "value": 81.3,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "math_500": {
           "raw": 98.0,
           "value": 84.5,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "swebench_verified": {
           "raw": 80.0,
           "value": 100.0,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "livecodebench": {
           "raw": 78.0,
           "value": 86.1,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "terminal_bench": {
           "raw": 58.0,
           "value": 100.0,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "tau2_bench": {
           "raw": 88.0,
           "value": 100.0,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "terminal_bench_agentic": {
           "raw": 58.0,
           "value": 100.0,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         }
       },
-      "coverage": 1.0,
-      "n_benchmarks": 13,
+      "coverage": 0.94,
+      "n_benchmarks": 11,
       "flags": []
     },
     {
       "rank": 4,
       "model": "grok 4.1",
       "tier": "T2",
-      "g": 71.3,
-      "g_point": 71.4,
+      "g": 73.2,
+      "g_point": 74.0,
       "ci95": [
-        67.0,
-        75.7
+        68.7,
+        77.5
       ],
       "pillars": {
         "human_preference": {
-          "score": 68.9,
+          "score": 80.2,
           "coverage": 1.0
         },
         "knowledge_reasoning": {
-          "score": 75.2,
-          "coverage": 1.0
+          "score": 75.5,
+          "coverage": 0.7
         },
         "math": {
           "score": 75.0,
@@ -383,194 +1229,110 @@
         "lm_arena_elo": {
           "raw": 1460.0,
           "value": 80.2,
-          "as_of": "2026-11-01"
-        },
-        "openrouter_usage": {
-          "raw": 3.0,
-          "value": 40.4,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "gpqa_diamond": {
           "raw": 86.0,
           "value": 76.4,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "livebench_overall": {
           "raw": 63.0,
           "value": 77.2,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "seal_average": {
           "raw": 48.0,
           "value": 71.7,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "aime_2025": {
           "raw": 93.0,
           "value": 77.5,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "hmmt_feb_2025": {
           "raw": 25.0,
           "value": 70.6,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "math_500": {
           "raw": 97.0,
           "value": 74.5,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "swebench_verified": {
           "raw": 70.0,
           "value": 68.5,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "livecodebench": {
           "raw": 74.0,
           "value": 70.5,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "terminal_bench": {
           "raw": 45.0,
           "value": 72.2,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "tau2_bench": {
           "raw": 72.0,
           "value": 69.7,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "terminal_bench_agentic": {
           "raw": 45.0,
           "value": 72.2,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         }
       },
-      "coverage": 1.0,
-      "n_benchmarks": 13,
+      "coverage": 0.94,
+      "n_benchmarks": 11,
       "flags": []
     },
     {
       "rank": 5,
-      "model": "deepseek v3.2",
-      "tier": "T3",
-      "g": 65.3,
-      "g_point": 66.1,
-      "ci95": [
-        61.4,
-        68.9
-      ],
-      "pillars": {
-        "human_preference": {
-          "score": 68.3,
-          "coverage": 1.0
-        },
-        "knowledge_reasoning": {
-          "score": 64.6,
-          "coverage": 1.0
-        },
-        "math": {
-          "score": 69.0,
-          "coverage": 1.0
-        },
-        "coding": {
-          "score": 65.3,
-          "coverage": 1.0
-        },
-        "agentic": {
-          "score": 59.4,
-          "coverage": 1.0
-        }
-      },
-      "benchmarks": {
-        "lm_arena_elo": {
-          "raw": 1420.0,
-          "value": 55.6,
-          "as_of": "2026-11-01"
-        },
-        "openrouter_usage": {
-          "raw": 21.0,
-          "value": 100.0,
-          "as_of": "2026-11-01"
-        },
-        "gpqa_diamond": {
-          "raw": 84.0,
-          "value": 67.7,
-          "as_of": "2026-11-01"
-        },
-        "livebench_overall": {
-          "raw": 60.0,
-          "value": 66.4,
-          "as_of": "2026-11-01"
-        },
-        "seal_average": {
-          "raw": 44.0,
-          "value": 58.6,
-          "as_of": "2026-11-01"
-        },
-        "aime_2025": {
-          "raw": 92.0,
-          "value": 71.5,
-          "as_of": "2026-11-01"
-        },
-        "hmmt_feb_2025": {
-          "raw": 22.0,
-          "value": 59.8,
-          "as_of": "2026-11-01"
-        },
-        "math_500": {
-          "raw": 97.0,
-          "value": 74.5,
-          "as_of": "2026-11-01"
-        },
-        "swebench_verified": {
-          "raw": 67.0,
-          "value": 59.5,
-          "as_of": "2026-11-01"
-        },
-        "livecodebench": {
-          "raw": 76.0,
-          "value": 78.3,
-          "as_of": "2026-11-01"
-        },
-        "terminal_bench": {
-          "raw": 38.0,
-          "value": 54.3,
-          "as_of": "2026-11-01"
-        },
-        "tau2_bench": {
-          "raw": 70.0,
-          "value": 62.9,
-          "as_of": "2026-11-01"
-        },
-        "terminal_bench_agentic": {
-          "raw": 38.0,
-          "value": 54.3,
-          "as_of": "2026-11-01"
-        }
-      },
-      "coverage": 1.0,
-      "n_benchmarks": 13,
-      "flags": []
-    },
-    {
-      "rank": 6,
       "model": "kimi k2.5",
-      "tier": "T4",
-      "g": 59.1,
-      "g_point": 59.5,
+      "tier": "T3",
+      "g": 60.6,
+      "g_point": 61.6,
       "ci95": [
-        54.6,
-        63.8
+        55.8,
+        65.1
       ],
       "pillars": {
         "human_preference": {
-          "score": 56.3,
+          "score": 64.8,
           "coverage": 1.0
         },
         "knowledge_reasoning": {
-          "score": 56.4,
-          "coverage": 1.0
+          "score": 57.2,
+          "coverage": 0.7
         },
         "math": {
           "score": 60.7,
@@ -589,91 +1351,232 @@
         "lm_arena_elo": {
           "raw": 1435.0,
           "value": 64.8,
-          "as_of": "2026-11-01"
-        },
-        "openrouter_usage": {
-          "raw": 2.5,
-          "value": 34.9,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "gpqa_diamond": {
           "raw": 82.0,
           "value": 59.1,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "livebench_overall": {
           "raw": 58.0,
           "value": 57.7,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "seal_average": {
           "raw": 43.0,
           "value": 51.5,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "aime_2025": {
           "raw": 90.0,
           "value": 64.2,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "hmmt_feb_2025": {
           "raw": 20.0,
           "value": 51.0,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "math_500": {
           "raw": 96.0,
           "value": 64.5,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "swebench_verified": {
           "raw": 71.0,
           "value": 74.5,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "livecodebench": {
           "raw": 73.0,
           "value": 64.3,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "terminal_bench": {
           "raw": 40.0,
           "value": 61.4,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "tau2_bench": {
           "raw": 68.0,
           "value": 56.0,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "terminal_bench_agentic": {
           "raw": 40.0,
           "value": 61.4,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         }
       },
-      "coverage": 1.0,
-      "n_benchmarks": 13,
+      "coverage": 0.94,
+      "n_benchmarks": 11,
+      "flags": []
+    },
+    {
+      "rank": 6,
+      "model": "deepseek v3.2",
+      "tier": "T3",
+      "g": 59.7,
+      "g_point": 60.6,
+      "ci95": [
+        54.7,
+        64.2
+      ],
+      "pillars": {
+        "human_preference": {
+          "score": 55.6,
+          "coverage": 1.0
+        },
+        "knowledge_reasoning": {
+          "score": 65.5,
+          "coverage": 0.7
+        },
+        "math": {
+          "score": 69.0,
+          "coverage": 1.0
+        },
+        "coding": {
+          "score": 65.3,
+          "coverage": 1.0
+        },
+        "agentic": {
+          "score": 59.4,
+          "coverage": 1.0
+        }
+      },
+      "benchmarks": {
+        "lm_arena_elo": {
+          "raw": 1420.0,
+          "value": 55.6,
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
+        },
+        "gpqa_diamond": {
+          "raw": 84.0,
+          "value": 67.7,
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
+        },
+        "livebench_overall": {
+          "raw": 60.0,
+          "value": 66.4,
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
+        },
+        "seal_average": {
+          "raw": 44.0,
+          "value": 58.6,
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
+        },
+        "aime_2025": {
+          "raw": 92.0,
+          "value": 71.5,
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
+        },
+        "hmmt_feb_2025": {
+          "raw": 22.0,
+          "value": 59.8,
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
+        },
+        "math_500": {
+          "raw": 97.0,
+          "value": 74.5,
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
+        },
+        "swebench_verified": {
+          "raw": 67.0,
+          "value": 59.5,
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
+        },
+        "livecodebench": {
+          "raw": 76.0,
+          "value": 78.3,
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
+        },
+        "terminal_bench": {
+          "raw": 38.0,
+          "value": 54.3,
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
+        },
+        "tau2_bench": {
+          "raw": 70.0,
+          "value": 62.9,
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
+        },
+        "terminal_bench_agentic": {
+          "raw": 38.0,
+          "value": 54.3,
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
+        }
+      },
+      "coverage": 0.94,
+      "n_benchmarks": 11,
       "flags": []
     },
     {
       "rank": 7,
       "model": "glm 4.7",
-      "tier": "T5",
-      "g": 50.5,
-      "g_point": 50.2,
+      "tier": "T4",
+      "g": 52.7,
+      "g_point": 53.0,
       "ci95": [
-        46.0,
-        55.6
+        48.2,
+        57.0
       ],
       "pillars": {
         "human_preference": {
-          "score": 50.2,
+          "score": 61.7,
           "coverage": 1.0
         },
         "knowledge_reasoning": {
-          "score": 46.4,
-          "coverage": 1.0
+          "score": 46.3,
+          "coverage": 0.7
         },
         "math": {
           "score": 53.2,
@@ -692,91 +1595,110 @@
         "lm_arena_elo": {
           "raw": 1430.0,
           "value": 61.7,
-          "as_of": "2026-11-01"
-        },
-        "openrouter_usage": {
-          "raw": 1.6,
-          "value": 21.2,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "gpqa_diamond": {
           "raw": 80.0,
           "value": 45.9,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "livebench_overall": {
           "raw": 57.0,
           "value": 51.1,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "seal_average": {
           "raw": 41.0,
           "value": 42.4,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "aime_2025": {
           "raw": 89.0,
           "value": 58.3,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "hmmt_feb_2025": {
           "raw": 18.0,
           "value": 42.1,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "math_500": {
           "raw": 95.0,
           "value": 54.4,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "swebench_verified": {
           "raw": 66.0,
           "value": 53.4,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "livecodebench": {
           "raw": 70.0,
           "value": 54.8,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "terminal_bench": {
           "raw": 36.0,
           "value": 47.3,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "tau2_bench": {
           "raw": 66.0,
           "value": 49.1,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "terminal_bench_agentic": {
           "raw": 36.0,
           "value": 47.3,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         }
       },
-      "coverage": 1.0,
-      "n_benchmarks": 13,
+      "coverage": 0.94,
+      "n_benchmarks": 11,
       "flags": []
     },
     {
       "rank": 8,
       "model": "qwen3 max",
-      "tier": "T5",
-      "g": 47.8,
-      "g_point": 47.0,
+      "tier": "T4",
+      "g": 47.4,
+      "g_point": 47.3,
       "ci95": [
-        43.6,
-        52.0
+        42.8,
+        51.8
       ],
       "pillars": {
         "human_preference": {
-          "score": 50.1,
+          "score": 52.5,
           "coverage": 1.0
         },
         "knowledge_reasoning": {
-          "score": 45.0,
-          "coverage": 1.0
+          "score": 47.1,
+          "coverage": 0.7
         },
         "math": {
           "score": 47.5,
@@ -795,91 +1717,110 @@
         "lm_arena_elo": {
           "raw": 1415.0,
           "value": 52.5,
-          "as_of": "2026-11-01"
-        },
-        "openrouter_usage": {
-          "raw": 3.4,
-          "value": 44.3,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "gpqa_diamond": {
           "raw": 81.0,
           "value": 52.5,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "livebench_overall": {
           "raw": 56.0,
           "value": 44.5,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "seal_average": {
           "raw": 40.0,
           "value": 35.4,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "aime_2025": {
           "raw": 87.0,
           "value": 51.0,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "hmmt_feb_2025": {
           "raw": 17.0,
           "value": 35.2,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "math_500": {
           "raw": 95.0,
           "value": 54.4,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "swebench_verified": {
           "raw": 64.0,
           "value": 45.9,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "livecodebench": {
           "raw": 69.0,
           "value": 48.6,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "terminal_bench": {
           "raw": 34.0,
           "value": 40.2,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "tau2_bench": {
           "raw": 65.0,
           "value": 43.4,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "terminal_bench_agentic": {
           "raw": 34.0,
           "value": 40.2,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         }
       },
-      "coverage": 1.0,
-      "n_benchmarks": 13,
+      "coverage": 0.94,
+      "n_benchmarks": 11,
       "flags": []
     },
     {
       "rank": 9,
       "model": "gpt 5 mini",
-      "tier": "T6",
-      "g": 39.6,
-      "g_point": 39.4,
+      "tier": "T5",
+      "g": 36.6,
+      "g_point": 36.8,
       "ci95": [
-        36.3,
-        42.8
+        32.2,
+        40.7
       ],
       "pillars": {
         "human_preference": {
-          "score": 51.5,
+          "score": 43.2,
           "coverage": 1.0
         },
         "knowledge_reasoning": {
-          "score": 31.7,
-          "coverage": 1.0
+          "score": 33.3,
+          "coverage": 0.7
         },
         "math": {
           "score": 38.6,
@@ -898,91 +1839,110 @@
         "lm_arena_elo": {
           "raw": 1400.0,
           "value": 43.2,
-          "as_of": "2026-11-01"
-        },
-        "openrouter_usage": {
-          "raw": 8.5,
-          "value": 72.3,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "gpqa_diamond": {
           "raw": 78.0,
           "value": 37.3,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "livebench_overall": {
           "raw": 52.0,
           "value": 31.6,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "seal_average": {
           "raw": 37.0,
           "value": 24.3,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "aime_2025": {
           "raw": 85.0,
           "value": 43.7,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "hmmt_feb_2025": {
           "raw": 15.0,
           "value": 26.3,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "math_500": {
           "raw": 93.0,
           "value": 41.2,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "swebench_verified": {
           "raw": 60.0,
           "value": 30.8,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "livecodebench": {
           "raw": 66.0,
           "value": 39.1,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "terminal_bench": {
           "raw": 32.0,
           "value": 33.2,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "tau2_bench": {
           "raw": 60.0,
           "value": 33.1,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "terminal_bench_agentic": {
           "raw": 32.0,
           "value": 33.2,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         }
       },
-      "coverage": 1.0,
-      "n_benchmarks": 13,
+      "coverage": 0.94,
+      "n_benchmarks": 11,
       "flags": []
     },
     {
       "rank": 10,
       "model": "minimax m2.5",
-      "tier": "T7",
-      "g": 29.8,
-      "g_point": 29.3,
+      "tier": "T5",
+      "g": 31.3,
+      "g_point": 31.4,
       "ci95": [
-        25.9,
-        34.3
+        27.2,
+        35.0
       ],
       "pillars": {
         "human_preference": {
-          "score": 32.2,
+          "score": 40.1,
           "coverage": 1.0
         },
         "knowledge_reasoning": {
-          "score": 22.1,
-          "coverage": 1.0
+          "score": 23.4,
+          "coverage": 0.7
         },
         "math": {
           "score": 33.7,
@@ -1001,86 +1961,103 @@
         "lm_arena_elo": {
           "raw": 1395.0,
           "value": 40.1,
-          "as_of": "2026-11-01"
-        },
-        "openrouter_usage": {
-          "raw": 1.2,
-          "value": 12.4,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "gpqa_diamond": {
           "raw": 75.0,
           "value": 26.6,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "livebench_overall": {
           "raw": 50.0,
           "value": 23.0,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "seal_average": {
           "raw": 35.0,
           "value": 15.2,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "aime_2025": {
           "raw": 82.0,
           "value": 35.0,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "math_500": {
           "raw": 91.0,
           "value": 30.2,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "swebench_verified": {
           "raw": 61.0,
           "value": 36.8,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "livecodebench": {
           "raw": 64.0,
           "value": 31.3,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "terminal_bench": {
           "raw": 30.0,
           "value": 26.1,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "tau2_bench": {
           "raw": 58.0,
           "value": 26.2,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "terminal_bench_agentic": {
           "raw": 30.0,
           "value": 26.1,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         }
       },
-      "coverage": 0.96,
-      "n_benchmarks": 12,
+      "coverage": 0.9,
+      "n_benchmarks": 10,
       "flags": []
     },
     {
       "rank": 11,
       "model": "mistral large 3",
-      "tier": "T7",
-      "g": 12.4,
-      "g_point": 12.0,
+      "tier": "T6",
+      "g": 13.2,
+      "g_point": 13.3,
       "ci95": [
-        8.8,
-        15.3
+        8.6,
+        16.0
       ],
       "pillars": {
         "human_preference": {
-          "score": 13.8,
+          "score": 18.5,
           "coverage": 1.0
         },
         "knowledge_reasoning": {
-          "score": 11.1,
-          "coverage": 0.7
+          "score": 11.4,
+          "coverage": 0.55
         },
         "math": {
           "score": 12.7,
@@ -1099,77 +2076,94 @@
         "lm_arena_elo": {
           "raw": 1360.0,
           "value": 18.5,
-          "as_of": "2026-11-01"
-        },
-        "openrouter_usage": {
-          "raw": 0.8,
-          "value": 2.0,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "gpqa_diamond": {
           "raw": 70.0,
           "value": 11.9,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "livebench_overall": {
           "raw": 46.0,
           "value": 10.1,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "aime_2025": {
           "raw": 70.0,
           "value": 13.9,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "hmmt_feb_2025": {
           "raw": 8.0,
           "value": 7.9,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "math_500": {
           "raw": 88.0,
           "value": 16.1,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "swebench_verified": {
           "raw": 50.0,
           "value": 11.3,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "livecodebench": {
           "raw": 55.0,
           "value": 11.9,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "terminal_bench": {
           "raw": 20.0,
           "value": 9.1,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "tau2_bench": {
           "raw": 50.0,
           "value": 12.4,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "terminal_bench_agentic": {
           "raw": 20.0,
           "value": 9.1,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         }
       },
-      "coverage": 0.94,
-      "n_benchmarks": 12,
+      "coverage": 0.91,
+      "n_benchmarks": 10,
       "flags": []
     },
     {
       "rank": 12,
       "model": "llama 4 maverick",
       "tier": "T7",
-      "g": 5.0,
-      "g_point": 5.0,
+      "g": 4.9,
+      "g_point": 4.9,
       "ci95": [
-        5.0,
-        7.7
+        4.9,
+        4.9
       ],
       "pillars": {
         "human_preference": {
@@ -1178,7 +2172,7 @@
         },
         "knowledge_reasoning": {
           "score": 5.0,
-          "coverage": 1.0
+          "coverage": 0.7
         },
         "math": {
           "score": 5.0,
@@ -1197,71 +2191,90 @@
         "lm_arena_elo": {
           "raw": 1330.0,
           "value": 2.0,
-          "as_of": "2026-11-01"
-        },
-        "openrouter_usage": {
-          "raw": 1.0,
-          "value": 6.8,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "gpqa_diamond": {
           "raw": 62.0,
           "value": 2.0,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "livebench_overall": {
           "raw": 40.0,
           "value": 2.0,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "seal_average": {
           "raw": 25.0,
           "value": 2.0,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "aime_2025": {
           "raw": 55.0,
           "value": 2.0,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "hmmt_feb_2025": {
           "raw": 5.0,
           "value": 2.0,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "math_500": {
           "raw": 80.0,
           "value": 2.0,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "swebench_verified": {
           "raw": 40.0,
           "value": 2.0,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "livecodebench": {
           "raw": 45.0,
           "value": 2.0,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "terminal_bench": {
           "raw": 12.0,
           "value": 2.0,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "tau2_bench": {
           "raw": 35.0,
           "value": 2.0,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         },
         "terminal_bench_agentic": {
           "raw": 12.0,
           "value": 2.0,
-          "as_of": "2026-11-01"
+          "as_of": "2026-11-03",
+          "source": "demo (synthetic)",
+          "harness": null
         }
       },
-      "coverage": 1.0,
-      "n_benchmarks": 13,
+      "coverage": 0.94,
+      "n_benchmarks": 11,
       "flags": []
     }
   ],
@@ -1276,21 +2289,21 @@
       "grok 4.1"
     ],
     "T3": [
+      "kimi k2.5",
       "deepseek v3.2"
     ],
     "T4": [
-      "kimi k2.5"
-    ],
-    "T5": [
       "glm 4.7",
       "qwen3 max"
     ],
+    "T5": [
+      "gpt 5 mini",
+      "minimax m2.5"
+    ],
     "T6": [
-      "gpt 5 mini"
+      "mistral large 3"
     ],
     "T7": [
-      "minimax m2.5",
-      "mistral large 3",
       "llama 4 maverick"
     ]
   },
@@ -1342,11 +2355,6 @@
     },
     {
       "a": "deepseek v3.2",
-      "b": "glm 4.7",
-      "p": 1.0
-    },
-    {
-      "a": "deepseek v3.2",
       "b": "gpt 5 mini",
       "p": 1.0
     },
@@ -1492,6 +2500,11 @@
     },
     {
       "a": "grok 4.1",
+      "b": "deepseek v3.2",
+      "p": 1.0
+    },
+    {
+      "a": "grok 4.1",
       "b": "glm 4.7",
       "p": 1.0
     },
@@ -1546,64 +2559,131 @@
       "p": 1.0
     },
     {
-      "a": "kimi k2.5",
-      "b": "qwen3 max",
-      "p": 1.0
-    },
-    {
       "a": "minimax m2.5",
       "b": "llama 4 maverick",
       "p": 1.0
     },
     {
       "a": "minimax m2.5",
-      "b": "mistral large 3",
-      "p": 1.0
-    },
-    {
-      "a": "qwen3 max",
-      "b": "llama 4 maverick",
-      "p": 1.0
-    },
-    {
-      "a": "qwen3 max",
-      "b": "minimax m2.5",
-      "p": 1.0
-    },
-    {
-      "a": "qwen3 max",
       "b": "mistral large 3",
       "p": 1.0
     },
     {
       "a": "mistral large 3",
       "b": "llama 4 maverick",
-      "p": 0.9995
+      "p": 1.0
     },
     {
-      "a": "gpt 5 mini",
+      "a": "qwen3 max",
+      "b": "llama 4 maverick",
+      "p": 1.0
+    },
+    {
+      "a": "qwen3 max",
       "b": "minimax m2.5",
-      "p": 0.999
+      "p": 1.0
+    },
+    {
+      "a": "qwen3 max",
+      "b": "mistral large 3",
+      "p": 1.0
     },
     {
       "a": "kimi k2.5",
-      "b": "glm 4.7",
-      "p": 0.999
+      "b": "qwen3 max",
+      "p": 0.9995
     },
     {
       "a": "qwen3 max",
       "b": "gpt 5 mini",
-      "p": 0.996
+      "p": 0.9995
     },
     {
-      "a": "grok 4.1",
-      "b": "deepseek v3.2",
-      "p": 0.987
+      "a": "kimi k2.5",
+      "b": "glm 4.7",
+      "p": 0.9955
     },
     {
       "a": "deepseek v3.2",
-      "b": "kimi k2.5",
-      "p": 0.976
+      "b": "glm 4.7",
+      "p": 0.986
     }
-  ]
+  ],
+  "pairwise_bh_qvalues": {
+    "gemini 3 pro | gpt 5.1": 0.855,
+    "deepseek v3.2 | kimi k2.5": 0.7788,
+    "claude opus 4.5 | gemini 3 pro": 0.158812,
+    "claude opus 4.5 | gpt 5.1": 0.118381,
+    "glm 4.7 | qwen3 max": 0.096871,
+    "gpt 5 mini | minimax m2.5": 0.062754,
+    "deepseek v3.2 | glm 4.7": 0.0308,
+    "glm 4.7 | kimi k2.5": 0.010068,
+    "kimi k2.5 | qwen3 max": 0.001138,
+    "gpt 5 mini | qwen3 max": 0.001138,
+    "mistral large 3 | qwen3 max": 0.0,
+    "minimax m2.5 | qwen3 max": 0.0,
+    "minimax m2.5 | mistral large 3": 0.0,
+    "llama 4 maverick | qwen3 max": 0.0,
+    "llama 4 maverick | mistral large 3": 0.0,
+    "llama 4 maverick | minimax m2.5": 0.0,
+    "kimi k2.5 | mistral large 3": 0.0,
+    "kimi k2.5 | minimax m2.5": 0.0,
+    "kimi k2.5 | llama 4 maverick": 0.0,
+    "grok 4.1 | qwen3 max": 0.0,
+    "grok 4.1 | mistral large 3": 0.0,
+    "grok 4.1 | minimax m2.5": 0.0,
+    "grok 4.1 | llama 4 maverick": 0.0,
+    "grok 4.1 | kimi k2.5": 0.0,
+    "gpt 5.1 | qwen3 max": 0.0,
+    "gpt 5.1 | mistral large 3": 0.0,
+    "gpt 5.1 | minimax m2.5": 0.0,
+    "gpt 5.1 | llama 4 maverick": 0.0,
+    "gpt 5.1 | kimi k2.5": 0.0,
+    "gpt 5.1 | grok 4.1": 0.0,
+    "gpt 5 mini | mistral large 3": 0.0,
+    "gpt 5 mini | llama 4 maverick": 0.0,
+    "gpt 5 mini | kimi k2.5": 0.0,
+    "gpt 5 mini | grok 4.1": 0.0,
+    "gpt 5 mini | gpt 5.1": 0.0,
+    "glm 4.7 | mistral large 3": 0.0,
+    "glm 4.7 | minimax m2.5": 0.0,
+    "glm 4.7 | llama 4 maverick": 0.0,
+    "glm 4.7 | grok 4.1": 0.0,
+    "glm 4.7 | gpt 5.1": 0.0,
+    "glm 4.7 | gpt 5 mini": 0.0,
+    "gemini 3 pro | qwen3 max": 0.0,
+    "gemini 3 pro | mistral large 3": 0.0,
+    "gemini 3 pro | minimax m2.5": 0.0,
+    "gemini 3 pro | llama 4 maverick": 0.0,
+    "gemini 3 pro | kimi k2.5": 0.0,
+    "gemini 3 pro | grok 4.1": 0.0,
+    "gemini 3 pro | gpt 5 mini": 0.0,
+    "gemini 3 pro | glm 4.7": 0.0,
+    "deepseek v3.2 | qwen3 max": 0.0,
+    "deepseek v3.2 | mistral large 3": 0.0,
+    "deepseek v3.2 | minimax m2.5": 0.0,
+    "deepseek v3.2 | llama 4 maverick": 0.0,
+    "deepseek v3.2 | grok 4.1": 0.0,
+    "deepseek v3.2 | gpt 5.1": 0.0,
+    "deepseek v3.2 | gpt 5 mini": 0.0,
+    "deepseek v3.2 | gemini 3 pro": 0.0,
+    "claude opus 4.5 | qwen3 max": 0.0,
+    "claude opus 4.5 | mistral large 3": 0.0,
+    "claude opus 4.5 | minimax m2.5": 0.0,
+    "claude opus 4.5 | llama 4 maverick": 0.0,
+    "claude opus 4.5 | kimi k2.5": 0.0,
+    "claude opus 4.5 | grok 4.1": 0.0,
+    "claude opus 4.5 | gpt 5 mini": 0.0,
+    "claude opus 4.5 | glm 4.7": 0.0,
+    "claude opus 4.5 | deepseek v3.2": 0.0
+  },
+  "quality": {
+    "status": "experimental",
+    "blockers": [],
+    "roster_size": 12,
+    "excluded_sparse": [],
+    "missing_pillars": [],
+    "rejected_observations": [],
+    "note": "Usage is not capability or eligibility. Missing data is not evidence of a weak model."
+  }
 }

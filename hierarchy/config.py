@@ -1,7 +1,7 @@
 """Config loading + validation against METHODOLOGY.md contracts (§3, §4, §9, §10).
 
 Every check here is a methodology guarantee; tests/test_weights.py pins the
-actual v1.1.0 numbers.
+actual v2.0.0 numbers.
 """
 
 from __future__ import annotations
@@ -85,7 +85,8 @@ class Config:
 
     def config_hash(self) -> str:
         payload = json.dumps(
-            {"weights": self.weights, "sources": self.sources},
+            {"weights": self.weights, "sources": self.sources,
+             "model_aliases": yaml.safe_load((CONFIG_DIR / "models.yaml").read_text())},
             sort_keys=True,
             separators=(",", ":"),
         ).encode()
@@ -119,7 +120,6 @@ class Config:
                     f"pillar {pid}: benchmark weights sum to {in_pillar} but pillar weight is {p['weight']}"
                 )
 
-        seen = set()
         for bid, b in w["benchmarks"].items():
             if b["pillar"] not in w["pillars"]:
                 raise ConfigError(f"benchmark {bid}: unknown pillar {b['pillar']}")
@@ -133,8 +133,10 @@ class Config:
             if alias is not None:
                 if alias not in w["benchmarks"]:
                     raise ConfigError(f"benchmark {bid}: alias_of {alias} not registered")
-                if alias in seen or alias == bid:
-                    raise ConfigError(f"benchmark {bid}: alias cycle or self-reference")
+                if alias == bid or w["benchmarks"][alias].get("alias_of"):
+                    raise ConfigError(f"benchmark {bid}: alias chains/cycles are not allowed")
+                if b["normalization"] != w["benchmarks"][alias]["normalization"]:
+                    raise ConfigError(f"benchmark {bid}: alias normalization differs")
 
         # §9 base + span == 1 (full coverage => multiplier exactly 1.0)
         cp = w["aggregation"]["coverage_penalty"]

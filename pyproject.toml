@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "model-hierarchy"
-version = "1.0.0"
+version = "2.0.0"
 description = "A reality-anchored hierarchy of frontier models"
 requires-python = ">=3.10"
 dependencies = ["PyYAML>=6.0", "requests>=2.31", "requests-cache>=1.2"]

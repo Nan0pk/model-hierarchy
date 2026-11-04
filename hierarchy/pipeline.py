@@ -1,188 +1,163 @@
-"""End-to-end pipeline: snapshots -> result dict (see cli.py and render.py).
-
-Implements METHODOLOGY.md §5 (cohort: normalization happens WITHIN the eligible
-cohort only), §10 (bootstrap + dominance), §11 (tiers), §12 (staleness,
-name reconciliation report).
-"""
-
+"""Experimental composite with explicit publication gates and an evidence audit."""
 from __future__ import annotations
 
+import copy
 import datetime as dt
 
 from . import METHOD_VERSION, __version__
-from .aggregate import (
-    bootstrap,
-    benjamini_hochberg,
-    dominance_list,
-    pairwise_probs,
-    point_estimate,
-    summarize_draws,
-)
+from .aggregate import (bootstrap, benjamini_hochberg, dominance_list, pairwise_probs,
+                        point_estimate, summarize_draws)
+from .boards import digest
 from .tiers import assign_tiers, hierarchy_tree, tier_labels
 
 
-def _days_old(date_str: str) -> int:
+def _days_old(date_str: str) -> int | None:
     try:
-        d = dt.date.fromisoformat(str(date_str)[:10])
-    except ValueError:
-        return 0
-    return (dt.datetime.now(dt.timezone.utc).date() - d).days
+        day = dt.date.fromisoformat(date_str)
+    except (TypeError, ValueError):
+        return None
+    return (dt.datetime.now(dt.timezone.utc).date() - day).days
 
 
-def apply_staleness(raw, sigma, as_of, cfg):
-    """§12: flag stale (>14d) and exclude benchmarks older than configured cutoff."""
-    warn_after = cfg.aggregation["staleness"]["warn_after_days"]
-    exclude_after = cfg.aggregation["staleness"]["exclude_after_days"]
-    stale, excluded = [], []
-    for bid in list(raw.keys()):
-        age = _days_old(as_of.get(bid, ""))
-        if age > exclude_after:
-            excluded.append(bid)
+def apply_staleness(raw, sigma, as_of, cfg, source_info=None, rejected=None):
+    """Prune individual observations, not whole boards using their newest row's date."""
+    policy = cfg.aggregation["staleness"]
+    stale, excluded = set(), set()
+    for bid in list(raw):
+        observations = (source_info or {}).get(bid, {}).get("observations", {})
+        for model in list(raw[bid]):
+            date = observations.get(model, {}).get("as_of", as_of.get(bid))
+            age = _days_old(date)
+            reason = ("invalid_or_future_date" if age is None or age < 0 else
+                      "expired" if age > policy["exclude_after_days"] else None)
+            if reason:
+                raw[bid].pop(model)
+                sigma.get(bid, {}).pop(model, None)
+                if rejected is not None:
+                    rejected.append({"benchmark": bid, "model": model, "as_of": date, "reason": reason})
+            elif age > policy["warn_after_days"]:
+                stale.add(bid)
+        if not raw[bid]:
             raw.pop(bid)
             sigma.pop(bid, None)
-        elif age > warn_after:
-            stale.append(bid)
-    return stale, excluded
+            excluded.add(bid)
+    return sorted(stale - excluded), sorted(excluded)
 
 
 def _cohort(raw, cfg) -> tuple[list, dict]:
-    """§5: models meeting the pillar/benchmark minimums, computed on raw presence.
-
-    Returns (cohort_models, presence_info) — normalization MUST be restricted
-    to this cohort so that non-cohort rows (e.g. 100 legacy models on an Arena
-    pull) cannot stretch the min-max/borda scales of the hierarchy.
-    """
-    min_pillars = cfg.aggregation["eligibility"]["min_pillars"]
-    min_bench = cfg.aggregation["eligibility"]["min_benchmarks"]
-    models = sorted({m for bench in raw.values() for m in bench})
+    policy = cfg.aggregation["eligibility"]
     cohort, info = [], {}
-    for m in models:
-        benches = [b for b in raw if m in raw[b]]
+    for model in sorted({m for rows in raw.values() for m in rows}):
+        benches = [b for b in raw if model in raw[b]]
+        independent = {cfg.alias_source(b) or b for b in benches}
         pillars = {cfg.bench_pillar(b) for b in benches}
-        present = len(pillars) >= min_pillars and len(benches) >= min_bench
-        info[m] = {"n_benchmarks": len(benches), "n_pillars": len(pillars), "eligible": present}
-        if present:
-            cohort.append(m)
+        eligible = len(pillars) >= policy["min_pillars"] and len(independent) >= policy["min_benchmarks"]
+        info[model] = {"n_benchmarks": len(independent), "n_pillars": len(pillars), "eligible": eligible}
+        if eligible:
+            cohort.append(model)
     return cohort, info
 
 
-def compute(raw, sigma, as_of, cfg, demo: bool = False, reps: int | None = None,
-            seed: int | None = None, name_map: dict | None = None,
-            source_info: dict | None = None) -> dict:
-    stale, excluded = apply_staleness(raw, sigma, as_of, cfg)
-
-    # Keep the published model roster current, not just the benchmark snapshots:
-    # Arena/Vals tables retain historical models indefinitely. A fresh OpenRouter
-    # usage snapshot is our current-activity signal; models absent from it do not
-    # appear in either ranked or unranked public lists.
-    activity_source = "openrouter_usage"
-    activity_window = cfg.aggregation["staleness"]["warn_after_days"]
-    if activity_source in raw and _days_old(as_of.get(activity_source, "")) <= activity_window:
-        active_models = set(raw[activity_source])
-        raw = {bid: {m: score for m, score in values.items() if m in active_models}
-               for bid, values in raw.items()}
-        sigma = {bid: {m: value for m, value in values.items() if m in active_models}
-                 for bid, values in sigma.items()}
-
-    cohort, presence = _cohort(raw, cfg)
-
-    # restrict every subsequent step to the cohort (§5)
+def compute(raw, sigma, as_of, cfg, demo=False, reps=None, seed=None, name_map=None,
+            source_info=None) -> dict:
+    # Re-running a computation must not mutate the caller's retained evidence.
+    raw, sigma = copy.deepcopy(raw), copy.deepcopy(sigma)
+    source_info = source_info or {}
+    evidence_hash = digest({"raw": raw, "sigma": sigma, "dates": as_of, "sources": source_info})
+    rejected = []
+    stale, excluded = apply_staleness(raw, sigma, as_of, cfg, source_info, rejected)
+    roster_raw = copy.deepcopy(raw)
+    _, presence = _cohort(raw, cfg)
+    policy = cfg.aggregation["eligibility"]
+    min_comparators = policy.get("min_comparators", 3)
+    # Iterative: dropping a sparse metric may make models ineligible, which can
+    # make another metric sparse. Normalization must never run on singletons.
+    sparse = set()
+    while True:
+        cohort, _ = _cohort(raw, cfg)
+        cohort_set = set(cohort)
+        thin = {b for b, rows in raw.items() if len(cohort_set.intersection(rows)) < min_comparators}
+        if not thin:
+            break
+        sparse.update(thin)
+        raw = {b: rows for b, rows in raw.items() if b not in thin}
     cohort_set = set(cohort)
-    raw_c = {b: {m: v for m, v in models.items() if m in cohort_set}
-             for b, models in raw.items() if any(m in cohort_set for m in models)}
-    sigma_c = {b: {m: s for m, s in sig.items() if m in cohort_set}
-               for b, sig in sigma.items() if b in raw_c}
+    raw_c = {b: {m: v for m, v in rows.items() if m in cohort_set} for b, rows in raw.items()}
+    sigma_c = {b: {m: v for m, v in sigma.get(b, {}).items() if m in cohort_set} for b in raw_c}
+    missing_pillars = sorted(set(cfg.pillars) - {cfg.bench_pillar(b) for b in raw_c if raw_c[b]})
+    blockers = []
+    if len(cohort) < policy.get("min_cohort_size", 5):
+        blockers.append(f"Only {len(cohort)} comparable models; need at least {policy.get('min_cohort_size', 5)}.")
+    if missing_pillars and policy.get("require_all_pillars", False):
+        blockers.append("No comparable data for entire pillars: " + ", ".join(missing_pillars) + ".")
 
-    point, vmat = point_estimate(raw_c, cfg)
-    draws = bootstrap(raw_c, sigma_c, cfg, reps=reps, seed=seed)
-    stats = summarize_draws(draws)
-
-    eligible = [m for m, r in point.items() if r["eligible"]]
-    probs = pairwise_probs(draws, eligible)
-    qvalues = benjamini_hochberg(probs, eligible)
-    # Retain the existing directional confidence threshold, but only separate
-    # tiers where the pairwise bootstrap evidence survives BH correction.
-    tier_probs = dict(probs)
-    for (a, b), q in qvalues.items():
-        if q > 0.05:
-            tier_probs[(a, b)] = tier_probs[(b, a)] = 0.5
-    dom = dominance_list(probs, eligible, cfg.uncertainty["dominance_threshold"])
-    dom = [d for d in dom if qvalues.get(tuple(sorted((d["a"], d["b"]))), 1.0) <= 0.05]
-
-    entries = sorted(({"model": m, **stats[m]} for m in eligible), key=lambda e: -e["median"])
-    tiers = assign_tiers(
-        entries, tier_probs,
-        max_tiers=cfg.tiers_cfg["max_tiers"],
-        confidence=cfg.tiers_cfg["separation_confidence"],
-    )
+    point, vmat, stats, probs, qvalues, dom, tiers = {}, {}, {}, {}, {}, [], []
+    if not blockers:
+        point, vmat = point_estimate(raw_c, cfg)
+        draws = bootstrap(raw_c, sigma_c, cfg, reps=reps, seed=seed)
+        stats = summarize_draws(draws)
+        eligible = [m for m in cohort if point[m]["eligible"]]
+        probs = pairwise_probs(draws, eligible)
+        qvalues = benjamini_hochberg(probs, eligible)
+        tier_probs = dict(probs)
+        for (a, b), q in qvalues.items():
+            if q > 0.05:
+                tier_probs[(a, b)] = tier_probs[(b, a)] = 0.5
+        dom = [d for d in dominance_list(probs, eligible, cfg.uncertainty["dominance_threshold"])
+               if qvalues.get(tuple(sorted((d["a"], d["b"]))), 1) <= 0.05]
+        entries = sorted(({"model": m, **stats[m]} for m in eligible),
+                         key=lambda e: (-e["median"], e["model"]))
+        tiers = assign_tiers(entries, tier_probs, max_tiers=cfg.tiers_cfg["max_tiers"],
+                             confidence=cfg.tiers_cfg["separation_confidence"])
+    else:
+        entries = []
     tier_map = tier_labels(tiers)
-    model_tier = {e["model"]: f"T{i + 1}" for i, t in enumerate(tiers) for e in t}
-
+    model_tier = {m: label for label, members in tier_map.items() for m in members}
     ranked = []
-    for rank, e in enumerate(entries, start=1):
-        m = e["model"]
-        p = point[m]
-        ranked.append({
-            "rank": rank,
-            "model": m,
-            "tier": model_tier.get(m, "—"),
-            "g": round(e["median"] * 100, 1),
-            "g_point": round(p["g"] * 100, 1),
-            "ci95": [
-                min(round(e["lo"] * 100, 1), round(e["median"] * 100, 1)),
-                max(round(e["hi"] * 100, 1), round(e["median"] * 100, 1)),
-            ],
-            "pillars": {
-                pid: {
-                    "score": round(ps * 100, 1),
-                    "coverage": round(p["pillar_coverage"][pid], 3),
-                }
-                for pid, ps in p["pillars"].items()
-            },
-            "benchmarks": {
-                bid: {
-                    "raw": raw_c[bid][m],
-                    "value": round(vmat[bid][m] * 100, 1),
-                    "as_of": as_of.get(bid),
-                }
-                for bid in p["benchmarks_present"]
-            },
-            "coverage": round(p["coverage"], 3),
-            "n_benchmarks": p["n_benchmarks"],
-            "flags": p["flags"],
-        })
-
-    unranked = [
-        {
-            "model": m,
-            "n_benchmarks": info["n_benchmarks"],
-            "n_pillars": info["n_pillars"],
-            "benchmarks": sorted(b for b in raw if m in raw[b]),
-        }
-        for m, info in sorted(presence.items())
-        if not info["eligible"]
-    ]
-
+    for rank, e in enumerate(entries, 1):
+        model, p = e["model"], point[e["model"]]
+        benchmarks = {}
+        for bid in p["benchmarks_present"]:
+            meta = source_info.get(bid, {}).get("observations", {}).get(model, {})
+            benchmarks[bid] = {"raw": raw_c[bid][model], "value": round(vmat[bid][model] * 100, 1),
+                               "as_of": meta.get("as_of", as_of.get(bid)),
+                               "source": meta.get("source", source_info.get(bid, {}).get("source")),
+                               "harness": meta.get("harness")}
+        flags = list(p["flags"])
+        if any(_days_old(b["as_of"]) > cfg.aggregation["staleness"]["warn_after_days"] for b in benchmarks.values()):
+            flags.append("stale_evidence")
+        ranked.append({"rank": rank, "model": model, "tier": model_tier[model],
+                       "g": round(e["median"] * 100, 1), "g_point": round(p["g"] * 100, 1),
+                       "ci95": [round(e["lo"] * 100, 1), round(e["hi"] * 100, 1)],
+                       "pillars": {pid: {"score": round(ps * 100, 1), "coverage": round(p["pillar_coverage"][pid], 3)}
+                                   for pid, ps in p["pillars"].items()},
+                       "benchmarks": benchmarks, "coverage": round(p["coverage"], 3),
+                       "n_benchmarks": p["n_benchmarks"], "flags": flags})
+    listed = {e["model"] for e in ranked}
+    unranked = [{"model": model, **info,
+                 "benchmarks": sorted(b for b, rows in roster_raw.items() if model in rows),
+                 "reason": "publication_gate" if info["eligible"] else "insufficient_comparable_evidence"}
+                for model, info in presence.items() if model not in listed]
     return {
         "generated_at": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
-        "tool_version": __version__,
-        "method": f"model-hierarchy methodology v{METHOD_VERSION}",
-        "weights_version": cfg.version,
-        "config_hash": cfg.config_hash(),
-        "demo": demo,
-        "cohort_size": len(cohort),
-        "data_as_of": as_of,
-        "source_provenance": source_info or {},
-        "stale": sorted(stale),
-        "excluded_stale": sorted(excluded),
-        "name_reconciliation": name_map or {},
-        "models": ranked,
-        "unranked": unranked,
-        "tiers": tier_map,
-        "dominance": dom,
+        "tool_version": __version__, "method": f"Experimental composite · methodology v{METHOD_VERSION}",
+        "weights_version": cfg.version, "config_hash": cfg.config_hash(), "data_hash": evidence_hash,
+        "bootstrap_reps": cfg.uncertainty["bootstrap_reps"] if reps is None else reps,
+        "seed": cfg.uncertainty["seed"] if seed is None else seed,
+        "demo": demo, "cohort_size": len(cohort), "data_as_of": as_of,
+        "pillar_weights": cfg.pillar_weights, "aggregation": cfg.aggregation,
+        "source_provenance": source_info, "stale": stale, "excluded_stale": excluded,
+        "name_reconciliation": name_map or {}, "models": ranked, "unranked": unranked,
+        "tiers": tier_map, "dominance": dom,
         "pairwise_bh_qvalues": {f"{a} | {b}": round(q, 6) for (a, b), q in qvalues.items()},
+        "quality": {"status": "withheld" if blockers else "experimental", "blockers": blockers,
+                    "roster_size": len(presence), "excluded_sparse": sorted(sparse),
+                    "missing_pillars": missing_pillars, "rejected_observations": rejected,
+                    "note": "Usage is not capability or eligibility. Missing data is not evidence of a weak model."},
     }
 
 
 def tree_text(result: dict) -> str:
+    if result.get("quality", {}).get("blockers"):
+        return "Composite withheld: " + " ".join(result["quality"]["blockers"])
     return hierarchy_tree(result["tiers"], result["generated_at"], demo=result["demo"])

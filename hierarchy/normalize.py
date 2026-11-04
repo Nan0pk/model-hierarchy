@@ -33,7 +33,7 @@ def _average_ranks_desc(values: list[float]) -> list[float]:
 def borda(scores: dict[str, float]) -> dict[str, float]:
     """B(m) = (N - rank) / (N - 1) in [0,1]; 1 = best (§6.1)."""
     if len(scores) <= 1:
-        return {m: 1.0 for m in scores}
+        return {m: 0.5 for m in scores}
     vals = list(scores.values())
     ranks = _average_ranks_desc(vals)
     n = len(vals)

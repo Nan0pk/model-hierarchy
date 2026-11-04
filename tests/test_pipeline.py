@@ -23,7 +23,7 @@ def result():
     for snap in snaps.values():  # re-date: keeps this test valid forever
         snap["as_of"] = dt.date.today().isoformat()
     raw, sigma, as_of, skipped, _, _ = to_matrix(snaps, cfg)
-    assert skipped == set()
+    assert skipped == {"openrouter_usage"}
     return compute(raw, sigma, as_of, cfg, demo=True, reps=300)
 
 
@@ -77,7 +77,7 @@ def test_full_coverage_models_have_no_penalty(result):
 
 def test_provenance_is_stamped(result):
     assert result["demo"] is True
-    assert result["weights_version"] == "1.1.0"
+    assert result["weights_version"] == "2.0.0"
     assert result["config_hash"]
     assert result["data_as_of"]
 
@@ -117,7 +117,6 @@ def test_cohort_isolation_normalization():
     for i in range(80):
         legacy = f"legacy-model-{i}"
         noisy["lm_arena_elo"][legacy] = 1000.0 + i       # far below cohort range
-        noisy["openrouter_usage"][legacy] = 0.001
     sigma_noisy = {b: dict(sig) for b, sig in sigma.items()}
 
     cohort, _ = _cohort(noisy, cfg)
@@ -131,20 +130,16 @@ def test_cohort_isolation_normalization():
     assert len(swarm["unranked"]) == 80
 
 
-def test_current_activity_filter_excludes_legacy_models(cfg=None):
-    """A fresh usage list defines the current public model roster."""
+def test_usage_never_gates_the_public_model_roster():
+    """Absence from OpenRouter's truncated popularity list is not ineligibility."""
     cfg = load_config()
     snaps = load_manual_csv(DEMO_DIR / "scores.csv")
-    today = dt.date.today().isoformat()
     for snap in snaps.values():
-        snap["as_of"] = today
-    raw, sigma, as_of, *_ = to_matrix(snaps, cfg)
-    # Add a legacy model to every benchmark except the current-activity signal.
-    for bid, scores in raw.items():
-        if bid != "openrouter_usage":
-            scores["legacy model x"] = 9999.0
-            sigma[bid]["legacy model x"] = 0.0
+        snap["as_of"] = dt.date.today().isoformat()
+    # Keep just one model in the usage top-ten snapshot; it is contextual only.
+    snaps["openrouter_usage"]["values"] = {"Unrelated popular model": {"score": 100}}
+    raw, sigma, as_of, skipped, *_ = to_matrix(snaps, cfg)
+    assert "openrouter_usage" in skipped
     result = compute(raw, sigma, as_of, cfg, demo=True, reps=100)
-    listed = {entry["model"] for entry in result["models"]}
-    listed.update(entry["model"] for entry in result["unranked"])
-    assert "legacy model x" not in listed
+    assert len(result["models"]) == 12
+    assert {m["model"] for m in result["models"]} >= {"gemini 3 pro", "gpt 5.1", "claude opus 4.5"}
