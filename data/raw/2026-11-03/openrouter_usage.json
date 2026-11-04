@@ -3,45 +3,47 @@
   "as_of": "2026-11-03",
   "values": {
     "DeepSeek V4.1 Flash 1017": {
-      "score": 39.3412,
-      "tokens": 50400000000000.0
+      "score": 40.6619,
+      "tokens": 54800000000000.0
     },
     "GLM 5.3 Flash": {
-      "score": 11.9429,
-      "tokens": 15300000000000.0
+      "score": 12.1689,
+      "tokens": 16399999999999.998
     },
     "DeepSeek V4.1 Flash": {
-      "score": 11.7867,
-      "tokens": 15100000000000.0
+      "score": 11.5753,
+      "tokens": 15600000000000.0
     },
     "Hy4 preview": {
-      "score": 7.2204,
-      "tokens": 9250000000000.0
+      "score": 7.0342,
+      "tokens": 9480000000000.0
     },
     "GPT-6 Luna": {
-      "score": 7.1969,
-      "tokens": 9220000000000.0
+      "score": 6.871,
+      "tokens": 9260000000000.0
+    },
+    "Step 5 Preview": {
+      "score": 4.9566,
+      "tokens": 6680000000000.0
     },
     "Claude Opus 5.5": {
-      "score": 5.2065,
+      "score": 4.9492,
       "tokens": 6670000000000.0
     },
     "MiniMax M3.1 Flash": {
-      "score": 5.0425,
-      "tokens": 6460000000000.0
-    },
-    "Step 5 Preview": {
-      "score": 5.0425,
-      "tokens": 6460000000000.0
+      "score": 4.823,
+      "tokens": 6500000000000.0
     },
     "GPT-5.6 Luna": {
-      "score": 4.1527,
-      "tokens": 5320000000000.0
+      "score": 3.9549,
+      "tokens": 5330000000000.0
     },
     "GPT-6.1 Sol": {
-      "score": 3.0677,
-      "tokens": 3930000000000.0
+      "score": 3.0051,
+      "tokens": 4050000000000.0
     }
   },
-  "source": "https://openrouter.ai/rankings (share of parsed daily tokens, n=10)"
+  "source": "https://openrouter.ai/rankings",
+  "provenance_type": "usage_aggregate",
+  "qualification": "Top 10 visible weekly-ranking rows; share normalized within parsed rows only, not global traffic share"
 }
