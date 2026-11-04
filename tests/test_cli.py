@@ -22,3 +22,10 @@ def test_validate_reports_config_error_without_traceback(monkeypatch, capsys):
     captured = capsys.readouterr()
     assert captured.err.strip() == "config ERROR: bad weights"
     assert captured.out == ""
+
+
+def test_fetch_strict_reports_failure_without_traceback(monkeypatch):
+    monkeypatch.setattr(cli, "fetch_all", lambda *a, **k: ([], []))
+    monkeypatch.setattr(cli, "fetch_boards", lambda *a, **k: ([], [("arena_text", "unavailable")]))
+    assert cli.cmd_fetch(Namespace(allow_missing=False)) == 1
+    assert cli.cmd_fetch(Namespace(allow_missing=True)) == 0

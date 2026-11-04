@@ -1,0 +1,11 @@
+{
+  "name": "model-atlas-dashboard-tests",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/dashboard.test.mjs"
+  },
+  "devDependencies": {
+    "jsdom": "^26.1.0"
+  }
+}

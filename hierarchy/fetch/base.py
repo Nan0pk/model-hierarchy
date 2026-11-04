@@ -6,12 +6,8 @@ or raises FetchError with actionable instructions. A failing source NEVER
 fails the daily run — the pipeline aggregates whatever succeeded and flags
 staleness. data/manual/scores.csv is the guaranteed fallback.
 
-Adapter order for LMArena (canonical first):
-1. Official HF dataset lmarena-ai/leaderboard-dataset via the public
-   datasets-server JSON API (CC-BY-4.0) — style-controlled config, with
-   per-model 95% CIs and the leaderboard publish date.
-2. Community mirror API (clean JSON).
-3. Manual drop.
+Arena uses only the complete, official style-controlled dataset. A raw-Elo
+mirror or truncated first-rows response is not an equivalent fallback.
 """
 
 from __future__ import annotations
@@ -74,7 +70,22 @@ def _dig(obj, dotted: str):
 
 def write_snapshot(snap: dict, raw_dir: pathlib.Path = None) -> pathlib.Path:
     raw_dir = raw_dir or (DATA_DIR / "raw")
-    day = snap.get("as_of") or dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d")
+    day = snap.get("as_of")
+    try:
+        if dt.date.fromisoformat(day) > dt.datetime.now(dt.timezone.utc).date():
+            raise ValueError("future source date")
+        if not isinstance(snap.get("values"), dict) or not snap["values"]:
+            raise ValueError("empty values")
+        for name, entry in snap["values"].items():
+            score = entry.get("score") if isinstance(entry, dict) else entry
+            if not name or isinstance(score, bool) or not math.isfinite(float(score)):
+                raise ValueError("non-finite score or empty model")
+            if isinstance(entry, dict) and entry.get("ci95") is not None:
+                lo, hi = entry["ci95"]
+                if not (math.isfinite(lo) and math.isfinite(hi) and lo <= score <= hi):
+                    raise ValueError("invalid source confidence interval")
+    except (ValueError, TypeError, KeyError) as exc:
+        raise FetchError(f"Invalid snapshot; refusing to publish: {exc}") from exc
     out_dir = raw_dir / day
     out_dir.mkdir(parents=True, exist_ok=True)
     path = out_dir / f"{snap['benchmark']}.json"
@@ -108,11 +119,15 @@ def _hf_rows(cfg, config: str, split: str, where: str | None = None) -> list:
         r = _get(f"{DATASETS_SERVER}/{endpoint}", cfg.sources, params=params)
         d = r.json()
         rows = d.get("rows", [])
+        total = int(d.get("num_rows_total", 0))
         if not rows:
+            if offset < total or not out:
+                raise FetchError("Arena pagination ended before the complete roster was received")
             break
         out.extend(w.get("row", {}) for w in rows)
-        total = int(d.get("num_rows_total", len(out)))
-        offset += length
+        offset += len(rows)
+        if not total:
+            raise FetchError("Arena pagination metadata missing")
         if offset >= total:
             break
     return out
@@ -133,86 +148,26 @@ def _arena_values_from_rows(rows: list) -> tuple[dict, str]:
             entry["ci95"] = [float(lo), float(hi)]
         if row.get("vote_count") is not None:
             entry["votes"] = int(row["vote_count"])
-        values[str(name)] = entry
         d = str(row.get("leaderboard_publish_date", ""))[:10]
+        if not d:
+            raise FetchError("Arena row is missing leaderboard publication date")
+        entry["as_of"] = d
+        if str(name) in values:
+            raise FetchError(f"Arena duplicate model row: {name}")
+        values[str(name)] = entry
         if d > as_of:
             as_of = d
     return values, as_of
 
 
 def fetch_lm_arena(source: dict, cfg) -> dict:
-    errors: list[str] = []
-
-    # -- 1. canonical: official HF dataset, style-controlled, category=overall
-    try:
-        rows = _hf_rows(cfg, HF_STYLE_CONFIG, "latest", where=_OVERALL_WHERE)
-        values, as_of = _arena_values_from_rows(rows)
-        if values:
-            return {
-                "benchmark": "lm_arena_elo",
-                "as_of": as_of or dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d"),
-                "values": values,
-                "source": f"hf:{HF_DATASET}/{HF_STYLE_CONFIG}",
-            }
-        errors.append("hf filter: 0 'overall' rows parsed")
-    except (FetchError, ValueError, KeyError) as exc:
-        errors.append(f"hf filter: {exc}")
-
-    # -- 1b. single-shot first-rows (top-100 overall, rank-ordered)
-    try:
-        r = _get(
-            f"{DATASETS_SERVER}/first-rows",
-            cfg.sources,
-            params={"dataset": HF_DATASET, "config": HF_STYLE_CONFIG, "split": "latest"},
-        )
-        values, as_of = _arena_values_from_rows(
-            w.get("row", {}) for w in r.json().get("rows", [])
-        )
-        if values:
-            return {
-                "benchmark": "lm_arena_elo",
-                "as_of": as_of or dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d"),
-                "values": values,
-                "source": f"hf:{HF_DATASET}/{HF_STYLE_CONFIG} (first-rows)",
-            }
-        errors.append("hf first-rows: 0 'overall' rows parsed")
-    except (FetchError, ValueError, KeyError) as exc:
-        errors.append(f"hf first-rows: {exc}")
-
-    # -- 2. community mirror API
-    for url in source.get("endpoints", []):
-        try:
-            payload = _get(url, cfg.sources).json()
-            models = payload.get("models") if isinstance(payload, dict) else None
-            if not models:
-                errors.append(f"{url}: no 'models' array")
-                continue
-            mirror_vals = {}
-            for m in models:
-                name, score = m.get("model"), m.get("score")
-                if not name or score is None:
-                    continue
-                entry = {"score": float(score)}
-                if m.get("ci"):
-                    entry["ci95"] = [float(score) - float(m["ci"]), float(score) + float(m["ci"])]
-                mirror_vals[str(name)] = entry
-            if mirror_vals:
-                return {
-                    "benchmark": "lm_arena_elo",
-                    "as_of": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d"),
-                    "values": mirror_vals,
-                    "source": url,
-                }
-            errors.append(f"{url}: parsed 0 models")
-        except (FetchError, ValueError) as exc:
-            errors.append(str(exc))
-
-    raise FetchError(
-        "LMArena fetch failed: " + "; ".join(errors) + ". Fallback: copy the style-control "
-        "Elo + CI from lmarena.ai/leaderboard into data/manual/scores.csv "
-        "(benchmark=lm_arena_elo). Canonical dataset: huggingface.co/datasets/"
-        "lmarena-ai/leaderboard-dataset (CC-BY-4.0)."
-    )
+    rows = _hf_rows(cfg, HF_STYLE_CONFIG, "latest", where=_OVERALL_WHERE)
+    values, as_of = _arena_values_from_rows(rows)
+    if not values or not as_of:
+        raise FetchError("Arena: complete style-controlled rows and publication date required")
+    return {"benchmark": "lm_arena_elo", "as_of": as_of, "values": values,
+            "source": "https://huggingface.co/datasets/" + HF_DATASET,
+            "qualification": "text_style_control / latest / overall; complete paginated dataset"}
 
 
 # --------------------------------------------------------------------------
@@ -506,7 +461,7 @@ def fetch_json_url(source: dict, cfg) -> dict:
         bench = spec.get("benchmark") or _bench_id_for_source(source, cfg)
         return {
             "benchmark": bench,
-            "as_of": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d"),
+            "as_of": str(_dig(payload, spec["date_path"]))[:10],
             "values": values,
             "source": url,
         }
@@ -571,7 +526,7 @@ def fetch_all(cfg, allow_missing: bool = True, quiet: bool = False) -> tuple[lis
             written.append((sid, path, len(snap["values"])))
             if not quiet:
                 print(f"  ✔ {sid}: {len(snap['values'])} models -> {_rel(path)}")
-        except FetchError as exc:
+        except (FetchError, ValueError, KeyError, TypeError) as exc:
             failures.append((sid, str(exc)))
             if not quiet:
                 print(f"  ✘ {sid}: {exc}")

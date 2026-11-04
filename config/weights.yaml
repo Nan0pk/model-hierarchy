@@ -1,11 +1,11 @@
 # ============================================================================
-# Model Hierarchy — authoritative weights (methodology v1.1.0)
-# Normative spec: METHODOLOGY.md §3, §4, §9, §10. Any change here MUST bump
+# Model Hierarchy — authoritative weights (methodology v2.0.0)
+# Normative spec: METHODOLOGY.md §6 (experimental composite). Any change here MUST bump
 # `version`, add a METHODOLOGY.md changelog line, and update tests/test_weights.py
 # in the same commit.
 # ============================================================================
 
-version: "1.1.0"
+version: "2.0.0"
 
 aggregation:
   method: two_level_weighted_geometric   # arithmetic within pillar (§7), geometric across (§8)
@@ -16,7 +16,10 @@ aggregation:
     span: 0.30
   eligibility:                           # (§5)
     min_pillars: 3
-    min_benchmarks: 5
+    min_benchmarks: 5                    # distinct underlying measurements, not aliases
+    min_cohort_size: 5                   # never crown a one-model hierarchy
+    min_comparators: 3                   # per benchmark within eligible cohort
+    require_all_pillars: true            # missing whole domains blocks generalist claims
   staleness:                             # (§12)
     warn_after_days: 14
     exclude_after_days: 90
@@ -61,17 +64,9 @@ benchmarks:
   lm_arena_elo:
     label: "LMArena Elo (style-controlled)"
     pillar: human_preference
-    weight: 0.25
+    weight: 0.35
     normalization: elo
     noise_raw: 8.0          # Elo points
-    higher_better: true
-
-  openrouter_usage:
-    label: "OpenRouter token share"
-    pillar: human_preference
-    weight: 0.10
-    normalization: log_share
-    noise_raw: 0.4          # percentage points
     higher_better: true
 
   gpqa_diamond:

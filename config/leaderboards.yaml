@@ -1,0 +1,99 @@
+# Native leaderboards are independent views, NEVER extra composite inputs.
+# Pin metric versions: a changed task suite must get a new board ID/version.
+version: "2.0.0"
+default_board: artificial_analysis
+freshness:
+  warn_after_days: 14
+  expire_after_days: 90
+boards:
+  artificial_analysis:
+    label: Artificial Analysis
+    subtitle: Broad capability
+    kind: artificial_analysis
+    url: https://artificialanalysis.ai/leaderboards/models
+    methodology_url: https://artificialanalysis.ai/methodology/intelligence-benchmarking
+    version: "Intelligence Index v5.0"
+    metric: Intelligence Index
+    unit: points
+    decimals: 0
+    min_rows: 40
+    score_range: [0, 100]
+    qualification: >-
+      Source-native Intelligence Index, not a Model Atlas aggregate. Reasoning effort
+      and fallback settings are distinct entries. Public table scores are rounded;
+      equal displayed scores share a rank here. No confidence intervals are published
+      in this table. Cost per task is not API price per million tokens; a rounded $0.00 is not proof of free usage. The source's
+      current-model view is not a guarantee of public availability.
+    columns:
+      - {key: provider, label: Creator, type: text}
+      - {key: context, label: Context, type: text}
+      - {key: cost_per_task, label: "$/task", type: money, decimals: 2}
+      - {key: output_tps, label: Tokens/s, type: number}
+  arena_text:
+    label: Arena
+    subtitle: Human preference
+    kind: arena_hf
+    url: https://arena.ai/leaderboard/text
+    data_url: https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset
+    methodology_url: https://arena.ai/blog/leaderboard-changelog/
+    version: "Text · style-controlled · overall"
+    metric: Arena rating
+    unit: rating
+    decimals: 1
+    min_rows: 100
+    score_range: [0, 3000]
+    qualification: >-
+      Official text_style_control dataset, overall category only. Not the raw text,
+      coding, or agent board. Retains the full source roster, including historical
+      models. A recent board publication does not mean every model was recently
+      released or re-evaluated. Source 95% intervals and vote counts are preserved;
+      adjacent ranks are not claims of statistical separation.
+    columns:
+      - {key: votes, label: Votes, type: integer}
+      - {key: ci95, label: "95% interval", type: interval}
+  livebench:
+    label: LiveBench
+    subtitle: Task performance
+    kind: livebench_v2
+    url: https://livebench.ai/
+    methodology_url: https://livebench.ai/#/methodology
+    version: "LiveBench 2.0"
+    metric: Overall
+    unit: points
+    decimals: 1
+    min_rows: 15
+    score_range: [0, 100]
+    qualification: >-
+      LiveBench 2.0, NOT the retired LiveBench overall benchmark. Overall is the
+      source's weighted mean (Agentic ×2; Design and Coding ×1.5; other suites ×1).
+      Suites are single runs; effort is highest supported unless the source's
+      expanded row says otherwise. No per-model confidence intervals are supplied.
+      Missing suite results stay missing, not zero. Cost is per successful task.
+    columns:
+      - {key: agentic, label: Agentic, type: number}
+      - {key: coding, label: Coding, type: number}
+      - {key: reasoning, label: Reasoning, type: number}
+      - {key: cost_per_success, label: "$/success", type: money, decimals: 3}
+    suites: [agentic, design, coding, browser_use, data_analysis, research, reasoning]
+  terminal_bench:
+    label: Terminal-Bench
+    subtitle: Model + agent systems
+    kind: terminal_bench_v4
+    url: https://www.tbench.ai/
+    methodology_url: https://www.tbench.ai/run
+    version: "Terminal-Bench 4.0"
+    metric: Resolution rate
+    unit: percent
+    decimals: 1
+    min_rows: 10
+    score_range: [0, 100]
+    qualification: >-
+      SYSTEM ranking: model + reasoning setting + agent harness. Mixed harnesses
+      must not be interpreted as an isolated model comparison. No best-agent
+      cherry-picking or reuse in the legacy Terminal-Bench composite slots.
+      Release dates are model release dates, NOT evaluation dates. Published ±
+      margins are retained without assuming an unstated confidence level.
+    columns:
+      - {key: harness, label: Agent harness, type: text}
+      - {key: margin, label: "Published ±", type: number}
+      - {key: release_date, label: Model released, type: text}

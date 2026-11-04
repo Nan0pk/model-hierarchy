@@ -15,7 +15,8 @@ PILLAR_SHORT = {
     "agentic": "Agent",
 }
 
-README_MARKERS = ("<!-- leaderboard:start -->", "<!-- leaderboard:end -->")
+README_MARKERS = ("<!-- composite:start -->", "<!-- composite:end -->")
+BOARD_MARKERS = ("<!-- leaderboard:start -->", "<!-- leaderboard:end -->")
 DEMO_MARKERS = ("<!-- demo-leaderboard:start -->", "<!-- demo-leaderboard:end -->")
 
 
@@ -23,6 +24,13 @@ def markdown_table(result: dict, top_n: int = 25) -> str:
     from .tiers import hierarchy_tree  # local import to avoid cycle at load time
 
     lines = []
+    if result.get("quality", {}).get("blockers"):
+        lines = ["**Experimental composite withheld.**", ""]
+        lines += ["- " + message for message in result["quality"]["blockers"]]
+        lines += ["", f"{result['quality']['roster_size']} models remain in the evidence roster; "
+                  "none are deleted for being absent from a usage top ten. "
+                  "Use the source-native rankings above. Missing data is not a low score."]
+        return "\n".join(lines)
     if result.get("demo"):
         lines.append("> ⚠️ **Synthetic demo data** (see `demo/scores.csv`) — illustrates the output "
                      "shape only. Run `python -m hierarchy run` for a real leaderboard.")
@@ -81,7 +89,7 @@ def write_outputs(result: dict, out_dir: pathlib.Path, demo: bool = False) -> tu
     csv_path = out_dir / f"{stem}.csv"
     json_path.write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n")
     with open(csv_path, "w", newline="", encoding="utf-8") as fh:
-        writer = csv.DictWriter(fh, fieldnames=list(csv_rows(result)[0].keys()) if result["models"]
+        writer = csv.DictWriter(fh, lineterminator="\n", fieldnames=list(csv_rows(result)[0].keys()) if result["models"]
                                 else ["rank", "model", "tier", "g", "ci_lo", "ci_hi", "coverage", "flags"])
         writer.writeheader()
         writer.writerows(csv_rows(result))

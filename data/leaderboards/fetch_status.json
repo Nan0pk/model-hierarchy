@@ -1,0 +1,22 @@
+{
+  "artificial_analysis": {
+    "status": "failed",
+    "error": "https://artificialanalysis.ai/leaderboards/models -> SSLError",
+    "attempted_at": "2026-11-03T20:20:20+00:00"
+  },
+  "arena_text": {
+    "status": "failed",
+    "error": "https://datasets-server.huggingface.co/filter -> SSLError",
+    "attempted_at": "2026-11-03T20:20:20+00:00"
+  },
+  "livebench": {
+    "status": "failed",
+    "error": "https://livebench.ai/ -> SSLError",
+    "attempted_at": "2026-11-03T20:20:20+00:00"
+  },
+  "terminal_bench": {
+    "status": "failed",
+    "error": "https://www.tbench.ai/ -> SSLError",
+    "attempted_at": "2026-11-03T20:20:20+00:00"
+  }
+}

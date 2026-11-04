@@ -1,4 +1,4 @@
-"""Pins config/weights.yaml to METHODOLOGY.md v1.1.0 (§3, §4, §9, §10).
+"""Pins config/weights.yaml to METHODOLOGY.md v2.0.0 (§3, §4, §9, §10).
 
 If you intentionally change a weight: bump the methodology version, add a
 changelog line, and update the expected numbers here in the same commit.
@@ -15,7 +15,7 @@ def cfg() -> Config:
 
 
 def test_loads_and_hashes(cfg):
-    assert cfg.version == "1.1.0"
+    assert cfg.version == "2.0.0"
     assert len(cfg.config_hash()) == 16
 
 
@@ -42,8 +42,7 @@ def test_per_pillar_consistency(cfg):
 
 def test_headline_benchmark_weights(cfg):
     expected = {
-        "lm_arena_elo": 0.25,
-        "openrouter_usage": 0.10,
+        "lm_arena_elo": 0.35,
         "gpqa_diamond": 0.08,
         "mmlu_pro": 0.06,
         "livebench_overall": 0.03,
@@ -72,7 +71,8 @@ def test_normalization_modes_are_registered(cfg):
     for bid in cfg.bench_ids():
         assert cfg.bench_norm_mode(bid) in {"blend", "borda_only", "minmax_only", "elo", "log_share"}
     assert cfg.bench_norm_mode("lm_arena_elo") == "elo"       # §6.4
-    assert cfg.bench_norm_mode("openrouter_usage") == "log_share"
+    assert "openrouter_usage" not in cfg.bench_ids()
+    assert cfg.sources["sources"]["openrouter_usage"]["role"] == "context"
 
 
 def test_coverage_penalty_contract(cfg):

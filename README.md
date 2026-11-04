@@ -1,193 +1,289 @@
-# model-hierarchy
+# Model Atlas · model-hierarchy
 
-**One number per model, every day: a reality-anchored tier hierarchy of frontier models,
-aggregated from LMArena, OpenRouter usage, GPQA, LiveBench, SEAL, AIME, HMMT, SWE-bench
-Verified, LiveCodeBench, Terminal-Bench and Tau²-bench.**
+**AI model rankings with the evidence still attached.**
 
-> Which models are *comprehensively* better than the rest right now — not per-benchmark noise,
-> not vibes: a declared-weight aggregate over 5 capability pillars, with confidence intervals,
-> tier groupings, and pairwise "confidently better" probabilities.
+Explore original scores from **Artificial Analysis, Arena, LiveBench 2.0, and Terminal-Bench 4.0**.
+Keep exact reasoning settings, benchmark versions, uncertainty when supplied, and source dates.
+No popularity-based model exclusions. No fictional universal winner.
 
-📖 **The methodology — every weight, every formula, every tradeoff — is specified in
-[METHODOLOGY.md](METHODOLOGY.md).** This README shows you how to run it.
+[**Open the dashboard →**](https://nan0pk.github.io/model-hierarchy/dashboard/) ·
+[Methodology](METHODOLOGY.md) · [Ranking quality audit](docs/RANKING_AUDIT.md) ·
+[JSON](output/leaderboards.json) · [CSV](output/leaderboards.csv)
 
-## Refresh the live leaderboard
+## What changed in v2
 
-[**Run a full refresh now →**](https://github.com/Nan0pk/model-hierarchy/actions/workflows/daily.yml)
+The previous pipeline filtered every source through OpenRouter's **ten visible usage leaders**.
+It eliminated most of the model roster and crowned the only remaining eligible model with a
+meaningless singleton T1. Usage is now neither an eligibility gate nor a capability score.
 
-This opens the repository's `daily` workflow. Select **Run workflow** with branch `main` to run
-fetch → validate → aggregate → render → tests → auto-commit. When the run succeeds, reload the
-[dashboard](https://nan0pk.github.io/model-hierarchy/dashboard/) or README. GitHub requires an
-authenticated owner/contributor to start Actions; a static Pages button cannot safely carry a
-GitHub token or dispatch jobs directly.
+The default publication is **source-native rankings**, not an average of incompatible indexes.
+The initial audited views contain 91 AA configurations, 419 Arena entries, 32 LiveBench models,
+and 23 Terminal-Bench systems. These are source entries, not distinct model families. The
+experimental geometric composite remains available but is withheld if its evidence is inadequate.
+See [the audit](docs/RANKING_AUDIT.md) for scoring, freshness, identity, and statistical repairs.
 
-The refresh uses trusted configured sources only. If fresh data does not cover at least five
-benchmarks across three pillars, the honest result is still an empty ranked hierarchy—not synthetic
-scores presented as current.
-
-## Quickstart
+## Run locally
 
 ```bash
-pip install -r requirements.txt
+python -m venv .venv
+source .venv/bin/activate
+pip install -e '.[dev]'
 
-python -m hierarchy validate   # config ↔ methodology consistency check
-python -m hierarchy demo       # end-to-end run on bundled synthetic data (no network)
-pytest -q                      # contract tests: weights pinned to METHODOLOGY.md
+python -m hierarchy validate
+python -m hierarchy aggregate  # offline: native boards + composite audit + README
+python -m http.server 8000 --bind 0.0.0.0
+# open /dashboard/
 ```
 
-To produce a **real** leaderboard:
+The dashboard is static and dependency-free at runtime. Search source rosters, switch evaluators,
+filter creators or agent harnesses, sort task scores/costs, expand a row's evidence, and download
+JSON/CSV. Search and sorting preserve source score ranks. Missing data is never a zero score.
+The UI recalculates staleness even when daily refreshes stop.
+
+## Refresh
 
 ```bash
-python -m hierarchy fetch --allow-missing   # try live sources (best-effort, soft-fail)
-python -m hierarchy run                     # fetch + aggregate + render README/JSON/CSV
+python -m hierarchy run                   # best effort: fetch + publish + evidence audit
+python -m hierarchy run --strict          # nonzero if any automatic source fails
+python -m hierarchy fetch --allow-missing # fetch only; retain last-good snapshots on failure
+python -m hierarchy boards                # publish native views only, offline
 ```
 
-Automatic adapters currently cover LMArena and OpenRouter, plus Vals AI's independently evaluated
-GPQA Diamond, MMLU-Pro, SWE-bench Verified, and LiveCodeBench tables. Vals marks these benchmark boards
-archived because it no longer reruns saturated benchmarks on new model releases; each snapshot uses
-the evaluation date published on the page (not the scrape date), and the standard 90-day cutoff
-excludes older results. SWE-bench is restricted to the fixed `Mini-SWE-agent` harness. Source URLs,
-evaluation dates, provider and harness qualifications are retained in the generated JSON and shown
-in the dashboard's **Benchmark sources and qualifications** section.
+[**Open the refresh workflow →**](https://github.com/Nan0pk/model-hierarchy/actions/workflows/daily.yml)
+The workflow supports scheduled and manual runs. Select the branch you intend to publish; an
+authenticated contributor must start it. The static dashboard's **Reload snapshot** button reloads
+published files only; it does not claim to run GitHub Actions or carry credentials.
 
-Several metrics remain intentionally manual: LiveBench 2.0 no longer matches the historical metric
-in these weights; SEAL's legacy average has no confirmed current endpoint; AIME/HMMT/MATH-500 are
-fixed contests/sets without a single comparable live leaderboard; Terminal-Bench mixes agent
-harnesses; and Tau² lacks a stable public machine-readable board. Each adapter/manual status is
-reported by `python -m hierarchy validate` and `python -m hierarchy fetch` so a missing integration
-is visible instead of silently skipped. Never scrape a page's retrieval date as benchmark freshness.
+Adapters read the public source-owned tables and the official Arena dataset. They reject metric
+version changes, invalid scores, duplicate identities, truncated rosters, and source date regression.
+A failed refresh keeps the previous valid snapshot **without refreshing its dates**, records the
+failure, and displays it in the dashboard. Native views never silently fall back to synthetic data.
 
-Any automatic source that fails (endpoint moved, schema changed) is logged and skipped — the
-hierarchy is computed from valid, sufficiently fresh data only. The **guaranteed** input path is
-[`data/manual/scores.csv`](data/manual/scores.csv): provide `benchmark,model,score,as_of,source,notes`
-for a methodology-compatible score and the pipeline runs offline. Scrapers rot; manual drops never do.
+The initial AA/LiveBench/Terminal-Bench snapshots are explicitly labeled public-table transcriptions
+observed on 2026-11-03; they do **not** claim an evaluation date or a successful unattended scrape.
+The retained Arena snapshot keeps its original source date. See the
+[capture record](data/evidence/2026-11-03/README.md) for sources, scope, and checksums.
 
-## Weights at a glance (v1.1.0)
+## Read the ranks correctly
 
-| Pillar | Weight | Benchmarks (global weights) |
+- **Artificial Analysis:** current-model Intelligence Index **v5.0**; rounded raw scores, exact effort
+  and fallback settings. Equal displayed scores share a rank. No invented CIs.
+- **Arena:** complete official **style-controlled text / overall** roster, not raw text or agent
+  rankings. Includes historical models; vote counts and source 95% intervals are retained.
+- **LiveBench 2.0:** source overall plus seven task suites, separate from the retired LiveBench metric.
+- **Terminal-Bench 4.0:** **model + agent system** performance. Different harnesses are not controlled
+  comparisons of base models. Release dates are not evaluation dates.
+
+Scores across these boards are **not interchangeable**. A recently observed board does not prove
+public model availability, a recent model release, or a recent evaluation. Unknown dates are shown
+as unknown, and stale snapshots remain clearly labeled reference data.
+
+## Source-native leaderboards
+
+<!-- leaderboard:start -->
+
+Source-native rankings. **Scores from different boards are not interchangeable.**
+
+### Artificial Analysis — Intelligence Index v5.0
+
+[Source](https://artificialanalysis.ai/leaderboards/models) · 91 scored entries · published: not supplied · observed: 2026-11-03 · **available**
+
+| Rank | Model / configuration | Score |
 |---|---|---|
-| Human Preference | **0.35** | LMArena style-controlled Elo (0.25), OpenRouter token share (0.10) |
-| Knowledge & Reasoning | **0.20** | GPQA Diamond (0.08), MMLU-Pro (0.06), LiveBench (0.03), Scale SEAL (0.03) |
-| Math | **0.15** | AIME 2025 (0.08), HMMT Feb 2025 (0.04), MATH-500 (0.03) |
-| Coding | **0.20** | SWE-bench Verified (0.10), LiveCodeBench (0.07), Terminal-Bench coding share (0.03) |
-| Agentic | **0.10** | Tau²-bench (0.06), Terminal-Bench agentic share (0.04) |
+| 1 | Gemini 4 Carbon (high) | 59 |
+| 2 | Claude Opus 5.5 (max with fallback) | 58 |
+| 2 | Gemini 4 Carbon (medium) | 58 |
+| 4 | Claude Opus 5.5 (xhigh with fallback) | 57 |
+| 4 | GPT-6 Astra (max) | 57 |
+| 6 | GPT-6 Astra (high) | 55 |
+| 6 | GPT-6 Astra (xhigh) | 55 |
+| 6 | GPT-6.1 Sol (max) | 55 |
+| 9 | Claude Sonnet 5.5 (max with fallback) | 54 |
+| 9 | Gemini 4 Carbon (low) | 54 |
 
-Aggregation: Borda + clipped min-max normalization per benchmark → arithmetic mean within
-pillars → **weighted geometric mean across pillars** (generalists win, specialists place) →
-coverage penalty for missing data → 2,000-rep parametric bootstrap → tiers + pairwise
-P(A ≻ B). Full spec: [METHODOLOGY.md](METHODOLOGY.md).
+Source-native Intelligence Index, not a Model Atlas aggregate. Reasoning effort and fallback settings are distinct entries. Public table scores are rounded; equal displayed scores share a rank here. No confidence intervals are published in this table. Cost per task is not API price per million tokens; a rounded $0.00 is not proof of free usage. The source's current-model view is not a guarantee of public availability.
 
-Key properties:
+> Evaluation/publication date not supplied by the table; observed date is retrieval only.
 
-- **llmstat is a mirror, not a voice** — it republishes the same underlying benchmarks, so
-  scoring it separately would double-count everything (METHODOLOGY.md §4). Use it to source
-  manual drops.
-- **Tiers, not fake precision** — same tier = statistically indistinguishable on current data.
-- **Reproducible** — raw snapshots are committed; every output embeds a `config_hash`.
+> Source table transcribed on 2026-11-03. Retrieval is not an evaluation date. See data/evidence/2026-11-03/README.md.
 
-## Example output (synthetic demo data)
+> Last refresh failed; retaining the last valid snapshot.
+
+### Arena — Text · style-controlled · overall
+
+[Source](https://arena.ai/leaderboard/text) · 419 scored entries · published: 2026-10-28 · observed: not recorded · **available**
+
+| Rank | Model / configuration | Score |
+|---|---|---|
+| 1 | Gemini 4 Carbon (High) | 1527.5 |
+| 2 | Gemini 4 Argon (High) | 1520.3 |
+| 3 | Claude Opus 5.5 (High) | 1508.7 |
+| 4 | Muse Wonder (Max) | 1507.1 |
+| 5 | Claude Fable 5.1 (Max) | 1504.4 |
+| 6 | Claude Fable 5 (High) | 1503.9 |
+| 7 | Claude Opus 4.6 (High) | 1503.2 |
+| 8 | Claude Opus 4.7 (High) | 1501.0 |
+| 9 | Claude Opus 4.6 | 1496.1 |
+| 10 | Gemini 3.8 Flash (High) | 1495.9 |
+
+Official text_style_control dataset, overall category only. Not the raw text, coding, or agent board. Retains the full source roster, including historical models. A recent board publication does not mean every model was recently released or re-evaluated. Source 95% intervals and vote counts are preserved; adjacent ranks are not claims of statistical separation.
+
+> Retrieval time was not recorded in this retained snapshot.
+
+> Retained canonical snapshot; original retrieval time is unknown. Raw text and style-control boards must not be conflated.
+
+> Last refresh failed; retaining the last valid snapshot.
+
+### LiveBench — LiveBench 2.0
+
+[Source](https://livebench.ai/) · 32 scored entries · published: not supplied · observed: 2026-11-03 · **available**
+
+| Rank | Model / configuration | Score |
+|---|---|---|
+| 1 | Claude Fable 5.1 | 85.7 |
+| 2 | GPT-6 Astra | 85.6 |
+| 3 | Claude Opus 5.5 | 85.1 |
+| 4 | GPT-6.1 Sol | 84.1 |
+| 5 | Claude Sonnet 5.5 | 80.0 |
+| 6 | Gemini 4 Argon | 79.3 |
+| 7 | GPT-6.1 Terra | 77.8 |
+| 8 | Muse Wonder 1.0 | 74.2 |
+| 9 | DeepSeek V4.1 Flash 1017 | 72.9 |
+| 10 | Kimi K3.1 Pro | 71.3 |
+
+LiveBench 2.0, NOT the retired LiveBench overall benchmark. Overall is the source's weighted mean (Agentic ×2; Design and Coding ×1.5; other suites ×1). Suites are single runs; effort is highest supported unless the source's expanded row says otherwise. No per-model confidence intervals are supplied. Missing suite results stay missing, not zero. Cost is per successful task.
+
+> Evaluation/publication date not supplied by the table; observed date is retrieval only.
+
+> Source table transcribed on 2026-11-03. Retrieval is not an evaluation date. See data/evidence/2026-11-03/README.md.
+
+> Last refresh failed; retaining the last valid snapshot.
+
+### Terminal-Bench — Terminal-Bench 4.0
+
+[Source](https://www.tbench.ai/) · 23 scored entries · published: not supplied · observed: 2026-11-03 · **available**
+
+| Rank | Model / configuration | Score |
+|---|---|---|
+| 1 | Opus 5.5 (max) / Claude Code | 64.8 |
+| 2 | Sonnet 5.5 (max) / Claude Code | 61.8 |
+| 3 | GPT-6 Astra (max) / Codex | 58.2 |
+| 3 | GPT-6.1 Sol (max) / Codex | 58.2 |
+| 5 | Fable 5.1 (max) / Claude Code | 57.9 |
+| 6 | Opus 5 (xhigh) / Claude Code | 53.9 |
+| 7 | GPT-6 Sol (max) / Codex | 49.4 |
+| 8 | Fable 5 (max) / Claude Code | 44.5 |
+| 9 | GLM-5.3 (max) / Claude Code | 41.8 |
+| 10 | Grok 4.7 (xhigh) / Grok Build | 37.6 |
+
+SYSTEM ranking: model + reasoning setting + agent harness. Mixed harnesses must not be interpreted as an isolated model comparison. No best-agent cherry-picking or reuse in the legacy Terminal-Bench composite slots. Release dates are model release dates, NOT evaluation dates. Published ± margins are retained without assuming an unstated confidence level.
+
+> Evaluation/publication date not supplied by the table; observed date is retrieval only.
+
+> Source table transcribed on 2026-11-03. Retrieval is not an evaluation date. See data/evidence/2026-11-03/README.md.
+
+> Last refresh failed; retaining the last valid snapshot.
+
+
+<!-- leaderboard:end -->
+
+## Experimental composite evidence audit
+
+The old five-pillar geometric aggregate lives in `output/leaderboard.json` (singular). It is not
+the dashboard default. It requires five distinct measurements across three pillars, at least
+five comparator models, and evidence in every capability domain across the cohort before it
+publishes rankings. Usage is context-only, split aliases count once, and data gaps are visible.
+
+<!-- composite:start -->
+
+**Experimental composite withheld.**
+
+- No comparable data for entire pillars: agentic, math.
+
+529 models remain in the evidence roster; none are deleted for being absent from a usage top ten. Use the source-native rankings above. Missing data is not a low score.
+
+<!-- composite:end -->
+
+For compatible, cited composite observations, use `data/manual/scores.csv`:
+`benchmark,model,score,as_of,source,notes[,ci95_lo,ci95_hi]`. Rows retain their individual dates
+and citations and augment, rather than replace, a benchmark's roster. Never put a new benchmark
+version or a different agent harness in an old metric slot just to obtain more coverage.
+
+## Tests and synthetic demo
+
+```bash
+pytest -q                         # scoring, integrity, parsers, provenance, retention
+ruff check hierarchy tests
+npm ci && npm test                 # dashboard data/rendering/interaction regressions
+python -m hierarchy demo           # explicitly synthetic; separate demo outputs
+```
+
+The demo writes `output/demo_leaderboard.{json,csv}` only and is never substituted for live data.
+The historical dashboard preview image also uses synthetic data and is not a current screenshot.
+
+<details><summary>Synthetic composite example (not current model rankings)</summary>
 
 <!-- demo-leaderboard:start -->
 
 > ⚠️ **Synthetic demo data** (see `demo/scores.csv`) — illustrates the output shape only. Run `python -m hierarchy run` for a real leaderboard.
 
-Tier hierarchy (G-score 0-100) — generated 2026-11-01 19:12 UTC — SYNTHETIC DEMO DATA
+Tier hierarchy (G-score 0-100) — generated 2026-11-03 20:25 UTC — SYNTHETIC DEMO DATA
 ────────────────────────────────────────────────────────────────
 T1 │ claude opus 4.5 · gemini 3 pro · gpt 5.1
 T2 │ grok 4.1
-T3 │ deepseek v3.2
-T4 │ kimi k2.5
-T5 │ glm 4.7 · qwen3 max
-T6 │ gpt 5 mini
-T7 │ llama 4 maverick · minimax m2.5 · mistral large 3
+T3 │ deepseek v3.2 · kimi k2.5
+T4 │ glm 4.7 · qwen3 max
+T5 │ gpt 5 mini · minimax m2.5
+T6 │ mistral large 3
+T7 │ llama 4 maverick
 ────────────────────────────────────────────────────────────────
-Same tier = statistically indistinguishable on current data (METHODOLOGY.md §11).
+Tiers are a bootstrap grouping heuristic, not proof of equivalence (METHODOLOGY.md).
 
 | # | Model | Tier | G | 95% CI | Hum. | Know. | Math | Code | Agent | Cov. | Flags |
 |---|-------|------|---|--------|---|---|---|---|---|------|-------|
-| 1 | `gpt 5.1` | T1 | **93.4** | 89.8–95.6 | 91 | 97 | 94 | 96 | 94 | 100% | – |
-| 2 | `gemini 3 pro` | T1 | **93.2** | 90.5–95.0 | 96 | 97 | 100 | 89 | 84 | 100% | – |
-| 3 | `claude opus 4.5` | T1 | **90.9** | 87.4–94.0 | 93 | 86 | 84 | 95 | 100 | 100% | – |
-| 4 | `grok 4.1` | T2 | **71.3** | 67.0–75.7 | 69 | 75 | 75 | 70 | 71 | 100% | – |
-| 5 | `deepseek v3.2` | T3 | **65.3** | 61.4–68.9 | 68 | 65 | 69 | 65 | 59 | 100% | – |
-| 6 | `kimi k2.5` | T4 | **59.1** | 54.6–63.8 | 56 | 56 | 61 | 69 | 58 | 100% | – |
-| 7 | `glm 4.7` | T5 | **50.5** | 46.0–55.6 | 50 | 46 | 53 | 53 | 48 | 100% | – |
-| 8 | `qwen3 max` | T5 | **47.8** | 43.6–52.0 | 50 | 45 | 48 | 46 | 42 | 100% | – |
-| 9 | `gpt 5 mini` | T6 | **39.6** | 36.3–42.8 | 52 | 32 | 39 | 34 | 33 | 100% | – |
-| 10 | `minimax m2.5` | T7 | **29.8** | 25.9–34.3 | 32 | 22 | 34 | 33 | 26 | 96% | – |
-| 11 | `mistral large 3` | T7 | **12.4** | 8.8–15.3 | 14 | 11 | 13 | 11 | 11 | 94% | – |
-| 12 | `llama 4 maverick` | T7 | **5.0** | 5.0–7.7 | 5 | 5 | 5 | 5 | 5 | 100% | – |
+| 1 | `gpt 5.1` | T1 | **93.6** | 89.1–95.9 | 98 | 96 | 94 | 96 | 94 | 94% | – |
+| 2 | `gemini 3 pro` | T1 | **93.0** | 89.4–94.8 | 100 | 98 | 100 | 89 | 84 | 94% | – |
+| 3 | `claude opus 4.5` | T1 | **88.8** | 84.1–92.8 | 93 | 86 | 84 | 95 | 100 | 94% | – |
+| 4 | `grok 4.1` | T2 | **73.2** | 68.7–77.5 | 80 | 76 | 75 | 70 | 71 | 94% | – |
+| 5 | `kimi k2.5` | T3 | **60.6** | 55.8–65.1 | 65 | 57 | 61 | 69 | 58 | 94% | – |
+| 6 | `deepseek v3.2` | T3 | **59.7** | 54.7–64.2 | 56 | 66 | 69 | 65 | 59 | 94% | – |
+| 7 | `glm 4.7` | T4 | **52.7** | 48.2–57.0 | 62 | 46 | 53 | 53 | 48 | 94% | – |
+| 8 | `qwen3 max` | T4 | **47.4** | 42.8–51.8 | 52 | 47 | 48 | 46 | 42 | 94% | – |
+| 9 | `gpt 5 mini` | T5 | **36.6** | 32.2–40.7 | 43 | 33 | 39 | 34 | 33 | 94% | – |
+| 10 | `minimax m2.5` | T5 | **31.3** | 27.2–35.0 | 40 | 23 | 34 | 33 | 26 | 90% | – |
+| 11 | `mistral large 3` | T6 | **13.2** | 8.6–16.0 | 18 | 11 | 13 | 11 | 11 | 91% | – |
+| 12 | `llama 4 maverick` | T7 | **4.9** | 4.9–4.9 | 5 | 5 | 5 | 5 | 5 | 94% | – |
 
 <!-- demo-leaderboard:end -->
 
-*( regenerate with `python -m hierarchy demo` — numbers are synthetic, see
-`demo/DATA_IS_SYNTHETIC.md` )*
+</details>
 
-## Explore the leaderboard
+## Repository map
 
-[Open the Model Atlas dashboard](https://nan0pk.github.io/model-hierarchy/dashboard/) (published via GitHub Pages). It displays only eligible live results by default; if none are available, it explains the eligibility gap rather than presenting demo scores as real. Use `?demo=1` to opt into the clearly labeled synthetic demo. GitHub READMEs cannot run or embed the interactive dashboard itself, so the image below is a static preview; use the link for live controls. Serve the repository locally (e.g. `python -m http.server 8000`) and open `/dashboard/` to search models, inspect published confidence intervals, and explore pillar reweighting. Personalized rankings are exploratory; they do not recompute statistical tiers or bootstrap intervals. The dashboard reads the published JSON files without a backend.
-
-> **Preview uses synthetic demo scores** — illustrative only, not the live ranking.
->
-> ![Model Atlas dashboard preview with synthetic example rankings](dashboard/preview.svg)
-
-Pairwise tier separations and dominance claims use Benjamini–Hochberg-adjusted bootstrap tail
-probabilities to reduce false discoveries across comparisons. This remains a bootstrap heuristic,
-not an analytic test or proof of model superiority.
-
-## Live leaderboard
-
-<!-- leaderboard:start -->
-
-Tier hierarchy (G-score 0-100) — generated 2026-11-04 13:33 UTC
-────────────────────────────────────────────────────────────────
-T1 │ glm 5.3 flash
-────────────────────────────────────────────────────────────────
-Same tier = statistically indistinguishable on current data (METHODOLOGY.md §11).
-
-| # | Model | Tier | G | 95% CI | Hum. | Know. | Math | Code | Agent | Cov. | Flags |
-|---|-------|------|---|--------|---|---|---|---|---|------|-------|
-| 1 | `glm 5.3 flash` | T1 | **55.7** | 55.7–55.7 | 50 | 75 | – | 75 | – | 66% | – |
-
-*Stale (>14d): gpqa_diamond, livecodebench, mmlu_pro, swebench_verified*
-
-<!-- leaderboard:end -->
-
-## Repo layout
-
-```
-METHODOLOGY.md            normative spec: weights, formulas, limitations ledger
-config/weights.yaml       the authoritative numbers (tests pin them)
-config/sources.yaml       where data comes from + per-source fallback notes
-hierarchy/                the pipeline (normalize → aggregate → tiers → render)
-hierarchy/fetch/          best-effort adapters (LMArena mirror API, OpenRouter, generic JSON)
-data/manual/scores.csv    guaranteed manual input path
-data/raw/                 committed daily snapshots (reproducibility)
-output/                   leaderboard.json / leaderboard.csv
-tests/                    contracts from METHODOLOGY.md
-.github/workflows/        daily cron job (fetch → aggregate → render → commit)
+```text
+config/leaderboards.yaml        source-native metric versions, adapters, qualifications
+config/weights.yaml             experimental composite weights and publication gates
+config/models.yaml              reviewed exact identity aliases (not family merging)
+hierarchy/boards.py             native snapshots, integrity, ranks, provenance, export
+hierarchy/fetch/boards.py        version-pinned public source adapters + refresh health
+hierarchy/pipeline.py            composite, sparse-cohort gates, evidence diagnostics
+data/leaderboards/               retained dated native snapshots + fetch status
+data/evidence/                   dated source transcriptions and capture notes
+data/raw/, data/manual/          legacy composite observations
+output/leaderboards.{json,csv}    main native-board publication (plural)
+output/leaderboard.{json,csv}     experimental composite and evidence audit (singular)
+dashboard/                      static, source-aware explorer
+METHODOLOGY.md                   current normative specification
+docs/RANKING_AUDIT.md             findings and repairs
 ```
 
-## Daily automation
+## Automation
 
-`.github/workflows/daily.yml` runs at 06:00 UTC: fetch → aggregate → render → auto-commit if
-anything changed. Enable Actions on your fork/repo; on public repos this is free. No secrets
-are required for v1 (all sources are public pages).
+The daily workflow fetches, validates, publishes, runs Python tests, and commits its selected
+branch's data. Source failures are soft by default but never invisible. Run the Python and
+dashboard tests using the commands above. The additional pull-request CI and daily dashboard-test
+workflow edits are deferred until workflow-write permission is available.
 
-## Roadmap
-
-- `--method pca` report: data-driven g-factor alongside (never replacing) the declared weights
-- provenance tagging: orchestrator-run vs vendor-reported scores (credibility multiplier)
-- multimodal pillar (v2 candidate)
-- GitHub Pages front-end over `output/leaderboard.json`
-
-## Disclaimer
-
-Aggregating benchmarks measures *benchmarks and votes*, not truth. Read the
-[limitations ledger](METHODOLOGY.md#13-bias-and-limitations-ledger) before citing any output.
-This project is independent of LMArena, OpenRouter, Scale AI, and all benchmark operators;
-data belongs to its respective owners and is used under their public terms.
-
-## License
-
-MIT — see [LICENSE](LICENSE).
+No secrets are required by the public-source adapters. Sites can change or block scraping;
+transparent failure reporting and dated last-good snapshots are part of the ranking, not an
+excuse to re-date old results.
