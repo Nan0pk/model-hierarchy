@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "methodology_version": "2.0.0",
-  "generated_at": "2026-11-05T11:01:56+00:00",
+  "generated_at": "2026-11-05T13:47:23+00:00",
   "default_board": "artificial_analysis",
   "config_hash": "96c9f21a3accd50f",
   "freshness": {
@@ -970,7 +970,7 @@
       "last_fetch": {
         "status": "failed",
         "error": "Artificial Analysis current index is not v5.0; review the metric version",
-        "attempted_at": "2026-11-05T11:01:35+00:00"
+        "attempted_at": "2026-11-05T13:47:03+00:00"
       },
       "published_at": null,
       "observed_at": "2026-11-03",
@@ -5632,7 +5632,7 @@
       "last_fetch": {
         "status": "failed",
         "error": "https://datasets-server.huggingface.co/filter -> HTTP 500",
-        "attempted_at": "2026-11-05T11:01:55+00:00"
+        "attempted_at": "2026-11-05T13:47:23+00:00"
       },
       "published_at": "2026-10-28",
       "observed_at": null,
@@ -6184,7 +6184,7 @@
       "last_fetch": {
         "status": "failed",
         "error": "Required leaderboard headers missing; page/schema may have changed",
-        "attempted_at": "2026-11-05T11:01:55+00:00"
+        "attempted_at": "2026-11-05T13:47:23+00:00"
       },
       "published_at": null,
       "observed_at": "2026-11-03",
@@ -6448,7 +6448,7 @@
       "last_fetch": {
         "status": "failed",
         "error": "Required leaderboard headers missing; page/schema may have changed",
-        "attempted_at": "2026-11-05T11:01:56+00:00"
+        "attempted_at": "2026-11-05T13:47:23+00:00"
       },
       "published_at": null,
       "observed_at": "2026-11-03",
