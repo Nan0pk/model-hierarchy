@@ -111,7 +111,7 @@ Source-native Intelligence Index, not a Model Atlas aggregate. Reasoning effort 
 
 ### Arena — Text · style-controlled · overall
 
-[Source](https://arena.ai/leaderboard/text) · 419 scored entries · published: 2026-10-28 · observed: not recorded · **available**
+[Source](https://arena.ai/leaderboard/text) · 419 scored entries · published: 2026-10-28 · observed: not recorded · **stale**
 
 | Rank | Model / configuration | Score |
 |---|---|---|
@@ -129,6 +129,8 @@ Source-native Intelligence Index, not a Model Atlas aggregate. Reasoning effort 
 Official text_style_control dataset, overall category only. Not the raw text, coding, or agent board. Retains the full source roster, including historical models. A recent board publication does not mean every model was recently released or re-evaluated. Source 95% intervals and vote counts are preserved; adjacent ranks are not claims of statistical separation.
 
 > Retrieval time was not recorded in this retained snapshot.
+
+> Stale snapshot (15 days); not a current ranking.
 
 > Retained canonical snapshot; original retrieval time is unknown. Raw text and style-control boards must not be conflated.
 
