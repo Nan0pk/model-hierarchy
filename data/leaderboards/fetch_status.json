@@ -2,21 +2,21 @@
   "artificial_analysis": {
     "status": "failed",
     "error": "Artificial Analysis current index is not v5.0; review the metric version",
-    "attempted_at": "2026-11-12T14:23:00+00:00"
+    "attempted_at": "2026-11-13T13:42:28+00:00"
   },
   "arena_text": {
     "status": "failed",
     "error": "https://datasets-server.huggingface.co/filter -> HTTP 500",
-    "attempted_at": "2026-11-12T14:23:20+00:00"
+    "attempted_at": "2026-11-13T13:42:48+00:00"
   },
   "livebench": {
     "status": "failed",
     "error": "Required leaderboard headers missing; page/schema may have changed",
-    "attempted_at": "2026-11-12T14:23:20+00:00"
+    "attempted_at": "2026-11-13T13:42:48+00:00"
   },
   "terminal_bench": {
     "status": "failed",
     "error": "Required leaderboard headers missing; page/schema may have changed",
-    "attempted_at": "2026-11-12T14:23:20+00:00"
+    "attempted_at": "2026-11-13T13:42:49+00:00"
   }
 }
