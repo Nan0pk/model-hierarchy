@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "methodology_version": "2.0.0",
-  "generated_at": "2026-11-13T13:42:49+00:00",
+  "generated_at": "2026-11-14T12:46:58+00:00",
   "default_board": "artificial_analysis",
   "config_hash": "96c9f21a3accd50f",
   "freshness": {
@@ -970,11 +970,11 @@
       "last_fetch": {
         "status": "failed",
         "error": "Artificial Analysis current index is not v5.0; review the metric version",
-        "attempted_at": "2026-11-13T13:42:28+00:00"
+        "attempted_at": "2026-11-14T12:46:37+00:00"
       },
       "published_at": null,
       "observed_at": "2026-11-03",
-      "age_days": 10,
+      "age_days": 11,
       "freshness_basis": "observed_at",
       "source": "https://artificialanalysis.ai/leaderboards/models",
       "data_hash": "5edd15acf787af707247c1088c8b3bd49a17a2ad5507ff5a0b15c06e089d379f",
@@ -5626,18 +5626,18 @@
       "status": "stale",
       "warnings": [
         "Retrieval time was not recorded in this retained snapshot.",
-        "Stale snapshot (16 days); not a current ranking.",
+        "Stale snapshot (17 days); not a current ranking.",
         "Retained canonical snapshot; original retrieval time is unknown. Raw text and style-control boards must not be conflated.",
         "Last refresh failed; retaining the last valid snapshot."
       ],
       "last_fetch": {
         "status": "failed",
         "error": "https://datasets-server.huggingface.co/filter -> HTTP 500",
-        "attempted_at": "2026-11-13T13:42:48+00:00"
+        "attempted_at": "2026-11-14T12:46:57+00:00"
       },
       "published_at": "2026-10-28",
       "observed_at": null,
-      "age_days": 16,
+      "age_days": 17,
       "freshness_basis": "published_at",
       "source": "https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset",
       "data_hash": "057dda955af82c3c2babf379de57779f1cce20bdb6c8a8390d5391f79be101c9",
@@ -6185,11 +6185,11 @@
       "last_fetch": {
         "status": "failed",
         "error": "Required leaderboard headers missing; page/schema may have changed",
-        "attempted_at": "2026-11-13T13:42:48+00:00"
+        "attempted_at": "2026-11-14T12:46:58+00:00"
       },
       "published_at": null,
       "observed_at": "2026-11-03",
-      "age_days": 10,
+      "age_days": 11,
       "freshness_basis": "observed_at",
       "source": "https://livebench.ai/",
       "data_hash": "e6a72b18a933e0b854645649f15f5800bff7d147a8bc70be59afadb21e056e92",
@@ -6449,11 +6449,11 @@
       "last_fetch": {
         "status": "failed",
         "error": "Required leaderboard headers missing; page/schema may have changed",
-        "attempted_at": "2026-11-13T13:42:49+00:00"
+        "attempted_at": "2026-11-14T12:46:58+00:00"
       },
       "published_at": null,
       "observed_at": "2026-11-03",
-      "age_days": 10,
+      "age_days": 11,
       "freshness_basis": "observed_at",
       "source": "https://www.tbench.ai/",
       "data_hash": "0891038f312eeb2e9a96dd5a64a61bae9de01f1aac1aca00c70143f5dfdd3a5d",

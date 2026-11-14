@@ -130,7 +130,7 @@ Official text_style_control dataset, overall category only. Not the raw text, co
 
 > Retrieval time was not recorded in this retained snapshot.
 
-> Stale snapshot (16 days); not a current ranking.
+> Stale snapshot (17 days); not a current ranking.
 
 > Retained canonical snapshot; original retrieval time is unknown. Raw text and style-control boards must not be conflated.
 
