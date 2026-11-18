@@ -86,7 +86,7 @@ Source-native rankings. **Scores from different boards are not interchangeable.*
 
 ### Artificial Analysis — Intelligence Index v5.0
 
-[Source](https://artificialanalysis.ai/leaderboards/models) · 91 scored entries · published: not supplied · observed: 2026-11-03 · **available**
+[Source](https://artificialanalysis.ai/leaderboards/models) · 91 scored entries · published: not supplied · observed: 2026-11-03 · **stale**
 
 | Rank | Model / configuration | Score |
 |---|---|---|
@@ -104,6 +104,8 @@ Source-native rankings. **Scores from different boards are not interchangeable.*
 Source-native Intelligence Index, not a Model Atlas aggregate. Reasoning effort and fallback settings are distinct entries. Public table scores are rounded; equal displayed scores share a rank here. No confidence intervals are published in this table. Cost per task is not API price per million tokens; a rounded $0.00 is not proof of free usage. The source's current-model view is not a guarantee of public availability.
 
 > Evaluation/publication date not supplied by the table; observed date is retrieval only.
+
+> Stale snapshot (15 days); not a current ranking.
 
 > Source table transcribed on 2026-11-03. Retrieval is not an evaluation date. See data/evidence/2026-11-03/README.md.
 
@@ -130,7 +132,7 @@ Official text_style_control dataset, overall category only. Not the raw text, co
 
 > Retrieval time was not recorded in this retained snapshot.
 
-> Stale snapshot (20 days); not a current ranking.
+> Stale snapshot (21 days); not a current ranking.
 
 > Retained canonical snapshot; original retrieval time is unknown. Raw text and style-control boards must not be conflated.
 
@@ -138,7 +140,7 @@ Official text_style_control dataset, overall category only. Not the raw text, co
 
 ### LiveBench — LiveBench 2.0
 
-[Source](https://livebench.ai/) · 32 scored entries · published: not supplied · observed: 2026-11-03 · **available**
+[Source](https://livebench.ai/) · 32 scored entries · published: not supplied · observed: 2026-11-03 · **stale**
 
 | Rank | Model / configuration | Score |
 |---|---|---|
@@ -157,13 +159,15 @@ LiveBench 2.0, NOT the retired LiveBench overall benchmark. Overall is the sourc
 
 > Evaluation/publication date not supplied by the table; observed date is retrieval only.
 
+> Stale snapshot (15 days); not a current ranking.
+
 > Source table transcribed on 2026-11-03. Retrieval is not an evaluation date. See data/evidence/2026-11-03/README.md.
 
 > Last refresh failed; retaining the last valid snapshot.
 
 ### Terminal-Bench — Terminal-Bench 4.0
 
-[Source](https://www.tbench.ai/) · 23 scored entries · published: not supplied · observed: 2026-11-03 · **available**
+[Source](https://www.tbench.ai/) · 23 scored entries · published: not supplied · observed: 2026-11-03 · **stale**
 
 | Rank | Model / configuration | Score |
 |---|---|---|
@@ -181,6 +185,8 @@ LiveBench 2.0, NOT the retired LiveBench overall benchmark. Overall is the sourc
 SYSTEM ranking: model + reasoning setting + agent harness. Mixed harnesses must not be interpreted as an isolated model comparison. No best-agent cherry-picking or reuse in the legacy Terminal-Bench composite slots. Release dates are model release dates, NOT evaluation dates. Published ± margins are retained without assuming an unstated confidence level.
 
 > Evaluation/publication date not supplied by the table; observed date is retrieval only.
+
+> Stale snapshot (15 days); not a current ranking.
 
 > Source table transcribed on 2026-11-03. Retrieval is not an evaluation date. See data/evidence/2026-11-03/README.md.
 
