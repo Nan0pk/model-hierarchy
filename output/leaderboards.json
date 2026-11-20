@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "methodology_version": "2.0.0",
-  "generated_at": "2026-11-19T14:58:48+00:00",
+  "generated_at": "2026-11-20T14:41:59+00:00",
   "default_board": "artificial_analysis",
   "config_hash": "96c9f21a3accd50f",
   "freshness": {
@@ -964,18 +964,18 @@
       "status": "stale",
       "warnings": [
         "Evaluation/publication date not supplied by the table; observed date is retrieval only.",
-        "Stale snapshot (16 days); not a current ranking.",
+        "Stale snapshot (17 days); not a current ranking.",
         "Source table transcribed on 2026-11-03. Retrieval is not an evaluation date. See data/evidence/2026-11-03/README.md.",
         "Last refresh failed; retaining the last valid snapshot."
       ],
       "last_fetch": {
         "status": "failed",
         "error": "Artificial Analysis current index is not v5.0; review the metric version",
-        "attempted_at": "2026-11-19T14:58:46+00:00"
+        "attempted_at": "2026-11-20T14:41:17+00:00"
       },
       "published_at": null,
       "observed_at": "2026-11-03",
-      "age_days": 16,
+      "age_days": 17,
       "freshness_basis": "observed_at",
       "source": "https://artificialanalysis.ai/leaderboards/models",
       "data_hash": "5edd15acf787af707247c1088c8b3bd49a17a2ad5507ff5a0b15c06e089d379f",
@@ -6080,15 +6080,17 @@
         }
       ],
       "status": "available",
-      "warnings": [],
+      "warnings": [
+        "Last refresh failed; retaining the last valid snapshot."
+      ],
       "last_fetch": {
-        "status": "ok",
-        "rows": 422,
-        "attempted_at": "2026-11-19T14:58:46+00:00"
+        "status": "failed",
+        "error": "https://datasets-server.huggingface.co/filter -> ReadTimeout",
+        "attempted_at": "2026-11-20T14:41:57+00:00"
       },
       "published_at": "2026-11-18",
       "observed_at": "2026-11-19",
-      "age_days": 1,
+      "age_days": 2,
       "freshness_basis": "published_at",
       "source": "https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset",
       "data_hash": "f62331c6065faa94d336f5f9bc9e7307726cc82f09d7bdb9d89b3cc88994efb8",
@@ -6630,18 +6632,18 @@
       "status": "stale",
       "warnings": [
         "Evaluation/publication date not supplied by the table; observed date is retrieval only.",
-        "Stale snapshot (16 days); not a current ranking.",
+        "Stale snapshot (17 days); not a current ranking.",
         "Source table transcribed on 2026-11-03. Retrieval is not an evaluation date. See data/evidence/2026-11-03/README.md.",
         "Last refresh failed; retaining the last valid snapshot."
       ],
       "last_fetch": {
         "status": "failed",
         "error": "Required leaderboard headers missing; page/schema may have changed",
-        "attempted_at": "2026-11-19T14:58:46+00:00"
+        "attempted_at": "2026-11-20T14:41:57+00:00"
       },
       "published_at": null,
       "observed_at": "2026-11-03",
-      "age_days": 16,
+      "age_days": 17,
       "freshness_basis": "observed_at",
       "source": "https://livebench.ai/",
       "data_hash": "e6a72b18a933e0b854645649f15f5800bff7d147a8bc70be59afadb21e056e92",
@@ -6895,18 +6897,18 @@
       "status": "stale",
       "warnings": [
         "Evaluation/publication date not supplied by the table; observed date is retrieval only.",
-        "Stale snapshot (16 days); not a current ranking.",
+        "Stale snapshot (17 days); not a current ranking.",
         "Source table transcribed on 2026-11-03. Retrieval is not an evaluation date. See data/evidence/2026-11-03/README.md.",
         "Last refresh failed; retaining the last valid snapshot."
       ],
       "last_fetch": {
         "status": "failed",
         "error": "Terminal-Bench 4.0 version marker missing",
-        "attempted_at": "2026-11-19T14:58:48+00:00"
+        "attempted_at": "2026-11-20T14:41:59+00:00"
       },
       "published_at": null,
       "observed_at": "2026-11-03",
-      "age_days": 16,
+      "age_days": 17,
       "freshness_basis": "observed_at",
       "source": "https://www.tbench.ai/",
       "data_hash": "0891038f312eeb2e9a96dd5a64a61bae9de01f1aac1aca00c70143f5dfdd3a5d",

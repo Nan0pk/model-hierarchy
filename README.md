@@ -105,7 +105,7 @@ Source-native Intelligence Index, not a Model Atlas aggregate. Reasoning effort 
 
 > Evaluation/publication date not supplied by the table; observed date is retrieval only.
 
-> Stale snapshot (16 days); not a current ranking.
+> Stale snapshot (17 days); not a current ranking.
 
 > Source table transcribed on 2026-11-03. Retrieval is not an evaluation date. See data/evidence/2026-11-03/README.md.
 
@@ -130,6 +130,8 @@ Source-native Intelligence Index, not a Model Atlas aggregate. Reasoning effort 
 
 Official text_style_control dataset, overall category only. Not the raw text, coding, or agent board. Retains the full source roster, including historical models. A recent board publication does not mean every model was recently released or re-evaluated. Source 95% intervals and vote counts are preserved; adjacent ranks are not claims of statistical separation.
 
+> Last refresh failed; retaining the last valid snapshot.
+
 ### LiveBench — LiveBench 2.0
 
 [Source](https://livebench.ai/) · 32 scored entries · published: not supplied · observed: 2026-11-03 · **stale**
@@ -151,7 +153,7 @@ LiveBench 2.0, NOT the retired LiveBench overall benchmark. Overall is the sourc
 
 > Evaluation/publication date not supplied by the table; observed date is retrieval only.
 
-> Stale snapshot (16 days); not a current ranking.
+> Stale snapshot (17 days); not a current ranking.
 
 > Source table transcribed on 2026-11-03. Retrieval is not an evaluation date. See data/evidence/2026-11-03/README.md.
 
@@ -178,7 +180,7 @@ SYSTEM ranking: model + reasoning setting + agent harness. Mixed harnesses must 
 
 > Evaluation/publication date not supplied by the table; observed date is retrieval only.
 
-> Stale snapshot (16 days); not a current ranking.
+> Stale snapshot (17 days); not a current ranking.
 
 > Source table transcribed on 2026-11-03. Retrieval is not an evaluation date. See data/evidence/2026-11-03/README.md.
 
