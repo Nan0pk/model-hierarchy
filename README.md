@@ -105,7 +105,7 @@ Source-native Intelligence Index, not a Model Atlas aggregate. Reasoning effort 
 
 > Evaluation/publication date not supplied by the table; observed date is retrieval only.
 
-> Stale snapshot (17 days); not a current ranking.
+> Stale snapshot (18 days); not a current ranking.
 
 > Source table transcribed on 2026-11-03. Retrieval is not an evaluation date. See data/evidence/2026-11-03/README.md.
 
@@ -113,24 +113,22 @@ Source-native Intelligence Index, not a Model Atlas aggregate. Reasoning effort 
 
 ### Arena — Text · style-controlled · overall
 
-[Source](https://arena.ai/leaderboard/text) · 422 scored entries · published: 2026-11-18 · observed: 2026-11-19 · **available**
+[Source](https://arena.ai/leaderboard/text) · 426 scored entries · published: 2026-11-19 · observed: 2026-11-21 · **available**
 
 | Rank | Model / configuration | Score |
 |---|---|---|
-| 1 | Gemini 4 Carbon (High) | 1525.9 |
-| 2 | Gemini 4 Argon (High) | 1520.6 |
-| 3 | Gemini 4 Neon (High) | 1518.5 |
-| 4 | Muse Wonder (Max) | 1510.7 |
-| 5 | Claude Opus 5.5 (High) | 1507.0 |
+| 1 | Gemini 4 Carbon (High) | 1527.0 |
+| 2 | Gemini 4 Argon (High) | 1519.6 |
+| 3 | Gemini 4 Neon (High) | 1512.9 |
+| 4 | Muse Wonder (Max) | 1511.4 |
+| 5 | Claude Opus 5.5 (High) | 1506.0 |
 | 6 | Claude Fable 5 (High) | 1504.1 |
-| 7 | Claude Opus 4.6 (High) | 1502.8 |
-| 8 | Claude Fable 5.1 (Max) | 1502.1 |
-| 9 | Claude Opus 4.7 (High) | 1501.1 |
-| 10 | Muse Spark 1.3 (Max) | 1497.6 |
+| 7 | Claude Fable 5.2 (Max) | 1503.1 |
+| 8 | Claude Opus 4.6 (High) | 1502.8 |
+| 9 | Claude Fable 5.1 (Max) | 1502.8 |
+| 10 | Claude Opus 4.7 (High) | 1501.2 |
 
 Official text_style_control dataset, overall category only. Not the raw text, coding, or agent board. Retains the full source roster, including historical models. A recent board publication does not mean every model was recently released or re-evaluated. Source 95% intervals and vote counts are preserved; adjacent ranks are not claims of statistical separation.
-
-> Last refresh failed; retaining the last valid snapshot.
 
 ### LiveBench — LiveBench 2.0
 
@@ -153,7 +151,7 @@ LiveBench 2.0, NOT the retired LiveBench overall benchmark. Overall is the sourc
 
 > Evaluation/publication date not supplied by the table; observed date is retrieval only.
 
-> Stale snapshot (17 days); not a current ranking.
+> Stale snapshot (18 days); not a current ranking.
 
 > Source table transcribed on 2026-11-03. Retrieval is not an evaluation date. See data/evidence/2026-11-03/README.md.
 
@@ -180,7 +178,7 @@ SYSTEM ranking: model + reasoning setting + agent harness. Mixed harnesses must 
 
 > Evaluation/publication date not supplied by the table; observed date is retrieval only.
 
-> Stale snapshot (17 days); not a current ranking.
+> Stale snapshot (18 days); not a current ranking.
 
 > Source table transcribed on 2026-11-03. Retrieval is not an evaluation date. See data/evidence/2026-11-03/README.md.
 
@@ -202,7 +200,7 @@ publishes rankings. Usage is context-only, split aliases count once, and data ga
 
 - No comparable data for entire pillars: agentic, math.
 
-532 models remain in the evidence roster; none are deleted for being absent from a usage top ten. Use the source-native rankings above. Missing data is not a low score.
+536 models remain in the evidence roster; none are deleted for being absent from a usage top ten. Use the source-native rankings above. Missing data is not a low score.
 
 <!-- composite:end -->
 
