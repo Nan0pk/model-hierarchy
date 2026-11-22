@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "methodology_version": "2.0.0",
-  "generated_at": "2026-11-21T13:57:12+00:00",
+  "generated_at": "2026-11-22T13:51:54+00:00",
   "default_board": "artificial_analysis",
   "config_hash": "96c9f21a3accd50f",
   "freshness": {
@@ -964,18 +964,18 @@
       "status": "stale",
       "warnings": [
         "Evaluation/publication date not supplied by the table; observed date is retrieval only.",
-        "Stale snapshot (18 days); not a current ranking.",
+        "Stale snapshot (19 days); not a current ranking.",
         "Source table transcribed on 2026-11-03. Retrieval is not an evaluation date. See data/evidence/2026-11-03/README.md.",
         "Last refresh failed; retaining the last valid snapshot."
       ],
       "last_fetch": {
         "status": "failed",
         "error": "Artificial Analysis current index is not v5.0; review the metric version",
-        "attempted_at": "2026-11-21T13:57:10+00:00"
+        "attempted_at": "2026-11-22T13:51:42+00:00"
       },
       "published_at": null,
       "observed_at": "2026-11-03",
-      "age_days": 18,
+      "age_days": 19,
       "freshness_basis": "observed_at",
       "source": "https://artificialanalysis.ai/leaderboards/models",
       "data_hash": "5edd15acf787af707247c1088c8b3bd49a17a2ad5507ff5a0b15c06e089d379f",
@@ -6132,14 +6132,14 @@
       "last_fetch": {
         "status": "ok",
         "rows": 426,
-        "attempted_at": "2026-11-21T13:57:10+00:00"
+        "attempted_at": "2026-11-22T13:51:53+00:00"
       },
       "published_at": "2026-11-19",
-      "observed_at": "2026-11-21",
-      "age_days": 2,
+      "observed_at": "2026-11-22",
+      "age_days": 3,
       "freshness_basis": "published_at",
       "source": "https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset",
-      "data_hash": "08833542831aa2b395fa72b91f206f73593028806a44125574bf49760a4624ac",
+      "data_hash": "ffee453e47fdfccfccd61081a25e1066cc06cb4c9b161da0e185d94291d3d7c3",
       "retrieval_method": "automatic_public_source",
       "scope": "Complete parsed source table",
       "n_scored": 426
@@ -6678,18 +6678,18 @@
       "status": "stale",
       "warnings": [
         "Evaluation/publication date not supplied by the table; observed date is retrieval only.",
-        "Stale snapshot (18 days); not a current ranking.",
+        "Stale snapshot (19 days); not a current ranking.",
         "Source table transcribed on 2026-11-03. Retrieval is not an evaluation date. See data/evidence/2026-11-03/README.md.",
         "Last refresh failed; retaining the last valid snapshot."
       ],
       "last_fetch": {
         "status": "failed",
         "error": "Required leaderboard headers missing; page/schema may have changed",
-        "attempted_at": "2026-11-21T13:57:10+00:00"
+        "attempted_at": "2026-11-22T13:51:53+00:00"
       },
       "published_at": null,
       "observed_at": "2026-11-03",
-      "age_days": 18,
+      "age_days": 19,
       "freshness_basis": "observed_at",
       "source": "https://livebench.ai/",
       "data_hash": "e6a72b18a933e0b854645649f15f5800bff7d147a8bc70be59afadb21e056e92",
@@ -6943,18 +6943,18 @@
       "status": "stale",
       "warnings": [
         "Evaluation/publication date not supplied by the table; observed date is retrieval only.",
-        "Stale snapshot (18 days); not a current ranking.",
+        "Stale snapshot (19 days); not a current ranking.",
         "Source table transcribed on 2026-11-03. Retrieval is not an evaluation date. See data/evidence/2026-11-03/README.md.",
         "Last refresh failed; retaining the last valid snapshot."
       ],
       "last_fetch": {
         "status": "failed",
         "error": "Terminal-Bench 4.0 version marker missing",
-        "attempted_at": "2026-11-21T13:57:12+00:00"
+        "attempted_at": "2026-11-22T13:51:54+00:00"
       },
       "published_at": null,
       "observed_at": "2026-11-03",
-      "age_days": 18,
+      "age_days": 19,
       "freshness_basis": "observed_at",
       "source": "https://www.tbench.ai/",
       "data_hash": "0891038f312eeb2e9a96dd5a64a61bae9de01f1aac1aca00c70143f5dfdd3a5d",
