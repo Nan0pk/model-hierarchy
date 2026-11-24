@@ -123,7 +123,7 @@ Terminal-Bench 4.1 systems are not the composite's legacy `terminal_bench` obser
   `config/models.yaml`. It never fuzzily merges a family, a base model, and its reasoning variants.
 - Native duplicate identity = canonical full name + harness. Conflicting duplicates fail
   validation rather than silently taking the last row or best score.
-- The catalogue is the **union** of source entries, not an intersection with OpenRouter's
+- The catalogue (`output/catalogue.json`) is the **union** of source entries, not an intersection with OpenRouter's
   visible top ten. Exact-name catalogue matches are discovery aids, not permission to pool
   results across evaluators or settings.
 - There is no hardcoded allowlist of “frontier” names. New valid rows flow through adapters.

@@ -155,10 +155,11 @@ function renderProvenance(board) {
   $('#provenance').innerHTML = `<p>${esc(board.qualification)}</p><p>${link(board.source || board.url, 'Original data')} · ${link(board.methodology_url, 'Source methodology')}</p><p><strong>Scope:</strong> ${esc(board.scope || 'No valid snapshot')}<br><strong>Collection:</strong> ${esc((board.retrieval_method || 'unknown').replaceAll('_', ' '))}<br><strong>Data fingerprint:</strong> <code>${esc(board.data_hash || '—')}</code><br><strong>Last refresh:</strong> ${esc(board.last_fetch ? `${board.last_fetch.status} · ${board.last_fetch.attempted_at}` : 'No automatic attempt recorded for this snapshot')}</p><p>Source-native scores are never added to their component benchmarks in the composite. Shared ranks reflect equal supplied scores, not proof of equal ability. The source’s roster can include restricted, preview, or historical models.</p>`;
 }
 
-async function load() {
+// The first load reuses the <link rel=preload> response; Reload always bypasses the cache.
+async function load(fresh = false) {
   $('#reload').disabled = true;
   try {
-    const response = await fetch('../output/leaderboards.json', {cache:'no-store'});
+    const response = await fetch('../output/leaderboards.json', fresh ? {cache:'no-store'} : {});
     if (!response.ok) throw new Error(`Could not load leaderboard snapshots (HTTP ${response.status}).`);
     const data = await response.json();
     if (data.schema_version !== 1 || !data.boards || !data.boards[data.default_board]) throw new Error('Unsupported or incomplete leaderboard data. Rebuild with python -m hierarchy boards.');
@@ -211,5 +212,5 @@ $('#search').addEventListener('input', () => { state.page = 0; renderRows(); });
 for (const selector of ['#filter', '#sort']) $(selector).addEventListener('change', () => { state.page = 0; renderRows(); });
 $('#previous').addEventListener('click', () => { state.page--; renderRows(); });
 $('#next').addEventListener('click', () => { state.page++; renderRows(); });
-$('#reload').addEventListener('click', () => { load(); loadAudit(); });
+$('#reload').addEventListener('click', () => { load(true); loadAudit(); });
 load(); loadAudit();

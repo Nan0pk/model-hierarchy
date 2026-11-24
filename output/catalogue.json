@@ -1,0 +1,3679 @@
+{
+  "claude fable 5.2 (max, default fallback)": {
+    "model": "Claude Fable 5.2 (Max, Default Fallback)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "claude fable 5.2 (high, default fallback)": {
+    "model": "Claude Fable 5.2 (High, Default Fallback)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "claude fable 5.2 (xhigh, default fallback)": {
+    "model": "Claude Fable 5.2 (Xhigh, Default Fallback)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "gpt 6.2 astra (max)": {
+    "model": "GPT-6.2 Astra (Max)",
+    "boards": [
+      "artificial_analysis",
+      "arena_text",
+      "terminal_bench"
+    ]
+  },
+  "gpt 6.2 astra (xhigh)": {
+    "model": "GPT-6.2 Astra (Xhigh)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "gemini 4 neon (xhigh)": {
+    "model": "Gemini 4 Neon (Xhigh)",
+    "boards": [
+      "artificial_analysis",
+      "terminal_bench"
+    ]
+  },
+  "gpt 6.2 astra (high)": {
+    "model": "GPT-6.2 Astra (High)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "gemini 4 carbon (high)": {
+    "model": "Gemini 4 Carbon (High)",
+    "boards": [
+      "artificial_analysis",
+      "arena_text",
+      "terminal_bench"
+    ]
+  },
+  "gemini 4 neon (high)": {
+    "model": "Gemini 4 Neon (High)",
+    "boards": [
+      "artificial_analysis",
+      "arena_text"
+    ]
+  },
+  "claude opus 5.5 (max, default fallback)": {
+    "model": "Claude Opus 5.5 (Max, Default Fallback)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "gemini 4 carbon (medium)": {
+    "model": "Gemini 4 Carbon (Medium)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "claude opus 5.5 (xhigh, default fallback)": {
+    "model": "Claude Opus 5.5 (Xhigh, Default Fallback)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "gpt 6.2 astra (medium)": {
+    "model": "GPT-6.2 Astra (Medium)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "gpt 6.2 sol (max)": {
+    "model": "GPT-6.2 Sol (Max)",
+    "boards": [
+      "artificial_analysis",
+      "arena_text",
+      "terminal_bench"
+    ]
+  },
+  "claude fable 5.2 (medium, default fallback)": {
+    "model": "Claude Fable 5.2 (Medium, Default Fallback)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "gpt 6.2 sol (xhigh)": {
+    "model": "GPT-6.2 Sol (Xhigh)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "claude sonnet 5.5 (max, default fallback)": {
+    "model": "Claude Sonnet 5.5 (Max, Default Fallback)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "gpt 6.2 sol (high)": {
+    "model": "GPT-6.2 Sol (High)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "gemini 4 neon (medium)": {
+    "model": "Gemini 4 Neon (Medium)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "claude fable 5.2 (low, default fallback)": {
+    "model": "Claude Fable 5.2 (Low, Default Fallback)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "gemini 4 carbon (low)": {
+    "model": "Gemini 4 Carbon (Low)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "gemini 4 hydrogen (xhigh)": {
+    "model": "Gemini 4 Hydrogen (Xhigh)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "gpt 6.2 sol (medium)": {
+    "model": "GPT-6.2 Sol (Medium)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "claude opus 5.5 (high, default fallback)": {
+    "model": "Claude Opus 5.5 (High, Default Fallback)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "gpt 6.1 terra (max)": {
+    "model": "GPT-6.1 Terra (Max)",
+    "boards": [
+      "artificial_analysis",
+      "arena_text",
+      "terminal_bench"
+    ]
+  },
+  "gemini 4 hydrogen (high)": {
+    "model": "Gemini 4 Hydrogen (High)",
+    "boards": [
+      "artificial_analysis",
+      "arena_text",
+      "terminal_bench"
+    ]
+  },
+  "claude sonnet 5.5 (xhigh, default fallback)": {
+    "model": "Claude Sonnet 5.5 (Xhigh, Default Fallback)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "gemini 4 argon (high)": {
+    "model": "Gemini 4 Argon (High)",
+    "boards": [
+      "artificial_analysis",
+      "arena_text",
+      "terminal_bench"
+    ]
+  },
+  "muse wonder full (max)": {
+    "model": "Muse Wonder Full (Max)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "claude opus 5.5 (medium, default fallback)": {
+    "model": "Claude Opus 5.5 (Medium, Default Fallback)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "gemini 4 argon (medium)": {
+    "model": "Gemini 4 Argon (Medium)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "gpt 6.2 astra (low)": {
+    "model": "GPT-6.2 Astra (Low)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "kimi k3.1 pro": {
+    "model": "Kimi K3.1 Pro",
+    "boards": [
+      "artificial_analysis",
+      "livebench"
+    ]
+  },
+  "gpt 6.1 terra (xhigh)": {
+    "model": "GPT-6.1 Terra (Xhigh)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "gemini 4 neon (low)": {
+    "model": "Gemini 4 Neon (Low)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "muse wonder (max)": {
+    "model": "Muse Wonder (Max)",
+    "boards": [
+      "artificial_analysis",
+      "arena_text"
+    ]
+  },
+  "qwen4 max": {
+    "model": "Qwen4 Max",
+    "boards": [
+      "artificial_analysis",
+      "livebench"
+    ]
+  },
+  "claude sonnet 5.5 (high, default fallback)": {
+    "model": "Claude Sonnet 5.5 (High, Default Fallback)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "gpt 6.1 terra (high)": {
+    "model": "GPT-6.1 Terra (High)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "gpt 6.2 sol (low)": {
+    "model": "GPT-6.2 Sol (Low)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "gemini 4 hydrogen (medium)": {
+    "model": "Gemini 4 Hydrogen (Medium)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "muse wonder (high)": {
+    "model": "Muse Wonder (High)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "gpt 6.1 terra (medium)": {
+    "model": "GPT-6.1 Terra (Medium)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "claude haiku 5.5 (max)": {
+    "model": "Claude Haiku 5.5 (Max)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "muse ember (max)": {
+    "model": "Muse Ember (Max)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "claude haiku 5.5 (xhigh)": {
+    "model": "Claude Haiku 5.5 (Xhigh)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "claude opus 5.5 (low, default fallback)": {
+    "model": "Claude Opus 5.5 (Low, Default Fallback)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "grok 4.7 (high)": {
+    "model": "Grok 4.7 (High)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "grok 4.7 (xhigh)": {
+    "model": "Grok 4.7 (Xhigh)",
+    "boards": [
+      "artificial_analysis",
+      "arena_text",
+      "terminal_bench"
+    ]
+  },
+  "tencent hy4": {
+    "model": "Tencent Hy4",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "muse ember (xhigh)": {
+    "model": "Muse Ember (Xhigh)",
+    "boards": [
+      "artificial_analysis",
+      "terminal_bench"
+    ]
+  },
+  "deepseek v4.1 flash 1017 (max)": {
+    "model": "DeepSeek V4.1 Flash 1017 (Max)",
+    "boards": [
+      "artificial_analysis",
+      "terminal_bench"
+    ]
+  },
+  "glm 5.3 (max)": {
+    "model": "GLM-5.3 (Max)",
+    "boards": [
+      "artificial_analysis",
+      "arena_text",
+      "terminal_bench"
+    ]
+  },
+  "claude sonnet 5.5 (medium, default fallback)": {
+    "model": "Claude Sonnet 5.5 (Medium, Default Fallback)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "gpt 6.1 terra (non reasoning)": {
+    "model": "GPT-6.1 Terra (Non-reasoning)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "grok 4.7 (low)": {
+    "model": "Grok 4.7 (Low)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "inkling 2 small": {
+    "model": "Inkling 2 Small",
+    "boards": [
+      "artificial_analysis",
+      "arena_text",
+      "livebench"
+    ]
+  },
+  "claude haiku 5.5 (high)": {
+    "model": "Claude Haiku 5.5 (High)",
+    "boards": [
+      "artificial_analysis",
+      "arena_text"
+    ]
+  },
+  "ling 3.1 flash 1019": {
+    "model": "Ling 3.1 Flash 1019",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "mimo v2.6 pro": {
+    "model": "MiMo-V2.6-Pro",
+    "boards": [
+      "artificial_analysis",
+      "arena_text",
+      "livebench"
+    ]
+  },
+  "deepseek v4.1 flash 1017 (high)": {
+    "model": "DeepSeek V4.1 Flash 1017 (High)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "gpt 6.1 terra (low)": {
+    "model": "GPT-6.1 Terra (Low)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "minimax m3.1 flash": {
+    "model": "MiniMax-M3.1-Flash",
+    "boards": [
+      "artificial_analysis",
+      "livebench"
+    ]
+  },
+  "qwen3.8 flash next": {
+    "model": "Qwen3.8-Flash-Next",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "step 5 preview": {
+    "model": "Step 5 Preview",
+    "boards": [
+      "artificial_analysis",
+      "arena_text"
+    ]
+  },
+  "glm 5.3 flash (max)": {
+    "model": "GLM-5.3-Flash (Max)",
+    "boards": [
+      "artificial_analysis",
+      "terminal_bench"
+    ]
+  },
+  "gpt 6 luna (max)": {
+    "model": "GPT-6 Luna (Max)",
+    "boards": [
+      "artificial_analysis",
+      "arena_text",
+      "terminal_bench"
+    ]
+  },
+  "joyai vl preview": {
+    "model": "JoyAI-VL-Preview",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "gemini 4 hydrogen (low)": {
+    "model": "Gemini 4 Hydrogen (Low)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "mimo v2.6 flash": {
+    "model": "MiMo-V2.6-Flash",
+    "boards": [
+      "artificial_analysis",
+      "arena_text"
+    ]
+  },
+  "claude sonnet 5.5 (low, default fallback)": {
+    "model": "Claude Sonnet 5.5 (Low, Default Fallback)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "mistral large 4 (high)": {
+    "model": "Mistral Large 4 (High)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "claude haiku 5.5 (medium)": {
+    "model": "Claude Haiku 5.5 (Medium)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "muse spark open (xhigh)": {
+    "model": "Muse Spark Open (Xhigh)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "agnes 2.5 pro theta": {
+    "model": "Agnes 2.5 Pro Theta",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "deepseek v4 pro 0813 (max)": {
+    "model": "DeepSeek V4 Pro 0813 (Max)",
+    "boards": [
+      "artificial_analysis",
+      "terminal_bench"
+    ]
+  },
+  "glm 5.3 (low)": {
+    "model": "GLM-5.3 (Low)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "gpt 6 luna (xhigh)": {
+    "model": "GPT-6 Luna (Xhigh)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "ling 3.2 air": {
+    "model": "Ling-3.2-air",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "mistral large 4 (medium)": {
+    "model": "Mistral Large 4 (Medium)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "deepseek v4 pro 0813 (high)": {
+    "model": "DeepSeek V4 Pro 0813 (High)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "gpt 6 luna (high)": {
+    "model": "GPT-6 Luna (High)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "inkling 2 mini": {
+    "model": "Inkling 2 Mini",
+    "boards": [
+      "artificial_analysis",
+      "arena_text",
+      "livebench"
+    ]
+  },
+  "nanbeige4.3 33b": {
+    "model": "Nanbeige4.3-33B",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "qwen3.8 27b (xhigh)": {
+    "model": "Qwen3.8 27B (Xhigh)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "claude haiku 5.5 (low)": {
+    "model": "Claude Haiku 5.5 (Low)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "deepseek v4.1 flash 1017 (non reasoning)": {
+    "model": "DeepSeek V4.1 Flash 1017 (Non-reasoning)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "jt 4.1 flash 236b a21b": {
+    "model": "JT-4.1 Flash 236B A21B",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "minimax m3": {
+    "model": "MiniMax-M3",
+    "boards": [
+      "artificial_analysis",
+      "arena_text"
+    ]
+  },
+  "beam 1.0": {
+    "model": "Beam 1.0",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "gpt 6 luna (medium)": {
+    "model": "GPT-6 Luna (Medium)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "k2 horizon 375b a23b": {
+    "model": "K2 Horizon 375B A23B",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "qwen3.8 27b (medium)": {
+    "model": "Qwen3.8 27B (Medium)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "qwen3.8 27b (low)": {
+    "model": "Qwen3.8 27B (Low)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "apodex 1.1": {
+    "model": "Apodex 1.1",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "k2 horizon 32b": {
+    "model": "K2 Horizon 32B",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "k2 horizon mova 36b a4b": {
+    "model": "K2 Horizon MoVA 36B A4B",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "nemotron 3.5 super vl": {
+    "model": "Nemotron 3.5 Super VL",
+    "boards": [
+      "artificial_analysis",
+      "livebench"
+    ]
+  },
+  "solar pro 4": {
+    "model": "Solar Pro 4",
+    "boards": [
+      "artificial_analysis",
+      "arena_text"
+    ]
+  },
+  "deepseek v4 pro 0813 (non reasoning)": {
+    "model": "DeepSeek V4 Pro 0813 (Non-reasoning)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "gemini 3.5 flash lite": {
+    "model": "Gemini 3.5 Flash-Lite",
+    "boards": [
+      "artificial_analysis",
+      "arena_text"
+    ]
+  },
+  "inkling (xhigh)": {
+    "model": "Inkling (Xhigh)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "nemotron 3 ultra 550b a55b (reasoning)": {
+    "model": "Nemotron 3 Ultra 550B A55B (Reasoning)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "inkling (high)": {
+    "model": "Inkling (High)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "k2 horizon 7b": {
+    "model": "K2 Horizon 7B",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "gpt 6 luna (low)": {
+    "model": "GPT-6 Luna (Low)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "qwen3.8 27b (non reasoning)": {
+    "model": "Qwen3.8 27B (Non-reasoning)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "a.x k2": {
+    "model": "A.X-K2",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "gpt 6 luna (non reasoning)": {
+    "model": "GPT-6 Luna (Non-reasoning)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "k exaone 2.0": {
+    "model": "K-EXAONE 2.0",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "k2 horizon 3.7b": {
+    "model": "K2 Horizon 3.7B",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "command a+": {
+    "model": "Command A+",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "granite 4.2 30b": {
+    "model": "Granite 4.2 30B",
+    "boards": [
+      "artificial_analysis",
+      "arena_text"
+    ]
+  },
+  "lfm3 1.7b": {
+    "model": "LFM3-1.7B",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "muse glimmer (high)": {
+    "model": "Muse Glimmer (High)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "nemotron 3.5 lightning": {
+    "model": "Nemotron 3.5 Lightning",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "gemma 4 e4b (reasoning)": {
+    "model": "Gemma 4 E4B (Reasoning)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "granite 4.2 3b": {
+    "model": "Granite 4.2 3B",
+    "boards": [
+      "artificial_analysis",
+      "arena_text"
+    ]
+  },
+  "granite 4.2 8b": {
+    "model": "Granite 4.2 8B",
+    "boards": [
+      "artificial_analysis",
+      "arena_text"
+    ]
+  },
+  "mistral medium 3.5": {
+    "model": "Mistral Medium 3.5",
+    "boards": [
+      "artificial_analysis",
+      "arena_text"
+    ]
+  },
+  "gemma 4 31b (reasoning)": {
+    "model": "Gemma 4 31B (Reasoning)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "mistral small 4 (reasoning)": {
+    "model": "Mistral Small 4 (Reasoning)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "gpt oss 120b (high)": {
+    "model": "gpt-oss-120b (High)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "k2 horizon 0.9b": {
+    "model": "K2 Horizon 0.9B",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "north mini code": {
+    "model": "North Mini Code",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "lfm3 vl 2b": {
+    "model": "LFM3-VL-2B",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "nvidia nemotron 3 nano 4b": {
+    "model": "NVIDIA Nemotron 3 Nano 4B",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "claude opus 5.5 (high)": {
+    "model": "Claude Opus 5.5 (High)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "claude fable 5 (high)": {
+    "model": "Claude Fable 5 (High)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "claude opus 4.6 (high)": {
+    "model": "Claude Opus 4.6 (High)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "claude fable 5.2 (max)": {
+    "model": "Claude Fable 5.2 (Max)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "claude fable 5.1 (max)": {
+    "model": "Claude Fable 5.1 (Max)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "claude opus 4.7 (high)": {
+    "model": "Claude Opus 4.7 (High)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gemini 3.8 flash (high)": {
+    "model": "Gemini 3.8 Flash (High)",
+    "boards": [
+      "arena_text",
+      "terminal_bench"
+    ]
+  },
+  "muse spark 1.3 (max)": {
+    "model": "Muse Spark 1.3 (Max)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "claude opus 4.6": {
+    "model": "Claude Opus 4.6",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "claude opus 4.7": {
+    "model": "Claude Opus 4.7",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "muse spark 1.2 (xhigh)": {
+    "model": "Muse Spark 1.2 (xHigh)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "muse spark 1.1": {
+    "model": "Muse Spark 1.1",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gemini 3.7 flash (high)": {
+    "model": "Gemini 3.7 Flash (High)",
+    "boards": [
+      "arena_text",
+      "terminal_bench"
+    ]
+  },
+  "claude opus 5 (high)": {
+    "model": "Claude Opus 5 (High)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "muse spark": {
+    "model": "Muse Spark",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "claude opus 5 (max)": {
+    "model": "Claude Opus 5 (Max)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "kimi k3 (max)": {
+    "model": "Kimi K3 (Max)",
+    "boards": [
+      "arena_text",
+      "terminal_bench"
+    ]
+  },
+  "gemini 3.1 pro preview": {
+    "model": "Gemini 3.1 Pro Preview",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gemini 3 pro": {
+    "model": "Gemini 3 Pro",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gpt 5.6 sol (xhigh)": {
+    "model": "GPT-5.6 Sol (xHigh)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "qwen3.8 max": {
+    "model": "Qwen3.8-Max",
+    "boards": [
+      "arena_text",
+      "livebench"
+    ]
+  },
+  "kimi k3.1 pro (max)": {
+    "model": "Kimi K3.1 Pro (Max)",
+    "boards": [
+      "arena_text",
+      "terminal_bench"
+    ]
+  },
+  "gemini 3.6 flash (high)": {
+    "model": "Gemini 3.6 Flash (High)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gpt 6.1 sol (max)": {
+    "model": "GPT-6.1 Sol (Max)",
+    "boards": [
+      "arena_text",
+      "terminal_bench"
+    ]
+  },
+  "claude opus 4.8 (high)": {
+    "model": "Claude Opus 4.8 (High)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gpt 5.5 (high)": {
+    "model": "GPT-5.5 (High)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gemini 3.5 flash (high)": {
+    "model": "Gemini 3.5 Flash (High)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gpt 5.5": {
+    "model": "GPT-5.5",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gemini 3.5 flash (medium)": {
+    "model": "Gemini 3.5 Flash (Medium)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "glm 5.3 flash": {
+    "model": "GLM-5.3-Flash",
+    "boards": [
+      "arena_text",
+      "livebench"
+    ]
+  },
+  "gpt 6 astra (max)": {
+    "model": "GPT-6 Astra (Max)",
+    "boards": [
+      "arena_text",
+      "terminal_bench"
+    ]
+  },
+  "gpt 5.2 chat (20260210)": {
+    "model": "GPT-5.2 Chat (20260210)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "glm 5.2 (max)": {
+    "model": "GLM-5.2 (Max)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gpt 5.4 (high)": {
+    "model": "GPT-5.4 (High)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "grok 4.20 beta 1": {
+    "model": "Grok 4.20 Beta 1",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "deepseek v4.1 flash 20260910 (max)": {
+    "model": "DeepSeek-V4.1-Flash-20260910 (Max)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "claude opus 4.8": {
+    "model": "Claude Opus 4.8",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "qwen3.7 max preview": {
+    "model": "Qwen3.7-Max-Preview",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "claude opus 4.5 (high, 32k, 20251101)": {
+    "model": "Claude Opus 4.5 (High, 32K, 20251101)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gpt 5.5 instant": {
+    "model": "GPT-5.5 Instant",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "claude sonnet 5.5 (xhigh)": {
+    "model": "Claude Sonnet 5.5 (xHigh)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gemini 3 flash": {
+    "model": "Gemini 3 Flash",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "grok 4.20 beta (reasoning, 0309)": {
+    "model": "Grok 4.20 Beta (Reasoning, 0309)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "claude sonnet 4.6": {
+    "model": "Claude Sonnet 4.6",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "grok 4.20 multi agent beta (0309)": {
+    "model": "Grok 4.20 Multi-Agent Beta (0309)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "claude opus 4.5 (20251101)": {
+    "model": "Claude Opus 4.5 (20251101)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gpt 5.6 terra (xhigh)": {
+    "model": "GPT-5.6 Terra (xHigh)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "ernie 5.1": {
+    "model": "ERNIE 5.1",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "mimo v2.5 pro": {
+    "model": "MiMo-V2.5-Pro",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "grok 4.5": {
+    "model": "Grok 4.5",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "grok 4.1 (thinking)": {
+    "model": "Grok 4.1 (Thinking)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "qwen3.5 max preview": {
+    "model": "Qwen3.5-Max-Preview",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gpt 5.4": {
+    "model": "GPT-5.4",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "glm 5.1": {
+    "model": "GLM-5.1",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "deepseek v4 pro (high, 20260813)": {
+    "model": "DeepSeek-V4-Pro (High, 20260813)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "kimi k2.6": {
+    "model": "Kimi K2.6",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "claude sonnet 5 (high)": {
+    "model": "Claude Sonnet 5 (High)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "qwen3.6 max preview": {
+    "model": "Qwen3.6-Max-Preview",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "grok 4.1": {
+    "model": "Grok 4.1",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gemini 3 flash (minimal)": {
+    "model": "Gemini 3 Flash (Minimal)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "deepseek v4 pro": {
+    "model": "DeepSeek-V4-Pro",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gpt 6 sol (max)": {
+    "model": "GPT-6 Sol (Max)",
+    "boards": [
+      "arena_text",
+      "terminal_bench"
+    ]
+  },
+  "glm 5": {
+    "model": "GLM-5",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "grok 4.6 (high)": {
+    "model": "Grok 4.6 (High)",
+    "boards": [
+      "arena_text",
+      "terminal_bench"
+    ]
+  },
+  "dola seed 2.0 pro": {
+    "model": "Dola Seed 2.0 Pro",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "claude sonnet 4.5 (high, 32k, 20250929)": {
+    "model": "Claude Sonnet 4.5 (High, 32K, 20250929)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "hy3": {
+    "model": "Hy3",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "qwen3.7 plus": {
+    "model": "Qwen3.7-Plus",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gpt 5.1 (high)": {
+    "model": "GPT-5.1 (High)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "claude sonnet 4.5 (20250929)": {
+    "model": "Claude Sonnet 4.5 (20250929)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "deepseek v4 pro preview (high)": {
+    "model": "DeepSeek-V4-Pro Preview (High)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gpt 5.6 luna (xhigh)": {
+    "model": "GPT-5.6 Luna (xHigh)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gemma 4 31b": {
+    "model": "Gemma 4 31B",
+    "boards": [
+      "arena_text",
+      "livebench"
+    ]
+  },
+  "gpt 5.3 chat": {
+    "model": "GPT-5.3 Chat",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "claude opus 4.1 (thinking 16k, 20250805)": {
+    "model": "Claude Opus 4.1 (Thinking 16K, 20250805)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "kimi k2.5 (thinking)": {
+    "model": "Kimi K2.5 (Thinking)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "ernie 5.0 preview (1203)": {
+    "model": "ERNIE-5.0-Preview (1203)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "mimo v2 pro": {
+    "model": "MiMo-V2-Pro",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "claude opus 4.1 (20250805)": {
+    "model": "Claude Opus 4.1 (20250805)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gpt 5.4 mini (high)": {
+    "model": "GPT-5.4 mini (High)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "ernie 5.0 (0110)": {
+    "model": "ERNIE 5.0 (0110)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gemini 2.5 pro": {
+    "model": "Gemini 2.5 Pro",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gpt 4.5 preview (2025 02 27)": {
+    "model": "GPT-4.5 Preview (2025-02-27)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "inkling": {
+    "model": "Inkling",
+    "boards": [
+      "arena_text",
+      "livebench"
+    ]
+  },
+  "qwen3.6 plus": {
+    "model": "Qwen3.6-Plus",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "chatgpt 4o latest (20250326)": {
+    "model": "ChatGPT-4o Latest (20250326)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "grok 4.3": {
+    "model": "Grok 4.3",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "qwen3.5 397b a17b": {
+    "model": "Qwen3.5-397B-A17B",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "glm 4.7": {
+    "model": "GLM-4.7",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "deepseek v4 flash preview (high)": {
+    "model": "DeepSeek-V4-Flash Preview (High)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gpt 5.1": {
+    "model": "GPT-5.1",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gemma 4 26b a4b": {
+    "model": "Gemma 4 26B A4B",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gpt 5.2 (high)": {
+    "model": "GPT-5.2 (High)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "longcat flash chat exp (2602)": {
+    "model": "LongCat-Flash-Chat Exp (2602)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "deepseek v4 flash": {
+    "model": "DeepSeek-V4-Flash",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gpt 5.2": {
+    "model": "GPT-5.2",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "qwen3.8 27b": {
+    "model": "Qwen3.8-27B",
+    "boards": [
+      "arena_text",
+      "livebench"
+    ]
+  },
+  "gpt 5 (high)": {
+    "model": "GPT-5 (High)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "qwen3 max preview": {
+    "model": "Qwen3-Max-Preview",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "mimo v2.5": {
+    "model": "MiMo-V2.5",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "beam 1.0 501b a23b": {
+    "model": "Beam 1.0 501B A23B",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gemini 3.1 flash lite preview": {
+    "model": "Gemini 3.1 Flash-Lite Preview",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "o3 (2025 04 16)": {
+    "model": "o3 (2025-04-16)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "grok 4.1 fast (reasoning)": {
+    "model": "Grok 4.1 Fast (Reasoning)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "kimi k2.5 (instant)": {
+    "model": "Kimi K2.5 (Instant)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "mimo v2 omni": {
+    "model": "MiMo-V2-Omni",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "kimi k2 thinking turbo": {
+    "model": "Kimi K2 Thinking Turbo",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "nvidia nemotron 3 ultra 550b a55b (nvfp4)": {
+    "model": "NVIDIA-Nemotron-3-Ultra-550B-A55B (NVFP4)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "amazon nova experimental chat (26 02 10)": {
+    "model": "amazon-nova-experimental-chat (26-02-10)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gpt 5 chat": {
+    "model": "GPT-5 Chat",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "claude opus 4 (thinking 16k, 20250514)": {
+    "model": "Claude Opus 4 (Thinking 16K, 20250514)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "deepseek v3.2 exp (thinking)": {
+    "model": "DeepSeek-V3.2-Exp (Thinking)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "muse glimmer": {
+    "model": "Muse Glimmer",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "deepseek v3.2": {
+    "model": "DeepSeek-V3.2",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "glm 4.6": {
+    "model": "GLM-4.6",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "mistral large 4": {
+    "model": "Mistral Large 4",
+    "boards": [
+      "arena_text",
+      "livebench"
+    ]
+  },
+  "qwen3 max (2025 09 23)": {
+    "model": "Qwen3-Max (2025-09-23)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "deepseek v3.2 (thinking)": {
+    "model": "DeepSeek-V3.2 (Thinking)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "qwen3 235b a22b instruct (2507)": {
+    "model": "Qwen3-235B-A22B-Instruct (2507)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "deepseek v3.2 exp": {
+    "model": "DeepSeek-V3.2-Exp",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "deepseek r1 (0528)": {
+    "model": "DeepSeek-R1 (0528)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "kimi k2 preview (0905)": {
+    "model": "Kimi K2 Preview (0905)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "grok 4 fast (non reasoning)": {
+    "model": "Grok 4 Fast (Non-Reasoning)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "kimi k2 preview (0711)": {
+    "model": "Kimi K2 Preview (0711)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "ernie 5.0 preview (1022)": {
+    "model": "ERNIE-5.0-Preview (1022)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "deepseek v3.1": {
+    "model": "DeepSeek-V3.1",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "qwen3.5 122b a10b": {
+    "model": "Qwen3.5-122B-A10B",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "deepseek v3.1 terminus (thinking)": {
+    "model": "DeepSeek-V3.1-Terminus (Thinking)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "deepseek v3.1 (thinking)": {
+    "model": "DeepSeek-V3.1 (Thinking)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "deepseek v3.1 terminus": {
+    "model": "DeepSeek-V3.1-Terminus",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "nvidia nemotron 3.5 super vl 120b a12b (nvfp4)": {
+    "model": "NVIDIA-Nemotron-3.5-Super-VL-120B-A12B (NVFP4)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "minimax m2.7": {
+    "model": "MiniMax-M2.7",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "mistral large 3": {
+    "model": "Mistral Large 3",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gpt 4.1 (2025 04 14)": {
+    "model": "GPT-4.1 (2025-04-14)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "claude opus 4 (20250514)": {
+    "model": "Claude Opus 4 (20250514)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "claude haiku 4.5 (20251001)": {
+    "model": "Claude Haiku 4.5 (20251001)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "qwen3 vl 235b a22b instruct": {
+    "model": "Qwen3-VL-235B-A22B-Instruct",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "amazon nova experimental chat (26 01 10)": {
+    "model": "amazon-nova-experimental-chat (26-01-10)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "grok 3 preview (02 24)": {
+    "model": "Grok 3 Preview (02-24)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "glm 4.5": {
+    "model": "GLM-4.5",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "grok 4 (0709)": {
+    "model": "Grok 4 (0709)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gemini 2.5 flash": {
+    "model": "Gemini 2.5 Flash",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "hy3 preview": {
+    "model": "Hy3 preview",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "qwen3.5 27b": {
+    "model": "Qwen3.5-27B",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "mistral medium 3.1 (2508)": {
+    "model": "Mistral Medium 3.1 (2508)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "grok 4 fast (reasoning)": {
+    "model": "Grok 4 Fast (Reasoning)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "inkling small": {
+    "model": "Inkling-Small",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gemini 2.5 flash preview (09 2025)": {
+    "model": "Gemini 2.5 Flash Preview (09-2025)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "o1 (2024 12 17)": {
+    "model": "o1 (2024-12-17)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "claude sonnet 4 (thinking 32k, 20250514)": {
+    "model": "Claude Sonnet 4 (Thinking 32K, 20250514)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "qwen3 235b a22b (non thinking)": {
+    "model": "Qwen3-235B-A22B (Non-Thinking)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gpt 5.4 nano (high)": {
+    "model": "GPT-5.4 nano (High)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "longcat flash chat": {
+    "model": "LongCat-Flash-Chat",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "qwen3 235b a22b thinking (2507)": {
+    "model": "Qwen3-235B-A22B-Thinking (2507)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "qwen3 next 80b a3b instruct": {
+    "model": "Qwen3-Next-80B-A3B-Instruct",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "deepseek r1": {
+    "model": "DeepSeek-R1",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "qwen3.5 flash": {
+    "model": "Qwen3.5-Flash",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "deepseek v3 (0324)": {
+    "model": "DeepSeek-V3 (0324)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "qwen3 vl 235b a22b thinking": {
+    "model": "Qwen3-VL-235B-A22B-Thinking",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "hunyuan vision 1.5 thinking": {
+    "model": "Hunyuan Vision 1.5 Thinking",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "qwen3.5 35b a3b": {
+    "model": "Qwen3.5-35B-A3B",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "step 3.5 flash": {
+    "model": "Step-3.5-Flash",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "amazon nova experimental chat (12 10)": {
+    "model": "amazon-nova-experimental-chat (12-10)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "mimo v2 flash (non thinking)": {
+    "model": "MiMo-V2-Flash (Non-Thinking)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "minimax m2.5": {
+    "model": "MiniMax-M2.5",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "o4 mini (2025 04 16)": {
+    "model": "o4-mini (2025-04-16)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "claude sonnet 4 (20250514)": {
+    "model": "Claude Sonnet 4 (20250514)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gpt 5 mini (high)": {
+    "model": "GPT-5 mini (High)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "o1 preview": {
+    "model": "o1-preview",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "claude 3.7 sonnet (thinking 32k, 20250219)": {
+    "model": "Claude 3.7 Sonnet (Thinking 32K, 20250219)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "qwen3 coder 480b a35b instruct": {
+    "model": "Qwen3-Coder-480B-A35B-Instruct",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "hunyuan t1 (20250711)": {
+    "model": "Hunyuan T1 (20250711)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "mistral medium 3 (2505)": {
+    "model": "Mistral Medium 3 (2505)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "mimo v2 flash (thinking)": {
+    "model": "MiMo-V2-Flash (Thinking)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "minimax m2.1 preview": {
+    "model": "MiniMax-M2.1 Preview",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "hunyuan turbos (20250416)": {
+    "model": "Hunyuan TurboS (20250416)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gpt 4.1 mini (2025 04 14)": {
+    "model": "GPT-4.1 mini (2025-04-14)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "qwen3 30b a3b instruct (2507)": {
+    "model": "Qwen3-30B-A3B-Instruct (2507)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gemini 2.5 flash lite preview (non thinking, 09 2025)": {
+    "model": "Gemini 2.5 Flash-Lite Preview (Non-Thinking, 09-2025)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "trinity large preview": {
+    "model": "Trinity Large Preview",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "glm 4.6v": {
+    "model": "GLM-4.6V",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gemini 2.5 flash lite preview (thinking, 06 17)": {
+    "model": "Gemini 2.5 Flash-Lite Preview (Thinking, 06-17)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "qwen3 235b a22b": {
+    "model": "Qwen3-235B-A22B",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "claude 3.5 sonnet (20241022)": {
+    "model": "Claude 3.5 Sonnet (20241022)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "qwen2.5 max": {
+    "model": "Qwen2.5-Max",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "glm 4.5 air": {
+    "model": "GLM-4.5-Air",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "claude 3.7 sonnet (20250219)": {
+    "model": "Claude 3.7 Sonnet (20250219)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "qwen3 next 80b a3b thinking": {
+    "model": "Qwen3-Next-80B-A3B-Thinking",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "trinity large thinking": {
+    "model": "Trinity Large Thinking",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gemma 3 27b it": {
+    "model": "Gemma 3 27B IT",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "glm 4.7 flash": {
+    "model": "GLM-4.7-Flash",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "grok 3 mini (high)": {
+    "model": "Grok 3 Mini (High)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "minimax m1": {
+    "model": "MiniMax-M1",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "o3 mini (high)": {
+    "model": "o3-mini (High)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "amazon nova experimental chat (11 10)": {
+    "model": "amazon-nova-experimental-chat (11-10)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gemini 2.0 flash (001)": {
+    "model": "Gemini 2.0 Flash (001)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "nvidia nemotron 3 super 120b a12b": {
+    "model": "NVIDIA-Nemotron-3-Super-120B-A12B",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "deepseek v3": {
+    "model": "DeepSeek-V3",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "grok 3 mini beta": {
+    "model": "Grok 3 Mini Beta",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "mistral small 3.2 (2506)": {
+    "model": "Mistral Small 3.2 (2506)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "intellect 3": {
+    "model": "INTELLECT-3",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gemini 2.0 flash lite preview (02 05)": {
+    "model": "Gemini 2.0 Flash-Lite Preview (02-05)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "command a (03 2025)": {
+    "model": "Command A (03-2025)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "glm 4.5v": {
+    "model": "GLM-4.5V",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "nvidia nemotron 3.5 lightning 30b a3b (nvfp4)": {
+    "model": "NVIDIA-Nemotron-3.5-Lightning-30B-A3B (NVFP4)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gpt oss 120b": {
+    "model": "gpt-oss-120b",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gemini 1.5 pro (002)": {
+    "model": "Gemini 1.5 Pro (002)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "step 3": {
+    "model": "Step-3",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "hunyuan turbos (20250226)": {
+    "model": "Hunyuan TurboS (20250226)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "o3 mini": {
+    "model": "o3-mini",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "amazon nova experimental chat (10 20)": {
+    "model": "amazon-nova-experimental-chat (10-20)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "llama 3.1 nemotron ultra 253b v1": {
+    "model": "Llama 3.1 Nemotron Ultra 253B v1",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "qwen3 32b": {
+    "model": "Qwen3-32B",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "amazon nova experimental chat (10 09)": {
+    "model": "amazon-nova-experimental-chat (10-09)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gpt 4o (2024 05 13)": {
+    "model": "GPT-4o (2024-05-13)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "qwen plus (0125)": {
+    "model": "Qwen-Plus (0125)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "minimax m2": {
+    "model": "MiniMax-M2",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "claude 3.5 sonnet (20240620)": {
+    "model": "Claude 3.5 Sonnet (20240620)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "ling flash 2.0": {
+    "model": "Ling-flash-2.0",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "llama 3.3 nemotron super 49b v1.5": {
+    "model": "Llama 3.3 Nemotron Super 49B v1.5",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "mercury 2": {
+    "model": "Mercury 2",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "glm 4 plus (0111)": {
+    "model": "GLM-4-Plus (0111)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gemma 3 12b it": {
+    "model": "Gemma 3 12B IT",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "hunyuan turbo (0110)": {
+    "model": "Hunyuan Turbo (0110)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gpt 5 nano (high)": {
+    "model": "GPT-5 nano (High)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "o1 mini": {
+    "model": "o1-mini",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gemini advanced (0514)": {
+    "model": "Gemini Advanced (0514)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "grok 2 (2024 08 13)": {
+    "model": "Grok 2 (2024-08-13)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gpt 4o (2024 08 06)": {
+    "model": "GPT-4o (2024-08-06)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "llama 3.1 405b instruct (bf16)": {
+    "model": "Llama 3.1 405B Instruct (BF16)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "qwq 32b": {
+    "model": "QwQ-32B",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "amazon nova 2 lite": {
+    "model": "Amazon Nova 2 Lite",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "llama 3.1 405b instruct (fp8)": {
+    "model": "Llama 3.1 405B Instruct (FP8)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "step 2 16k exp (202412)": {
+    "model": "Step-2 16K Exp (202412)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "olmo 3.1 32b instruct": {
+    "model": "Olmo 3.1 32B Instruct",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "yi lightning": {
+    "model": "Yi Lightning",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "llama 3.3 nemotron super 49b v1": {
+    "model": "Llama 3.3 Nemotron Super 49B v1",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "llama 4 maverick 17b 128e instruct": {
+    "model": "Llama 4 Maverick 17B 128E Instruct",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "qwen3 30b a3b": {
+    "model": "Qwen3-30B-A3B",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "hunyuan large (2025 02 10)": {
+    "model": "Hunyuan Large (2025-02-10)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "claude 3.5 haiku (20241022)": {
+    "model": "Claude 3.5 Haiku (20241022)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gpt 4 turbo (2024 04 09)": {
+    "model": "GPT-4 Turbo (2024-04-09)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gemini 1.5 pro (001)": {
+    "model": "Gemini 1.5 Pro (001)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "deepseek v2.5 (1210)": {
+    "model": "DeepSeek-V2.5 (1210)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "ring flash 2.0": {
+    "model": "Ring-flash-2.0",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "claude 3 opus (20240229)": {
+    "model": "Claude 3 Opus (20240229)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gpt 4.1 nano (2025 04 14)": {
+    "model": "GPT-4.1 nano (2025-04-14)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "llama 4 scout 17b 16e instruct": {
+    "model": "Llama 4 Scout 17B 16E Instruct",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "molmo 2 8b": {
+    "model": "Molmo 2 8B",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "step 1o turbo (202506)": {
+    "model": "Step-1o Turbo (202506)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "glm 4 plus": {
+    "model": "GLM-4-Plus",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "llama 3.3 70b instruct": {
+    "model": "Llama 3.3 70B Instruct",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "qwen max (0919)": {
+    "model": "Qwen-Max (0919)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gemma 3n e4b it": {
+    "model": "Gemma 3n E4B IT",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gpt 4o mini (2024 07 18)": {
+    "model": "GPT-4o mini (2024-07-18)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gpt oss 20b": {
+    "model": "gpt-oss-20b",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "qwen2.5 plus (1127)": {
+    "model": "Qwen2.5-Plus (1127)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "mistral large 2 (2407)": {
+    "model": "Mistral Large 2 (2407)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "athene v2 chat": {
+    "model": "Athene V2 Chat",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "nvidia nemotron 3 nano 30b a3b (bf16)": {
+    "model": "NVIDIA-Nemotron-3-Nano-30B-A3B (BF16)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gpt 4 turbo preview (0125)": {
+    "model": "GPT-4 Turbo Preview (0125)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gpt 4 turbo preview (1106)": {
+    "model": "GPT-4 Turbo Preview (1106)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "hunyuan standard (2025 02 10)": {
+    "model": "Hunyuan Standard (2025-02-10)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gemini 1.5 flash (002)": {
+    "model": "Gemini 1.5 Flash (002)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "grok 2 mini (2024 08 13)": {
+    "model": "Grok 2 mini (2024-08-13)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "deepseek v2.5": {
+    "model": "DeepSeek-V2.5",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "athene 70b (0725)": {
+    "model": "Athene 70B (0725)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "olmo 3 32b think": {
+    "model": "Olmo 3 32B Think",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "mistral large (2411)": {
+    "model": "Mistral Large (2411)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "mercury": {
+    "model": "Mercury",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "magistral medium (2506)": {
+    "model": "Magistral Medium (2506)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "granite 4.1 8b": {
+    "model": "Granite 4.1 8B",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gemma 3 4b it": {
+    "model": "Gemma 3 4B IT",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "qwen2.5 72b instruct": {
+    "model": "Qwen2.5-72B-Instruct",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "mistral small 3.1 24b instruct (2503)": {
+    "model": "Mistral Small 3.1 24B Instruct (2503)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "llama 3.1 nemotron 70b instruct": {
+    "model": "Llama 3.1 Nemotron 70B Instruct",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "hunyuan large vision": {
+    "model": "Hunyuan Large Vision",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "llama 3.1 70b instruct": {
+    "model": "Llama 3.1 70B Instruct",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "amazon nova pro 1.0": {
+    "model": "Amazon Nova Pro 1.0",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gemma 2 27b it": {
+    "model": "Gemma 2 27B IT",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "jamba 1.5 large": {
+    "model": "Jamba 1.5 Large",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "reka core (20240904)": {
+    "model": "Reka Core (20240904)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gpt 4 (0314)": {
+    "model": "GPT-4 (0314)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "granite 4.0 h small": {
+    "model": "Granite-4.0-H-Small",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "llama 3.1 nemotron 51b instruct": {
+    "model": "Llama 3.1 Nemotron 51B Instruct",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gemini 1.5 flash (001)": {
+    "model": "Gemini 1.5 Flash (001)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "llama 3.1 tulu 3 70b": {
+    "model": "Llama 3.1 Tulu 3 70B",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "olmo 3.1 32b think": {
+    "model": "Olmo 3.1 32B Think",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "claude 3 sonnet (20240229)": {
+    "model": "Claude 3 Sonnet (20240229)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gemma 2 9b it simpo": {
+    "model": "Gemma 2 9B IT SimPO",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "nemotron 4 340b instruct": {
+    "model": "Nemotron-4 340B Instruct",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "llama 3 70b instruct": {
+    "model": "Llama 3 70B Instruct",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "command r+ (08 2024)": {
+    "model": "Command R+ (08-2024)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gpt 4 (0613)": {
+    "model": "GPT-4 (0613)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "mistral small 24b instruct (2501)": {
+    "model": "Mistral Small 24B Instruct (2501)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "glm 4 (0520)": {
+    "model": "GLM-4 (0520)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "reka flash (20240904)": {
+    "model": "Reka Flash (20240904)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "qwen2.5 coder 32b instruct": {
+    "model": "Qwen2.5-Coder-32B-Instruct",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "aya expanse 32b": {
+    "model": "Aya Expanse 32B",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gemma 2 9b it": {
+    "model": "Gemma 2 9B IT",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "deepseek coder v2": {
+    "model": "DeepSeek-Coder-V2",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "qwen2 72b instruct": {
+    "model": "Qwen2-72B-Instruct",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "command r+": {
+    "model": "Command R+",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "claude 3 haiku (20240307)": {
+    "model": "Claude 3 Haiku (20240307)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "amazon nova lite 1.0": {
+    "model": "Amazon Nova Lite 1.0",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gemini 1.5 flash 8b (001)": {
+    "model": "Gemini 1.5 Flash-8B (001)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "phi 4": {
+    "model": "Phi-4",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "olmo 2 32b instruct (0325)": {
+    "model": "OLMo 2 32B Instruct (0325)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "command r (08 2024)": {
+    "model": "Command R (08-2024)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "mistral large (2402)": {
+    "model": "Mistral Large (2402)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "amazon nova micro 1.0": {
+    "model": "Amazon Nova Micro 1.0",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "jamba 1.5 mini": {
+    "model": "Jamba 1.5 Mini",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "ministral 8b (2410)": {
+    "model": "Ministral 8B (2410)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gemini pro (dev api)": {
+    "model": "Gemini Pro (Dev API)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "qwen1.5 110b chat": {
+    "model": "Qwen1.5-110B-Chat",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "reka flash 21b (online, 20240226)": {
+    "model": "Reka Flash 21B (Online, 20240226)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "qwen1.5 72b chat": {
+    "model": "Qwen1.5-72B-Chat",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "hunyuan standard 256k": {
+    "model": "Hunyuan Standard 256K",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "mixtral 8x22b instruct v0.1": {
+    "model": "Mixtral 8x22B Instruct v0.1",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "command r": {
+    "model": "Command R",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "reka flash 21b (20240226)": {
+    "model": "Reka Flash 21B (20240226)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gpt 3.5 turbo (0125)": {
+    "model": "GPT-3.5 Turbo (0125)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "llama 3 8b instruct": {
+    "model": "Llama 3 8B Instruct",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gemini pro": {
+    "model": "Gemini Pro",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "aya expanse 8b": {
+    "model": "Aya Expanse 8B",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "mistral medium": {
+    "model": "Mistral Medium",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "llama 3.1 tulu 3 8b": {
+    "model": "Llama 3.1 Tulu 3 8B",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "zephyr orpo 141b a35b v0.1": {
+    "model": "Zephyr ORPO 141B A35B v0.1",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "yi 1.5 34b chat": {
+    "model": "Yi 1.5 34B Chat",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "llama 3.1 8b instruct": {
+    "model": "Llama 3.1 8B Instruct",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "granite 3.1 8b instruct": {
+    "model": "Granite 3.1 8B Instruct",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gpt 3.5 turbo (1106)": {
+    "model": "GPT-3.5 Turbo (1106)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "qwen1.5 32b chat": {
+    "model": "Qwen1.5-32B-Chat",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gemma 2 2b it": {
+    "model": "Gemma 2 2B IT",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "phi 3 medium 4k instruct": {
+    "model": "Phi-3 Medium 4K Instruct",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "mixtral 8x7b instruct v0.1": {
+    "model": "Mixtral 8x7B Instruct v0.1",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "dbrx instruct preview": {
+    "model": "DBRX Instruct Preview",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "qwen1.5 14b chat": {
+    "model": "Qwen1.5-14B-Chat",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "internlm2.5 20b chat": {
+    "model": "InternLM2.5 20B Chat",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "deepseek llm 67b chat": {
+    "model": "DeepSeek LLM 67B Chat",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "wizardlm 70b": {
+    "model": "WizardLM 70B",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "yi 34b chat": {
+    "model": "Yi 34B Chat",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "granite 3.0 8b instruct": {
+    "model": "Granite 3.0 8B Instruct",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "openchat 3.5": {
+    "model": "OpenChat 3.5",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "openchat 3.5 (0106)": {
+    "model": "OpenChat 3.5 (0106)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gemma 1.1 7b it": {
+    "model": "Gemma 1.1 7B IT",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "snowflake arctic instruct": {
+    "model": "Snowflake Arctic Instruct",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "granite 3.1 2b instruct": {
+    "model": "Granite 3.1 2B Instruct",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "tulu 2 dpo 70b": {
+    "model": "Tulu 2 DPO 70B",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "openhermes 2.5 mistral 7b": {
+    "model": "OpenHermes 2.5 Mistral 7B",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "vicuna 33b": {
+    "model": "Vicuna 33B",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "phi 3 small 8k instruct": {
+    "model": "Phi-3 Small 8K Instruct",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "starling lm 7b beta": {
+    "model": "Starling LM 7B Beta",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "llama 2 70b chat": {
+    "model": "Llama 2 70B Chat",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "starling lm 7b alpha": {
+    "model": "Starling LM 7B Alpha",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "llama 3.2 3b instruct": {
+    "model": "Llama 3.2 3B Instruct",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "nous hermes 2 mixtral 8x7b dpo": {
+    "model": "Nous Hermes 2 Mixtral 8x7B DPO",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "granite 3.0 2b instruct": {
+    "model": "Granite 3.0 2B Instruct",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "llama 2 70b steerlm chat": {
+    "model": "Llama 2 70B SteerLM Chat",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "qwq 32b preview": {
+    "model": "QwQ-32B-Preview",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "solar 10.7b instruct v1.0": {
+    "model": "SOLAR 10.7B Instruct v1.0",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "dolphin 2.2.1 mistral 7b": {
+    "model": "Dolphin 2.2.1 Mistral 7B",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "mpt 30b chat": {
+    "model": "MPT 30B Chat",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "wizardlm 13b": {
+    "model": "WizardLM 13B",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "mistral 7b instruct v0.2": {
+    "model": "Mistral 7B Instruct v0.2",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "falcon 180b chat": {
+    "model": "Falcon 180B Chat",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "qwen1.5 7b chat": {
+    "model": "Qwen1.5-7B-Chat",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "phi 3 mini 4k instruct (june 2024)": {
+    "model": "Phi-3 Mini 4K Instruct (June 2024)",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "vicuna 13b": {
+    "model": "Vicuna 13B",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "llama 2 13b chat": {
+    "model": "Llama 2 13B Chat",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "qwen 14b chat": {
+    "model": "Qwen-14B-Chat",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "palm 2": {
+    "model": "PaLM 2",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gemma 7b it": {
+    "model": "Gemma 7B IT",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "code llama 34b instruct": {
+    "model": "Code Llama 34B Instruct",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "zephyr 7b beta": {
+    "model": "Zephyr 7B Beta",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "phi 3 mini 128k instruct": {
+    "model": "Phi-3 Mini 128K Instruct",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "phi 3 mini 4k instruct": {
+    "model": "Phi-3 Mini 4K Instruct",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "guanaco 33b": {
+    "model": "Guanaco 33B",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "zephyr 7b alpha": {
+    "model": "Zephyr 7B Alpha",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "stripedhyena nous 7b": {
+    "model": "StripedHyena Nous 7B",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "code llama 70b instruct": {
+    "model": "Code Llama 70B Instruct",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gemma 1.1 2b it": {
+    "model": "Gemma 1.1 2B IT",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "vicuna 7b": {
+    "model": "Vicuna 7B",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "smollm2 1.7b instruct": {
+    "model": "SmolLM2 1.7B Instruct",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "llama 3.2 1b instruct": {
+    "model": "Llama 3.2 1B Instruct",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "mistral 7b instruct": {
+    "model": "Mistral 7B Instruct",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "llama 2 7b chat": {
+    "model": "Llama 2 7B Chat",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gemma 2b it": {
+    "model": "Gemma 2B IT",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "qwen1.5 4b chat": {
+    "model": "Qwen1.5-4B-Chat",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "olmo 7b instruct": {
+    "model": "OLMo 7B Instruct",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "koala 13b": {
+    "model": "Koala 13B",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "alpaca 13b": {
+    "model": "Alpaca 13B",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gpt4all 13b snoozy": {
+    "model": "GPT4All 13B Snoozy",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "mpt 7b chat": {
+    "model": "MPT 7B Chat",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "chatglm3 6b": {
+    "model": "ChatGLM3 6B",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "rwkv 4 raven 14b": {
+    "model": "RWKV-4 Raven 14B",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "chatglm2 6b": {
+    "model": "ChatGLM2 6B",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "openassistant pythia 12b": {
+    "model": "OpenAssistant Pythia 12B",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "chatglm 6b": {
+    "model": "ChatGLM 6B",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "fastchat t5 3b": {
+    "model": "FastChat-T5 3B",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "dolly 2.0 12b": {
+    "model": "Dolly 2.0 12B",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "llama 13b": {
+    "model": "LLaMA 13B",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "stablelm tuned alpha 7b": {
+    "model": "StableLM Tuned Alpha 7B",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "gemini 4 neon": {
+    "model": "Gemini 4 Neon",
+    "boards": [
+      "livebench"
+    ]
+  },
+  "claude fable 5.2 (xhigh)": {
+    "model": "Claude Fable 5.2 (xhigh)",
+    "boards": [
+      "livebench"
+    ]
+  },
+  "gpt 6.2 astra": {
+    "model": "GPT-6.2 Astra",
+    "boards": [
+      "livebench"
+    ]
+  },
+  "gpt 6 astra": {
+    "model": "GPT-6 Astra",
+    "boards": [
+      "livebench"
+    ]
+  },
+  "claude fable 5.1": {
+    "model": "Claude Fable 5.1",
+    "boards": [
+      "livebench"
+    ]
+  },
+  "claude opus 5.5": {
+    "model": "Claude Opus 5.5",
+    "boards": [
+      "livebench"
+    ]
+  },
+  "gemini 4 carbon": {
+    "model": "Gemini 4 Carbon",
+    "boards": [
+      "livebench"
+    ]
+  },
+  "gpt 6.1 sol": {
+    "model": "GPT-6.1 Sol",
+    "boards": [
+      "livebench"
+    ]
+  },
+  "gpt 6.2 sol": {
+    "model": "GPT-6.2 Sol",
+    "boards": [
+      "livebench"
+    ]
+  },
+  "gpt 6.1 terra": {
+    "model": "GPT-6.1 Terra",
+    "boards": [
+      "livebench"
+    ]
+  },
+  "gemini 4 argon": {
+    "model": "Gemini 4 Argon",
+    "boards": [
+      "livebench"
+    ]
+  },
+  "gemini 4 hydrogen": {
+    "model": "Gemini 4 Hydrogen",
+    "boards": [
+      "livebench"
+    ]
+  },
+  "claude sonnet 5.5": {
+    "model": "Claude Sonnet 5.5",
+    "boards": [
+      "livebench"
+    ]
+  },
+  "muse wonder": {
+    "model": "Muse Wonder 1.0",
+    "boards": [
+      "livebench"
+    ]
+  },
+  "deepseek v4.1 flash 1017": {
+    "model": "DeepSeek V4.1 Flash 1017",
+    "boards": [
+      "livebench"
+    ]
+  },
+  "claude haiku 5.5": {
+    "model": "Claude Haiku 5.5",
+    "boards": [
+      "livebench"
+    ]
+  },
+  "muse spark 1.3": {
+    "model": "Muse Spark 1.3",
+    "boards": [
+      "livebench"
+    ]
+  },
+  "grok 4.7": {
+    "model": "Grok 4.7",
+    "boards": [
+      "livebench"
+    ]
+  },
+  "gpt 5.6 terra": {
+    "model": "GPT-5.6 Terra",
+    "boards": [
+      "livebench"
+    ]
+  },
+  "kimi k3": {
+    "model": "Kimi K3",
+    "boards": [
+      "livebench"
+    ]
+  },
+  "grok 4.6 xhigh": {
+    "model": "Grok 4.6 xHigh",
+    "boards": [
+      "livebench"
+    ]
+  },
+  "gpt 6 luna": {
+    "model": "GPT-6 Luna",
+    "boards": [
+      "livebench"
+    ]
+  },
+  "mistral large 4 1029": {
+    "model": "Mistral Large 4 1029",
+    "boards": [
+      "livebench"
+    ]
+  },
+  "gemini 3.8 flash": {
+    "model": "Gemini 3.8 Flash",
+    "boards": [
+      "livebench"
+    ]
+  },
+  "step 5 (preview)": {
+    "model": "Step 5 (Preview)",
+    "boards": [
+      "livebench"
+    ]
+  },
+  "muse spark open": {
+    "model": "Muse Spark Open",
+    "boards": [
+      "livebench"
+    ]
+  },
+  "smaug nemotron 3.5 nvfp4": {
+    "model": "Smaug-Nemotron-3.5-NVFP4",
+    "boards": [
+      "livebench"
+    ]
+  },
+  "nemotron 3.5 super vl (nvfp4)": {
+    "model": "Nemotron 3.5 Super VL (NVFP4)",
+    "boards": [
+      "livebench"
+    ]
+  },
+  "copilot fusion (max)": {
+    "model": "Copilot Fusion (max)",
+    "boards": [
+      "terminal_bench"
+    ]
+  },
+  "fable 5.2 (max)": {
+    "model": "Fable 5.2 (max)",
+    "boards": [
+      "terminal_bench"
+    ]
+  },
+  "opus 5.5 (max)": {
+    "model": "Opus 5.5 (max)",
+    "boards": [
+      "terminal_bench"
+    ]
+  },
+  "sonnet 5.5 (max)": {
+    "model": "Sonnet 5.5 (max)",
+    "boards": [
+      "terminal_bench"
+    ]
+  },
+  "gpt 6 astra (high)": {
+    "model": "GPT-6 Astra (high)",
+    "boards": [
+      "terminal_bench"
+    ]
+  },
+  "gpt 6 astra (xhigh)": {
+    "model": "GPT-6 Astra (xhigh)",
+    "boards": [
+      "terminal_bench"
+    ]
+  },
+  "fable 5.1 (xhigh)": {
+    "model": "Fable 5.1 (xhigh)",
+    "boards": [
+      "terminal_bench"
+    ]
+  },
+  "fable 5.1 (max)": {
+    "model": "Fable 5.1 (max)",
+    "boards": [
+      "terminal_bench"
+    ]
+  },
+  "gpt 6 astra (medium)": {
+    "model": "GPT-6 Astra (medium)",
+    "boards": [
+      "terminal_bench"
+    ]
+  },
+  "fable 5.1 (high)": {
+    "model": "Fable 5.1 (high)",
+    "boards": [
+      "terminal_bench"
+    ]
+  },
+  "fable 5.1 (medium)": {
+    "model": "Fable 5.1 (medium)",
+    "boards": [
+      "terminal_bench"
+    ]
+  },
+  "opus 5 (xhigh)": {
+    "model": "Opus 5 (xhigh)",
+    "boards": [
+      "terminal_bench"
+    ]
+  },
+  "opus 5 (max)": {
+    "model": "Opus 5 (max)",
+    "boards": [
+      "terminal_bench"
+    ]
+  },
+  "gpt 6 astra (low)": {
+    "model": "GPT-6 Astra (low)",
+    "boards": [
+      "terminal_bench"
+    ]
+  },
+  "opus 5 (high)": {
+    "model": "Opus 5 (high)",
+    "boards": [
+      "terminal_bench"
+    ]
+  },
+  "muse wonder (xhigh)": {
+    "model": "Muse Wonder (xhigh)",
+    "boards": [
+      "terminal_bench"
+    ]
+  },
+  "opus 5 (medium)": {
+    "model": "Opus 5 (medium)",
+    "boards": [
+      "terminal_bench"
+    ]
+  },
+  "fable 5 (max)": {
+    "model": "Fable 5 (max)",
+    "boards": [
+      "terminal_bench"
+    ]
+  },
+  "fable 5.1 (low)": {
+    "model": "Fable 5.1 (low)",
+    "boards": [
+      "terminal_bench"
+    ]
+  },
+  "haiku 5.5 (max)": {
+    "model": "Haiku 5.5 (max)",
+    "boards": [
+      "terminal_bench"
+    ]
+  },
+  "gpt 5.6 sol (max)": {
+    "model": "GPT-5.6 Sol (max)",
+    "boards": [
+      "terminal_bench"
+    ]
+  },
+  "hy4 (max)": {
+    "model": "Hy4 (max)",
+    "boards": [
+      "terminal_bench"
+    ]
+  },
+  "glm 5.3 flash (none)": {
+    "model": "GLM-5.3-Flash (none)",
+    "boards": [
+      "terminal_bench"
+    ]
+  },
+  "opus 5 (low)": {
+    "model": "Opus 5 (low)",
+    "boards": [
+      "terminal_bench"
+    ]
+  },
+  "mistral large 4 (max)": {
+    "model": "Mistral Large 4 (max)",
+    "boards": [
+      "terminal_bench"
+    ]
+  },
+  "mimo v2.6 pro (none)": {
+    "model": "MiMo V2.6 Pro (none)",
+    "boards": [
+      "terminal_bench"
+    ]
+  },
+  "qwen3.8 max 0902 (max)": {
+    "model": "Qwen3.8-Max-0902 (max)",
+    "boards": [
+      "terminal_bench"
+    ]
+  },
+  "opus 4.8 (max)": {
+    "model": "Opus 4.8 (max)",
+    "boards": [
+      "terminal_bench"
+    ]
+  },
+  "ember 1 (none)": {
+    "model": "Ember-1 (none)",
+    "boards": [
+      "terminal_bench"
+    ]
+  },
+  "gpt 5.6 terra (max)": {
+    "model": "GPT-5.6 Terra (max)",
+    "boards": [
+      "terminal_bench"
+    ]
+  },
+  "hy4 preview (max)": {
+    "model": "Hy4 Preview (max)",
+    "boards": [
+      "terminal_bench"
+    ]
+  },
+  "gpt 5.6 luna (max)": {
+    "model": "GPT-5.6 Luna (max)",
+    "boards": [
+      "terminal_bench"
+    ]
+  },
+  "mimo v2.6 flash (none)": {
+    "model": "MiMo V2.6 Flash (none)",
+    "boards": [
+      "terminal_bench"
+    ]
+  },
+  "muse spark 1.3 (xhigh)": {
+    "model": "Muse Spark 1.3 (xhigh)",
+    "boards": [
+      "terminal_bench"
+    ]
+  },
+  "inkling small 2 (xhigh)": {
+    "model": "Inkling Small 2 (xhigh)",
+    "boards": [
+      "terminal_bench"
+    ]
+  },
+  "grok 4.5 (high)": {
+    "model": "Grok 4.5 (high)",
+    "boards": [
+      "terminal_bench"
+    ]
+  },
+  "sonnet 5 (max)": {
+    "model": "Sonnet 5 (max)",
+    "boards": [
+      "terminal_bench"
+    ]
+  },
+  "hy4 flash (none)": {
+    "model": "Hy4 Flash (none)",
+    "boards": [
+      "terminal_bench"
+    ]
+  },
+  "minimax m3 (none)": {
+    "model": "MiniMax M3 (none)",
+    "boards": [
+      "terminal_bench"
+    ]
+  },
+  "beam 1.0 (none)": {
+    "model": "Beam 1.0 (none)",
+    "boards": [
+      "terminal_bench"
+    ]
+  },
+  "gemini 3.1 pro (high)": {
+    "model": "Gemini 3.1 Pro (high)",
+    "boards": [
+      "terminal_bench"
+    ]
+  },
+  "gpt 5.4 mini (xhigh)": {
+    "model": "GPT-5.4 Mini (xhigh)",
+    "boards": [
+      "terminal_bench"
+    ]
+  },
+  "inkling small (none)": {
+    "model": "Inkling Small (none)",
+    "boards": [
+      "terminal_bench"
+    ]
+  },
+  "nemotron 3.5 super vl (none)": {
+    "model": "Nemotron 3.5 Super VL (none)",
+    "boards": [
+      "terminal_bench"
+    ]
+  },
+  "inkling (none)": {
+    "model": "Inkling (none)",
+    "boards": [
+      "terminal_bench"
+    ]
+  }
+}

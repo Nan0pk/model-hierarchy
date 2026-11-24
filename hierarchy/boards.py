@@ -227,6 +227,10 @@ def build_board_report(cfg=None, directory: Path = BOARD_DIR, *, today=None) -> 
 
 def write_board_outputs(report: dict, out_dir: Path = OUTPUT_DIR) -> Path:
     out_dir.mkdir(parents=True, exist_ok=True)
+    # The dashboard never reads the discovery index; keep it out of the page's download.
+    report = dict(report)
+    catalogue = report.pop("catalogue", {})
+    (out_dir / "catalogue.json").write_text(json.dumps(catalogue, indent=2, ensure_ascii=False) + "\n")
     path = out_dir / "leaderboards.json"
     if path.exists():
         try:

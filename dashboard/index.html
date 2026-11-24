@@ -6,6 +6,10 @@
   <meta name="description" content="Explore source-native AI rankings from Artificial Analysis, Arena, LiveBench and Terminal-Bench. Original scores, exact model configurations, and transparent evidence.">
   <title>Model Atlas — AI rankings, in perspective</title>
   <link rel="stylesheet" href="styles.css?v=315555b245">
+  <!-- Start the data and module downloads with the HTML instead of after app.js runs. -->
+  <link rel="preload" href="../output/leaderboards.json" as="fetch" crossorigin="anonymous">
+  <link rel="modulepreload" href="hierarchy.js">
+  <link rel="modulepreload" href="model.js">
   <script type="module" src="app.js?v=155529995b"></script>
 </head>
 <body>

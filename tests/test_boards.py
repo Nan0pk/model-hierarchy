@@ -364,6 +364,9 @@ def test_idempotent_outputs_do_not_churn_timestamps(tmp_path):
     write_board_outputs(report2, tmp_path)
     saved = json.loads((tmp_path / "leaderboards.json").read_text())
     assert saved["generated_at"] == "2026-11-24T10:00:00+00:00"
+    # The discovery index ships beside the dashboard payload, not inside it.
+    assert "catalogue" not in saved and "catalogue" in report2
+    assert json.loads((tmp_path / "catalogue.json").read_text()) == report1["catalogue"]
 
     comp1 = {"generated_at": "2026-11-24 10:00 UTC", "models": [], "quality": {"status": "withheld"}}
     write_outputs(comp1, tmp_path)

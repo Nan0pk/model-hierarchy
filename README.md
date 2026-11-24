@@ -262,6 +262,7 @@ data/evidence/                   dated source transcriptions and capture notes
 data/raw/, data/manual/          legacy composite observations
 output/atlas.{json,csv}           Atlas model and effort rankings (node dashboard/export.mjs)
 output/leaderboards.{json,csv}    main native-board publication (plural)
+output/catalogue.json             cross-board name discovery index (not used for scoring)
 output/leaderboard.{json,csv}     experimental composite and evidence audit (singular)
 dashboard/                      static, source-aware explorer
 METHODOLOGY.md                   current normative specification
