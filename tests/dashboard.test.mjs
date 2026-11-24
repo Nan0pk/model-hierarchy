@@ -165,9 +165,8 @@ test('Atlas computes tie-aware percentiles, aggregates settings once and isolate
   // Tied on AA (50 each side of a tie), separated on Arena: 100 beats 50.
   assert.deepEqual([high.rank, high.artificial_analysis, high.arena_text, high.score], [1, 50, 100, 75]);
   assert.equal(effort.rows.find(r => r.model === 'Model A (max)').score, 25);
-  // A fallback policy is its own configuration, and one evaluator cannot rank it.
-  const fallback = effort.rows.find(r => r.model === 'Model A (max, Default Fallback)');
-  assert.deepEqual([fallback.rank, fallback.arena_text], [null, 25]);
+  // AA's default-fallback label is the same setting, not a separate configuration.
+  assert.equal(effort.rows.find(r => r.model === 'Model A (max)').evidence[1].observations.length, 2);
   data.boards.arena_text.published_at = '2020-01-01';
   assert.equal(atlasHierarchy(data.boards, data.freshness, true, now).n_scored, 0);
 });

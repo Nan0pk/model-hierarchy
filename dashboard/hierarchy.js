@@ -14,10 +14,9 @@ function identity(label) {
   const [effort, ...qualifiers] = match[2].split(',').map(part => part.trim());
   if (!effortPattern.test(effort)) return {model: label};
   // Keep dates, precision and other unknown qualifiers in the model identity.
-  const fallback = qualifiers.some(q => /^default fallback$/i.test(q));
   const retained = qualifiers.filter(q => !/^default fallback$/i.test(q));
   const model = retained.length ? `${match[1]} (${retained.join(', ')})` : match[1];
-  return {model, effort, fallback};
+  return {model, effort};
 }
 
 // Same rule as hierarchy/names.py canonical(): unify separators, then the reviewed alias table.
@@ -44,11 +43,11 @@ function standings(board, byEffort, aliases) {
   const groups = new Map();
   for (const row of board.rows) {
     if (!Number.isFinite(row.score)) continue;
-    const {model, effort, fallback} = identity(row.model);
+    const {model, effort} = identity(row.model);
     if (byEffort && !effort) continue;
-    const key = byEffort
-      ? `${canonical(model, aliases)} (${effort.toLowerCase()}${fallback ? ', default fallback' : ''})`
-      : canonical(model, aliases);
+    // AA's "Default Fallback" is Anthropic's default API fallback to an older model, which it
+    // measured in ~0.1% of tasks (x.com/ArtificialAnlys/status/2104640155843989864): same setting.
+    const key = byEffort ? `${canonical(model, aliases)} (${effort.toLowerCase()})` : canonical(model, aliases);
     if (!groups.has(key)) groups.set(key, {key, label: byEffort ? row.model : model, effort, observations: []});
     groups.get(key).observations.push(row);
   }
@@ -110,7 +109,7 @@ export function atlasHierarchy(boards, freshness, byEffort, now = new Date(), al
     derived: true, label: byEffort ? 'Effort levels' : 'Atlas models',
     version: byEffort ? 'Reasoning effort hierarchy' : 'Model hierarchy',
     subtitle: byEffort ? 'Exact tested settings' : 'Across evaluators',
-    description: byEffort ? 'Each explicitly labeled effort and fallback configuration has its own entry.'
+    description: byEffort ? 'Each explicitly labeled effort setting has its own entry; AA default-fallback runs join the same setting.'
       : 'Each model contributes one median tested score per evaluator, across its observed settings.',
     metric: 'Atlas score', decimals: 1, columns, rows, n_scored: ranked.length, availability,
     qualification: 'Atlas averages within-board percentiles from at least two current model evaluators. Each board ranks only the entries that appear on two or more evaluators, so padding a board with single-board entries cannot inflate them; single-evaluator entries are placed against that field. A dash in Atlas score means only one evaluator contributed. AA $/task is the reported cost per task, summarized by the median of priced settings for a model. A rounded $0.00 can represent a small cost. Expand a row for configuration prices and LiveBench cost per successful task.',

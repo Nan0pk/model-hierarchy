@@ -20,7 +20,10 @@ A failed refresh can still contribute its last valid snapshot during that window
   recognized parenthesized reasoning setting and its default-fallback qualifier. A trailing standalone `xHigh` also denotes effort.
   Preserve model editions, dates and other qualifiers. A model with many settings
   still contributes one value per evaluator.
-- **Effort view.** Key each entry by canonical model name plus its exact setting, including fallback policy.
+- **Effort view.** Key each entry by canonical model name plus its exact setting. Artificial
+  Analysis's "Default Fallback" qualifier joins the plain setting: it marks Anthropic's default
+  API fallback to an older model, which AA observed in ~0.1% of tasks
+  ([source](https://x.com/ArtificialAnlys/status/2104640155843989864)). The label stays visible.
   Treat a trailing `xHigh` and `(xHigh)` as the same explicit setting. Rank explicitly identified settings. An unspecified effort supplies no evidence
   for an explicit setting. Distinct vendor spellings may yield separate entries.
 - **Within-board standing.** The reference field is the set of entries that appear
