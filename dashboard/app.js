@@ -27,6 +27,7 @@ function renderTabs() {
 
 function renderBoard() {
   const board = state.data.boards[state.board];
+  $('.ranking-panel').dataset.source = state.board;
   renderTabs();
   $('#board-title').textContent = board.version;
   $('#board-kicker').textContent = `${board.label} / ${board.unit === 'percent' ? 'SYSTEM PERFORMANCE' : 'SOURCE-NATIVE RANKING'}`;
@@ -75,7 +76,7 @@ function detailsHTML(row, board, colspan) {
     const evidence = row.evidence.map(({source, observations}) => {
       const b = state.data.boards[source];
       const original = observations.map(r => `${esc(r.model)} · ${esc(r.score)}`).join('<br>');
-      return `<div><dt>${link(b.url, b.label)} · ${esc(b.version)}</dt><dd>${original}<br>Source percentile ${esc(formatValue(row[source]))}<br>Published ${esc(b.published_at || 'unknown')} · observed ${esc(b.observed_at || 'unknown')}</dd></div>`;
+      return `<div data-source="${esc(source)}"><dt>${link(b.url, b.label)} · ${esc(b.version)}</dt><dd>${original}<br>Source percentile ${esc(formatValue(row[source]))}<br>Published ${esc(b.published_at || 'unknown')} · observed ${esc(b.observed_at || 'unknown')}</dd></div>`;
     });
     return `<tr class="detail-row"><td colspan="${colspan}"><dl class="detail-grid">${evidence.join('')}</dl></td></tr>`;
   }
@@ -107,7 +108,7 @@ function renderRows() {
   if (!rows.length) {
     $('#table-container').innerHTML = `<p class="empty">${board.rows.length ? board.derived ? 'No entries match. Choose All observations to include models measured by one evaluator.' : 'No entries match these filters. Try another source.' : board.derived ? 'No current comparable observations are available.' : 'No verified snapshot is available for this board. Run a refresh or inspect the source directly.'}</p>`;
   } else {
-    $('#table-container').innerHTML = `<table><caption class="sr-only">${esc(board.label)} ${esc(board.version)}. Equal scores share a rank. Select a model to inspect evidence.</caption><thead><tr><th scope="col">Rank</th><th scope="col">Model / configuration</th><th scope="col">${esc(board.metric)}</th>${visibleColumns.map(c => `<th scope="col" class="${board.derived ? 'component' : ''}">${esc(c.label)}${board.derived ? '<small>percentile</small>' : ''}</th>`).join('')}</tr></thead><tbody>${slice.map((row, index) => `<tr class="model-row"><td class="rank">${row.rank ?? '—'}</td><td class="model-cell"><button type="button" class="model-name" data-index="${index}" aria-expanded="${state.expanded === row.id}">${esc(row.model)}<span aria-hidden="true">${state.expanded === row.id ? '−' : '+'}</span></button>${board.derived ? `<small class="coverage">${row.evidence.length} ${row.evidence.length === 1 ? 'evaluator' : 'evaluators'}</small>` : ''}${row.open_weights === true ? '<span class="entry-tag">OPEN</span>' : ''}</td><td class="score-cell">${formatValue(row.score, 'number', board.decimals)}${board.unit === 'percent' && row.score != null ? '<small>%</small>' : ''}</td>${visibleColumns.map(c => `<td class="${board.derived ? 'component' : ''} ${row[c.key] == null ? 'zero-null' : ''}">${esc(formatValue(row[c.key], c.type, c.decimals ?? board.decimals))}${board.derived && Number.isFinite(row[c.key]) ? `<meter aria-hidden="true" min="0" max="100" value="${row[c.key]}"></meter>` : ''}</td>`).join('')}</tr>${state.expanded === row.id ? detailsHTML(row, board, visibleColumns.length + 3) : ''}`).join('')}</tbody></table>`;
+    $('#table-container').innerHTML = `<table><caption class="sr-only">${esc(board.label)} ${esc(board.version)}. Equal scores share a rank. Select a model to inspect evidence.</caption><thead><tr><th scope="col">Rank</th><th scope="col">Model / configuration</th><th scope="col">${esc(board.metric)}</th>${visibleColumns.map(c => `<th scope="col" data-source="${esc(c.key)}" class="${board.derived ? 'component' : ''}">${esc(c.label)}${board.derived ? '<small>percentile</small>' : ''}</th>`).join('')}</tr></thead><tbody>${slice.map((row, index) => `<tr class="model-row"><td class="rank">${row.rank ?? '—'}</td><td class="model-cell"><button type="button" class="model-name" data-index="${index}" aria-expanded="${state.expanded === row.id}">${esc(row.model)}<span aria-hidden="true">${state.expanded === row.id ? '−' : '+'}</span></button>${board.derived ? `<small class="coverage">${row.evidence.length} ${row.evidence.length === 1 ? 'evaluator' : 'evaluators'}</small>` : ''}${row.open_weights === true ? '<span class="entry-tag">OPEN</span>' : ''}</td><td class="score-cell">${formatValue(row.score, 'number', board.decimals)}${board.unit === 'percent' && row.score != null ? '<small>%</small>' : ''}</td>${visibleColumns.map(c => `<td data-source="${esc(c.key)}" class="${board.derived ? 'component' : ''} ${row[c.key] == null ? 'zero-null' : ''}">${esc(formatValue(row[c.key], c.type, c.decimals ?? board.decimals))}${board.derived && Number.isFinite(row[c.key]) ? `<meter aria-hidden="true" min="0" max="100" value="${row[c.key]}"></meter>` : ''}</td>`).join('')}</tr>${state.expanded === row.id ? detailsHTML(row, board, visibleColumns.length + 3) : ''}`).join('')}</tbody></table>`;
     $('#table-container').querySelectorAll('button[data-index]').forEach(button => button.addEventListener('click', () => {
       const row = slice[Number(button.dataset.index)]; const index = button.dataset.index;
       state.expanded = state.expanded === row.id ? null : row.id;
@@ -136,10 +137,10 @@ async function load() {
     state.data = data;
     $('#entry-count').textContent = Object.values(data.boards).reduce((total,b) => total + b.n_scored, 0).toLocaleString('en-US');
     $('#source-count').textContent = Object.keys(data.boards).length;
-    $('#source-health').innerHTML = Object.values(data.boards).map(b => {
+    $('#source-health').innerHTML = Object.entries(data.boards).map(([id, b]) => {
       const status = boardFreshness(b, data.freshness);
       const health = b.last_fetch?.status;
-      return `<article><h3>${link(b.url, b.label)}</h3><p>${esc(b.subtitle)} · ${esc(status)}</p><dl>
+      return `<article data-source="${esc(id)}"><h3>${link(b.url, b.label)}</h3><p>${esc(b.subtitle)} · ${esc(status)}</p><dl>
         <dt>Published</dt><dd>${esc(friendlyDate(b.published_at) || 'Unknown')}</dd>
         <dt>Observed</dt><dd>${esc(friendlyDate(b.observed_at) || 'Unknown')}</dd>
         <dt>Last fetch</dt><dd>${esc([health, friendlyDate(b.last_fetch?.attempted_at)].filter(Boolean).join(' · ') || 'Unknown')}</dd></dl></article>`;
