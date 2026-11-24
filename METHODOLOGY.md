@@ -44,6 +44,30 @@ Missing scores are `null`, never zero; missing costs are not free. A source's mo
 can include historical, preview, or restricted-access systems. “Observed recently” does
 not mean “recently released,” “publicly available,” or “recently evaluated.”
 
+### Source selection and refresh reliability
+
+Atlas polls daily. A successful retrieval confirms that the board could be read.
+Only a source publication date dates the board itself. The 14-day freshness
+window is an Atlas policy; an evaluator can publish less frequently. Coverage
+and rank can change when a source ages out, even with identical model scores.
+
+| Source | Reason to include it | Main limitation |
+|---|---|---|
+| [Artificial Analysis](https://artificialanalysis.ai/methodology/intelligence-benchmarking) | Broad, versioned suite with explicit effort settings. | The index packages multiple evaluations, including Terminal-Bench 4.0. Its table supplies an observation date through our collector and no per-entry evaluation date. |
+| [Arena](https://arena.ai/blog/ranking-method) | Human preferences, vote counts and source uncertainty intervals complement task scores. | Participation, prompts and release selection affect the population. Style control addresses only part of this bias. [Independent analysis](https://papers.nips.cc/paper_files/paper/2025/file/70a93f260a51123b3c0e33ecd1b4de97-Paper-Datasets_and_Benchmarks_Track.pdf) |
+| [LiveBench 2.0](https://livebench.ai/) | Dated releases with inspectable task-level results and suite weights. | Scores use single runs; many published labels omit the effort. A release date can predate a successful fetch by weeks. |
+| [Terminal-Bench](https://www.tbench.ai/) | Publishes the harness, resolution rate and uncertainty for agent work. | Changing the harness changes the system being compared. Keep this as a separate systems view. |
+
+For a cross-check on general capability, [Epoch's ECI](https://epoch.ai/data/eci-documentation/methodology)
+accounts for benchmark difficulty and uncertainty. Its input set spans many benchmarks,
+so including it as another equally weighted vote would require checking overlap.
+For an engineering-specific comparison, [SWE-rebench](https://swe-rebench.com/)
+makes the issue window, agent/model distinction and cost visible. Its narrower scope
+fits a dedicated engineering view. For field reliability, maintainer acceptance
+provides another check. In a [METR study](https://metr.org/notes/2026-03-10-many-swe-bench-passing-prs-would-not-be-merged-into-main/),
+four maintainers reviewed 296 model-generated patches from three repositories.
+Passing benchmark tests and satisfying maintainer review were distinct outcomes.
+
 ## 2. Current source registry
 
 Authoritative metadata and version pins live in [`config/leaderboards.yaml`](config/leaderboards.yaml).

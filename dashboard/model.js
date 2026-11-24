@@ -10,6 +10,8 @@ export function selectRows(board, {query = '', filter = '', sort = 'score:desc'}
   const [key, direction] = sort.split(':');
   return (board.rows || []).filter(row => {
     const haystack = [row.model, row.provider, row.harness].filter(Boolean).join(' ').toLocaleLowerCase();
+    if (board.derived && filter === 'ranked') return row.rank != null && haystack.includes(q);
+    if (board.derived && filter === 'single') return row.evidence.length === 1 && haystack.includes(q);
     const matches = !filter || (filter === 'open' ? row.open_weights === true : [row.provider, row.harness].includes(filter));
     return matches && haystack.includes(q);
   }).sort((a, b) => {

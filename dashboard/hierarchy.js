@@ -59,7 +59,7 @@ export function atlasHierarchy(boards, freshness, byEffort, now = new Date()) {
     const board = boards[id];
     if (!board) continue;
     const status = boardFreshness(board, freshness, now);
-    availability.push(`${board.label} · ${status}`);
+    availability.push({label: board.label, status, failed: board.last_fetch?.status === 'failed'});
     if (status !== 'available') continue;
     columns.push({key: id, label: board.label, type: 'number', decimals: 1});
     for (const item of standings(board, byEffort)) {

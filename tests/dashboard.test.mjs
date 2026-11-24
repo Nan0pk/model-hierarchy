@@ -98,7 +98,8 @@ test('source switching, searching and expanding evidence work', async () => {
   input.value = ''; input.dispatchEvent(new win.Event('input'));
   doc.querySelector('.model-name').click();
   assert.match(doc.querySelector('.detail-row').textContent, /Not supplied — none estimated/);
-  doc.querySelector('[data-board="terminal_bench"]').click();
+  doc.querySelector('#source-choice').value = 'terminal_bench';
+  doc.querySelector('#source-choice').dispatchEvent(new win.Event('change'));
   assert.equal(doc.querySelectorAll('.model-row').length, 1);
   assert.match(doc.querySelector('#table-container').textContent, /Agent X/);
   assert.match(win.location.search, /board=terminal_bench/);
@@ -177,5 +178,26 @@ test('default dashboard shows the Atlas ranking and exact effort evidence', asyn
   assert.deepEqual([...doc.querySelectorAll('.rank')].map(td => td.textContent), ['1', '1']);
   doc.querySelector('.model-name').click();
   assert.match(doc.querySelector('.detail-row').textContent, /Model A .* · 50/);
+  win.close();
+});
+
+test('ranking coverage, one-source filter, and fetch health stay distinct', async () => {
+  const data = fixture();
+  data.boards.arena_text = structuredClone(baseBoard);
+  data.boards.arena_text.rows = data.boards.arena_text.rows.filter(r => r.model !== 'Model B');
+  data.boards.arena_text.rows.push({id:'other', model:'Model D', score:20});
+  for (const b of Object.values(data.boards)) b.observed_at = new Date().toISOString().slice(0, 10);
+  data.boards.arena_text.last_fetch = {status:'failed', attempted_at:new Date().toISOString()};
+  const {win, doc} = await page(data, false, '');
+  assert.equal(doc.querySelectorAll('.model-row').length, 1);
+  assert.equal(doc.querySelector('.coverage').textContent, '2 evaluators');
+  assert.equal(doc.querySelectorAll('meter').length, 2);
+  assert.match(doc.querySelector('#warnings').textContent, /available · last fetch failed/);
+  assert.match(doc.querySelector('#source-health').textContent, /PublishedUnknown/);
+  const filter = doc.querySelector('#filter');
+  filter.value = 'single';
+  filter.dispatchEvent(new win.Event('change'));
+  assert.equal(doc.querySelectorAll('.model-row').length, 2);
+  assert.equal(doc.querySelector('.rank').textContent, '—');
   win.close();
 });

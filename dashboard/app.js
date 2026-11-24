@@ -15,8 +15,14 @@ function changeBoard(id, keepQuery = true) {
 }
 
 function renderTabs() {
-  $('#board-tabs').innerHTML = Object.entries(state.data.boards).map(([id, b]) => `<button class="board-tab" type="button" data-board="${esc(id)}" aria-pressed="${id === state.board}"><span class="tab-top"><span class="tab-name">${esc(b.label)}</span><span class="tab-count">${b.n_scored}</span></span><span class="tab-sub">${esc(b.subtitle)}</span></button>`).join('');
+  const entries = Object.entries(state.data.boards);
+  const buttons = entries.filter(([, b]) => b.derived).map(([id, b]) =>
+    `<button type="button" data-board="${esc(id)}" aria-pressed="${id === state.board}">${esc(b.label)} <small>${b.n_scored}</small></button>`);
+  const options = entries.filter(([, b]) => !b.derived).map(([id, b]) =>
+    `<option value="${esc(id)}" ${state.board === id ? 'selected' : ''}>${esc(b.label)}</option>`);
+  $('#board-tabs').innerHTML = buttons.join('') + `<label>Original boards <select id="source-choice"><option value="">Select source…</option>${options.join('')}</select></label>`;
   $('#board-tabs').querySelectorAll('button').forEach(button => button.addEventListener('click', () => changeBoard(button.dataset.board)));
+  $('#source-choice').addEventListener('change', event => { if (event.target.value) changeBoard(event.target.value); });
 }
 
 function renderBoard() {
@@ -31,13 +37,15 @@ function renderBoard() {
   $('#freshness').innerHTML = `<span class="pill ${status !== 'available' ? 'warning' : ''}">${esc(status === 'available' ? 'SNAPSHOT AVAILABLE' : status.toUpperCase())}</span><span>Published <strong>${esc(friendlyDate(board.published_at) || 'not supplied')}</strong></span><span>Observed <strong>${esc(friendlyDate(board.observed_at) || 'not recorded')}</strong></span>${!board.published_at ? '<span class="unknown">Evaluation date unknown</span>' : ''}`;
   const warnings = (board.warnings || []).filter(message => !message.startsWith('Evaluation/publication date'));
   if (status === 'stale' || status === 'expired') warnings.unshift(`This snapshot is ${status}. It is retained for reference, not presented as a current ranking.`);
-  if (board.last_fetch?.status === 'failed') warnings.push(`Refresh attempt ${board.last_fetch.attempted_at.slice(0, 10)}: ${board.last_fetch.error}`);
+  if (board.last_fetch?.status === 'failed') warnings.push(`Refresh attempt ${board.last_fetch.attempted_at?.slice(0, 10) || 'date unknown'}: ${board.last_fetch.error}`);
   $('#warnings').innerHTML = warnings.map(message => `<p>${esc(message)}</p>`).join('');
   if (board.derived) {
     $('#board-kicker').textContent = 'MODEL ATLAS';
-    $('#board-description').textContent = board.description;
-    $('#freshness').textContent = board.availability.join('  ·  ');
-    $('#warnings').textContent = board.n_scored ? '' : 'No entries have current results from two model evaluators.';
+    $('#board-description').textContent = board.description + ' Atlas score is the mean percentile across contributing boards.';
+    $('#freshness').innerHTML = `<span><strong>${board.n_scored}</strong> ranked · 2+ evaluators required</span><a href="#sources">Source health ↘</a>`;
+    const alerts = board.availability.filter(item => item.status !== 'available' || item.failed);
+    $('#warnings').textContent = [board.n_scored ? '' : 'No entries have current results from two model evaluators.',
+      ...alerts.map(item => `${item.label}: ${item.status}${item.failed ? ' · last fetch failed' : ''}`)].filter(Boolean).join(' · ');
   }
   const key = state.board === 'terminal_bench' ? 'harness' : 'provider';
   const options = [...new Set(board.rows.map(row => row[key]).filter(Boolean))].sort();
@@ -47,7 +55,11 @@ function renderBoard() {
     $('#filter-label').textContent = 'Weights';
     $('#filter').innerHTML = '<option value="">All entries</option><option value="open">Source-labeled open</option>';
   }
-  $('#filter').parentElement.hidden = !options.length && state.board !== 'livebench';
+  if (board.derived) {
+    $('#filter-label').textContent = 'Evidence';
+    $('#filter').innerHTML = '<option value="ranked">Ranked entries</option><option value="">All observations</option><option value="single">One evaluator only</option>';
+  }
+  $('#filter').parentElement.hidden = !options.length && state.board !== 'livebench' && !board.derived;
   const sortOptions = [{key:'score', label:'Score', type:'number'}, ...(board.columns || []).filter(c => ['money','number','integer'].includes(c.type))];
   $('#sort').innerHTML = sortOptions.map(c => `<option value="${esc(c.key)}:${c.type === 'money' ? 'asc' : 'desc'}">${esc(c.label)} · ${c.type === 'money' ? 'lowest' : 'highest'} first</option>`).join('');
   if (board.suites) $('#sort').innerHTML += board.suites.filter(key => !sortOptions.some(c => c.key === key)).map(key => `<option value="${key}:desc">${esc(key.replaceAll('_',' '))} · highest first</option>`).join('');
@@ -63,7 +75,7 @@ function detailsHTML(row, board, colspan) {
     const evidence = row.evidence.map(({source, observations}) => {
       const b = state.data.boards[source];
       const original = observations.map(r => `${esc(r.model)} · ${esc(r.score)}`).join('<br>');
-      return `<div><dt>${link(b.url, b.label)} · ${esc(b.version)}</dt><dd>${original}<br>Published ${esc(b.published_at || 'unknown')} · observed ${esc(b.observed_at || 'unknown')}</dd></div>`;
+      return `<div><dt>${link(b.url, b.label)} · ${esc(b.version)}</dt><dd>${original}<br>Source percentile ${esc(formatValue(row[source]))}<br>Published ${esc(b.published_at || 'unknown')} · observed ${esc(b.observed_at || 'unknown')}</dd></div>`;
     });
     return `<tr class="detail-row"><td colspan="${colspan}"><dl class="detail-grid">${evidence.join('')}</dl></td></tr>`;
   }
@@ -89,12 +101,13 @@ function renderRows() {
   const columns = board.columns || [];
   const activeMetric = $('#sort').value.split(':')[0];
   const visibleColumns = [...columns];
+  $('#table-container').classList.toggle('atlas-table', !!board.derived);
   if (activeMetric !== 'score' && !columns.some(c => c.key === activeMetric)) visibleColumns.push({key: activeMetric, label: activeMetric.replaceAll('_', ' '), type: 'number'});
   $('#table-container').setAttribute('aria-busy', 'false');
   if (!rows.length) {
-    $('#table-container').innerHTML = `<p class="empty">${board.rows.length ? 'No entries match these filters. Try another source — absence is not a low score.' : board.derived ? 'No current comparable observations are available.' : 'No verified snapshot is available for this board. Run a refresh or inspect the source directly.'}</p>`;
+    $('#table-container').innerHTML = `<p class="empty">${board.rows.length ? board.derived ? 'No entries match. Choose All observations to include models measured by one evaluator.' : 'No entries match these filters. Try another source.' : board.derived ? 'No current comparable observations are available.' : 'No verified snapshot is available for this board. Run a refresh or inspect the source directly.'}</p>`;
   } else {
-    $('#table-container').innerHTML = `<table><caption class="sr-only">${esc(board.label)} ${esc(board.version)}. Equal scores share a rank. Select a model to inspect evidence.</caption><thead><tr><th scope="col">Rank</th><th scope="col">Model / configuration</th><th scope="col">${esc(board.metric)}</th>${visibleColumns.map(c => `<th scope="col">${esc(c.label)}</th>`).join('')}</tr></thead><tbody>${slice.map((row, index) => `<tr class="model-row"><td class="rank">${row.rank ?? '—'}</td><td class="model-cell"><button type="button" class="model-name" data-index="${index}" aria-expanded="${state.expanded === row.id}">${esc(row.model)}<span aria-hidden="true">${state.expanded === row.id ? '−' : '+'}</span></button>${row.open_weights === true ? '<span class="entry-tag">OPEN</span>' : ''}</td><td class="score-cell">${formatValue(row.score, 'number', board.decimals)}${board.unit === 'percent' && row.score != null ? '<small>%</small>' : ''}</td>${visibleColumns.map(c => `<td class="${row[c.key] == null ? 'zero-null' : ''}">${esc(formatValue(row[c.key], c.type, c.decimals ?? board.decimals))}</td>`).join('')}</tr>${state.expanded === row.id ? detailsHTML(row, board, visibleColumns.length + 3) : ''}`).join('')}</tbody></table>`;
+    $('#table-container').innerHTML = `<table><caption class="sr-only">${esc(board.label)} ${esc(board.version)}. Equal scores share a rank. Select a model to inspect evidence.</caption><thead><tr><th scope="col">Rank</th><th scope="col">Model / configuration</th><th scope="col">${esc(board.metric)}</th>${visibleColumns.map(c => `<th scope="col" class="${board.derived ? 'component' : ''}">${esc(c.label)}${board.derived ? '<small>percentile</small>' : ''}</th>`).join('')}</tr></thead><tbody>${slice.map((row, index) => `<tr class="model-row"><td class="rank">${row.rank ?? '—'}</td><td class="model-cell"><button type="button" class="model-name" data-index="${index}" aria-expanded="${state.expanded === row.id}">${esc(row.model)}<span aria-hidden="true">${state.expanded === row.id ? '−' : '+'}</span></button>${board.derived ? `<small class="coverage">${row.evidence.length} ${row.evidence.length === 1 ? 'evaluator' : 'evaluators'}</small>` : ''}${row.open_weights === true ? '<span class="entry-tag">OPEN</span>' : ''}</td><td class="score-cell">${formatValue(row.score, 'number', board.decimals)}${board.unit === 'percent' && row.score != null ? '<small>%</small>' : ''}</td>${visibleColumns.map(c => `<td class="${board.derived ? 'component' : ''} ${row[c.key] == null ? 'zero-null' : ''}">${esc(formatValue(row[c.key], c.type, c.decimals ?? board.decimals))}${board.derived && Number.isFinite(row[c.key]) ? `<meter aria-hidden="true" min="0" max="100" value="${row[c.key]}"></meter>` : ''}</td>`).join('')}</tr>${state.expanded === row.id ? detailsHTML(row, board, visibleColumns.length + 3) : ''}`).join('')}</tbody></table>`;
     $('#table-container').querySelectorAll('button[data-index]').forEach(button => button.addEventListener('click', () => {
       const row = slice[Number(button.dataset.index)]; const index = button.dataset.index;
       state.expanded = state.expanded === row.id ? null : row.id;
@@ -123,6 +136,14 @@ async function load() {
     state.data = data;
     $('#entry-count').textContent = Object.values(data.boards).reduce((total,b) => total + b.n_scored, 0).toLocaleString('en-US');
     $('#source-count').textContent = Object.keys(data.boards).length;
+    $('#source-health').innerHTML = Object.values(data.boards).map(b => {
+      const status = boardFreshness(b, data.freshness);
+      const health = b.last_fetch?.status;
+      return `<article><h3>${link(b.url, b.label)}</h3><p>${esc(b.subtitle)} · ${esc(status)}</p><dl>
+        <dt>Published</dt><dd>${esc(friendlyDate(b.published_at) || 'Unknown')}</dd>
+        <dt>Observed</dt><dd>${esc(friendlyDate(b.observed_at) || 'Unknown')}</dd>
+        <dt>Last fetch</dt><dd>${esc([health, friendlyDate(b.last_fetch?.attempted_at)].filter(Boolean).join(' · ') || 'Unknown')}</dd></dl></article>`;
+    }).join('');
     $('#snapshot-date').textContent = friendlyDate(data.generated_at);
     data.boards = {
       atlas: atlasHierarchy(data.boards, data.freshness, false),
@@ -139,6 +160,7 @@ async function load() {
     $('#table-container').innerHTML = `<p class="empty error">${esc(error.message)}\nNo synthetic or cached rankings have been substituted. Use Reload snapshot to retry.</p>`;
     $('#table-container').setAttribute('aria-busy', 'false');
     $('#result-count').textContent = ''; $('#page-number').textContent = '';
+    $('#source-health').replaceChildren(); $('#source-count').textContent = '—'; $('#snapshot-date').textContent = '—';
     $('#entry-count').textContent = '—'; $('#previous').disabled = true; $('#next').disabled = true;
   } finally { $('#reload').disabled = false; }
 }
