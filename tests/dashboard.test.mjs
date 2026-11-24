@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {JSDOM} from 'jsdom';
+import {atlasHierarchy} from '../dashboard/hierarchy.js';
 import * as helpers from '../dashboard/model.js';
 
 const {selectRows, formatValue, boardFreshness, escapeHTML, safeURL, otherMatches} = helpers;
@@ -62,19 +63,19 @@ test('cross-source discovery is independent of benchmark eligibility', () => {
   assert.deepEqual(otherMatches(data.boards, 'artificial_analysis', ''), []);
 });
 
-async function page(data = fixture(), failing = false) {
+async function page(data = fixture(), failing = false, query = '?board=artificial_analysis') {
   const html = await readFile(new URL('../dashboard/index.html', import.meta.url), 'utf8');
   const source = await readFile(new URL('../dashboard/app.js', import.meta.url), 'utf8');
-  const dom = new JSDOM(html, {url:'https://atlas.test/dashboard/', runScripts:'outside-only'});
+  const dom = new JSDOM(html, {url:'https://atlas.test/dashboard/' + query, runScripts:'outside-only'});
   const win = dom.window;
-  Object.assign(win, helpers, {esc:helpers.escapeHTML});
+  Object.assign(win, helpers, {esc:helpers.escapeHTML, atlasHierarchy});
   win.fetch = async url => {
     if (failing) return {ok:false,status:503};
     return {ok:true, json:async () => url.endsWith('leaderboards.json') ? structuredClone(data) : {
       quality:{status:'withheld',roster_size:8,blockers:['Math evidence is absent.']},cohort_size:3,
     }};
   };
-  win.eval(source.replace(/^import .*?;\s*/s, ''));
+  win.eval(source.replace(/^import .*;$/gm, ''));
   await new Promise(resolve => setImmediate(resolve));
   return {dom, win, doc:win.document};
 }
@@ -142,5 +143,39 @@ test('HTTP failure has a recoverable error and no substitute rankings', async ()
   assert.match(doc.querySelector('.error').textContent, /HTTP 503/);
   assert.equal(doc.querySelectorAll('.model-row').length, 0);
   assert.equal(doc.querySelector('#reload').disabled, false);
+  win.close();
+});
+
+test('Atlas computes tie-aware percentiles, aggregates settings once and isolates systems', () => {
+  const data = fixture();
+  data.boards.arena_text = structuredClone(baseBoard);
+  data.boards.arena_text.rows[1].model = 'Model A (max, Default Fallback)';
+  data.boards.arena_text.rows[0].score = 100;
+  const now = new Date('2026-11-04');
+  const models = atlasHierarchy(data.boards, data.freshness, false, now);
+  assert.equal(models.n_scored, 2);
+  assert.deepEqual(models.rows.find(r => r.model === 'Model A').evidence.map(e => e.observations.length), [2, 2]);
+  assert.equal(models.rows.find(r => r.model === 'Model B').score, 0);
+  const effort = atlasHierarchy(data.boards, data.freshness, true, now);
+  assert.equal(effort.n_scored, 1);
+  const high = effort.rows.find(r => r.model === 'Model A (high)');
+  assert.deepEqual([high.rank, high.artificial_analysis, high.arena_text, high.score], [1, 75, 100, 87.5]);
+  assert.equal(effort.rows.find(r => r.model === 'Model A (max)').rank, null);
+  data.boards.arena_text.published_at = '2020-01-01';
+  assert.equal(atlasHierarchy(data.boards, data.freshness, true, now).n_scored, 0);
+});
+
+test('default dashboard shows the Atlas ranking and exact effort evidence', async () => {
+  const data = fixture();
+  data.boards.livebench = structuredClone(baseBoard);
+  for (const board of Object.values(data.boards)) board.observed_at = new Date().toISOString().slice(0, 10);
+  const {win, doc} = await page(data, false, '');
+  assert.equal(doc.querySelector('#board-title').textContent, 'Model hierarchy');
+  assert.equal(doc.querySelector('.model-name').textContent, 'Model A+');
+  doc.querySelector('[data-board="effort"]').click();
+  assert.equal(doc.querySelectorAll('.model-row').length, 2);
+  assert.deepEqual([...doc.querySelectorAll('.rank')].map(td => td.textContent), ['1', '1']);
+  doc.querySelector('.model-name').click();
+  assert.match(doc.querySelector('.detail-row').textContent, /Model A .* · 50/);
   win.close();
 });

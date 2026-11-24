@@ -1,3 +1,4 @@
+import {atlasHierarchy} from './hierarchy.js';
 import {PAGE_SIZE, escapeHTML as esc, safeURL, selectRows, formatValue, boardFreshness, otherMatches} from './model.js';
 
 const $ = selector => document.querySelector(selector);
@@ -32,6 +33,12 @@ function renderBoard() {
   if (status === 'stale' || status === 'expired') warnings.unshift(`This snapshot is ${status}. It is retained for reference, not presented as a current ranking.`);
   if (board.last_fetch?.status === 'failed') warnings.push(`Refresh attempt ${board.last_fetch.attempted_at.slice(0, 10)}: ${board.last_fetch.error}`);
   $('#warnings').innerHTML = warnings.map(message => `<p>${esc(message)}</p>`).join('');
+  if (board.derived) {
+    $('#board-kicker').textContent = 'MODEL ATLAS';
+    $('#board-description').textContent = board.description;
+    $('#freshness').textContent = board.availability.join('  ·  ');
+    $('#warnings').textContent = board.n_scored ? '' : 'No entries have current results from two model evaluators.';
+  }
   const key = state.board === 'terminal_bench' ? 'harness' : 'provider';
   const options = [...new Set(board.rows.map(row => row[key]).filter(Boolean))].sort();
   $('#filter-label').textContent = key === 'harness' ? 'Harness' : 'Creator';
@@ -45,11 +52,21 @@ function renderBoard() {
   $('#sort').innerHTML = sortOptions.map(c => `<option value="${esc(c.key)}:${c.type === 'money' ? 'asc' : 'desc'}">${esc(c.label)} · ${c.type === 'money' ? 'lowest' : 'highest'} first</option>`).join('');
   if (board.suites) $('#sort').innerHTML += board.suites.filter(key => !sortOptions.some(c => c.key === key)).map(key => `<option value="${key}:desc">${esc(key.replaceAll('_',' '))} · highest first</option>`).join('');
   $('#table-note').textContent = board.qualification;
-  renderProvenance(board);
+  if (board.derived) {
+    $('#provenance').textContent = board.qualification + ' Terminal-Bench measures model and agent systems and has its own tab.';
+  } else renderProvenance(board);
   renderRows();
 }
 
 function detailsHTML(row, board, colspan) {
+  if (board.derived) {
+    const evidence = row.evidence.map(({source, observations}) => {
+      const b = state.data.boards[source];
+      const original = observations.map(r => `${esc(r.model)} · ${esc(r.score)}`).join('<br>');
+      return `<div><dt>${link(b.url, b.label)} · ${esc(b.version)}</dt><dd>${original}<br>Published ${esc(b.published_at || 'unknown')} · observed ${esc(b.observed_at || 'unknown')}</dd></div>`;
+    });
+    return `<tr class="detail-row"><td colspan="${colspan}"><dl class="detail-grid">${evidence.join('')}</dl></td></tr>`;
+  }
   const cols = [
     ['Configuration', row.model], ['Source', board.label], ['Metric version', board.version],
     ['Published', friendlyDate(board.published_at) || 'Not supplied'],
@@ -75,16 +92,16 @@ function renderRows() {
   if (activeMetric !== 'score' && !columns.some(c => c.key === activeMetric)) visibleColumns.push({key: activeMetric, label: activeMetric.replaceAll('_', ' '), type: 'number'});
   $('#table-container').setAttribute('aria-busy', 'false');
   if (!rows.length) {
-    $('#table-container').innerHTML = `<p class="empty">${board.rows.length ? 'No entries match these filters. Try another source — absence is not a low score.' : 'No verified snapshot is available for this board. Run a refresh or inspect the source directly.'}</p>`;
+    $('#table-container').innerHTML = `<p class="empty">${board.rows.length ? 'No entries match these filters. Try another source — absence is not a low score.' : board.derived ? 'No current comparable observations are available.' : 'No verified snapshot is available for this board. Run a refresh or inspect the source directly.'}</p>`;
   } else {
-    $('#table-container').innerHTML = `<table><caption class="sr-only">${esc(board.label)} ${esc(board.version)}. Rank is the within-source score rank; ties share a rank. Select a model to inspect evidence.</caption><thead><tr><th scope="col">Rank</th><th scope="col">Model / configuration</th><th scope="col">${esc(board.metric)}</th>${visibleColumns.map(c => `<th scope="col">${esc(c.label)}</th>`).join('')}</tr></thead><tbody>${slice.map((row, index) => `<tr class="model-row"><td class="rank">${row.rank ?? '—'}</td><td class="model-cell"><button type="button" class="model-name" data-index="${index}" aria-expanded="${state.expanded === row.id}">${esc(row.model)}<span aria-hidden="true">${state.expanded === row.id ? '−' : '+'}</span></button>${row.open_weights === true ? '<span class="entry-tag">OPEN</span>' : ''}</td><td class="score-cell">${formatValue(row.score, 'number', board.decimals)}${board.unit === 'percent' && row.score != null ? '<small>%</small>' : ''}</td>${visibleColumns.map(c => `<td class="${row[c.key] == null ? 'zero-null' : ''}">${esc(formatValue(row[c.key], c.type, c.decimals ?? board.decimals))}</td>`).join('')}</tr>${state.expanded === row.id ? detailsHTML(row, board, visibleColumns.length + 3) : ''}`).join('')}</tbody></table>`;
+    $('#table-container').innerHTML = `<table><caption class="sr-only">${esc(board.label)} ${esc(board.version)}. Equal scores share a rank. Select a model to inspect evidence.</caption><thead><tr><th scope="col">Rank</th><th scope="col">Model / configuration</th><th scope="col">${esc(board.metric)}</th>${visibleColumns.map(c => `<th scope="col">${esc(c.label)}</th>`).join('')}</tr></thead><tbody>${slice.map((row, index) => `<tr class="model-row"><td class="rank">${row.rank ?? '—'}</td><td class="model-cell"><button type="button" class="model-name" data-index="${index}" aria-expanded="${state.expanded === row.id}">${esc(row.model)}<span aria-hidden="true">${state.expanded === row.id ? '−' : '+'}</span></button>${row.open_weights === true ? '<span class="entry-tag">OPEN</span>' : ''}</td><td class="score-cell">${formatValue(row.score, 'number', board.decimals)}${board.unit === 'percent' && row.score != null ? '<small>%</small>' : ''}</td>${visibleColumns.map(c => `<td class="${row[c.key] == null ? 'zero-null' : ''}">${esc(formatValue(row[c.key], c.type, c.decimals ?? board.decimals))}</td>`).join('')}</tr>${state.expanded === row.id ? detailsHTML(row, board, visibleColumns.length + 3) : ''}`).join('')}</tbody></table>`;
     $('#table-container').querySelectorAll('button[data-index]').forEach(button => button.addEventListener('click', () => {
       const row = slice[Number(button.dataset.index)]; const index = button.dataset.index;
       state.expanded = state.expanded === row.id ? null : row.id;
       renderRows(); $('#table-container').querySelector(`button[data-index="${index}"]`)?.focus({preventScroll:true});
     }));
   }
-  $('#result-count').textContent = rows.length ? `${state.page * PAGE_SIZE + 1}–${Math.min((state.page + 1) * PAGE_SIZE, rows.length)} of ${rows.length} entries · source ranks preserved` : '0 matching entries';
+  $('#result-count').textContent = rows.length ? `${state.page * PAGE_SIZE + 1}–${Math.min((state.page + 1) * PAGE_SIZE, rows.length)} of ${rows.length} entries · ${board.derived ? 'Atlas' : 'source'} ranks preserved` : '0 matching entries';
   $('#page-number').textContent = `${state.page + 1} / ${pageCount}`;
   $('#previous').disabled = state.page === 0; $('#next').disabled = state.page + 1 >= pageCount;
   const matches = otherMatches(state.data.boards, state.board, query);
@@ -107,8 +124,13 @@ async function load() {
     $('#entry-count').textContent = Object.values(data.boards).reduce((total,b) => total + b.n_scored, 0).toLocaleString('en-US');
     $('#source-count').textContent = Object.keys(data.boards).length;
     $('#snapshot-date').textContent = friendlyDate(data.generated_at);
+    data.boards = {
+      atlas: atlasHierarchy(data.boards, data.freshness, false),
+      effort: atlasHierarchy(data.boards, data.freshness, true),
+      ...data.boards,
+    };
     const requested = state.board || new URLSearchParams(location.search).get('board');
-    changeBoard(data.boards[requested] ? requested : data.default_board);
+    changeBoard(data.boards[requested] ? requested : 'atlas');
   } catch (error) {
     state.data = null;
     $('#board-title').textContent = 'Snapshot unavailable';

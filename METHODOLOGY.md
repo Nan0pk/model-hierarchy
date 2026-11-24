@@ -2,21 +2,40 @@
 
 **Version 2.1.0 · 2026-11-24**
 
-The default output is now **source-native leaderboards**, not an unsupported universal
-hierarchy. The experimental five-pillar composite is retained as a separate, gated output.
-[Version 1.1](docs/legacy-methodology-v1.1.md) is archived for historical reproducibility;
-it is **not** the specification of the current publication.
+The dashboard opens on the Atlas model hierarchy. Its inputs are the retained
+source snapshots in `output/leaderboards.json`. The four native boards and the
+experimental five-pillar composite remain independently inspectable.
 
-## 1. What a rank means
+## 1. Atlas model and effort ranks
 
-A rank compares entries **within one evaluator, metric version, and published table**.
-We preserve scores in their original units. We do not average an Arena rating with an
-Intelligence Index, normalize separate source boards into an artificial common scale,
-or count an existing index alongside its constituent benchmarks.
+Atlas uses Artificial Analysis, Arena text and LiveBench. Terminal-Bench measures a
+model paired with an agent harness and stays in the systems tab. On each dashboard
+load, only available snapshots within the registry's freshness window contribute.
+A failed refresh can still contribute its last valid snapshot during that window.
 
-Default view: Artificial Analysis's current-model Intelligence Index table. Alternatives:
-Arena style-controlled text, LiveBench 2.0, and Terminal-Bench 4.1. This is an explicit
-editorial default, not a claim that one benchmark measures all useful abilities.
+- **Model view.** Within each evaluator, take the median of a model's scored
+  configurations. Group case-insensitively by the supplied name after removing a
+  recognized parenthesized reasoning setting and its default-fallback qualifier. A trailing standalone `xHigh` also denotes effort.
+  Preserve model editions, dates and other qualifiers. A model with many settings
+  still contributes one value per evaluator.
+- **Effort view.** Keep exact labels (case-insensitive), including fallback policy.
+  Treat a trailing `xHigh` and `(xHigh)` as the same explicit setting. Rank explicitly identified settings. An unspecified effort supplies no evidence
+  for an explicit setting. Distinct vendor spellings may yield separate entries.
+- **Within-board standing.** Sort values ascending. For a roster of N ≥ 2, the
+  percentile is 100 × (number strictly below + half the number of *other* tied
+  entries) / (N − 1). For effort comparisons the reference roster includes all
+  scored configurations, even those without an explicit setting.
+- **Atlas score.** Average the available evaluator percentiles equally. Require
+  at least two contributing evaluators, round to one decimal and give ties a
+  shared competition rank. One-source observations remain searchable with their
+  source percentile and an empty Atlas score. Expand any row for the input scores.
+
+An Atlas score measures standing among the models each evaluator tested. Source
+rosters, tested settings and coverage differ. Small score gaps have no associated
+confidence guarantee. The number is neither a task success probability nor a
+prediction for an untested effort setting.
+
+### Reading a native board
 
 Ranks are descending competition ranks: `1, 2, 2, 4`. Equal supplied scores share a rank.
 For rounded public scores, we do **not** invent hidden decimal precision to break ties.

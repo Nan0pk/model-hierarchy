@@ -16,7 +16,11 @@ The previous pipeline filtered every source through OpenRouter's **ten visible u
 It eliminated most of the model roster and crowned the only remaining eligible model with a
 meaningless singleton T1. Usage is now neither an eligibility gate nor a capability score.
 
-The default publication is **source-native rankings**, not an average of incompatible indexes.
+The dashboard opens on the **Atlas model hierarchy**. It takes each model’s median
+tested score within each evaluator, converts that standing to a percentile, and
+averages across at least two current evaluators. Select **Effort levels** to rank
+exact reasoning configurations, or expand a row for its original measurements.
+Terminal-Bench stays in its own model-plus-agent view.
 The initial audited views contain 91 AA configurations, 419 Arena entries, 32 LiveBench models,
 and 23 Terminal-Bench systems. These are source entries, not distinct model families. The
 experimental geometric composite remains available but is withheld if its evidence is inadequate.

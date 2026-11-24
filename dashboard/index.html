@@ -19,9 +19,9 @@
       <section class="hero" aria-labelledby="page-title">
         <div><div class="eyebrow"><span class="status-dot"></span> THE MODEL LANDSCAPE</div>
           <h1 id="page-title">The frontier.<br><span>In perspective.</span></h1>
-          <p class="lede">A better ranking starts with better evidence. Explore the leading AI benchmarks, with original scores and model configurations — not a made-up universal winner.</p>
+          <p class="lede">Compare models across evaluators, then inspect how individual reasoning settings perform and which measurements support each rank.</p>
         </div>
-        <aside class="hero-note"><span class="small-label">THE ATLAS APPROACH</span><p>Different tests.<br>Different strengths.<br><strong>One clear view.</strong></p><div class="note-line">Source-native rankings<br>No usage-based exclusions</div></aside>
+        <aside class="hero-note"><span class="small-label">THE ATLAS APPROACH</span><p>Different tests.<br>Different strengths.<br><strong>One clear view.</strong></p><div class="note-line">Model and effort hierarchies<br>Four original source views</div></aside>
       </section>
       <section class="overview" aria-label="Dataset summary">
         <div><strong id="entry-count">—</strong><span>scored source entries</span></div>
@@ -31,7 +31,7 @@
       </section>
       <section id="leaderboard" aria-labelledby="ranking-heading">
         <div class="section-heading"><h2 id="ranking-heading">Choose your lens</h2><span>01 / RANKINGS</span></div>
-        <div id="board-tabs" class="board-tabs" role="group" aria-label="Leaderboard source"></div>
+        <div id="board-tabs" class="board-tabs" role="group" aria-label="Ranking view"></div>
         <div class="ranking-panel">
           <div class="board-heading"><div><div id="board-kicker" class="small-label">SOURCE-NATIVE RANKING</div><h3 id="board-title">Loading evidence…</h3><p id="board-description" class="muted"></p></div><a id="source-link" class="source-link" hidden target="_blank" rel="noopener">Open original board ↗</a></div>
           <div id="freshness" class="freshness" role="status"></div>
@@ -50,8 +50,8 @@
       <section id="sources" class="evidence-section" aria-labelledby="evidence-heading">
         <div class="section-heading"><h2 id="evidence-heading">Good rankings show their work.</h2><span>02 / EVIDENCE</span></div>
         <div class="principles"><article><span class="principle-number">01</span><h3>Keep the configuration.</h3><p>High, max, fallback, dated releases, and agent harnesses can change results. We keep them distinct, not silently merged.</p></article><article><span class="principle-number">02</span><h3>Show what’s unknown.</h3><p>Retrieval isn’t evaluation. Missing dates, missing scores, stale sources, and unavailable uncertainty are visible — never filled in.</p></article><article><span class="principle-number">03</span><h3>Don’t mix the scales.</h3><p>An Arena rating isn’t an intelligence score. We preserve each source’s metric and leave usage, popularity, and price out of capability ranks.</p></article></div>
-        <details class="source-details" open><summary>Selected source: provenance & qualifications</summary><div id="provenance"></div></details>
-        <details class="source-details"><summary>Why there isn’t a universal tier list</summary><div id="composite-audit"><p>A composite needs enough comparable evidence across capability domains. Loading the evidence audit…</p></div></details>
+        <details class="source-details" open><summary>Selected ranking method and evidence</summary><div id="provenance"></div></details>
+        <details class="source-details"><summary>Experimental five-pillar composite audit</summary><div id="composite-audit"><p>A composite needs enough comparable evidence across capability domains. Loading the evidence audit…</p></div></details>
       </section>
     </main>
     <footer><div class="brand footer-brand">Model Atlas<span class="version">02</span></div><p>Independent explorer. Scores belong to their original evaluators.<br>Benchmark performance is evidence, not a guarantee of real-world performance.</p><div><a href="../METHODOLOGY.md">Methodology ↗</a><a href="../output/leaderboards.json" download>JSON ↓</a><a href="../output/leaderboards.csv" download>CSV ↓</a><a href="https://github.com/Nan0pk/model-hierarchy/actions/workflows/daily.yml" target="_blank" rel="noopener">Refresh workflow ↗</a></div></footer>
