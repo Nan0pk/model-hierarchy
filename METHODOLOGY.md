@@ -24,8 +24,9 @@ A failed refresh can still contribute its last valid snapshot during that window
   Treat a trailing `xHigh` and `(xHigh)` as the same explicit setting. Rank explicitly identified settings. An unspecified effort supplies no evidence
   for an explicit setting. Distinct vendor spellings may yield separate entries.
 - **Within-board standing.** The reference field is the set of entries that appear
-  on at least two current evaluators, so every board grades the same contenders and
-  a board padded with older single-board models cannot inflate them. An entry's
+  on at least two current evaluators. Each board ranks the shared models it scored,
+  so padding a board with single-board entries cannot inflate them. A model is still
+  averaged over only the evaluators that scored it. An entry's
   percentile is 100 × (field members strictly below + half the tied *other* members)
   / (number of other field members). Entries outside the field are placed against
   it the same way. The effort view uses only explicitly identified settings as its field.

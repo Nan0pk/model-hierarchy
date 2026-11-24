@@ -113,6 +113,6 @@ export function atlasHierarchy(boards, freshness, byEffort, now = new Date(), al
     description: byEffort ? 'Each explicitly labeled effort and fallback configuration has its own entry.'
       : 'Each model contributes one median tested score per evaluator, across its observed settings.',
     metric: 'Atlas score', decimals: 1, columns, rows, n_scored: ranked.length, availability,
-    qualification: 'Atlas averages within-board percentiles from at least two current model evaluators. Each percentile compares only entries that appear on two or more evaluators, so every board grades the same contenders; single-evaluator entries are placed against that same field. A dash in Atlas score means only one evaluator contributed. AA $/task is the reported cost per task, summarized by the median of priced settings for a model. A rounded $0.00 can represent a small cost. Expand a row for configuration prices and LiveBench cost per successful task.',
+    qualification: 'Atlas averages within-board percentiles from at least two current model evaluators. Each board ranks only the entries that appear on two or more evaluators, so padding a board with single-board entries cannot inflate them; single-evaluator entries are placed against that field. A dash in Atlas score means only one evaluator contributed. AA $/task is the reported cost per task, summarized by the median of priced settings for a model. A rounded $0.00 can represent a small cost. Expand a row for configuration prices and LiveBench cost per successful task.',
   };
 }
