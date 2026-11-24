@@ -191,7 +191,7 @@ test('ranking coverage, one-source filter, and fetch health stay distinct', asyn
   const {win, doc} = await page(data, false, '');
   assert.equal(doc.querySelectorAll('.model-row').length, 1);
   assert.equal(doc.querySelector('.coverage').textContent, '2 evaluators');
-  assert.equal(doc.querySelectorAll('meter').length, 2);
+  assert.equal(doc.querySelectorAll('.heat-tile').length, 2);
   assert.match(doc.querySelector('#warnings').textContent, /available · last fetch failed/);
   assert.match(doc.querySelector('#source-health').textContent, /PublishedUnknown/);
   const filter = doc.querySelector('#filter');
@@ -199,6 +199,9 @@ test('ranking coverage, one-source filter, and fetch health stay distinct', asyn
   filter.dispatchEvent(new win.Event('change'));
   assert.equal(doc.querySelectorAll('.model-row').length, 2);
   assert.equal(doc.querySelector('.rank').textContent, '—');
+  assert.equal(doc.querySelectorAll('.heat--1').length, 2);
+  assert.equal(doc.querySelectorAll('.heat-tile.heat-0').length, 2);
+  assert.match(doc.querySelector('.heat-tile.heat-0').textContent, /0\.0/);
   win.close();
 });
 

@@ -30,8 +30,6 @@ function renderBoard() {
   $('.ranking-panel').dataset.source = state.board;
   renderTabs();
   $('#board-title').textContent = board.version;
-  $('#board-kicker').textContent = `${board.label} / ${board.unit === 'percent' ? 'SYSTEM PERFORMANCE' : 'SOURCE-NATIVE RANKING'}`;
-  $('#board-description').textContent = state.board === 'terminal_bench' ? 'A model + agent comparison. Different harnesses are different systems.' : `${board.metric} · original source scale · exact configurations retained`;
   const sourceURL = safeURL(board.url); $('#source-link').hidden = !sourceURL;
   if (sourceURL) $('#source-link').href = sourceURL;
   const status = boardFreshness(board, state.data.freshness);
@@ -41,13 +39,14 @@ function renderBoard() {
   if (board.last_fetch?.status === 'failed') warnings.push(`Refresh attempt ${board.last_fetch.attempted_at?.slice(0, 10) || 'date unknown'}: ${board.last_fetch.error}`);
   $('#warnings').innerHTML = warnings.map(message => `<p>${esc(message)}</p>`).join('');
   if (board.derived) {
-    $('#board-kicker').textContent = 'MODEL ATLAS';
-    $('#board-description').textContent = board.description + ' Atlas score is the mean percentile across contributing boards.';
-    $('#freshness').innerHTML = `<span><strong>${board.n_scored}</strong> ranked · 2+ evaluators required</span><a href="#sources">Source health ↘</a>`;
+    $('#freshness').innerHTML = `<span><strong>${board.n_scored}</strong> ranked · at least two evaluators</span>`;
     const alerts = board.availability.filter(item => item.status !== 'available' || item.failed);
     $('#warnings').textContent = [board.n_scored ? '' : 'No entries have current results from two model evaluators.',
       ...alerts.map(item => `${item.label}: ${item.status}${item.failed ? ' · last fetch failed' : ''}`)].filter(Boolean).join(' · ');
   }
+  $('#heat-key').hidden = !board.derived;
+  $('#heat-key').innerHTML = '<strong>Percentile</strong>' + percentileBands.map(([, label], i) =>
+    `<span><i class="heat-${i}" aria-hidden="true"></i>${esc(label)}</span>`).join('');
   const key = state.board === 'terminal_bench' ? 'harness' : 'provider';
   const options = [...new Set(board.rows.map(row => row[key]).filter(Boolean))].sort();
   $('#filter-label').textContent = key === 'harness' ? 'Harness' : 'Creator';
@@ -58,15 +57,15 @@ function renderBoard() {
   }
   if (board.derived) {
     $('#filter-label').textContent = 'Evidence';
-    $('#filter').innerHTML = '<option value="ranked">Ranked entries</option><option value="">All observations</option><option value="single">One evaluator only</option>';
+    $('#filter').innerHTML = '<option value="ranked">Ranked</option><option value="">All observations</option><option value="single">One evaluator only</option>';
   }
   $('#filter').parentElement.hidden = !options.length && state.board !== 'livebench' && !board.derived;
   const sortOptions = [{key:'score', label:'Score', type:'number'}, ...(board.columns || []).filter(c => ['money','number','integer'].includes(c.type))];
-  $('#sort').innerHTML = sortOptions.map(c => `<option value="${esc(c.key)}:${c.type === 'money' ? 'asc' : 'desc'}">${esc(c.label)} · ${c.type === 'money' ? 'lowest' : 'highest'} first</option>`).join('');
+  $('#sort').innerHTML = sortOptions.map(c => `<option value="${esc(c.key)}:${c.type === 'money' ? 'asc' : 'desc'}">${esc(c.label)} ${c.type === 'money' ? '↑' : '↓'}</option>`).join('');
   if (board.suites) $('#sort').innerHTML += board.suites.filter(key => !sortOptions.some(c => c.key === key)).map(key => `<option value="${key}:desc">${esc(key.replaceAll('_',' '))} · highest first</option>`).join('');
   $('#table-note').textContent = board.qualification;
   if (board.derived) {
-    $('#provenance').textContent = board.qualification + ' Terminal-Bench measures model and agent systems and has its own tab.';
+    $('#provenance').textContent = board.description + ' ' + board.qualification + ' Terminal-Bench measures model and agent systems and has its own tab.';
   } else renderProvenance(board);
   renderRows();
 }
@@ -96,6 +95,20 @@ function detailsHTML(row, board, colspan) {
   return `<tr class="detail-row"><td colspan="${colspan}"><dl class="detail-grid">${cols.map(([label,value]) => `<div><dt>${esc(label)}</dt><dd>${esc(value)}</dd></div>`).join('')}</dl>${link(board.source || board.url, 'Verify at the original source')}</td></tr>`;
 }
 
+// Common, fixed bands keep the same score the same color across every evaluator and page.
+const percentileBands = [[0, '<50'], [50, '50–<75'], [75, '75–<90'], [90, '90–<95'], [95, '95–100']];
+const shortSources = {artificial_analysis: 'AA', arena_text: 'Arena', livebench: 'LiveBench'};
+
+function metricCell(row, column, board) {
+  const value = row[column.key];
+  const formatted = esc(formatValue(value, column.type, column.decimals ?? board.decimals));
+  if (board.derived && column.type === 'number') {
+    const band = Number.isFinite(value) ? percentileBands.findLastIndex(([floor]) => Number(value.toFixed(1)) >= floor) : -1;
+    return `<td class="heat-cell" data-source="${esc(column.key)}"><span class="heat-tile heat-${band}" title="${esc(column.label)} percentile: ${formatted}"><small>${esc(shortSources[column.key] || column.label)}</small>${formatted}</span></td>`;
+  }
+  return `<td data-source="${esc(column.key)}" class="${value == null ? 'zero-null' : ''}">${formatted}</td>`;
+}
+
 function renderRows() {
   if (!state.data) return;
   const board = state.data.boards[state.board];
@@ -113,7 +126,7 @@ function renderRows() {
   if (!rows.length) {
     $('#table-container').innerHTML = `<p class="empty">${board.rows.length ? board.derived ? 'No entries match. Choose All observations to include models measured by one evaluator.' : 'No entries match these filters. Try another source.' : board.derived ? 'No current comparable observations are available.' : 'No verified snapshot is available for this board. Run a refresh or inspect the source directly.'}</p>`;
   } else {
-    $('#table-container').innerHTML = `<table><caption class="sr-only">${esc(board.label)} ${esc(board.version)}. Equal scores share a rank. Select a model to inspect evidence.</caption><thead><tr><th scope="col">Rank</th><th scope="col">Model / configuration</th><th scope="col">${esc(board.metric)}</th>${visibleColumns.map(c => `<th scope="col" data-source="${esc(c.key)}" class="${board.derived && c.type !== 'money' ? 'component' : ''}">${esc(c.label)}${board.derived ? `<small>${esc(c.subtitle || 'percentile')}</small>` : ''}</th>`).join('')}</tr></thead><tbody>${slice.map((row, index) => `<tr class="model-row"><td class="rank">${row.rank ?? '—'}</td><td class="model-cell"><button type="button" class="model-name" data-index="${index}" aria-expanded="${state.expanded === row.id}">${esc(row.model)}<span aria-hidden="true">${state.expanded === row.id ? '−' : '+'}</span></button>${board.derived ? `<small class="coverage">${row.evidence.length} ${row.evidence.length === 1 ? 'evaluator' : 'evaluators'}</small>` : ''}${row.open_weights === true ? '<span class="entry-tag">OPEN</span>' : ''}</td><td class="score-cell">${formatValue(row.score, 'number', board.decimals)}${board.unit === 'percent' && row.score != null ? '<small>%</small>' : ''}</td>${visibleColumns.map(c => `<td data-source="${esc(c.key)}" class="${board.derived && c.type !== 'money' ? 'component' : ''} ${row[c.key] == null ? 'zero-null' : ''}">${esc(formatValue(row[c.key], c.type, c.decimals ?? board.decimals))}${board.derived && c.type !== 'money' && Number.isFinite(row[c.key]) ? `<meter aria-hidden="true" min="0" max="100" value="${row[c.key]}"></meter>` : ''}</td>`).join('')}</tr>${state.expanded === row.id ? detailsHTML(row, board, visibleColumns.length + 3) : ''}`).join('')}</tbody></table>`;
+    $('#table-container').innerHTML = `<table><caption class="sr-only">${esc(board.label)} ${esc(board.version)}. Equal scores share a rank. Select a model to inspect evidence.</caption><thead><tr><th scope="col" aria-label="Rank">#</th><th scope="col">Model / configuration</th><th scope="col">${esc(board.metric)}</th>${visibleColumns.map(c => `<th scope="col" data-source="${esc(c.key)}" class="${board.derived && c.type !== 'money' ? 'component' : ''}">${esc(c.label)}${board.derived ? `<small>${esc(c.subtitle || 'percentile')}</small>` : ''}</th>`).join('')}</tr></thead><tbody>${slice.map((row, index) => `<tr class="model-row"><td class="rank">${row.rank ?? '—'}</td><td class="model-cell"><button type="button" class="model-name" data-index="${index}" aria-expanded="${state.expanded === row.id}">${esc(row.model)}<span aria-hidden="true">${state.expanded === row.id ? '−' : '+'}</span></button>${board.derived ? `<small class="coverage">${row.evidence.length} ${row.evidence.length === 1 ? 'evaluator' : 'evaluators'}</small>` : ''}${row.open_weights === true ? '<span class="entry-tag">OPEN</span>' : ''}</td><td class="score-cell">${formatValue(row.score, 'number', board.decimals)}${board.unit === 'percent' && row.score != null ? '<small>%</small>' : ''}</td>${visibleColumns.map(c => metricCell(row, c, board)).join('')}</tr>${state.expanded === row.id ? detailsHTML(row, board, visibleColumns.length + 3) : ''}`).join('')}</tbody></table>`;
     $('#table-container').querySelectorAll('button[data-index]').forEach(button => button.addEventListener('click', () => {
       const row = slice[Number(button.dataset.index)]; const index = button.dataset.index;
       state.expanded = state.expanded === row.id ? null : row.id;
@@ -161,6 +174,7 @@ async function load() {
   } catch (error) {
     state.data = null;
     $('#board-title').textContent = 'Snapshot unavailable';
+    $('#heat-key').hidden = true;
     $('#board-tabs').replaceChildren(); $('#warnings').replaceChildren(); $('#freshness').replaceChildren();
     $('#source-link').hidden = true; $('#provenance').replaceChildren(); $('#discovery').replaceChildren();
     $('#table-container').innerHTML = `<p class="empty error">${esc(error.message)}\nNo synthetic or cached rankings have been substituted. Use Reload snapshot to retry.</p>`;
