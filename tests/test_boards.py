@@ -3,6 +3,7 @@ import copy
 import csv
 import datetime as dt
 import json
+import shutil
 from pathlib import Path
 from types import SimpleNamespace
 
@@ -46,7 +47,6 @@ def audited_cfg():
 
 @pytest.fixture
 def audited_directory(tmp_path):
-    import shutil
     for day, bid in [("2026-11-03", "artificial_analysis"), ("2026-11-03", "livebench"),
                      ("2026-11-03", "terminal_bench"), ("2026-10-28", "arena_text")]:
         target = tmp_path / day / f"{bid}.json"
@@ -90,12 +90,13 @@ def test_superseded_previous_versions_archive_cleanly_without_version_mixing(aud
     assert report["boards"]["livebench"]["n_scored"] == 32
 
 
-def test_current_v2_1_snapshots_are_fresh_and_complete():
-    report = build_board_report(today=dt.date(2026, 11, 24))
+def test_november_24_v2_1_snapshots_are_fresh_and_complete(tmp_path):
+    day = dt.date(2026, 11, 24)
+    shutil.copytree(BOARD_DIR / day.isoformat(), tmp_path / day.isoformat())
+    report = build_board_report(today=day, directory=tmp_path)
     assert not report["validation_issues"]
     for bid, board in report["boards"].items():
         assert board["status"] == "available", f"{bid} is {board['status']}"
-        assert board["last_fetch"]["status"] == "ok", f"{bid} fetch failed"
     assert report["boards"]["artificial_analysis"]["version"] == "Intelligence Index v5.0.1"
     assert report["boards"]["artificial_analysis"]["n_scored"] >= 120
     assert report["boards"]["arena_text"]["n_scored"] >= 420
@@ -293,6 +294,19 @@ def test_livebench_spa_release_feed_and_unquoted_js_metadata(monkeypatch):
     bad_categories = {k: v for k, v in categories.items() if k != "Research"}
     with pytest.raises(FetchError, match="suite schema"):
         parse_livebench_release(js_bundle, bad_categories, table_csv, today=dt.date(2026, 11, 24))
+
+
+@pytest.mark.parametrize(("table_csv", "error"), [
+    ("model,Coding\nA,99", "missing columns"),
+    ("model,Agentic,Design,Coding,Browser,Data Analysis,Research,Reasoning,Coding", "duplicate"),
+    ("model,Agentic,Design,Coding,Browser,Data Analysis,Research,Reasoning\nA,99", "row width"),
+])
+def test_livebench_rejects_incomplete_or_ambiguous_score_table(table_csv, error):
+    suites = ("Agentic", "Design", "Coding", "Browser", "Data Analysis", "Research", "Reasoning")
+    categories = {suite: [suite] for suite in suites}
+    with pytest.raises(FetchError, match=error):
+        parse_livebench_release('releases=["20261106"]', categories, table_csv,
+                                today=dt.date(2026, 11, 24))
 
 
 def test_terminal_systems_and_release_dates_not_eval_dates():

@@ -301,8 +301,21 @@ def parse_livebench_release(
             if crow.get("model"):
                 cost_by_model[crow["model"].strip()] = crow
 
+    reader = csv.DictReader(io.StringIO(table_csv))
+    headers = reader.fieldnames or []
+    if len(headers) != len(set(headers)):
+        raise FetchError("LiveBench score table has duplicate column names")
+    required = {"model"}
+    for _, columns in suite_columns.values():
+        required.update(columns)
+    missing = required.difference(headers)
+    if missing:
+        raise FetchError(f"LiveBench score table missing columns: {', '.join(sorted(missing))}")
+
     rows = []
-    for raw_row in csv.DictReader(io.StringIO(table_csv)):
+    for raw_row in reader:
+        if None in raw_row or None in raw_row.values():
+            raise FetchError(f"Unexpected LiveBench row width at line {reader.line_num}")
         model_key = (raw_row.get("model") or "").strip()
         if not model_key:
             continue
