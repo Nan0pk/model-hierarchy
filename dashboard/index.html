@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Explore source-native AI rankings from Artificial Analysis, Arena, LiveBench and Terminal-Bench. Original scores, exact model configurations, and transparent evidence.">
   <title>Model Atlas — AI rankings, in perspective</title>
-  <link rel="stylesheet" href="styles.css?v=315555b245">
+  <link rel="stylesheet" href="styles.css?v=640eb00eb1">
   <!-- Start the data and module downloads with the HTML instead of after app.js runs. -->
   <link rel="preload" href="../output/leaderboards.json" as="fetch" crossorigin="anonymous">
   <link rel="modulepreload" href="hierarchy.js">
   <link rel="modulepreload" href="model.js">
-  <script type="module" src="app.js?v=155529995b"></script>
+  <script type="module" src="app.js?v=b6649c746a"></script>
 </head>
 <body>
   <a class="skip" href="#leaderboard">Skip to rankings</a>
@@ -24,10 +24,12 @@
         <div class="title-line"><h1 id="board-title">Model rankings</h1>
           <div class="build-info">Snapshot <strong id="snapshot-date">—</strong><button id="reload" type="button">↻ Reload</button></div>
         </div>
+        <p class="tagline">One fair ranking from three independent evaluators, with the price of each task beside it.</p>
         <div id="board-tabs" class="lens-switch" role="group" aria-label="Ranking view"></div>
         <div class="ranking-panel">
           <div class="board-meta"><div id="freshness" class="freshness" role="status"></div><a id="source-link" hidden target="_blank" rel="noopener">Original board ↗</a></div>
           <div id="warnings" class="warnings" role="status"></div>
+          <section id="spotlight" aria-label="Highlights" hidden></section>
           <div class="toolbar">
             <label class="search-box"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Search models…" aria-label="Search the selected leaderboard"></label>
             <label class="filter-label"><span id="filter-label">Creator</span><select id="filter"><option value="">All</option></select></label>

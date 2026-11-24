@@ -23,7 +23,10 @@ the models at least two evaluators share, and
 averages across at least two current evaluators. Because LiveBench's field is
 stronger than Arena's or AA's, each board gets a fitted offset so a model that skipped
 a harder board gains nothing from it; models on every board keep their plain average.
-The ranking is also published as [`output/atlas.csv`](output/atlas.csv). Select **Effort levels** to rank
+The ranking is also published as [`output/atlas.csv`](output/atlas.csv).
+Above the table, three picks (top model, best under $1 per task, cheapest in the top 10)
+and a **value map** of Atlas score against cost per task show the best-value frontier:
+the models nothing else beats on both score and price. Select **Effort levels** to rank
 exact reasoning configurations, or expand a row for its original measurements.
 Terminal-Bench stays in its own model-plus-agent view.
 The initial audited views contain 91 AA configurations, 419 Arena entries, 32 LiveBench models,

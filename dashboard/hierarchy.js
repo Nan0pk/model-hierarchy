@@ -117,6 +117,8 @@ export function atlasHierarchy(boards, freshness, byEffort, now = new Date(), al
     }
   }
   const rows = [...combined.values()];
+  // An evaluator with no entries in this view (e.g. LiveBench lists no explicit effort settings) gets no column.
+  for (let i = columns.length - 1; i >= 0; i--) if (!rows.some(r => r[columns[i].key] != null)) columns.splice(i, 1);
   const eligible = rows.filter(row => row.evidence.length >= 2 && row.evidence.every(e => row[e.source] != null));
   const offsets = fieldOffsets(eligible, columns.filter(c => c.key !== 'cost_per_task').map(c => c.key));
   for (const row of eligible) {

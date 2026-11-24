@@ -6,7 +6,7 @@ import {atlasHierarchy} from '../dashboard/hierarchy.js';
 import * as helpers from '../dashboard/model.js';
 import {atlasExport, atlasCSV} from '../dashboard/export.mjs';
 
-const {selectRows, formatValue, boardFreshness, escapeHTML, safeURL, otherMatches} = helpers;
+const {selectRows, formatValue, boardFreshness, escapeHTML, safeURL, otherMatches, valueFrontier, spotlightPicks} = helpers;
 const baseBoard = {
   label: 'Test evaluator', version: 'Test v1', subtitle: 'Test only', metric: 'Score', unit: 'points',
   decimals: 1, published_at: null, observed_at: '2026-11-03', status: 'available',
@@ -314,4 +314,42 @@ test('the Atlas export publishes the same ranking the dashboard shows', () => {
   const csv = atlasCSV(report).trim().split('\n');
   assert.match(csv[0], /^view,rank,model,atlas_score,evaluators,/);
   assert.equal(csv.length, 1 + report.models.n_ranked + report.effort_levels.n_ranked);
+});
+
+test('value frontier keeps only models nothing beats on both score and price', () => {
+  const row = (id, rank, score, cost) => ({id, model: id, rank, score, cost_per_task: cost});
+  const rows = [row('top', 1, 95, 3), row('pricey', 2, 90, 9), row('mid', 3, 80, 1.5), row('cheap', 4, 70, 0.5),
+    row('free', 5, 60, 0), row('unpriced', 6, 65, null), row('unranked', null, 99, 0.1), row('tie', 7, 70, 0.5)];
+  const {priced, frontier} = valueFrontier(rows);
+  assert.deepEqual(frontier.map(r => r.id), ['cheap', 'mid', 'top']);  // 'tie' adds nothing; $0 cannot be plotted on a log axis
+  assert.equal(priced.length, 5);
+  assert.deepEqual(spotlightPicks(rows).map(p => [p.key, p.row.id]), [['top', 'top'], ['budget', 'cheap'], ['value', 'free']]);
+  // The leader is also the cheapest of the top 10: it is shown once.
+  rows[0].cost_per_task = 0.2;
+  assert.deepEqual(spotlightPicks(rows).map(p => p.key), ['top', 'value']);
+});
+
+test('spotlight shows on Atlas views only and never invents a price', async () => {
+  const data = fixture();
+  data.boards.arena_text = structuredClone(baseBoard);
+  for (const b of Object.values(data.boards)) b.observed_at = new Date().toISOString().slice(0, 10);
+  const {win, doc} = await page(data, false, '');
+  assert.equal(doc.querySelector('#spotlight').hidden, false);
+  assert.equal(doc.querySelector('.pick-top h3').textContent, 'Model A');
+  assert.equal(doc.querySelectorAll('.medal').length, 2);
+  assert.ok(!doc.querySelector('.value-map'));  // fewer than three priced models: no chart
+  doc.querySelector('#source-choice').value = 'arena_text';
+  doc.querySelector('#source-choice').dispatchEvent(new win.Event('change'));
+  assert.equal(doc.querySelector('#spotlight').hidden, true);
+  win.close();
+});
+
+test('index.html version stamps match the shipped CSS and JS, so returning visitors get new code', async () => {
+  const {createHash} = await import('node:crypto');
+  const html = await readFile(new URL('../dashboard/index.html', import.meta.url), 'utf8');
+  for (const file of ['styles.css', 'app.js']) {
+    const body = await readFile(new URL(`../dashboard/${file}`, import.meta.url));
+    const stamp = createHash('sha256').update(body).digest('hex').slice(0, 10);
+    assert.match(html, new RegExp(`${file.replace('.', '\\.')}\\?v=${stamp}`), `bump ${file}?v= to ${stamp}`);
+  }
 });

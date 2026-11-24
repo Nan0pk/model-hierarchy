@@ -42,3 +42,23 @@ export function otherMatches(boards, selected, query) {
   if (!query.trim()) return [];
   return Object.entries(boards).filter(([id]) => id !== selected).map(([id, board]) => ({id, label: board.label, count: selectRows(board, {query}).length})).filter(item => item.count > 0);
 }
+// Ranked, priced rows that no other row beats on both score and cost, cheapest first.
+export function valueFrontier(rows) {
+  const priced = rows.filter(r => r.rank != null && Number.isFinite(r.score) && Number.isFinite(r.cost_per_task) && r.cost_per_task > 0)
+    .sort((a, b) => a.cost_per_task - b.cost_per_task || b.score - a.score);
+  const frontier = [];
+  for (const row of priced) if (!frontier.length || row.score > frontier[frontier.length - 1].score) frontier.push(row);
+  return {priced, frontier};
+}
+// Up to three headline picks; a model appears once, under the first pick it wins.
+export function spotlightPicks(rows) {
+  const ranked = rows.filter(r => r.rank != null).sort((a, b) => a.rank - b.rank);
+  const priced = ranked.filter(r => Number.isFinite(r.cost_per_task));
+  const picks = [
+    {key: 'top', label: 'Top of the hierarchy', row: ranked[0]},
+    {key: 'budget', label: 'Best under $1 per task', row: priced.find(r => r.cost_per_task < 1)},
+    {key: 'value', label: 'Cheapest in the top 10', row: [...priced.filter(r => r.rank <= 10)].sort((a, b) => a.cost_per_task - b.cost_per_task)[0]},
+  ];
+  const seen = new Set();
+  return picks.filter(p => p.row && !seen.has(p.row.id) && seen.add(p.row.id));
+}

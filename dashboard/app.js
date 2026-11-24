@@ -1,5 +1,5 @@
 import {atlasHierarchy} from './hierarchy.js';
-import {PAGE_SIZE, escapeHTML as esc, safeURL, selectRows, formatValue, boardFreshness, otherMatches} from './model.js';
+import {PAGE_SIZE, escapeHTML as esc, safeURL, selectRows, formatValue, boardFreshness, otherMatches, valueFrontier, spotlightPicks} from './model.js';
 
 const $ = selector => document.querySelector(selector);
 const state = {data: null, board: '', page: 0, expanded: null};
@@ -44,6 +44,7 @@ function renderBoard() {
     $('#warnings').textContent = [board.n_scored ? '' : 'No entries have current results from two model evaluators.',
       ...alerts.map(item => `${item.label}: ${item.status}${item.failed ? ' · last fetch failed' : ''}`)].filter(Boolean).join(' · ');
   }
+  renderSpotlight(board);
   heatKey.hidden = !board.derived;
   heatKey.innerHTML = '<strong>Percentile</strong>' + percentileBands.map(([, label], i) =>
     `<span><i class="heat-${i}" aria-hidden="true"></i>${esc(label)}</span>`).join('');
@@ -63,7 +64,9 @@ function renderBoard() {
   const sortOptions = [{key:'score', label:'Score', type:'number'}, ...(board.columns || []).filter(c => ['money','number','integer'].includes(c.type))];
   $('#sort').innerHTML = sortOptions.map(c => `<option value="${esc(c.key)}:${c.type === 'money' ? 'asc' : 'desc'}">${esc(c.label)} ${c.type === 'money' ? '↑' : '↓'}</option>`).join('');
   if (board.suites) $('#sort').innerHTML += board.suites.filter(key => !sortOptions.some(c => c.key === key)).map(key => `<option value="${key}:desc">${esc(key.replaceAll('_',' '))} · highest first</option>`).join('');
-  $('#table-note').textContent = board.qualification;
+  $('#table-note').textContent = board.derived
+    ? 'Tiles are each evaluator’s percentile among shared models; the Atlas score averages them after a strength offset per evaluator. A dash means no result — never a zero. Full method under Benchmark evidence.'
+    : board.qualification;
   if (board.derived) {
     $('#provenance').textContent = board.description + ' ' + board.qualification + ' Terminal-Bench measures model and agent systems and has its own tab.';
   } else renderProvenance(board);
@@ -104,16 +107,75 @@ if (!heatKey.id) {
   $('#table-container').before(heatKey);
 }
 const shortSources = {artificial_analysis: 'AA', arena_text: 'Arena', livebench: 'LiveBench'};
+// Older cached pages predate the spotlight band.
+const spotlight = $('#spotlight') || document.createElement('section');
+if (!spotlight.id) {
+  spotlight.id = 'spotlight';
+  $('.toolbar').before(spotlight);
+}
+const money = value => formatValue(value, 'money', 2);
+
+function heatBand(value) {
+  let band = -1;
+  if (Number.isFinite(value)) {
+    const rounded = Number(value.toFixed(1));
+    for (let i = 0; i < percentileBands.length && rounded >= percentileBands[i][0]; i++) band = i;
+  }
+  return band;
+}
+
+// Cost (log scale) against Atlas score; the frontier is every model nothing beats on both.
+function valueMap(rows) {
+  const {priced, frontier} = valueFrontier(rows);
+  if (priced.length < 3) return '';
+  const W = 560, H = 310, L = 44, R = 16, T = 34, B = 36;
+  const costs = priced.map(r => r.cost_per_task), scores = priced.map(r => r.score);
+  const lo = Math.log10(Math.min(...costs) / 1.3), hi = Math.log10(Math.max(...costs) * 1.3);
+  const yMin = Math.max(0, Math.floor((Math.min(...scores) - 5) / 10) * 10), yMax = Math.min(100, Math.ceil((Math.max(...scores) + 2) / 10) * 10);
+  const x = c => L + (Math.log10(c) - lo) / (hi - lo) * (W - L - R);
+  const y = s => T + (yMax - Math.min(yMax, s)) / (yMax - yMin) * (H - T - B);
+  const ticks = [0.05, 0.1, 0.25, 0.5, 1, 2, 5, 10, 20, 50].filter(c => Math.log10(c) > lo && Math.log10(c) < hi);
+  const grid = [];
+  for (let s = yMin; s <= yMax; s += 10) grid.push(`<line x1="${L}" x2="${W - R}" y1="${y(s)}" y2="${y(s)}"/><text class="axis" x="${L - 6}" y="${y(s) + 4}" text-anchor="end">${s}</text>`);
+  for (const c of ticks) grid.push(`<line x1="${x(c)}" x2="${x(c)}" y1="${T}" y2="${H - B}"/><text class="axis" x="${x(c)}" y="${H - B + 16}" text-anchor="middle">$${c}</text>`);
+  const onFrontier = new Set(frontier.map(r => r.id));
+  const dots = priced.filter(r => !onFrontier.has(r.id)).map(r =>
+    `<circle class="dot" cx="${x(r.cost_per_task)}" cy="${y(r.score)}" r="4.5"><title>${esc(r.model)} · Atlas ${formatValue(r.score)} · ${money(r.cost_per_task)}/task</title></circle>`);
+  const line = frontier.map(r => `${x(r.cost_per_task)},${y(r.score)}`).join(' ');
+  // Name only the competitive end of the frontier, nudging labels apart so they never overlap.
+  // Labels stack upward into the empty region above the frontier (nothing is cheaper and better).
+  const named = frontier.filter(r => r.score >= frontier[frontier.length - 1].score - 30);
+  let lastY = Infinity;
+  const labels = new Map(named.map(r => { lastY = Math.min(y(r.score) - 8, lastY - 18); return [r.id, lastY]; }));
+  const best = frontier.map(r => {
+    const px = x(r.cost_per_task), py = y(r.score);
+    const label = labels.has(r.id) ? `<text x="${px - 10}" y="${labels.get(r.id)}" text-anchor="end">${esc(r.model)} · ${money(r.cost_per_task)}</text>` : '';
+    return `<g class="frontier-point"><circle cx="${px}" cy="${py}" r="${labels.has(r.id) ? 6.5 : 4.5}"><title>${esc(r.model)} · Atlas ${formatValue(r.score)} · ${money(r.cost_per_task)}/task</title></circle>${label}</g>`;
+  });
+  return `<figure class="value-map"><figcaption><strong>Value map</strong> · Atlas score against AA cost per task. <span class="frontier-key">Line</span> = best score at each price.</figcaption>
+    <svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Atlas score against cost per task for ${priced.length} priced models. Best-value frontier: ${esc(frontier.map(r => r.model).join(', '))}.">
+    <g class="grid">${grid.join('')}</g><text class="axis-title" x="${W - R}" y="${H - 4}" text-anchor="end">cost per task (log) →</text><text class="axis-title" x="${L}" y="${T - 3}">↑ Atlas</text>
+    ${dots.join('')}<polyline class="frontier" points="${line}"/>${best.join('')}</svg></figure>`;
+}
+
+function renderSpotlight(board) {
+  spotlight.hidden = !board.derived;
+  if (!board.derived) { spotlight.replaceChildren(); return; }
+  const icons = {top: '🏆', budget: '💸', value: '⚖️'};
+  const cards = spotlightPicks(board.rows).map(({key, label, row}) => `<article class="pick pick-${key}">
+    <p class="pick-label"><span aria-hidden="true">${icons[key]}</span> ${esc(label)}</p>
+    <h3>${esc(row.model)}</h3>
+    <p class="pick-stats"><strong>${formatValue(row.score)}</strong><span>Atlas · #${row.rank}</span>${Number.isFinite(row.cost_per_task) ? `<span class="pick-cost">${money(row.cost_per_task)}<small>/task</small></span>` : ''}</p>
+    <div class="pick-strip">${board.columns.filter(c => c.type === 'number').map(c => `<i class="heat-${heatBand(row[c.key])}" title="${esc(c.label)} percentile: ${formatValue(row[c.key])}">${esc(shortSources[c.key] || c.label)}</i>`).join('')}</div>
+  </article>`);
+  spotlight.innerHTML = `<div class="picks">${cards.join('')}</div>${valueMap(board.rows)}`;
+}
 
 function metricCell(row, column, board) {
   const value = row[column.key];
   const formatted = esc(formatValue(value, column.type, column.decimals ?? board.decimals));
   if (board.derived && column.type === 'number') {
-    let band = -1;
-    if (Number.isFinite(value)) {
-      const rounded = Number(value.toFixed(1));
-      for (let i = 0; i < percentileBands.length && rounded >= percentileBands[i][0]; i++) band = i;
-    }
+    const band = heatBand(value);
     return `<td class="heat-cell" data-source="${esc(column.key)}"><span class="heat-tile heat-${band}" title="${esc(column.label)} percentile: ${formatted}"><small>${esc(shortSources[column.key] || column.label)}</small>${formatted}</span></td>`;
   }
   return `<td data-source="${esc(column.key)}" class="${value == null ? 'zero-null' : ''}">${formatted}</td>`;
@@ -136,7 +198,7 @@ function renderRows() {
   if (!rows.length) {
     $('#table-container').innerHTML = `<p class="empty">${board.rows.length ? board.derived ? 'No entries match. Choose All observations to include models measured by one evaluator.' : 'No entries match these filters. Try another source.' : board.derived ? 'No current comparable observations are available.' : 'No verified snapshot is available for this board. Run a refresh or inspect the source directly.'}</p>`;
   } else {
-    $('#table-container').innerHTML = `<table><caption class="sr-only">${esc(board.label)} ${esc(board.version)}. Equal scores share a rank. Select a model to inspect evidence.</caption><thead><tr><th scope="col" aria-label="Rank">#</th><th scope="col">Model / configuration</th><th scope="col">${esc(board.metric)}</th>${visibleColumns.map(c => `<th scope="col" data-source="${esc(c.key)}" class="${board.derived && c.type !== 'money' ? 'component' : ''}">${esc(c.label)}${board.derived ? `<small>${esc(c.subtitle || 'percentile')}</small>` : ''}</th>`).join('')}</tr></thead><tbody>${slice.map((row, index) => `<tr class="model-row"><td class="rank">${row.rank ?? '—'}</td><td class="model-cell"><button type="button" class="model-name" data-index="${index}" aria-expanded="${state.expanded === row.id}">${esc(row.model)}<span aria-hidden="true">${state.expanded === row.id ? '−' : '+'}</span></button>${board.derived ? `<small class="coverage">${row.evidence.length} ${row.evidence.length === 1 ? 'evaluator' : 'evaluators'}</small>` : ''}${row.open_weights === true ? '<span class="entry-tag">OPEN</span>' : ''}</td><td class="score-cell">${formatValue(row.score, 'number', board.decimals)}${board.unit === 'percent' && row.score != null ? '<small>%</small>' : ''}</td>${visibleColumns.map(c => metricCell(row, c, board)).join('')}</tr>${state.expanded === row.id ? detailsHTML(row, board, visibleColumns.length + 3) : ''}`).join('')}</tbody></table>`;
+    $('#table-container').innerHTML = `<table><caption class="sr-only">${esc(board.label)} ${esc(board.version)}. Equal scores share a rank. Select a model to inspect evidence.</caption><thead><tr><th scope="col" aria-label="Rank">#</th><th scope="col">Model / configuration</th><th scope="col">${esc(board.metric)}</th>${visibleColumns.map(c => `<th scope="col" data-source="${esc(c.key)}" class="${board.derived && c.type !== 'money' ? 'component' : ''}">${esc(c.label)}${board.derived ? `<small>${esc(c.subtitle || 'percentile')}</small>` : ''}</th>`).join('')}</tr></thead><tbody>${slice.map((row, index) => `<tr class="model-row"><td class="rank">${board.derived && row.rank != null && row.rank <= 3 ? `<span class="medal medal-${row.rank}">${row.rank}</span>` : row.rank ?? '—'}</td><td class="model-cell"><button type="button" class="model-name" data-index="${index}" aria-expanded="${state.expanded === row.id}">${esc(row.model)}<span aria-hidden="true">${state.expanded === row.id ? '−' : '+'}</span></button>${board.derived ? `<small class="coverage">${row.evidence.length} ${row.evidence.length === 1 ? 'evaluator' : 'evaluators'}</small>` : ''}${row.open_weights === true ? '<span class="entry-tag">OPEN</span>' : ''}</td><td class="score-cell"${board.derived && row.score != null ? ` style="--fill:${Math.max(0, Math.min(100, row.score))}%"` : ''}>${formatValue(row.score, 'number', board.decimals)}${board.unit === 'percent' && row.score != null ? '<small>%</small>' : ''}</td>${visibleColumns.map(c => metricCell(row, c, board)).join('')}</tr>${state.expanded === row.id ? detailsHTML(row, board, visibleColumns.length + 3) : ''}`).join('')}</tbody></table>`;
     $('#table-container').querySelectorAll('button[data-index]').forEach(button => button.addEventListener('click', () => {
       const row = slice[Number(button.dataset.index)]; const index = button.dataset.index;
       state.expanded = state.expanded === row.id ? null : row.id;
