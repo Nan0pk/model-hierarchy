@@ -35,7 +35,7 @@ function standings(board, byEffort) {
       ? label.toLowerCase().replace(/\s+xhigh$/, ' (xhigh)')
       : label.toLowerCase();
     if (!groups.has(key)) groups.set(key, {key, label, effort, observations: []});
-    groups.get(key).observations.push({model: row.model, score: row.score});
+    groups.get(key).observations.push(row);
   }
   const sorted = [...groups.values()];
   for (const group of sorted) group.score = median(group.observations.map(r => r.score));
@@ -62,11 +62,19 @@ export function atlasHierarchy(boards, freshness, byEffort, now = new Date()) {
     availability.push({label: board.label, status, failed: board.last_fetch?.status === 'failed'});
     if (status !== 'available') continue;
     columns.push({key: id, label: board.label, type: 'number', decimals: 1});
+    if (id === 'artificial_analysis') {
+      columns.unshift({key: 'cost_per_task', label: 'AA $/task', type: 'money', decimals: 2,
+        subtitle: byEffort ? 'tested setting' : 'median reported'});
+    }
     for (const item of standings(board, byEffort)) {
       if (!combined.has(item.key)) combined.set(item.key, {
         id: item.key, model: item.label, evidence: [], score: null, rank: null,
       });
       const row = combined.get(item.key);
+      if (id === 'artificial_analysis') {
+        const costs = item.observations.map(r => r.cost_per_task).filter(Number.isFinite);
+        row.cost_per_task = costs.length ? median(costs) : null;
+      }
       row[id] = item.percentile;
       row.evidence.push({source: id, observations: item.observations});
     }
@@ -88,6 +96,6 @@ export function atlasHierarchy(boards, freshness, byEffort, now = new Date()) {
     description: byEffort ? 'Each explicitly labeled effort and fallback configuration has its own entry.'
       : 'Each model contributes one median tested score per evaluator, across its observed settings.',
     metric: 'Atlas score', decimals: 1, columns, rows, n_scored: ranked.length, availability,
-    qualification: 'Atlas averages within-board percentiles from at least two current model evaluators. Source columns show percentiles. A dash in Atlas score means only one evaluator contributed. Expand a row for the original measurements.',
+    qualification: 'Atlas averages within-board percentiles from at least two current model evaluators. Source columns show percentiles. A dash in Atlas score means only one evaluator contributed. AA $/task is the reported cost per task, summarized by the median of priced settings for a model. A rounded $0.00 can represent a small cost. Expand a row for configuration prices and LiveBench cost per successful task.',
   };
 }

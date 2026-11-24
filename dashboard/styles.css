@@ -40,3 +40,11 @@
 .component.zero-null { color: var(--muted); }
 .source-health article { border-top: 2px solid var(--source-color, var(--line)); }
 :focus-visible { outline: 2px solid var(--accent); }
+
+.atlas-table th[data-source="cost_per_task"] small {
+  display: block;
+  color: var(--muted);
+  text-transform: none;
+  letter-spacing: normal;
+}
+.atlas-table td[data-source="cost_per_task"] { white-space: nowrap; }

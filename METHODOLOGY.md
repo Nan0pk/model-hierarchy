@@ -30,6 +30,12 @@ A failed refresh can still contribute its last valid snapshot during that window
   shared competition rank. One-source observations remain searchable with their
   source percentile and an empty Atlas score. Expand any row for the input scores.
 
+The model view shows the median reported Artificial Analysis dollar cost per task
+across scored configurations with a price. Expand the row for the individual prices.
+The effort view uses the matching setting. Missing costs stay blank (a dash), and a
+reported zero is rounded to cents. LiveBench cost per successful task has a separate
+denominator and is labeled in the evidence. Sorting by price preserves capability ranks.
+
 An Atlas score measures standing among the models each evaluator tested. Source
 rosters, tested settings and coverage differ. Small score gaps have no associated
 confidence guarantee. The number is neither a task success probability nor a

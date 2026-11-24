@@ -201,3 +201,25 @@ test('ranking coverage, one-source filter, and fetch health stay distinct', asyn
   assert.equal(doc.querySelector('.rank').textContent, '—');
   win.close();
 });
+
+test('Atlas shows task prices, sorts missing prices last and keeps success costs separate', async () => {
+  const data = fixture();
+  const aa = data.boards.artificial_analysis;
+  aa.rows[0].cost_per_task = 1;
+  aa.rows[2].cost_per_task = null;
+  data.boards.livebench = structuredClone(aa);
+  data.boards.livebench.rows[0].cost_per_success = 2.345;
+  for (const b of Object.values(data.boards)) b.observed_at = new Date().toISOString().slice(0, 10);
+  const {win, doc} = await page(data, false, '');
+  const cells = () => [...doc.querySelectorAll('td[data-source="cost_per_task"]')].map(c => c.textContent);
+  assert.deepEqual(cells(), ['$1.50', '—']);
+  doc.querySelector('.model-name').click();
+  assert.match(doc.querySelector('.detail-row').textContent, /\$1\.00\/task/);
+  assert.match(doc.querySelector('.detail-row').textContent, /\$2\.345\/successful task/);
+  doc.querySelector('[data-board="effort"]').click();
+  const sort = doc.querySelector('#sort');
+  sort.value = 'cost_per_task:asc';
+  sort.dispatchEvent(new win.Event('change'));
+  assert.deepEqual(cells(), ['$1.00', '$2.00']);
+  win.close();
+});
