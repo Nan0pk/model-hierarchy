@@ -14,17 +14,21 @@ load, only available snapshots within the registry's freshness window contribute
 A failed refresh can still contribute its last valid snapshot during that window.
 
 - **Model view.** Within each evaluator, take the median of a model's scored
-  configurations. Group case-insensitively by the supplied name after removing a
+  configurations. Group by the canonical name (case-insensitive, with spaces,
+  hyphens and underscores treated alike, then the reviewed aliases in
+  `config/models.yaml`, the same rule as `hierarchy/names.py`) after removing a
   recognized parenthesized reasoning setting and its default-fallback qualifier. A trailing standalone `xHigh` also denotes effort.
   Preserve model editions, dates and other qualifiers. A model with many settings
   still contributes one value per evaluator.
-- **Effort view.** Keep exact labels (case-insensitive), including fallback policy.
+- **Effort view.** Key each entry by canonical model name plus its exact setting, including fallback policy.
   Treat a trailing `xHigh` and `(xHigh)` as the same explicit setting. Rank explicitly identified settings. An unspecified effort supplies no evidence
   for an explicit setting. Distinct vendor spellings may yield separate entries.
-- **Within-board standing.** Sort values ascending. For a roster of N ≥ 2, the
-  percentile is 100 × (number strictly below + half the number of *other* tied
-  entries) / (N − 1). For effort comparisons the reference roster includes all
-  scored configurations, even those without an explicit setting.
+- **Within-board standing.** The reference field is the set of entries that appear
+  on at least two current evaluators, so every board grades the same contenders and
+  a board padded with older single-board models cannot inflate them. An entry's
+  percentile is 100 × (field members strictly below + half the tied *other* members)
+  / (number of other field members). Entries outside the field are placed against
+  it the same way. The effort view uses only explicitly identified settings as its field.
 - **Atlas score.** Average the available evaluator percentiles equally. Require
   at least two contributing evaluators, round to one decimal and give ties a
   shared competition rank. One-source observations remain searchable with their

@@ -15,7 +15,7 @@ from urllib.parse import urlparse
 import yaml
 
 from .config import CONFIG_DIR, DATA_DIR, OUTPUT_DIR
-from .names import canonical
+from .names import _load_aliases, canonical
 
 BOARD_DIR = DATA_DIR / "leaderboards"
 
@@ -219,6 +219,8 @@ def build_board_report(cfg=None, directory: Path = BOARD_DIR, *, today=None) -> 
         "config_hash": digest({"boards": cfg, "aliases": yaml.safe_load((CONFIG_DIR / "models.yaml").read_text())})[:16],
         "freshness": cfg["freshness"], "boards": boards,
         "catalogue": catalogue, "validation_issues": issues,
+        # The dashboard joins evaluators with the same reviewed aliases as canonical().
+        "aliases": _load_aliases(),
         "policy": "Source-native scores only. No cross-board averaging or inferred model equivalence.",
     }
 

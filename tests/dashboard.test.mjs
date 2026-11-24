@@ -151,20 +151,57 @@ test('HTTP failure has a recoverable error and no substitute rankings', async ()
 test('Atlas computes tie-aware percentiles, aggregates settings once and isolates systems', () => {
   const data = fixture();
   data.boards.arena_text = structuredClone(baseBoard);
-  data.boards.arena_text.rows[1].model = 'Model A (max, Default Fallback)';
+  data.boards.arena_text.rows[1].model = 'Model A (max)';
   data.boards.arena_text.rows[0].score = 100;
+  data.boards.arena_text.rows.push({id:'a-fb', model:'Model A (max, Default Fallback)', rank:2, score:50, provider:'Lab A'});
   const now = new Date('2026-11-04');
   const models = atlasHierarchy(data.boards, data.freshness, false, now);
   assert.equal(models.n_scored, 2);
-  assert.deepEqual(models.rows.find(r => r.model === 'Model A').evidence.map(e => e.observations.length), [2, 2]);
+  assert.deepEqual(models.rows.find(r => r.model === 'Model A').evidence.map(e => e.observations.length), [2, 3]);
   assert.equal(models.rows.find(r => r.model === 'Model B').score, 0);
   const effort = atlasHierarchy(data.boards, data.freshness, true, now);
-  assert.equal(effort.n_scored, 1);
+  assert.equal(effort.n_scored, 2);
   const high = effort.rows.find(r => r.model === 'Model A (high)');
-  assert.deepEqual([high.rank, high.artificial_analysis, high.arena_text, high.score], [1, 75, 100, 87.5]);
-  assert.equal(effort.rows.find(r => r.model === 'Model A (max)').rank, null);
+  // Tied on AA (50 each side of a tie), separated on Arena: 100 beats 50.
+  assert.deepEqual([high.rank, high.artificial_analysis, high.arena_text, high.score], [1, 50, 100, 75]);
+  assert.equal(effort.rows.find(r => r.model === 'Model A (max)').score, 25);
+  // A fallback policy is its own configuration, and one evaluator cannot rank it.
+  const fallback = effort.rows.find(r => r.model === 'Model A (max, Default Fallback)');
+  assert.deepEqual([fallback.rank, fallback.arena_text], [null, 25]);
   data.boards.arena_text.published_at = '2020-01-01';
   assert.equal(atlasHierarchy(data.boards, data.freshness, true, now).n_scored, 0);
+});
+
+test('Atlas joins evaluators by canonical name and reviewed aliases, never by loose matching', () => {
+  const data = fixture();
+  const now = new Date('2026-11-04');
+  const rows = names => names.map(([model, score], i) => ({id: `r${i}`, model, rank: null, score, provider: 'Lab'}));
+  data.boards.artificial_analysis.rows = rows([['MiniMax-M3.1-Flash', 10], ['Command R', 5], ['Qwen3.8-Max', 8], ['Foo-Bar (High)', 3]]);
+  data.boards.arena_text = {...structuredClone(baseBoard),
+    rows: rows([['MiniMax M3.1 Flash', 20], ['Command R+', 7], ['Qwen 3.8 Max', 9], ['Foo Bar (high)', 4]])};
+  const aliases = {'qwen 3.8 max': 'qwen3.8 max'};
+  const atlas = atlasHierarchy(data.boards, data.freshness, false, now, aliases);
+  const sources = model => atlas.rows.filter(r => r.model === model).map(r => r.evidence.length);
+  assert.deepEqual(sources('MiniMax-M3.1-Flash'), [2]);
+  assert.deepEqual(sources('Qwen3.8-Max'), [2]);
+  assert.deepEqual([sources('Command R'), sources('Command R+')], [[1], [1]]);
+  assert.equal(atlasHierarchy(data.boards, data.freshness, false, now).rows.filter(r => /qwen/i.test(r.model)).length, 2);
+  const effort = atlasHierarchy(data.boards, data.freshness, true, now, aliases);
+  assert.deepEqual(effort.rows.map(r => r.evidence.length), [2]);
+});
+
+test('single-evaluator padding cannot move the percentiles of shared models', () => {
+  const data = fixture();
+  const now = new Date('2026-11-04');
+  data.boards.arena_text = structuredClone(baseBoard);
+  data.boards.arena_text.rows[0].score = 100;
+  const before = atlasHierarchy(data.boards, data.freshness, false, now);
+  for (let i = 0; i < 100; i++) data.boards.arena_text.rows.push({id: `old${i}`, model: `Old ${i}`, rank: null, score: -i, provider: 'Lab'});
+  const after = atlasHierarchy(data.boards, data.freshness, false, now);
+  const view = h => h.rows.filter(r => r.rank).map(r => [r.model, r.arena_text, r.score]);
+  assert.deepEqual(view(after), view(before));
+  // Placed against the shared field (A at 75, B at 0): ties B, so half a step above the bottom.
+  assert.equal(after.rows.find(r => r.model === 'Old 0').arena_text, 25);
 });
 
 test('default dashboard shows the Atlas ranking and exact effort evidence', async () => {
@@ -187,12 +224,14 @@ test('ranking coverage, one-source filter, and fetch health stay distinct', asyn
   data.boards.arena_text = structuredClone(baseBoard);
   data.boards.arena_text.rows = data.boards.arena_text.rows.filter(r => r.model !== 'Model B');
   data.boards.arena_text.rows.push({id:'other', model:'Model D', score:20});
+  // Percentiles need a shared field of at least two models.
+  for (const b of [data.boards.artificial_analysis, data.boards.arena_text]) b.rows.push({id:'e', model:'Model E', score:60});
   for (const b of Object.values(data.boards)) b.observed_at = new Date().toISOString().slice(0, 10);
   data.boards.arena_text.last_fetch = {status:'failed', attempted_at:new Date().toISOString()};
   const {win, doc} = await page(data, false, '');
-  assert.equal(doc.querySelectorAll('.model-row').length, 1);
+  assert.equal(doc.querySelectorAll('.model-row').length, 2);
   assert.equal(doc.querySelector('.coverage').textContent, '2 evaluators');
-  assert.equal(doc.querySelectorAll('.heat-tile').length, 2);
+  assert.equal(doc.querySelectorAll('.heat-tile').length, 4);
   assert.match(doc.querySelector('#warnings').textContent, /available · last fetch failed/);
   assert.match(doc.querySelector('#source-health').textContent, /PublishedUnknown/);
   const filter = doc.querySelector('#filter');

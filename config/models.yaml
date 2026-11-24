@@ -22,3 +22,5 @@ aliases:
   # "chatgpt 4o latest": "gpt 4o latest"
   # "gemini flash latest": "gemini 2.0 flash"
   # "deepseek r1 0528": "deepseek r1"
+  # LiveBench spaces the version ("Qwen 3.8 Max"); Arena writes "Qwen3.8-Max". Same model.
+  "qwen 3.8 max": "qwen3.8 max"

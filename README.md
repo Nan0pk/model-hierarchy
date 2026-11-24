@@ -17,7 +17,8 @@ It eliminated most of the model roster and crowned the only remaining eligible m
 meaningless singleton T1. Usage is now neither an eligibility gate nor a capability score.
 
 The dashboard opens on the **Atlas model hierarchy**. It takes each model’s median
-tested score within each evaluator, converts that standing to a percentile, and
+tested score within each evaluator, converts that standing to a percentile among
+the models at least two evaluators share, and
 averages across at least two current evaluators. Select **Effort levels** to rank
 exact reasoning configurations, or expand a row for its original measurements.
 Terminal-Bench stays in its own model-plus-agent view.
@@ -185,7 +186,7 @@ publishes rankings. Usage is context-only, split aliases count once, and data ga
 
 - No comparable data for entire pillars: agentic, math.
 
-537 models remain in the evidence roster; none are deleted for being absent from a usage top ten. Use the source-native rankings above. Missing data is not a low score.
+536 models remain in the evidence roster; none are deleted for being absent from a usage top ten. Use the source-native rankings above. Missing data is not a low score.
 
 <!-- composite:end -->
 

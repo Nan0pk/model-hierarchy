@@ -175,8 +175,8 @@ async function load() {
     }).join('');
     $('#snapshot-date').textContent = friendlyDate(data.generated_at);
     data.boards = {
-      atlas: atlasHierarchy(data.boards, data.freshness, false),
-      effort: atlasHierarchy(data.boards, data.freshness, true),
+      atlas: atlasHierarchy(data.boards, data.freshness, false, new Date(), data.aliases || {}),
+      effort: atlasHierarchy(data.boards, data.freshness, true, new Date(), data.aliases || {}),
       ...data.boards,
     };
     const requested = state.board || new URLSearchParams(location.search).get('board');

@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-11-24 12:45 UTC",
+  "generated_at": "2026-11-24 17:38 UTC",
   "tool_version": "2.0.0",
   "method": "Experimental composite · methodology v2.0.0",
   "weights_version": "2.0.0",
-  "config_hash": "d96bdaeb6a73ef51",
-  "data_hash": "9db1e63d3fa1d365cf1b640cc3f3b38719ad0041735443d215834e55d1d316ed",
+  "config_hash": "82f18cca956a6dca",
+  "data_hash": "8052be8353e9de61edac7e4f1c62445e8b497daec02b3f33f282fc354cb94a7c",
   "bootstrap_reps": 2000,
   "seed": 42,
   "demo": false,
-  "cohort_size": 31,
+  "cohort_size": 32,
   "data_as_of": {
     "lm_arena_elo": "2026-11-22",
     "gpqa_diamond": "2026-09-01",
@@ -4361,7 +4361,7 @@
           "evaluation_provider": "Vals AI",
           "qualification": "GPQA Diamond: 198-question Diamond subset; Vals AI prompting and answer parsing; archived board"
         },
-        "qwen 3.8 max": {
+        "qwen3.8 max": {
           "as_of": "2026-09-01",
           "source": "https://www.vals.ai/benchmarks/gpqa",
           "provenance_type": "independent_evaluation",
@@ -5412,7 +5412,7 @@
           "evaluation_provider": "Vals AI",
           "qualification": "MMLU-Pro: 14-subject academic knowledge benchmark; Vals AI implementation; archived board"
         },
-        "qwen 3.8 max": {
+        "qwen3.8 max": {
           "as_of": "2026-09-01",
           "source": "https://www.vals.ai/benchmarks/mmlu_pro",
           "provenance_type": "independent_evaluation",
@@ -6381,7 +6381,7 @@
           "qualification": "SWE-bench Verified; Mini-SWE-agent harness only; archived board",
           "harness": "Mini-SWE-agent"
         },
-        "qwen 3.8 max": {
+        "qwen3.8 max": {
           "as_of": "2026-09-01",
           "source": "https://www.vals.ai/benchmarks/swebench",
           "provenance_type": "independent_evaluation",
@@ -7004,7 +7004,7 @@
           "evaluation_provider": "Vals AI",
           "qualification": "LiveCodeBench v6; Code Generation task in Python; Vals AI implementation; archived board"
         },
-        "qwen 3.8 max": {
+        "qwen3.8 max": {
           "as_of": "2026-09-01",
           "source": "https://www.vals.ai/benchmarks/lcb",
           "provenance_type": "independent_evaluation",
@@ -8378,7 +8378,7 @@
     "Grok 4.6": "grok 4.6",
     "Gemini 3.8 Flash": "gemini 3.8 flash",
     "Gemini 3.7 Flash": "gemini 3.7 flash",
-    "Qwen 3.8 Max": "qwen 3.8 max",
+    "Qwen 3.8 Max": "qwen3.8 max",
     "Gemini 3.6 Flash": "gemini 3.6 flash",
     "Claude Opus 5": "claude opus 5",
     "Claude Fable 5.1": "claude fable 5.1",
@@ -13519,19 +13519,6 @@
       "reason": "insufficient_comparable_evidence"
     },
     {
-      "model": "qwen 3.8 max",
-      "n_benchmarks": 4,
-      "n_pillars": 2,
-      "eligible": false,
-      "benchmarks": [
-        "gpqa_diamond",
-        "livecodebench",
-        "mmlu_pro",
-        "swebench_verified"
-      ],
-      "reason": "insufficient_comparable_evidence"
-    },
-    {
       "model": "qwen max (0919)",
       "n_benchmarks": 1,
       "n_pillars": 1,
@@ -13913,13 +13900,17 @@
     },
     {
       "model": "qwen3.8 max",
-      "n_benchmarks": 1,
-      "n_pillars": 1,
-      "eligible": false,
+      "n_benchmarks": 5,
+      "n_pillars": 3,
+      "eligible": true,
       "benchmarks": [
-        "lm_arena_elo"
+        "gpqa_diamond",
+        "livecodebench",
+        "lm_arena_elo",
+        "mmlu_pro",
+        "swebench_verified"
       ],
-      "reason": "insufficient_comparable_evidence"
+      "reason": "publication_gate"
     },
     {
       "model": "qwq 32b",
@@ -14280,7 +14271,7 @@
     "blockers": [
       "No comparable data for entire pillars: agentic, math."
     ],
-    "roster_size": 537,
+    "roster_size": 536,
     "excluded_sparse": [],
     "missing_pillars": [
       "agentic",

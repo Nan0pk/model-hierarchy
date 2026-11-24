@@ -14,9 +14,24 @@ function identity(label) {
   const [effort, ...qualifiers] = match[2].split(',').map(part => part.trim());
   if (!effortPattern.test(effort)) return {model: label};
   // Keep dates, precision and other unknown qualifiers in the model identity.
+  const fallback = qualifiers.some(q => /^default fallback$/i.test(q));
   const retained = qualifiers.filter(q => !/^default fallback$/i.test(q));
   const model = retained.length ? `${match[1]} (${retained.join(', ')})` : match[1];
-  return {model, effort};
+  return {model, effort, fallback};
+}
+
+// Same rule as hierarchy/names.py canonical(): unify separators, then the reviewed alias table.
+function canonical(name, aliases) {
+  const key = name.toLowerCase().replace(/[\s\-_]+/g, ' ').trim();
+  return aliases[key] ?? key;
+}
+
+// 100 × (scores strictly below + half the tied others) / others; the same rule for every row.
+function percentileOf(value, others) {
+  if (!others.length) return null;
+  const below = others.filter(v => v < value).length;
+  const tied = others.filter(v => v === value).length;
+  return 100 * (below + tied / 2) / others.length;
 }
 
 function median(values) {
@@ -25,36 +40,27 @@ function median(values) {
   return ordered.length % 2 ? ordered[middle] : (ordered[middle - 1] + ordered[middle]) / 2;
 }
 
-function standings(board, byEffort) {
+function standings(board, byEffort, aliases) {
   const groups = new Map();
   for (const row of board.rows) {
     if (!Number.isFinite(row.score)) continue;
-    const {model, effort} = identity(row.model);
-    const label = byEffort ? row.model : model;
-    const key = byEffort && effort
-      ? label.toLowerCase().replace(/\s+xhigh$/, ' (xhigh)')
-      : label.toLowerCase();
-    if (!groups.has(key)) groups.set(key, {key, label, effort, observations: []});
+    const {model, effort, fallback} = identity(row.model);
+    if (byEffort && !effort) continue;
+    const key = byEffort
+      ? `${canonical(model, aliases)} (${effort.toLowerCase()}${fallback ? ', default fallback' : ''})`
+      : canonical(model, aliases);
+    if (!groups.has(key)) groups.set(key, {key, label: byEffort ? row.model : model, effort, observations: []});
     groups.get(key).observations.push(row);
   }
-  const sorted = [...groups.values()];
-  for (const group of sorted) group.score = median(group.observations.map(r => r.score));
-  sorted.sort((a, b) => a.score - b.score);
-  if (sorted.length < 2) return [];
-  for (let i = 0; i < sorted.length;) {
-    let end = i + 1;
-    while (end < sorted.length && sorted[end].score === sorted[i].score) end++;
-    const percentile = 100 * (i + end - 1) / (2 * (sorted.length - 1));
-    for (let j = i; j < end; j++) sorted[j].percentile = percentile;
-    i = end;
-  }
-  return byEffort ? sorted.filter(group => group.effort) : sorted;
+  for (const group of groups.values()) group.score = median(group.observations.map(r => r.score));
+  return [...groups.values()];
 }
 
-export function atlasHierarchy(boards, freshness, byEffort, now = new Date()) {
+export function atlasHierarchy(boards, freshness, byEffort, now = new Date(), aliases = {}) {
   const combined = new Map();
   const columns = [];
   const availability = [];
+  const perBoard = [];
   for (const id of sources) {
     const board = boards[id];
     if (!board) continue;
@@ -66,7 +72,9 @@ export function atlasHierarchy(boards, freshness, byEffort, now = new Date()) {
       columns.unshift({key: 'cost_per_task', label: 'AA $/task', type: 'money', decimals: 2,
         subtitle: byEffort ? 'tested setting' : 'median reported'});
     }
-    for (const item of standings(board, byEffort)) {
+    const items = standings(board, byEffort, aliases);
+    perBoard.push([id, items]);
+    for (const item of items) {
       if (!combined.has(item.key)) combined.set(item.key, {
         id: item.key, model: item.label, evidence: [], score: null, rank: null,
       });
@@ -75,13 +83,22 @@ export function atlasHierarchy(boards, freshness, byEffort, now = new Date()) {
         const costs = item.observations.map(r => r.cost_per_task).filter(Number.isFinite);
         row.cost_per_task = costs.length ? median(costs) : null;
       }
-      row[id] = item.percentile;
       row.evidence.push({source: id, observations: item.observations});
+    }
+  }
+  // Percentiles only among entries on 2+ evaluators, so every board grades the same contenders:
+  // a board padded with older single-board models cannot inflate the shared models' standing.
+  const shared = new Set([...combined.values()].filter(r => r.evidence.length >= 2).map(r => r.id));
+  for (const [id, items] of perBoard) {
+    const sharedItems = items.filter(item => shared.has(item.key));
+    for (const item of items) {
+      const others = sharedItems.filter(other => other !== item).map(other => other.score);
+      combined.get(item.key)[id] = percentileOf(item.score, others);
     }
   }
   const rows = [...combined.values()];
   for (const row of rows) {
-    if (row.evidence.length < 2) continue;
+    if (row.evidence.length < 2 || row.evidence.some(e => row[e.source] == null)) continue;
     const sum = row.evidence.reduce((total, e) => total + row[e.source], 0);
     row.score = Number((sum / row.evidence.length).toFixed(1));
   }
@@ -96,6 +113,6 @@ export function atlasHierarchy(boards, freshness, byEffort, now = new Date()) {
     description: byEffort ? 'Each explicitly labeled effort and fallback configuration has its own entry.'
       : 'Each model contributes one median tested score per evaluator, across its observed settings.',
     metric: 'Atlas score', decimals: 1, columns, rows, n_scored: ranked.length, availability,
-    qualification: 'Atlas averages within-board percentiles from at least two current model evaluators. Source columns show percentiles. A dash in Atlas score means only one evaluator contributed. AA $/task is the reported cost per task, summarized by the median of priced settings for a model. A rounded $0.00 can represent a small cost. Expand a row for configuration prices and LiveBench cost per successful task.',
+    qualification: 'Atlas averages within-board percentiles from at least two current model evaluators. Each percentile compares only entries that appear on two or more evaluators, so every board grades the same contenders; single-evaluator entries are placed against that same field. A dash in Atlas score means only one evaluator contributed. AA $/task is the reported cost per task, summarized by the median of priced settings for a model. A rounded $0.00 can represent a small cost. Expand a row for configuration prices and LiveBench cost per successful task.',
   };
 }
