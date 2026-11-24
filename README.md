@@ -105,7 +105,7 @@ Source-native Intelligence Index, not a Model Atlas aggregate. Reasoning effort 
 
 > Evaluation/publication date not supplied by the table; observed date is retrieval only.
 
-> Stale snapshot (20 days); not a current ranking.
+> Stale snapshot (21 days); not a current ranking.
 
 > Source table transcribed on 2026-11-03. Retrieval is not an evaluation date. See data/evidence/2026-11-03/README.md.
 
@@ -113,7 +113,7 @@ Source-native Intelligence Index, not a Model Atlas aggregate. Reasoning effort 
 
 ### Arena — Text · style-controlled · overall
 
-[Source](https://arena.ai/leaderboard/text) · 427 scored entries · published: 2026-11-22 · observed: 2026-11-23 · **available**
+[Source](https://arena.ai/leaderboard/text) · 427 scored entries · published: 2026-11-22 · observed: 2026-11-24 · **available**
 
 | Rank | Model / configuration | Score |
 |---|---|---|
@@ -151,7 +151,7 @@ LiveBench 2.0, NOT the retired LiveBench overall benchmark. Overall is the sourc
 
 > Evaluation/publication date not supplied by the table; observed date is retrieval only.
 
-> Stale snapshot (20 days); not a current ranking.
+> Stale snapshot (21 days); not a current ranking.
 
 > Source table transcribed on 2026-11-03. Retrieval is not an evaluation date. See data/evidence/2026-11-03/README.md.
 
@@ -178,7 +178,7 @@ SYSTEM ranking: model + reasoning setting + agent harness. Mixed harnesses must 
 
 > Evaluation/publication date not supplied by the table; observed date is retrieval only.
 
-> Stale snapshot (20 days); not a current ranking.
+> Stale snapshot (21 days); not a current ranking.
 
 > Source table transcribed on 2026-11-03. Retrieval is not an evaluation date. See data/evidence/2026-11-03/README.md.
 
