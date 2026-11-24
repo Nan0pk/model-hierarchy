@@ -36,9 +36,10 @@ A failed refresh can still contribute its last valid snapshot during that window
 - **Field offsets.** Shared fields differ in strength: LiveBench scores mostly frontier
   models, so its percentiles are harder to earn. Fit percentile ≈ ability + board offset
   over ranked entries by alternating least squares, with offsets summing to zero. In a
-  leave-one-board-out check on the 22 models scored by all three evaluators (2026-11-24),
-  this cut the average shift from dropping a board from 3.6/1.2/2.4 points (AA/Arena/LiveBench)
-  to 0.9/1.9/1.0. A pairwise win-rate alternative did worse.
+  leave-one-board-out check on the 22 models scored by all three evaluators (2026-11-24,
+  in-sample), the average signed shift from dropping AA/Arena/LiveBench went from
+  −3.6/+1.2/+2.4 points to −0.9/+1.9/−1.0: 7.2 → 3.8 in total, though Arena's rose slightly.
+  A pairwise win-rate alternative did worse (−1.4/+2.6/−1.2).
 - **Atlas score.** Average the available evaluator percentiles minus their board offsets.
   A model scored by every evaluator therefore keeps its plain average; only models missing
   an evaluator are adjusted. Scores can fall slightly outside 0–100. Require

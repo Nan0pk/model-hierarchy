@@ -20,7 +20,10 @@ meaningless singleton T1. Usage is now neither an eligibility gate nor a capabil
 The dashboard opens on the **Atlas model hierarchy**. It takes each model’s median
 tested score within each evaluator, converts that standing to a percentile among
 the models at least two evaluators share, and
-averages across at least two current evaluators. Select **Effort levels** to rank
+averages across at least two current evaluators. Because LiveBench's field is
+stronger than Arena's or AA's, each board gets a fitted offset so a model that skipped
+a harder board gains nothing from it; models on every board keep their plain average.
+The ranking is also published as [`output/atlas.csv`](output/atlas.csv). Select **Effort levels** to rank
 exact reasoning configurations, or expand a row for its original measurements.
 Terminal-Bench stays in its own model-plus-agent view.
 The initial audited views contain 91 AA configurations, 419 Arena entries, 32 LiveBench models,

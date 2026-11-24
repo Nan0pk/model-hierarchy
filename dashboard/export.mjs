@@ -16,7 +16,7 @@ export function atlasExport(data, now = new Date()) {
     }));
     return {label: h.label, n_ranked: rows.length, field_offsets: h.offsets, rows};
   };
-  return {generated_at: now.toISOString().slice(0, 10), source_snapshot: data.generated_at,
+  return {generated_at: now.toISOString().slice(0, 10),
     qualification: atlasHierarchy(data.boards, data.freshness, false, now).qualification,
     models: view(false), effort_levels: view(true)};
 }
