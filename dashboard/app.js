@@ -44,8 +44,8 @@ function renderBoard() {
     $('#warnings').textContent = [board.n_scored ? '' : 'No entries have current results from two model evaluators.',
       ...alerts.map(item => `${item.label}: ${item.status}${item.failed ? ' · last fetch failed' : ''}`)].filter(Boolean).join(' · ');
   }
-  $('#heat-key').hidden = !board.derived;
-  $('#heat-key').innerHTML = '<strong>Percentile</strong>' + percentileBands.map(([, label], i) =>
+  heatKey.hidden = !board.derived;
+  heatKey.innerHTML = '<strong>Percentile</strong>' + percentileBands.map(([, label], i) =>
     `<span><i class="heat-${i}" aria-hidden="true"></i>${esc(label)}</span>`).join('');
   const key = state.board === 'terminal_bench' ? 'harness' : 'provider';
   const options = [...new Set(board.rows.map(row => row[key]).filter(Boolean))].sort();
@@ -97,13 +97,23 @@ function detailsHTML(row, board, colspan) {
 
 // Common, fixed bands keep the same score the same color across every evaluator and page.
 const percentileBands = [[0, '<50'], [50, '50–<75'], [75, '75–<90'], [90, '90–<95'], [95, '95–100']];
+// Older cached pages predate the heatmap legend.
+const heatKey = $('#heat-key') || document.createElement('div');
+if (!heatKey.id) {
+  heatKey.id = 'heat-key';
+  $('#table-container').before(heatKey);
+}
 const shortSources = {artificial_analysis: 'AA', arena_text: 'Arena', livebench: 'LiveBench'};
 
 function metricCell(row, column, board) {
   const value = row[column.key];
   const formatted = esc(formatValue(value, column.type, column.decimals ?? board.decimals));
   if (board.derived && column.type === 'number') {
-    const band = Number.isFinite(value) ? percentileBands.findLastIndex(([floor]) => Number(value.toFixed(1)) >= floor) : -1;
+    let band = -1;
+    if (Number.isFinite(value)) {
+      const rounded = Number(value.toFixed(1));
+      for (let i = 0; i < percentileBands.length && rounded >= percentileBands[i][0]; i++) band = i;
+    }
     return `<td class="heat-cell" data-source="${esc(column.key)}"><span class="heat-tile heat-${band}" title="${esc(column.label)} percentile: ${formatted}"><small>${esc(shortSources[column.key] || column.label)}</small>${formatted}</span></td>`;
   }
   return `<td data-source="${esc(column.key)}" class="${value == null ? 'zero-null' : ''}">${formatted}</td>`;
@@ -174,7 +184,7 @@ async function load() {
   } catch (error) {
     state.data = null;
     $('#board-title').textContent = 'Snapshot unavailable';
-    $('#heat-key').hidden = true;
+    heatKey.hidden = true;
     $('#board-tabs').replaceChildren(); $('#warnings').replaceChildren(); $('#freshness').replaceChildren();
     $('#source-link').hidden = true; $('#provenance').replaceChildren(); $('#discovery').replaceChildren();
     $('#table-container').innerHTML = `<p class="empty error">${esc(error.message)}\nNo synthetic or cached rankings have been substituted. Use Reload snapshot to retry.</p>`;

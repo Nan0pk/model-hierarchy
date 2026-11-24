@@ -63,11 +63,12 @@ test('cross-source discovery is independent of benchmark eligibility', () => {
   assert.deepEqual(otherMatches(data.boards, 'artificial_analysis', ''), []);
 });
 
-async function page(data = fixture(), failing = false, query = '?board=artificial_analysis') {
+async function page(data = fixture(), failing = false, query = '?board=artificial_analysis', setupWindow = () => {}) {
   const html = await readFile(new URL('../dashboard/index.html', import.meta.url), 'utf8');
   const source = await readFile(new URL('../dashboard/app.js', import.meta.url), 'utf8');
   const dom = new JSDOM(html, {url:'https://atlas.test/dashboard/' + query, runScripts:'outside-only'});
   const win = dom.window;
+  setupWindow(win);
   Object.assign(win, helpers, {esc:helpers.escapeHTML, atlasHierarchy});
   win.fetch = async url => {
     if (failing) return {ok:false,status:503};
@@ -224,5 +225,21 @@ test('Atlas shows task prices, sorts missing prices last and keeps success costs
   sort.value = 'cost_per_task:asc';
   sort.dispatchEvent(new win.Event('change'));
   assert.deepEqual(cells(), ['$1.00', '$2.00']);
+  win.close();
+});
+
+test('cached pre-heatmap markup works on browsers without findLastIndex', async () => {
+  const data = fixture();
+  data.boards.arena_text = structuredClone(baseBoard);
+  for (const b of Object.values(data.boards)) b.observed_at = new Date().toISOString().slice(0, 10);
+  const {doc, win} = await page(data, false, '', browser => {
+    browser.document.querySelector('#heat-key').remove();
+    browser.Array.prototype.findLastIndex = undefined;
+  });
+  assert.ok(doc.querySelector('.model-row'));
+  assert.equal(doc.querySelectorAll('#heat-key').length, 1);
+  assert.ok(doc.querySelector('.heat-4'));
+  doc.querySelector('[data-board="effort"]').click();
+  assert.ok(doc.querySelector('.heat-tile'));
   win.close();
 });
