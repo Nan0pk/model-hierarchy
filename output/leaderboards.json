@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
   "methodology_version": "2.1.0",
-  "generated_at": "2026-11-24T17:38:43+00:00",
+  "generated_at": "2026-11-24T17:59:15+00:00",
   "default_board": "artificial_analysis",
-  "config_hash": "76e110b5bedd3ca6",
+  "config_hash": "b5973a3a1f43ba32",
   "freshness": {
     "warn_after_days": 14,
     "expire_after_days": 90
@@ -6930,7 +6930,7 @@
           "open_weights": false,
           "cost_per_success": 2.457,
           "provider": "Meta",
-          "id": "muse wonder 1.0|",
+          "id": "muse wonder|",
           "rank": 15
         },
         {
@@ -11412,7 +11412,7 @@
         "livebench"
       ]
     },
-    "muse wonder 1.0": {
+    "muse wonder": {
       "model": "Muse Wonder 1.0",
       "boards": [
         "livebench"
@@ -11778,7 +11778,8 @@
     "gemini 3.1 pro preview (02/26)": "gemini 3.1 pro preview",
     "gemini 3 pro (11/25)": "gemini 3 pro",
     "gemini 3 flash (12/25)": "gemini 3 flash",
-    "qwen 3.8 max": "qwen3.8 max"
+    "qwen 3.8 max": "qwen3.8 max",
+    "muse wonder 1.0": "muse wonder"
   },
   "policy": "Source-native scores only. No cross-board averaging or inferred model equivalence."
 }

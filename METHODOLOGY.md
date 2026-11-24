@@ -33,7 +33,15 @@ A failed refresh can still contribute its last valid snapshot during that window
   percentile is 100 × (field members strictly below + half the tied *other* members)
   / (number of other field members). Entries outside the field are placed against
   it the same way. The effort view uses only explicitly identified settings as its field.
-- **Atlas score.** Average the available evaluator percentiles equally. Require
+- **Field offsets.** Shared fields differ in strength: LiveBench scores mostly frontier
+  models, so its percentiles are harder to earn. Fit percentile ≈ ability + board offset
+  over ranked entries by alternating least squares, with offsets summing to zero. In a
+  leave-one-board-out check on the 22 models scored by all three evaluators (2026-11-24),
+  this cut the average shift from dropping a board from 3.6/1.2/2.4 points (AA/Arena/LiveBench)
+  to 0.9/1.9/1.0. A pairwise win-rate alternative did worse.
+- **Atlas score.** Average the available evaluator percentiles minus their board offsets.
+  A model scored by every evaluator therefore keeps its plain average; only models missing
+  an evaluator are adjusted. Scores can fall slightly outside 0–100. Require
   at least two contributing evaluators, round to one decimal and give ties a
   shared competition rank. One-source observations remain searchable with their
   source percentile and an empty Atlas score. Expand any row for the input scores.

@@ -8,7 +8,8 @@ No popularity-based model exclusions. No fictional universal winner.
 
 [**Open the dashboard →**](https://nan0pk.github.io/model-hierarchy/dashboard/) ·
 [Methodology](METHODOLOGY.md) · [Ranking quality audit](docs/RANKING_AUDIT.md) ·
-[JSON](output/leaderboards.json) · [CSV](output/leaderboards.csv)
+Atlas ranking [JSON](output/atlas.json) · [CSV](output/atlas.csv) ·
+Source boards [JSON](output/leaderboards.json) · [CSV](output/leaderboards.csv)
 
 ## What changed in v2
 
@@ -256,6 +257,7 @@ hierarchy/pipeline.py            composite, sparse-cohort gates, evidence diagno
 data/leaderboards/               retained dated native snapshots + fetch status
 data/evidence/                   dated source transcriptions and capture notes
 data/raw/, data/manual/          legacy composite observations
+output/atlas.{json,csv}           Atlas model and effort rankings (node dashboard/export.mjs)
 output/leaderboards.{json,csv}    main native-board publication (plural)
 output/leaderboard.{json,csv}     experimental composite and evidence audit (singular)
 dashboard/                      static, source-aware explorer

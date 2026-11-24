@@ -24,3 +24,5 @@ aliases:
   # "deepseek r1 0528": "deepseek r1"
   # LiveBench spaces the version ("Qwen 3.8 Max"); Arena writes "Qwen3.8-Max". Same model.
   "qwen 3.8 max": "qwen3.8 max"
+  # Meta's API ID for Muse Wonder (not Muse Wonder Full) is muse-wonder-1.0 (dev.meta.ai/docs/models).
+  "muse wonder 1.0": "muse wonder"

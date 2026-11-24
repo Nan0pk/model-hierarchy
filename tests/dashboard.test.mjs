@@ -4,6 +4,7 @@ import {readFile} from 'node:fs/promises';
 import {JSDOM} from 'jsdom';
 import {atlasHierarchy} from '../dashboard/hierarchy.js';
 import * as helpers from '../dashboard/model.js';
+import {atlasExport, atlasCSV} from '../dashboard/export.mjs';
 
 const {selectRows, formatValue, boardFreshness, escapeHTML, safeURL, otherMatches} = helpers;
 const baseBoard = {
@@ -203,6 +204,25 @@ test('single-evaluator padding cannot move the percentiles of shared models', ()
   assert.equal(after.rows.find(r => r.model === 'Old 0').arena_text, 25);
 });
 
+test('field offsets stop a model gaining from a stronger board it skipped', () => {
+  const data = fixture();
+  const now = new Date('2026-11-04');
+  const board = models => ({...structuredClone(baseBoard),
+    rows: models.map((m, i) => ({id: m, model: m, rank: null, score: 10 - i, provider: 'Lab'}))});
+  data.boards.artificial_analysis = board(['M1', 'M2', 'M3', 'M4', 'M5']);
+  data.boards.arena_text = board(['M1', 'M2', 'M3', 'M4', 'M5']);
+  data.boards.livebench = board(['M1', 'M2', 'M3']);  // only the strong models: a harder field
+  const atlas = atlasHierarchy(data.boards, data.freshness, false, now);
+  const row = model => atlas.rows.find(r => r.model === model);
+  assert.ok(atlas.offsets.livebench < 0);
+  assert.ok(Math.abs(Object.values(atlas.offsets).reduce((a, b) => a + b, 0)) < 1e-9);
+  assert.equal(row('M1').score, 100);  // scored everywhere: the plain mean
+  assert.equal(row('M3').score, 33.3);
+  // M4 sits at the 25th percentile of the two weaker fields; without the offset it would score 25.
+  assert.ok(row('M4').score < 25);
+  assert.deepEqual(atlas.rows.filter(r => r.rank).sort((a, b) => a.rank - b.rank).map(r => r.model), ['M1', 'M2', 'M3', 'M4', 'M5']);
+});
+
 test('default dashboard shows the Atlas ranking and exact effort evidence', async () => {
   const data = fixture();
   data.boards.livebench = structuredClone(baseBoard);
@@ -280,4 +300,18 @@ test('cached pre-heatmap markup works on browsers without findLastIndex', async 
   doc.querySelector('[data-board="effort"]').click();
   assert.ok(doc.querySelector('.heat-tile'));
   win.close();
+});
+
+test('the Atlas export publishes the same ranking the dashboard shows', () => {
+  const data = fixture();
+  data.boards.arena_text = structuredClone(baseBoard);
+  data.boards.arena_text.rows[0].model = 'Model, "A" (high)';
+  const now = new Date('2026-11-04');
+  const report = atlasExport(data, now);
+  const page = atlasHierarchy(data.boards, data.freshness, false, now);
+  assert.deepEqual(report.models.rows.map(r => [r.model, r.atlas_score]),
+    page.rows.filter(r => r.rank).sort((a, b) => a.rank - b.rank).map(r => [r.model, r.score]));
+  const csv = atlasCSV(report).trim().split('\n');
+  assert.match(csv[0], /^view,rank,model,atlas_score,evaluators,/);
+  assert.equal(csv.length, 1 + report.models.n_ranked + report.effort_levels.n_ranked);
 });

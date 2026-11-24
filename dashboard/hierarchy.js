@@ -55,6 +55,27 @@ function standings(board, byEffort, aliases) {
   return [...groups.values()];
 }
 
+// Fit percentile ≈ ability + board offset (offsets sum to zero) by alternating least squares.
+// A board whose shared field is stronger hands out lower percentiles for the same ability; the
+// offset corrects that for models it did not score. Fully covered models keep their plain mean.
+function fieldOffsets(rows, boards) {
+  const offsets = Object.fromEntries(boards.map(b => [b, 0]));
+  const used = boards.filter(b => rows.some(r => r[b] != null));
+  for (let iteration = 0; iteration < 100; iteration++) {
+    const ability = new Map(rows.map(r => {
+      const present = used.filter(b => r[b] != null);
+      return [r, present.reduce((t, b) => t + r[b] - offsets[b], 0) / present.length];
+    }));
+    for (const b of used) {
+      const members = rows.filter(r => r[b] != null);
+      offsets[b] = members.reduce((t, r) => t + r[b] - ability.get(r), 0) / members.length;
+    }
+    const mean = used.reduce((t, b) => t + offsets[b], 0) / (used.length || 1);
+    for (const b of used) offsets[b] -= mean;
+  }
+  return offsets;
+}
+
 export function atlasHierarchy(boards, freshness, byEffort, now = new Date(), aliases = {}) {
   const combined = new Map();
   const columns = [];
@@ -96,9 +117,10 @@ export function atlasHierarchy(boards, freshness, byEffort, now = new Date(), al
     }
   }
   const rows = [...combined.values()];
-  for (const row of rows) {
-    if (row.evidence.length < 2 || row.evidence.some(e => row[e.source] == null)) continue;
-    const sum = row.evidence.reduce((total, e) => total + row[e.source], 0);
+  const eligible = rows.filter(row => row.evidence.length >= 2 && row.evidence.every(e => row[e.source] != null));
+  const offsets = fieldOffsets(eligible, columns.filter(c => c.key !== 'cost_per_task').map(c => c.key));
+  for (const row of eligible) {
+    const sum = row.evidence.reduce((total, e) => total + row[e.source] - offsets[e.source], 0);
     row.score = Number((sum / row.evidence.length).toFixed(1));
   }
   const ranked = rows.filter(r => r.score !== null).sort((a, b) => b.score - a.score);
@@ -111,7 +133,7 @@ export function atlasHierarchy(boards, freshness, byEffort, now = new Date(), al
     subtitle: byEffort ? 'Exact tested settings' : 'Across evaluators',
     description: byEffort ? 'Each explicitly labeled effort setting has its own entry; AA default-fallback runs join the same setting.'
       : 'Each model contributes one median tested score per evaluator, across its observed settings.',
-    metric: 'Atlas score', decimals: 1, columns, rows, n_scored: ranked.length, availability,
-    qualification: 'Atlas averages within-board percentiles from at least two current model evaluators. Each board ranks only the entries that appear on two or more evaluators, so padding a board with single-board entries cannot inflate them; single-evaluator entries are placed against that field. A dash in Atlas score means only one evaluator contributed. AA $/task is the reported cost per task, summarized by the median of priced settings for a model. A rounded $0.00 can represent a small cost. Expand a row for configuration prices and LiveBench cost per successful task.',
+    metric: 'Atlas score', decimals: 1, columns, rows, n_scored: ranked.length, availability, offsets,
+    qualification: 'Atlas averages within-board percentiles from at least two current model evaluators. Each board ranks only the entries that appear on two or more evaluators, so padding a board with single-board entries cannot inflate them; single-evaluator entries are placed against that field. Shared fields differ in strength, so each board gets a fitted offset (a percentile on a stronger field is worth more); a model scored by every evaluator keeps its plain average. A dash in Atlas score means only one evaluator contributed. AA $/task is the reported cost per task, summarized by the median of priced settings for a model. A rounded $0.00 can represent a small cost. Expand a row for configuration prices and LiveBench cost per successful task.',
   };
 }

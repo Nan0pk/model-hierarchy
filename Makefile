@@ -14,3 +14,4 @@ fetch:
 
 run:
 	python -m hierarchy run
+	node dashboard/export.mjs
