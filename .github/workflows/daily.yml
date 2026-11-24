@@ -1,9 +1,8 @@
-# Daily hierarchy refresh — METHODOLOGY.md §12
-# 06:00 UTC: fetch → aggregate → render → auto-commit if anything changed.
-# Any single source failing (endpoint moved, HTML changed, Cloudflare) is logged
-# and non-fatal: the day's hierarchy is computed from everything that succeeded,
-# with staleness flags telling the reader exactly what fell behind.
-# No secrets are required for v1 — all sources are public pages.
+# Daily hierarchy refresh — METHODOLOGY.md §5
+# 06:00 UTC: fetch → aggregate → render → test → auto-commit if meaningful data changed.
+# Any single source failing (endpoint moved, HTML/SPA changed, Cloudflare) is logged
+# and non-fatal: the day's publication retains last-good snapshots without re-dating
+# them and surfaces refresh health explicitly. Timestamp-only diffs never commit.
 
 name: daily
 
@@ -30,23 +29,41 @@ jobs:
           python-version: "3.12"
           cache: pip
 
-      - name: Install
-        run: pip install -r requirements.txt
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Install Python & dashboard test dependencies
+        run: |
+          pip install -e '.[dev]'
+          npm ci
 
       - name: Fetch → aggregate → render (soft-fail per source)
         run: python -m hierarchy run
 
-      - name: Contract tests
-        run: pytest -q
-
-      - name: Auto-commit if anything changed
+      - name: Python & dashboard contract tests
         run: |
-          git config user.name  "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A
-          if git diff --cached --quiet; then
-            echo "No changes — nothing to commit."
+          pytest -q
+          ruff check hierarchy tests
+          npm test
+
+      - name: Auto-commit if meaningful data changed
+        run: |
+          if git status --porcelain | grep -q '^??'; then
+            MEANINGFUL=1
+          elif git diff -I '"generated_at":' -I '"attempted_at":' --quiet; then
+            MEANINGFUL=0
           else
+            MEANINGFUL=1
+          fi
+          if [ "$MEANINGFUL" -eq 0 ]; then
+            git checkout -- .
+            echo "No meaningful data changes — skipping timestamp-only commit."
+          else
+            git config user.name  "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add -A
             git commit -m "daily: hierarchy refresh $(date -u +%F)"
             git push
           fi

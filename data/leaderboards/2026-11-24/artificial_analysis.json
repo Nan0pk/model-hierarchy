@@ -1,0 +1,1154 @@
+{
+  "board": "artificial_analysis",
+  "version": "Intelligence Index v5.0.1",
+  "source": "https://artificialanalysis.ai/leaderboards/models",
+  "observed_at": "2026-11-24",
+  "published_at": null,
+  "retrieval_method": "automatic_public_source",
+  "scope": "Complete scored current-model roster (including grouped effort variants)",
+  "rows": [
+    {
+      "model": "Claude Sonnet 5.5 (Medium, Default Fallback)",
+      "score": 31.0,
+      "provider": "Anthropic",
+      "context": "1M",
+      "cost_per_task": 0.78,
+      "output_tps": 138.0,
+      "open_weights": false
+    },
+    {
+      "model": "Apodex 1.1",
+      "score": 14.0,
+      "provider": "Apodex",
+      "context": "256k",
+      "cost_per_task": 0.76,
+      "output_tps": null,
+      "open_weights": false
+    },
+    {
+      "model": "Gemini 3.5 Flash-Lite",
+      "score": 12.0,
+      "provider": "Google",
+      "context": "1M",
+      "cost_per_task": 0.69,
+      "output_tps": 304.0,
+      "open_weights": false
+    },
+    {
+      "model": "Step 5 Preview",
+      "score": 29.0,
+      "provider": "StepFun",
+      "context": "1M",
+      "cost_per_task": 2.35,
+      "output_tps": 77.0,
+      "open_weights": true
+    },
+    {
+      "model": "Gemini 4 Neon (Low)",
+      "score": 44.0,
+      "provider": "Google",
+      "context": "1M",
+      "cost_per_task": 0.75,
+      "output_tps": 93.0,
+      "open_weights": false
+    },
+    {
+      "model": "Granite 4.2 3B",
+      "score": 5.0,
+      "provider": "IBM",
+      "context": "131k",
+      "cost_per_task": null,
+      "output_tps": null,
+      "open_weights": true
+    },
+    {
+      "model": "Claude Fable 5.2 (Medium, Default Fallback)",
+      "score": 56.0,
+      "provider": "Anthropic",
+      "context": "1M",
+      "cost_per_task": 3.8,
+      "output_tps": 109.0,
+      "open_weights": false
+    },
+    {
+      "model": "GPT-6.1 Terra (Non-reasoning)",
+      "score": 31.0,
+      "provider": "OpenAI",
+      "context": "1M",
+      "cost_per_task": 0.23,
+      "output_tps": 66.0,
+      "open_weights": false
+    },
+    {
+      "model": "Gemini 4 Carbon (Medium)",
+      "score": 58.0,
+      "provider": "Google",
+      "context": "1M",
+      "cost_per_task": 6.59,
+      "output_tps": 69.0,
+      "open_weights": false
+    },
+    {
+      "model": "Inkling (Xhigh)",
+      "score": 12.0,
+      "provider": "Thinking Machines",
+      "context": "1M",
+      "cost_per_task": 1.35,
+      "output_tps": 89.0,
+      "open_weights": true
+    },
+    {
+      "model": "Granite 4.2 30B",
+      "score": 6.0,
+      "provider": "IBM",
+      "context": "131k",
+      "cost_per_task": null,
+      "output_tps": null,
+      "open_weights": true
+    },
+    {
+      "model": "K2 Horizon 7B",
+      "score": 11.0,
+      "provider": "Institute of Foundation Models",
+      "context": "524k",
+      "cost_per_task": null,
+      "output_tps": null,
+      "open_weights": true
+    },
+    {
+      "model": "MiMo-V2.6-Flash",
+      "score": 27.0,
+      "provider": "Xiaomi",
+      "context": "1M",
+      "cost_per_task": 0.13,
+      "output_tps": 40.0,
+      "open_weights": true
+    },
+    {
+      "model": "Solar Pro 4",
+      "score": 14.0,
+      "provider": "Upstage",
+      "context": "512k",
+      "cost_per_task": 0.96,
+      "output_tps": 82.0,
+      "open_weights": false
+    },
+    {
+      "model": "K-EXAONE 2.0",
+      "score": 8.0,
+      "provider": "LG AI Research",
+      "context": "262k",
+      "cost_per_task": null,
+      "output_tps": null,
+      "open_weights": true
+    },
+    {
+      "model": "GLM-5.3-Flash (Max)",
+      "score": 28.0,
+      "provider": "Z AI",
+      "context": "1M",
+      "cost_per_task": 0.58,
+      "output_tps": 61.0,
+      "open_weights": true
+    },
+    {
+      "model": "GPT-6 Luna (Xhigh)",
+      "score": 23.0,
+      "provider": "OpenAI",
+      "context": "1M",
+      "cost_per_task": 0.1,
+      "output_tps": 108.0,
+      "open_weights": false
+    },
+    {
+      "model": "North Mini Code",
+      "score": 3.0,
+      "provider": "Cohere",
+      "context": "256k",
+      "cost_per_task": 0.0,
+      "output_tps": 251.0,
+      "open_weights": true
+    },
+    {
+      "model": "Claude Haiku 5.5 (High)",
+      "score": 30.0,
+      "provider": "Anthropic",
+      "context": "1M",
+      "cost_per_task": 0.16,
+      "output_tps": 226.0,
+      "open_weights": false
+    },
+    {
+      "model": "Grok 4.7 (Low)",
+      "score": 31.0,
+      "provider": "SpaceXAI",
+      "context": "500k",
+      "cost_per_task": 2.92,
+      "output_tps": 78.0,
+      "open_weights": false
+    },
+    {
+      "model": "MiMo-V2.6-Pro",
+      "score": 30.0,
+      "provider": "Xiaomi",
+      "context": "1M",
+      "cost_per_task": 0.26,
+      "output_tps": 41.0,
+      "open_weights": true
+    },
+    {
+      "model": "Claude Sonnet 5.5 (High, Default Fallback)",
+      "score": 42.0,
+      "provider": "Anthropic",
+      "context": "1M",
+      "cost_per_task": 1.64,
+      "output_tps": 138.0,
+      "open_weights": false
+    },
+    {
+      "model": "Grok 4.7 (High)",
+      "score": 35.0,
+      "provider": "SpaceXAI",
+      "context": "500k",
+      "cost_per_task": 6.18,
+      "output_tps": 80.0,
+      "open_weights": false
+    },
+    {
+      "model": "MiniMax-M3",
+      "score": 19.0,
+      "provider": "MiniMax",
+      "context": "1M",
+      "cost_per_task": 1.29,
+      "output_tps": 108.0,
+      "open_weights": true
+    },
+    {
+      "model": "Mistral Large 4 (Medium)",
+      "score": 23.0,
+      "provider": "Mistral",
+      "context": "1M",
+      "cost_per_task": 1.41,
+      "output_tps": 75.0,
+      "open_weights": true
+    },
+    {
+      "model": "GPT-6.2 Sol (Xhigh)",
+      "score": 56.0,
+      "provider": "OpenAI",
+      "context": "1M",
+      "cost_per_task": 0.65,
+      "output_tps": 63.0,
+      "open_weights": false
+    },
+    {
+      "model": "Nemotron 3.5 Lightning",
+      "score": 6.0,
+      "provider": "NVIDIA",
+      "context": "1M",
+      "cost_per_task": 0.31,
+      "output_tps": 296.0,
+      "open_weights": true
+    },
+    {
+      "model": "LFM3-VL-2B",
+      "score": 2.0,
+      "provider": "Liquid AI",
+      "context": "128k",
+      "cost_per_task": 0.12,
+      "output_tps": 341.0,
+      "open_weights": true
+    },
+    {
+      "model": "Gemini 4 Neon (Medium)",
+      "score": 55.0,
+      "provider": "Google",
+      "context": "1M",
+      "cost_per_task": 1.9,
+      "output_tps": 94.0,
+      "open_weights": false
+    },
+    {
+      "model": "Command A+",
+      "score": 6.0,
+      "provider": "Cohere",
+      "context": "192k",
+      "cost_per_task": 0.0,
+      "output_tps": 210.0,
+      "open_weights": true
+    },
+    {
+      "model": "Claude Opus 5.5 (Max, Default Fallback)",
+      "score": 59.0,
+      "provider": "Anthropic",
+      "context": "1M",
+      "cost_per_task": 10.04,
+      "output_tps": 116.0,
+      "open_weights": false
+    },
+    {
+      "model": "K2 Horizon 3.7B",
+      "score": 8.0,
+      "provider": "Institute of Foundation Models",
+      "context": "524k",
+      "cost_per_task": null,
+      "output_tps": null,
+      "open_weights": true
+    },
+    {
+      "model": "Qwen3.8 27B (Non-reasoning)",
+      "score": 10.0,
+      "provider": "Alibaba",
+      "context": "256k",
+      "cost_per_task": 3.77,
+      "output_tps": 55.0,
+      "open_weights": true
+    },
+    {
+      "model": "Muse Spark Open (Xhigh)",
+      "score": 25.0,
+      "provider": "Meta",
+      "context": "1M",
+      "cost_per_task": 2.02,
+      "output_tps": 175.0,
+      "open_weights": true
+    },
+    {
+      "model": "GPT-6 Luna (Medium)",
+      "score": 18.0,
+      "provider": "OpenAI",
+      "context": "1M",
+      "cost_per_task": 0.04,
+      "output_tps": 102.0,
+      "open_weights": false
+    },
+    {
+      "model": "Muse Wonder (High)",
+      "score": 41.0,
+      "provider": "Meta",
+      "context": "1M",
+      "cost_per_task": 4.56,
+      "output_tps": 99.0,
+      "open_weights": false
+    },
+    {
+      "model": "Mistral Small 4 (Reasoning)",
+      "score": 4.0,
+      "provider": "Mistral",
+      "context": "256k",
+      "cost_per_task": 0.04,
+      "output_tps": 145.0,
+      "open_weights": true
+    },
+    {
+      "model": "Claude Haiku 5.5 (Xhigh)",
+      "score": 35.0,
+      "provider": "Anthropic",
+      "context": "1M",
+      "cost_per_task": 0.25,
+      "output_tps": 237.0,
+      "open_weights": false
+    },
+    {
+      "model": "Claude Haiku 5.5 (Low)",
+      "score": 19.0,
+      "provider": "Anthropic",
+      "context": "1M",
+      "cost_per_task": 0.04,
+      "output_tps": 217.0,
+      "open_weights": false
+    },
+    {
+      "model": "Claude Opus 5.5 (Low, Default Fallback)",
+      "score": 35.0,
+      "provider": "Anthropic",
+      "context": "1M",
+      "cost_per_task": 0.98,
+      "output_tps": 103.0,
+      "open_weights": false
+    },
+    {
+      "model": "Gemini 4 Argon (Medium)",
+      "score": 48.0,
+      "provider": "Google",
+      "context": "1M",
+      "cost_per_task": 8.63,
+      "output_tps": 69.0,
+      "open_weights": false
+    },
+    {
+      "model": "Nanbeige4.3-33B",
+      "score": 20.0,
+      "provider": "Nanbeige",
+      "context": "524k",
+      "cost_per_task": null,
+      "output_tps": null,
+      "open_weights": true
+    },
+    {
+      "model": "Ling 3.1 Flash 1019",
+      "score": 30.0,
+      "provider": "InclusionAI",
+      "context": "1M",
+      "cost_per_task": 3.19,
+      "output_tps": null,
+      "open_weights": true
+    },
+    {
+      "model": "K2 Horizon MoVA 36B A4B",
+      "score": 14.0,
+      "provider": "Institute of Foundation Models",
+      "context": "524k",
+      "cost_per_task": null,
+      "output_tps": null,
+      "open_weights": true
+    },
+    {
+      "model": "DeepSeek V4.1 Flash 1017 (Non-reasoning)",
+      "score": 19.0,
+      "provider": "DeepSeek",
+      "context": "1M",
+      "cost_per_task": 0.43,
+      "output_tps": 167.0,
+      "open_weights": true
+    },
+    {
+      "model": "Muse Glimmer (High)",
+      "score": 6.0,
+      "provider": "Meta",
+      "context": "131k",
+      "cost_per_task": 0.18,
+      "output_tps": 101.0,
+      "open_weights": true
+    },
+    {
+      "model": "GPT-6.2 Astra (Xhigh)",
+      "score": 62.0,
+      "provider": "OpenAI",
+      "context": "1M",
+      "cost_per_task": 2.52,
+      "output_tps": 46.0,
+      "open_weights": false
+    },
+    {
+      "model": "Claude Fable 5.2 (Max, Default Fallback)",
+      "score": 65.0,
+      "provider": "Anthropic",
+      "context": "1M",
+      "cost_per_task": 26.54,
+      "output_tps": 111.0,
+      "open_weights": false
+    },
+    {
+      "model": "Grok 4.7 (Xhigh)",
+      "score": 35.0,
+      "provider": "SpaceXAI",
+      "context": "500k",
+      "cost_per_task": 7.77,
+      "output_tps": 76.0,
+      "open_weights": false
+    },
+    {
+      "model": "Nemotron 3 Ultra 550B A55B (Reasoning)",
+      "score": 12.0,
+      "provider": "NVIDIA",
+      "context": "262k",
+      "cost_per_task": 2.19,
+      "output_tps": 203.0,
+      "open_weights": true
+    },
+    {
+      "model": "JoyAI-VL-Preview",
+      "score": 28.0,
+      "provider": "Joy Future Academy",
+      "context": "1M",
+      "cost_per_task": null,
+      "output_tps": null,
+      "open_weights": false
+    },
+    {
+      "model": "GPT-6 Luna (Non-reasoning)",
+      "score": 9.0,
+      "provider": "OpenAI",
+      "context": "1M",
+      "cost_per_task": 0.07,
+      "output_tps": 100.0,
+      "open_weights": false
+    },
+    {
+      "model": "Qwen3.8 27B (Medium)",
+      "score": 17.0,
+      "provider": "Alibaba",
+      "context": "256k",
+      "cost_per_task": 2.16,
+      "output_tps": 63.0,
+      "open_weights": true
+    },
+    {
+      "model": "Kimi K3.1 Pro",
+      "score": 46.0,
+      "provider": "Kimi",
+      "context": "1M",
+      "cost_per_task": 3.68,
+      "output_tps": 34.0,
+      "open_weights": true
+    },
+    {
+      "model": "Beam 1.0",
+      "score": 18.0,
+      "provider": "Reflection",
+      "context": "1M",
+      "cost_per_task": 0.28,
+      "output_tps": 311.0,
+      "open_weights": true
+    },
+    {
+      "model": "GPT-6 Luna (Max)",
+      "score": 28.0,
+      "provider": "OpenAI",
+      "context": "1M",
+      "cost_per_task": 0.15,
+      "output_tps": 115.0,
+      "open_weights": false
+    },
+    {
+      "model": "GPT-6.2 Astra (Max)",
+      "score": 62.0,
+      "provider": "OpenAI",
+      "context": "1M",
+      "cost_per_task": 4.0,
+      "output_tps": 49.0,
+      "open_weights": false
+    },
+    {
+      "model": "Claude Fable 5.2 (Xhigh, Default Fallback)",
+      "score": 62.0,
+      "provider": "Anthropic",
+      "context": "1M",
+      "cost_per_task": 14.83,
+      "output_tps": 111.0,
+      "open_weights": false
+    },
+    {
+      "model": "Muse Ember (Xhigh)",
+      "score": 34.0,
+      "provider": "Meta",
+      "context": "1M",
+      "cost_per_task": 0.12,
+      "output_tps": 400.0,
+      "open_weights": false
+    },
+    {
+      "model": "Gemini 4 Neon (Xhigh)",
+      "score": 61.0,
+      "provider": "Google",
+      "context": "1M",
+      "cost_per_task": 6.44,
+      "output_tps": 88.0,
+      "open_weights": false
+    },
+    {
+      "model": "Claude Haiku 5.5 (Max)",
+      "score": 36.0,
+      "provider": "Anthropic",
+      "context": "1M",
+      "cost_per_task": 0.41,
+      "output_tps": 259.0,
+      "open_weights": false
+    },
+    {
+      "model": "GPT-6 Luna (High)",
+      "score": 21.0,
+      "provider": "OpenAI",
+      "context": "1M",
+      "cost_per_task": 0.07,
+      "output_tps": 107.0,
+      "open_weights": false
+    },
+    {
+      "model": "Qwen3.8 27B (Low)",
+      "score": 16.0,
+      "provider": "Alibaba",
+      "context": "256k",
+      "cost_per_task": 1.91,
+      "output_tps": 67.0,
+      "open_weights": true
+    },
+    {
+      "model": "A.X-K2",
+      "score": 9.0,
+      "provider": "SK Telecom",
+      "context": "262k",
+      "cost_per_task": null,
+      "output_tps": null,
+      "open_weights": true
+    },
+    {
+      "model": "GPT-6.2 Sol (Medium)",
+      "score": 53.0,
+      "provider": "OpenAI",
+      "context": "1M",
+      "cost_per_task": 0.41,
+      "output_tps": 63.0,
+      "open_weights": false
+    },
+    {
+      "model": "DeepSeek V4 Pro 0813 (Max)",
+      "score": 23.0,
+      "provider": "DeepSeek",
+      "context": "1M",
+      "cost_per_task": 1.77,
+      "output_tps": 86.0,
+      "open_weights": true
+    },
+    {
+      "model": "Gemini 4 Hydrogen (Low)",
+      "score": 27.0,
+      "provider": "Google",
+      "context": "1M",
+      "cost_per_task": 0.29,
+      "output_tps": 166.0,
+      "open_weights": false
+    },
+    {
+      "model": "GPT-6.2 Astra (Medium)",
+      "score": 57.0,
+      "provider": "OpenAI",
+      "context": "1M",
+      "cost_per_task": 1.62,
+      "output_tps": 46.0,
+      "open_weights": false
+    },
+    {
+      "model": "K2 Horizon 32B",
+      "score": 14.0,
+      "provider": "Institute of Foundation Models",
+      "context": "524k",
+      "cost_per_task": null,
+      "output_tps": null,
+      "open_weights": true
+    },
+    {
+      "model": "Gemini 4 Carbon (High)",
+      "score": 60.0,
+      "provider": "Google",
+      "context": "1M",
+      "cost_per_task": 7.76,
+      "output_tps": 60.0,
+      "open_weights": false
+    },
+    {
+      "model": "Claude Sonnet 5.5 (Xhigh, Default Fallback)",
+      "score": 50.0,
+      "provider": "Anthropic",
+      "context": "1M",
+      "cost_per_task": 4.09,
+      "output_tps": 147.0,
+      "open_weights": false
+    },
+    {
+      "model": "Qwen3.8-Flash-Next",
+      "score": 29.0,
+      "provider": "Alibaba",
+      "context": "256k",
+      "cost_per_task": 0.57,
+      "output_tps": 67.0,
+      "open_weights": true
+    },
+    {
+      "model": "Gemini 4 Neon (High)",
+      "score": 60.0,
+      "provider": "Google",
+      "context": "1M",
+      "cost_per_task": 3.74,
+      "output_tps": 98.0,
+      "open_weights": false
+    },
+    {
+      "model": "K2 Horizon 0.9B",
+      "score": 3.0,
+      "provider": "Institute of Foundation Models",
+      "context": "131k",
+      "cost_per_task": null,
+      "output_tps": null,
+      "open_weights": true
+    },
+    {
+      "model": "NVIDIA Nemotron 3 Nano 4B",
+      "score": 2.0,
+      "provider": "NVIDIA",
+      "context": "262k",
+      "cost_per_task": null,
+      "output_tps": null,
+      "open_weights": true
+    },
+    {
+      "model": "GPT-6.2 Sol (Max)",
+      "score": 57.0,
+      "provider": "OpenAI",
+      "context": "1M",
+      "cost_per_task": 1.01,
+      "output_tps": 66.0,
+      "open_weights": false
+    },
+    {
+      "model": "GPT-6.2 Sol (Low)",
+      "score": 41.0,
+      "provider": "OpenAI",
+      "context": "1M",
+      "cost_per_task": 0.18,
+      "output_tps": 60.0,
+      "open_weights": false
+    },
+    {
+      "model": "Granite 4.2 8B",
+      "score": 5.0,
+      "provider": "IBM",
+      "context": "131k",
+      "cost_per_task": 0.04,
+      "output_tps": 103.0,
+      "open_weights": true
+    },
+    {
+      "model": "Claude Haiku 5.5 (Medium)",
+      "score": 25.0,
+      "provider": "Anthropic",
+      "context": "1M",
+      "cost_per_task": 0.09,
+      "output_tps": 215.0,
+      "open_weights": false
+    },
+    {
+      "model": "Qwen3.8 27B (Xhigh)",
+      "score": 20.0,
+      "provider": "Alibaba",
+      "context": "256k",
+      "cost_per_task": 3.53,
+      "output_tps": 66.0,
+      "open_weights": true
+    },
+    {
+      "model": "GPT-6.1 Terra (Max)",
+      "score": 51.0,
+      "provider": "OpenAI",
+      "context": "1M",
+      "cost_per_task": 0.96,
+      "output_tps": 71.0,
+      "open_weights": false
+    },
+    {
+      "model": "Claude Sonnet 5.5 (Max, Default Fallback)",
+      "score": 55.0,
+      "provider": "Anthropic",
+      "context": "1M",
+      "cost_per_task": 10.02,
+      "output_tps": 153.0,
+      "open_weights": false
+    },
+    {
+      "model": "JT-4.1 Flash 236B A21B",
+      "score": 19.0,
+      "provider": "China Mobile",
+      "context": "262k",
+      "cost_per_task": null,
+      "output_tps": null,
+      "open_weights": false
+    },
+    {
+      "model": "Gemini 4 Carbon (Low)",
+      "score": 54.0,
+      "provider": "Google",
+      "context": "1M",
+      "cost_per_task": 7.19,
+      "output_tps": 52.0,
+      "open_weights": false
+    },
+    {
+      "model": "Inkling (High)",
+      "score": 11.0,
+      "provider": "Thinking Machines",
+      "context": "1M",
+      "cost_per_task": 0.62,
+      "output_tps": 102.0,
+      "open_weights": true
+    },
+    {
+      "model": "K2 Horizon 375B A23B",
+      "score": 18.0,
+      "provider": "Institute of Foundation Models",
+      "context": "524k",
+      "cost_per_task": 0.0,
+      "output_tps": 295.0,
+      "open_weights": true
+    },
+    {
+      "model": "Claude Sonnet 5.5 (Low, Default Fallback)",
+      "score": 26.0,
+      "provider": "Anthropic",
+      "context": "1M",
+      "cost_per_task": 0.51,
+      "output_tps": 130.0,
+      "open_weights": false
+    },
+    {
+      "model": "GPT-6 Luna (Low)",
+      "score": 10.0,
+      "provider": "OpenAI",
+      "context": "1M",
+      "cost_per_task": 0.01,
+      "output_tps": 96.0,
+      "open_weights": false
+    },
+    {
+      "model": "DeepSeek V4.1 Flash 1017 (High)",
+      "score": 29.0,
+      "provider": "DeepSeek",
+      "context": "1M",
+      "cost_per_task": 0.46,
+      "output_tps": 175.0,
+      "open_weights": true
+    },
+    {
+      "model": "GPT-6.1 Terra (Medium)",
+      "score": 38.0,
+      "provider": "OpenAI",
+      "context": "1M",
+      "cost_per_task": 0.17,
+      "output_tps": 66.0,
+      "open_weights": false
+    },
+    {
+      "model": "LFM3-1.7B",
+      "score": 6.0,
+      "provider": "Liquid AI",
+      "context": "262k",
+      "cost_per_task": 0.17,
+      "output_tps": 337.0,
+      "open_weights": true
+    },
+    {
+      "model": "GPT-6.1 Terra (Low)",
+      "score": 29.0,
+      "provider": "OpenAI",
+      "context": "1M",
+      "cost_per_task": 0.07,
+      "output_tps": 64.0,
+      "open_weights": false
+    },
+    {
+      "model": "GLM-5.3 (Low)",
+      "score": 23.0,
+      "provider": "Z AI",
+      "context": "1M",
+      "cost_per_task": 1.57,
+      "output_tps": 60.0,
+      "open_weights": true
+    },
+    {
+      "model": "GPT-6.2 Astra (Low)",
+      "score": 46.0,
+      "provider": "OpenAI",
+      "context": "1M",
+      "cost_per_task": 0.66,
+      "output_tps": 41.0,
+      "open_weights": false
+    },
+    {
+      "model": "Gemma 4 31B (Reasoning)",
+      "score": 4.0,
+      "provider": "Google",
+      "context": "256k",
+      "cost_per_task": null,
+      "output_tps": 36.0,
+      "open_weights": true
+    },
+    {
+      "model": "GLM-5.3 (Max)",
+      "score": 32.0,
+      "provider": "Z AI",
+      "context": "1M",
+      "cost_per_task": 5.01,
+      "output_tps": 71.0,
+      "open_weights": true
+    },
+    {
+      "model": "GPT-6.2 Sol (High)",
+      "score": 55.0,
+      "provider": "OpenAI",
+      "context": "1M",
+      "cost_per_task": 0.56,
+      "output_tps": 63.0,
+      "open_weights": false
+    },
+    {
+      "model": "Claude Fable 5.2 (Low, Default Fallback)",
+      "score": 54.0,
+      "provider": "Anthropic",
+      "context": "1M",
+      "cost_per_task": 3.1,
+      "output_tps": 108.0,
+      "open_weights": false
+    },
+    {
+      "model": "Tencent Hy4",
+      "score": 35.0,
+      "provider": "Tencent",
+      "context": "1M",
+      "cost_per_task": 1.03,
+      "output_tps": 94.0,
+      "open_weights": true
+    },
+    {
+      "model": "Gemini 4 Argon (High)",
+      "score": 50.0,
+      "provider": "Google",
+      "context": "1M",
+      "cost_per_task": 9.95,
+      "output_tps": 83.0,
+      "open_weights": false
+    },
+    {
+      "model": "MiniMax-M3.1-Flash",
+      "score": 29.0,
+      "provider": "MiniMax",
+      "context": "1M",
+      "cost_per_task": 0.49,
+      "output_tps": 131.0,
+      "open_weights": true
+    },
+    {
+      "model": "Agnes 2.5 Pro Theta",
+      "score": 24.0,
+      "provider": "Sapiens AI",
+      "context": "1M",
+      "cost_per_task": 0.57,
+      "output_tps": 151.0,
+      "open_weights": false
+    },
+    {
+      "model": "DeepSeek V4 Pro 0813 (Non-reasoning)",
+      "score": 13.0,
+      "provider": "DeepSeek",
+      "context": "1M",
+      "cost_per_task": 0.98,
+      "output_tps": 81.0,
+      "open_weights": true
+    },
+    {
+      "model": "Gemma 4 E4B (Reasoning)",
+      "score": 5.0,
+      "provider": "Google",
+      "context": "128k",
+      "cost_per_task": null,
+      "output_tps": null,
+      "open_weights": true
+    },
+    {
+      "model": "Inkling 2 Mini",
+      "score": 20.0,
+      "provider": "Thinking Machines",
+      "context": "1M",
+      "cost_per_task": 0.59,
+      "output_tps": 187.0,
+      "open_weights": true
+    },
+    {
+      "model": "Gemini 4 Hydrogen (Xhigh)",
+      "score": 54.0,
+      "provider": "Google",
+      "context": "1M",
+      "cost_per_task": 3.16,
+      "output_tps": 159.0,
+      "open_weights": false
+    },
+    {
+      "model": "Gemini 4 Hydrogen (High)",
+      "score": 51.0,
+      "provider": "Google",
+      "context": "1M",
+      "cost_per_task": 1.87,
+      "output_tps": 167.0,
+      "open_weights": false
+    },
+    {
+      "model": "Muse Ember (Max)",
+      "score": 36.0,
+      "provider": "Meta",
+      "context": "1M",
+      "cost_per_task": 0.14,
+      "output_tps": 420.0,
+      "open_weights": false
+    },
+    {
+      "model": "Mistral Medium 3.5",
+      "score": 5.0,
+      "provider": "Mistral",
+      "context": "256k",
+      "cost_per_task": 1.04,
+      "output_tps": 139.0,
+      "open_weights": true
+    },
+    {
+      "model": "Claude Opus 5.5 (Xhigh, Default Fallback)",
+      "score": 57.0,
+      "provider": "Anthropic",
+      "context": "1M",
+      "cost_per_task": 6.05,
+      "output_tps": 109.0,
+      "open_weights": false
+    },
+    {
+      "model": "Nemotron 3.5 Super VL",
+      "score": 14.0,
+      "provider": "NVIDIA",
+      "context": "1M",
+      "cost_per_task": 0.48,
+      "output_tps": 354.0,
+      "open_weights": true
+    },
+    {
+      "model": "Inkling 2 Small",
+      "score": 31.0,
+      "provider": "Thinking Machines",
+      "context": "1M",
+      "cost_per_task": 1.18,
+      "output_tps": 103.0,
+      "open_weights": true
+    },
+    {
+      "model": "GPT-6.1 Terra (Xhigh)",
+      "score": 45.0,
+      "provider": "OpenAI",
+      "context": "1M",
+      "cost_per_task": 0.4,
+      "output_tps": 69.0,
+      "open_weights": false
+    },
+    {
+      "model": "DeepSeek V4 Pro 0813 (High)",
+      "score": 21.0,
+      "provider": "DeepSeek",
+      "context": "1M",
+      "cost_per_task": 0.85,
+      "output_tps": 86.0,
+      "open_weights": true
+    },
+    {
+      "model": "Muse Wonder Full (Max)",
+      "score": 50.0,
+      "provider": "Meta",
+      "context": "1M",
+      "cost_per_task": null,
+      "output_tps": null,
+      "open_weights": false
+    },
+    {
+      "model": "GPT-6.1 Terra (High)",
+      "score": 42.0,
+      "provider": "OpenAI",
+      "context": "1M",
+      "cost_per_task": 0.26,
+      "output_tps": 67.0,
+      "open_weights": false
+    },
+    {
+      "model": "Mistral Large 4 (High)",
+      "score": 26.0,
+      "provider": "Mistral",
+      "context": "1M",
+      "cost_per_task": 2.06,
+      "output_tps": 77.0,
+      "open_weights": true
+    },
+    {
+      "model": "Claude Opus 5.5 (Medium, Default Fallback)",
+      "score": 48.0,
+      "provider": "Anthropic",
+      "context": "1M",
+      "cost_per_task": 2.45,
+      "output_tps": 105.0,
+      "open_weights": false
+    },
+    {
+      "model": "gpt-oss-120b (High)",
+      "score": 4.0,
+      "provider": "OpenAI",
+      "context": "131k",
+      "cost_per_task": 0.35,
+      "output_tps": 188.0,
+      "open_weights": true
+    },
+    {
+      "model": "Gemini 4 Hydrogen (Medium)",
+      "score": 41.0,
+      "provider": "Google",
+      "context": "1M",
+      "cost_per_task": 0.8,
+      "output_tps": 171.0,
+      "open_weights": false
+    },
+    {
+      "model": "DeepSeek V4.1 Flash 1017 (Max)",
+      "score": 33.0,
+      "provider": "DeepSeek",
+      "context": "1M",
+      "cost_per_task": 0.6,
+      "output_tps": 167.0,
+      "open_weights": true
+    },
+    {
+      "model": "Ling-3.2-air",
+      "score": 23.0,
+      "provider": "InclusionAI",
+      "context": "1M",
+      "cost_per_task": null,
+      "output_tps": null,
+      "open_weights": true
+    },
+    {
+      "model": "Claude Opus 5.5 (High, Default Fallback)",
+      "score": 52.0,
+      "provider": "Anthropic",
+      "context": "1M",
+      "cost_per_task": 3.46,
+      "output_tps": 108.0,
+      "open_weights": false
+    },
+    {
+      "model": "Claude Fable 5.2 (High, Default Fallback)",
+      "score": 62.0,
+      "provider": "Anthropic",
+      "context": "1M",
+      "cost_per_task": 9.08,
+      "output_tps": 110.0,
+      "open_weights": false
+    },
+    {
+      "model": "GPT-6.2 Astra (High)",
+      "score": 60.0,
+      "provider": "OpenAI",
+      "context": "1M",
+      "cost_per_task": 2.07,
+      "output_tps": 46.0,
+      "open_weights": false
+    },
+    {
+      "model": "Qwen4 Max",
+      "score": 43.0,
+      "provider": "Alibaba",
+      "context": "984k",
+      "cost_per_task": 3.27,
+      "output_tps": 72.0,
+      "open_weights": false
+    },
+    {
+      "model": "Muse Wonder (Max)",
+      "score": 44.0,
+      "provider": "Meta",
+      "context": "1M",
+      "cost_per_task": 6.95,
+      "output_tps": 104.0,
+      "open_weights": false
+    }
+  ]
+}

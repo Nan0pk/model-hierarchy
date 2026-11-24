@@ -38,6 +38,9 @@ def load_board_config() -> dict:
             raise ValueError(f"{bid}: HTTPS source URL required")
         if spec["min_rows"] < 2 or len(spec["score_range"]) != 2:
             raise ValueError(f"{bid}: invalid integrity thresholds")
+        prev = spec.get("previous_versions") or []
+        if not isinstance(prev, list) or spec["version"] in prev:
+            raise ValueError(f"{bid}: invalid previous_versions")
     return cfg
 
 
@@ -126,9 +129,14 @@ def load_board_snapshots(cfg=None, directory: Path = BOARD_DIR, *, today=None) -
         bid = path.stem
         if bid not in cfg["boards"]:
             continue
+        spec = cfg["boards"][bid]
         try:
             snap = json.loads(path.read_text())
-            validate_snapshot(snap, bid, cfg["boards"][bid], today=today)
+            if isinstance(snap, dict) and snap.get("version") in set(spec.get("previous_versions") or []):
+                # Retained archive of a superseded metric version: keep on disk
+                # for reproducibility without pooling into the current version.
+                continue
+            validate_snapshot(snap, bid, spec, today=today)
         except (ValueError, KeyError, TypeError) as exc:
             issues.append(f"{path.name}: {exc}")
             continue
@@ -218,6 +226,15 @@ def build_board_report(cfg=None, directory: Path = BOARD_DIR, *, today=None) -> 
 def write_board_outputs(report: dict, out_dir: Path = OUTPUT_DIR) -> Path:
     out_dir.mkdir(parents=True, exist_ok=True)
     path = out_dir / "leaderboards.json"
+    if path.exists():
+        try:
+            existing = json.loads(path.read_text())
+            if (isinstance(existing, dict) and "generated_at" in existing
+                    and {k: v for k, v in existing.items() if k != "generated_at"}
+                    == {k: v for k, v in report.items() if k != "generated_at"}):
+                report["generated_at"] = existing["generated_at"]
+        except (ValueError, OSError):
+            pass
     path.write_text(json.dumps(report, indent=2, ensure_ascii=False, allow_nan=False) + "\n")
     fields = ["board", "version", "rank", "model", "score", "harness", "published_at", "observed_at", "source"]
     with (out_dir / "leaderboards.csv").open("w", newline="") as handle:

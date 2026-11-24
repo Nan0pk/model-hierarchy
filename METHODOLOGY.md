@@ -1,6 +1,6 @@
 # Model Atlas — ranking methodology
 
-**Version 2.0.0 · 2026-11-03**
+**Version 2.1.0 · 2026-11-24**
 
 The default output is now **source-native leaderboards**, not an unsupported universal
 hierarchy. The experimental five-pillar composite is retained as a separate, gated output.
@@ -15,7 +15,7 @@ Intelligence Index, normalize separate source boards into an artificial common s
 or count an existing index alongside its constituent benchmarks.
 
 Default view: Artificial Analysis's current-model Intelligence Index table. Alternatives:
-Arena style-controlled text, LiveBench 2.0, and Terminal-Bench 4.0. This is an explicit
+Arena style-controlled text, LiveBench 2.0, and Terminal-Bench 4.1. This is an explicit
 editorial default, not a claim that one benchmark measures all useful abilities.
 
 Ranks are descending competition ranks: `1, 2, 2, 4`. Equal supplied scores share a rank.
@@ -31,10 +31,10 @@ Authoritative metadata and version pins live in [`config/leaderboards.yaml`](con
 
 | View | Metric | Unit of comparison | Important qualification |
 |---|---|---|---|
-| [Artificial Analysis](https://artificialanalysis.ai/leaderboards/models) | Intelligence Index **v5.0** | Exact model + effort + fallback configuration | Already an aggregate. Public table has rounded scores, no model-level CIs. Cost/task is not $/million tokens. |
+| [Artificial Analysis](https://artificialanalysis.ai/leaderboards/models) | Intelligence Index **v5.0.1** | Exact model + effort + fallback configuration | Already an aggregate (CritPt v2 regrade across the 9-benchmark v5 suite). Public table has rounded scores, no model-level CIs; grouped effort variants are retained. Cost/task is not $/million tokens. |
 | [Arena](https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset) | `text_style_control`, `latest`, `overall` | Exact model/configuration | Official paginated dataset, not raw text Elo or the agent board. Includes historical models. Preserve source 95% intervals and votes. |
-| [LiveBench](https://livebench.ai/) | **LiveBench 2.0** overall and seven suites | Source evaluation configuration | Not legacy LiveBench overall. Overall uses Agentic ×2, Design/Coding ×1.5, other suites ×1 over measured suites. Single runs; no invented CIs. |
-| [Terminal-Bench](https://www.tbench.ai/) | **4.0** resolution rate | Model + effort + **agent harness** | Systems, not isolated models. Preserve the published ± margin without assuming an unstated confidence level. Model release dates are not evaluation dates. |
+| [LiveBench](https://livebench.ai/) | **LiveBench 2.0** overall and seven suites | Source evaluation configuration | Official release CSV/JSON feed, not legacy LiveBench overall. Overall uses Long Agentic ×2, Design/Coding ×1.5, other suites ×1 over measured suites. Single runs; no invented CIs. |
+| [Terminal-Bench](https://www.tbench.ai/) | **4.1** resolution rate | Model + effort + **agent harness** | Systems, not isolated models. Preserve the published ± 95% confidence margin across evaluation trials. Model release dates are not evaluation dates. |
 
 Source methods: [AA](https://artificialanalysis.ai/methodology/intelligence-benchmarking),
 [LiveBench](https://livebench.ai/#/methodology), [Terminal-Bench](https://www.tbench.ai/run).
@@ -43,9 +43,11 @@ agents and releases. It is not silently promoted into a current, fixed-harness m
 
 The registry pins versions. An AA index revision, LiveBench suite migration, or
 Terminal-Bench task revision requires deliberate review, a new version/ID where appropriate,
-fixtures, and a changelog entry. The native boards are **never** injected into the old
-composite slots. In particular, LiveBench 2.0 is not `livebench_overall`, and Terminal-Bench
-4.0 systems are not the composite's legacy `terminal_bench` observation.
+fixtures, and a changelog entry. Historical dated snapshots from superseded versions listed
+in `previous_versions` remain archived on disk for reproducibility without being pooled into
+current boards or treated as corrupt files. The native boards are **never** injected into
+the old composite slots. In particular, LiveBench 2.0 is not `livebench_overall`, and
+Terminal-Bench 4.1 systems are not the composite's legacy `terminal_bench` observation.
 
 ## 3. Identity and coverage
 
@@ -202,6 +204,13 @@ its isolated demo path.
 
 ## 8. Version history
 
+- **2.1.0 — 2026-11-24:** Migrate Artificial Analysis native registry to Intelligence Index
+  v5.0.1 and parse full uncollapsed model configurations from Next.js RSC payloads; replace
+  LiveBench's broken HTML table scrape with LiveBench 2.0's official `/data/<release>/` CSV/JSON
+  feed and explicit release dates; migrate Terminal-Bench native registry to 4.1 with full RSC
+  display rosters and board update timestamps; retain superseded `previous_versions` snapshots
+  as clean historical archives; make output generation idempotent and wire full Python + JSDOM
+  CI workflows while suppressing timestamp-only daily commits.
 - **2.0.0 — 2026-11-03:** Source-native current rankings become the default; independently
   versioned AA v5.0 / Arena / LiveBench 2.0 / Terminal-Bench 4.0 views and audited initial
   snapshots; removal of usage roster gate and usage capability weight; composite sample and

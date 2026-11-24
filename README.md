@@ -2,7 +2,7 @@
 
 **AI model rankings with the evidence still attached.**
 
-Explore original scores from **Artificial Analysis, Arena, LiveBench 2.0, and Terminal-Bench 4.0**.
+Explore original scores from **Artificial Analysis, Arena, LiveBench 2.0, and Terminal-Bench 4.1**.
 Keep exact reasoning settings, benchmark versions, uncertainty when supplied, and source dates.
 No popularity-based model exclusions. No fictional universal winner.
 
@@ -66,13 +66,16 @@ The retained Arena snapshot keeps its original source date. See the
 
 ## Read the ranks correctly
 
-- **Artificial Analysis:** current-model Intelligence Index **v5.0**; rounded raw scores, exact effort
-  and fallback settings. Equal displayed scores share a rank. No invented CIs.
+- **Artificial Analysis:** current-model Intelligence Index **v5.0.1**; rounded raw scores, exact
+  effort and fallback settings (including grouped release variants). Equal displayed scores share
+  a rank. No invented CIs.
 - **Arena:** complete official **style-controlled text / overall** roster, not raw text or agent
   rankings. Includes historical models; vote counts and source 95% intervals are retained.
-- **LiveBench 2.0:** source overall plus seven task suites, separate from the retired LiveBench metric.
-- **Terminal-Bench 4.0:** **model + agent system** performance. Different harnesses are not controlled
-  comparisons of base models. Release dates are not evaluation dates.
+- **LiveBench 2.0:** official release CSV/JSON feed with overall plus seven task suites and
+  release dates, separate from the retired LiveBench metric.
+- **Terminal-Bench 4.1:** **model + agent system** performance across all evaluated display
+  configurations, with source-supplied 95% confidence margins. Different harnesses are not
+  controlled comparisons of base models. Release dates are not evaluation dates.
 
 Scores across these boards are **not interchangeable**. A recently observed board does not prove
 public model availability, a recent model release, or a recent evaluation. Unknown dates are shown
@@ -84,32 +87,26 @@ as unknown, and stale snapshots remain clearly labeled reference data.
 
 Source-native rankings. **Scores from different boards are not interchangeable.**
 
-### Artificial Analysis — Intelligence Index v5.0
+### Artificial Analysis — Intelligence Index v5.0.1
 
-[Source](https://artificialanalysis.ai/leaderboards/models) · 91 scored entries · published: not supplied · observed: 2026-11-03 · **stale**
+[Source](https://artificialanalysis.ai/leaderboards/models) · 127 scored entries · published: not supplied · observed: 2026-11-24 · **available**
 
 | Rank | Model / configuration | Score |
 |---|---|---|
-| 1 | Gemini 4 Carbon (high) | 59 |
-| 2 | Claude Opus 5.5 (max with fallback) | 58 |
-| 2 | Gemini 4 Carbon (medium) | 58 |
-| 4 | Claude Opus 5.5 (xhigh with fallback) | 57 |
-| 4 | GPT-6 Astra (max) | 57 |
-| 6 | GPT-6 Astra (high) | 55 |
-| 6 | GPT-6 Astra (xhigh) | 55 |
-| 6 | GPT-6.1 Sol (max) | 55 |
-| 9 | Claude Sonnet 5.5 (max with fallback) | 54 |
-| 9 | Gemini 4 Carbon (low) | 54 |
+| 1 | Claude Fable 5.2 (Max, Default Fallback) | 65 |
+| 2 | Claude Fable 5.2 (High, Default Fallback) | 62 |
+| 2 | Claude Fable 5.2 (Xhigh, Default Fallback) | 62 |
+| 2 | GPT-6.2 Astra (Max) | 62 |
+| 2 | GPT-6.2 Astra (Xhigh) | 62 |
+| 6 | Gemini 4 Neon (Xhigh) | 61 |
+| 7 | GPT-6.2 Astra (High) | 60 |
+| 7 | Gemini 4 Carbon (High) | 60 |
+| 7 | Gemini 4 Neon (High) | 60 |
+| 10 | Claude Opus 5.5 (Max, Default Fallback) | 59 |
 
-Source-native Intelligence Index, not a Model Atlas aggregate. Reasoning effort and fallback settings are distinct entries. Public table scores are rounded; equal displayed scores share a rank here. No confidence intervals are published in this table. Cost per task is not API price per million tokens; a rounded $0.00 is not proof of free usage. The source's current-model view is not a guarantee of public availability.
+Source-native Intelligence Index v5.0.1 (CritPt v2 regrade across the 9-benchmark v5 suite), not a Model Atlas aggregate. Reasoning effort and fallback settings are distinct entries, including configurations collapsed under release groups on the source page. Public table scores are rounded integers; equal displayed scores share a rank here. No confidence intervals are published in this table. Cost per task is not API price per million tokens; a rounded $0.00 is not proof of free usage. The source's current-model view is not a guarantee of public availability.
 
 > Evaluation/publication date not supplied by the table; observed date is retrieval only.
-
-> Stale snapshot (21 days); not a current ranking.
-
-> Source table transcribed on 2026-11-03. Retrieval is not an evaluation date. See data/evidence/2026-11-03/README.md.
-
-> Last refresh failed; retaining the last valid snapshot.
 
 ### Arena — Text · style-controlled · overall
 
@@ -132,57 +129,41 @@ Official text_style_control dataset, overall category only. Not the raw text, co
 
 ### LiveBench — LiveBench 2.0
 
-[Source](https://livebench.ai/) · 32 scored entries · published: not supplied · observed: 2026-11-03 · **stale**
+[Source](https://livebench.ai/) · 41 scored entries · published: 2026-11-11 · observed: 2026-11-24 · **available**
 
 | Rank | Model / configuration | Score |
 |---|---|---|
-| 1 | Claude Fable 5.1 | 85.7 |
-| 2 | GPT-6 Astra | 85.6 |
-| 3 | Claude Opus 5.5 | 85.1 |
-| 4 | GPT-6.1 Sol | 84.1 |
-| 5 | Claude Sonnet 5.5 | 80.0 |
-| 6 | Gemini 4 Argon | 79.3 |
-| 7 | GPT-6.1 Terra | 77.8 |
-| 8 | Muse Wonder 1.0 | 74.2 |
-| 9 | DeepSeek V4.1 Flash 1017 | 72.9 |
-| 10 | Kimi K3.1 Pro | 71.3 |
+| 1 | Gemini 4 Neon | 87.4 |
+| 2 | Claude Fable 5.2 (xhigh) | 84.9 |
+| 2 | GPT-6.2 Astra | 84.9 |
+| 4 | GPT-6 Astra | 84.2 |
+| 5 | Claude Fable 5.1 | 84.0 |
+| 6 | Claude Opus 5.5 | 83.4 |
+| 7 | Gemini 4 Carbon | 83.3 |
+| 8 | GPT-6.1 Sol | 81.2 |
+| 9 | GPT-6.2 Sol | 80.3 |
+| 10 | GPT-6.1 Terra | 78.6 |
 
-LiveBench 2.0, NOT the retired LiveBench overall benchmark. Overall is the source's weighted mean (Agentic ×2; Design and Coding ×1.5; other suites ×1). Suites are single runs; effort is highest supported unless the source's expanded row says otherwise. No per-model confidence intervals are supplied. Missing suite results stay missing, not zero. Cost is per successful task.
+LiveBench 2.0 official release feed, NOT the retired LiveBench overall benchmark. Overall is the source's weighted mean (Long Agentic ×2; Design and Coding ×1.5; other suites ×1). Suites are single runs; effort is highest supported unless the source's model notes say otherwise. No per-model confidence intervals are supplied. Missing suite results stay missing, not zero. Cost is per successful task.
 
-> Evaluation/publication date not supplied by the table; observed date is retrieval only.
+### Terminal-Bench — Terminal-Bench 4.1
 
-> Stale snapshot (21 days); not a current ranking.
-
-> Source table transcribed on 2026-11-03. Retrieval is not an evaluation date. See data/evidence/2026-11-03/README.md.
-
-> Last refresh failed; retaining the last valid snapshot.
-
-### Terminal-Bench — Terminal-Bench 4.0
-
-[Source](https://www.tbench.ai/) · 23 scored entries · published: not supplied · observed: 2026-11-03 · **stale**
+[Source](https://www.tbench.ai/) · 67 scored entries · published: 2026-11-20 · observed: 2026-11-24 · **available**
 
 | Rank | Model / configuration | Score |
 |---|---|---|
-| 1 | Opus 5.5 (max) / Claude Code | 64.8 |
-| 2 | Sonnet 5.5 (max) / Claude Code | 61.8 |
-| 3 | GPT-6 Astra (max) / Codex | 58.2 |
-| 3 | GPT-6.1 Sol (max) / Codex | 58.2 |
-| 5 | Fable 5.1 (max) / Claude Code | 57.9 |
-| 6 | Opus 5 (xhigh) / Claude Code | 53.9 |
-| 7 | GPT-6 Sol (max) / Codex | 49.4 |
-| 8 | Fable 5 (max) / Claude Code | 44.5 |
-| 9 | GLM-5.3 (max) / Claude Code | 41.8 |
-| 10 | Grok 4.7 (xhigh) / Grok Build | 37.6 |
+| 1 | Copilot Fusion (max) / GitHub Copilot | 71.2 |
+| 2 | Fable 5.2 (max) / Claude Code | 65.8 |
+| 2 | Opus 5.5 (max) / Claude Code | 65.8 |
+| 4 | Gemini 4 Carbon (high) / Antigravity CLI | 64.5 |
+| 5 | Sonnet 5.5 (max) / Claude Code | 63.9 |
+| 6 | GPT-6.2 Astra (max) / Codex | 62.1 |
+| 7 | GPT-6.2 Sol (max) / Codex | 61.5 |
+| 8 | Gemini 4 Neon (xhigh) / Antigravity CLI | 61.2 |
+| 9 | GPT-6.1 Sol (max) / Codex | 60.9 |
+| 10 | GPT-6 Astra (max) / Codex | 60.3 |
 
-SYSTEM ranking: model + reasoning setting + agent harness. Mixed harnesses must not be interpreted as an isolated model comparison. No best-agent cherry-picking or reuse in the legacy Terminal-Bench composite slots. Release dates are model release dates, NOT evaluation dates. Published ± margins are retained without assuming an unstated confidence level.
-
-> Evaluation/publication date not supplied by the table; observed date is retrieval only.
-
-> Stale snapshot (21 days); not a current ranking.
-
-> Source table transcribed on 2026-11-03. Retrieval is not an evaluation date. See data/evidence/2026-11-03/README.md.
-
-> Last refresh failed; retaining the last valid snapshot.
+SYSTEM ranking: model + reasoning setting + agent harness on Terminal-Bench 4.1. Mixed harnesses must not be interpreted as an isolated model comparison. No best-agent cherry-picking or reuse in the legacy Terminal-Bench composite slots. Release dates are model release dates, NOT evaluation dates. Published ± margins reflect the source's 95% confidence half-widths across evaluation trials.
 
 
 <!-- leaderboard:end -->
@@ -279,10 +260,10 @@ docs/RANKING_AUDIT.md             findings and repairs
 
 ## Automation
 
-The daily workflow fetches, validates, publishes, runs Python tests, and commits its selected
-branch's data. Source failures are soft by default but never invisible. Run the Python and
-dashboard tests using the commands above. The additional pull-request CI and daily dashboard-test
-workflow edits are deferred until workflow-write permission is available.
+The daily workflow (`.github/workflows/daily.yml`) fetches, validates, publishes, runs both Python
+(`pytest`, `ruff`) and dashboard (`npm test`) suites, and commits only when meaningful data or
+status changes occur (suppressing timestamp-only commits). Pull requests and pushes to `main` are
+verified offline by `.github/workflows/tests.yml`.
 
 No secrets are required by the public-source adapters. Sites can change or block scraping;
 transparent failure reporting and dated last-good snapshots are part of the ranking, not an

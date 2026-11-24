@@ -87,6 +87,15 @@ def write_outputs(result: dict, out_dir: pathlib.Path, demo: bool = False) -> tu
     stem = "demo_leaderboard" if demo else "leaderboard"
     json_path = out_dir / f"{stem}.json"
     csv_path = out_dir / f"{stem}.csv"
+    if json_path.exists():
+        try:
+            existing = json.loads(json_path.read_text())
+            if (isinstance(existing, dict) and "generated_at" in existing
+                    and {k: v for k, v in existing.items() if k != "generated_at"}
+                    == {k: v for k, v in result.items() if k != "generated_at"}):
+                result["generated_at"] = existing["generated_at"]
+        except (ValueError, OSError):
+            pass
     json_path.write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n")
     with open(csv_path, "w", newline="", encoding="utf-8") as fh:
         writer = csv.DictWriter(fh, lineterminator="\n", fieldnames=list(csv_rows(result)[0].keys()) if result["models"]

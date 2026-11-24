@@ -1,8 +1,8 @@
 {
   "artificial_analysis": {
-    "status": "failed",
-    "error": "Artificial Analysis current index is not v5.0; review the metric version",
-    "attempted_at": "2026-11-24T12:45:30+00:00"
+    "status": "ok",
+    "rows": 127,
+    "attempted_at": "2026-11-24T13:41:01+00:00"
   },
   "arena_text": {
     "status": "ok",
@@ -10,13 +10,13 @@
     "attempted_at": "2026-11-24T12:45:30+00:00"
   },
   "livebench": {
-    "status": "failed",
-    "error": "Required leaderboard headers missing; page/schema may have changed",
-    "attempted_at": "2026-11-24T12:45:30+00:00"
+    "status": "ok",
+    "rows": 41,
+    "attempted_at": "2026-11-24T13:41:01+00:00"
   },
   "terminal_bench": {
-    "status": "failed",
-    "error": "Terminal-Bench 4.0 version marker missing",
-    "attempted_at": "2026-11-24T12:45:31+00:00"
+    "status": "ok",
+    "rows": 67,
+    "attempted_at": "2026-11-24T13:41:03+00:00"
   }
 }
