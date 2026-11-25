@@ -120,9 +120,11 @@ Source-native Intelligence Index v5.0.1 (CritPt v2 regrade across the 9-benchmar
 
 > Evaluation/publication date not supplied by the table; observed date is retrieval only.
 
+> Last refresh failed; retaining the last valid snapshot.
+
 ### Arena — Text · style-controlled · overall
 
-[Source](https://arena.ai/leaderboard/text) · 427 scored entries · published: 2026-11-22 · observed: 2026-11-24 · **available**
+[Source](https://arena.ai/leaderboard/text) · 427 scored entries · published: 2026-11-22 · observed: 2026-11-25 · **available**
 
 | Rank | Model / configuration | Score |
 |---|---|---|
@@ -141,7 +143,7 @@ Official text_style_control dataset, overall category only. Not the raw text, co
 
 ### LiveBench — LiveBench 2.0
 
-[Source](https://livebench.ai/) · 41 scored entries · published: 2026-11-11 · observed: 2026-11-24 · **available**
+[Source](https://livebench.ai/) · 41 scored entries · published: 2026-11-11 · observed: 2026-11-25 · **available**
 
 | Rank | Model / configuration | Score |
 |---|---|---|
@@ -160,7 +162,7 @@ LiveBench 2.0 official release feed, NOT the retired LiveBench overall benchmark
 
 ### Terminal-Bench — Terminal-Bench 4.1
 
-[Source](https://www.tbench.ai/) · 67 scored entries · published: 2026-11-20 · observed: 2026-11-24 · **available**
+[Source](https://www.tbench.ai/) · 67 scored entries · published: 2026-11-20 · observed: 2026-11-25 · **available**
 
 | Rank | Model / configuration | Score |
 |---|---|---|

@@ -1,0 +1,547 @@
+{
+  "board": "terminal_bench",
+  "version": "Terminal-Bench 4.1",
+  "source": "https://www.tbench.ai/",
+  "observed_at": "2026-11-25",
+  "published_at": "2026-11-20",
+  "retrieval_method": "automatic_public_source",
+  "scope": "Complete official display roster (all evaluated model + agent systems)",
+  "rows": [
+    {
+      "model": "Copilot Fusion (max)",
+      "harness": "GitHub Copilot",
+      "score": 71.2,
+      "margin": 2.9,
+      "release_date": "2026-11-17",
+      "provider": "GitHub"
+    },
+    {
+      "model": "Opus 5.5 (max)",
+      "harness": "Claude Code",
+      "score": 65.8,
+      "margin": 3.1,
+      "release_date": "2026-09-22",
+      "provider": "Anthropic"
+    },
+    {
+      "model": "Fable 5.2 (max)",
+      "harness": "Claude Code",
+      "score": 65.8,
+      "margin": 2.8,
+      "release_date": "2026-11-09",
+      "provider": "Anthropic"
+    },
+    {
+      "model": "Gemini 4 Carbon (high)",
+      "harness": "Antigravity CLI",
+      "score": 64.5,
+      "margin": 3.2,
+      "release_date": "2026-10-28",
+      "provider": "Google"
+    },
+    {
+      "model": "Sonnet 5.5 (max)",
+      "harness": "Claude Code",
+      "score": 63.9,
+      "margin": 3.0,
+      "release_date": "2026-09-28",
+      "provider": "Anthropic"
+    },
+    {
+      "model": "GPT-6.2 Astra (max)",
+      "harness": "Codex",
+      "score": 62.1,
+      "margin": 2.3,
+      "release_date": "2026-11-17",
+      "provider": "OpenAI"
+    },
+    {
+      "model": "GPT-6.2 Sol (max)",
+      "harness": "Codex",
+      "score": 61.5,
+      "margin": 2.8,
+      "release_date": "2026-11-17",
+      "provider": "OpenAI"
+    },
+    {
+      "model": "Gemini 4 Neon (xhigh)",
+      "harness": "Antigravity CLI",
+      "score": 61.2,
+      "margin": 2.8,
+      "release_date": "2026-11-18",
+      "provider": "Google"
+    },
+    {
+      "model": "GPT-6.1 Sol (max)",
+      "harness": "Codex",
+      "score": 60.9,
+      "margin": 3.0,
+      "release_date": "2026-09-29",
+      "provider": "OpenAI"
+    },
+    {
+      "model": "GPT-6 Astra (max)",
+      "harness": "Codex",
+      "score": 60.3,
+      "margin": 2.8,
+      "release_date": "2026-09-03",
+      "provider": "OpenAI"
+    },
+    {
+      "model": "GPT-6 Astra (high)",
+      "harness": "Codex",
+      "score": 60.0,
+      "margin": 2.8,
+      "release_date": "2026-09-03",
+      "provider": "OpenAI"
+    },
+    {
+      "model": "GPT-6 Astra (xhigh)",
+      "harness": "Codex",
+      "score": 59.7,
+      "margin": 2.7,
+      "release_date": "2026-09-03",
+      "provider": "OpenAI"
+    },
+    {
+      "model": "Kimi K3.1 Pro (max)",
+      "harness": "Claude Code",
+      "score": 59.7,
+      "margin": 4.2,
+      "release_date": "2026-10-24",
+      "provider": "Moonshot AI"
+    },
+    {
+      "model": "Fable 5.1 (xhigh)",
+      "harness": "Claude Code",
+      "score": 57.6,
+      "margin": 3.3,
+      "release_date": "2026-09-01",
+      "provider": "Anthropic"
+    },
+    {
+      "model": "Fable 5.1 (max)",
+      "harness": "Claude Code",
+      "score": 57.3,
+      "margin": 3.8,
+      "release_date": "2026-09-01",
+      "provider": "Anthropic"
+    },
+    {
+      "model": "Gemini 4 Hydrogen (high)",
+      "harness": "Antigravity CLI",
+      "score": 56.4,
+      "margin": 3.0,
+      "release_date": "2026-11-12",
+      "provider": "Google"
+    },
+    {
+      "model": "Gemini 4 Argon (high)",
+      "harness": "Antigravity CLI",
+      "score": 55.5,
+      "margin": 2.8,
+      "release_date": "2026-09-30",
+      "provider": "Google"
+    },
+    {
+      "model": "GPT-6 Astra (medium)",
+      "harness": "Codex",
+      "score": 55.2,
+      "margin": 2.7,
+      "release_date": "2026-09-03",
+      "provider": "OpenAI"
+    },
+    {
+      "model": "Fable 5.1 (high)",
+      "harness": "Claude Code",
+      "score": 54.8,
+      "margin": 3.4,
+      "release_date": "2026-09-01",
+      "provider": "Anthropic"
+    },
+    {
+      "model": "Fable 5.1 (medium)",
+      "harness": "Claude Code",
+      "score": 53.9,
+      "margin": 3.4,
+      "release_date": "2026-09-01",
+      "provider": "Anthropic"
+    },
+    {
+      "model": "Opus 5 (xhigh)",
+      "harness": "Claude Code",
+      "score": 53.3,
+      "margin": 3.1,
+      "release_date": "2026-07-24",
+      "provider": "Anthropic"
+    },
+    {
+      "model": "GPT-6.1 Terra (max)",
+      "harness": "Codex",
+      "score": 53.3,
+      "margin": 3.1,
+      "release_date": "2026-10-26",
+      "provider": "OpenAI"
+    },
+    {
+      "model": "Opus 5 (max)",
+      "harness": "Claude Code",
+      "score": 52.1,
+      "margin": 3.4,
+      "release_date": "2026-07-24",
+      "provider": "Anthropic"
+    },
+    {
+      "model": "GPT-6 Astra (low)",
+      "harness": "Codex",
+      "score": 50.9,
+      "margin": 2.8,
+      "release_date": "2026-09-03",
+      "provider": "OpenAI"
+    },
+    {
+      "model": "GPT-6 Sol (max)",
+      "harness": "Codex",
+      "score": 50.3,
+      "margin": 3.2,
+      "release_date": "2026-09-22",
+      "provider": "OpenAI"
+    },
+    {
+      "model": "Opus 5 (high)",
+      "harness": "Claude Code",
+      "score": 49.7,
+      "margin": 3.7,
+      "release_date": "2026-07-24",
+      "provider": "Anthropic"
+    },
+    {
+      "model": "Muse Wonder (xhigh)",
+      "harness": "Muse Code",
+      "score": 47.0,
+      "margin": 3.8,
+      "release_date": "2026-10-12",
+      "provider": "Meta"
+    },
+    {
+      "model": "Opus 5 (medium)",
+      "harness": "Claude Code",
+      "score": 45.2,
+      "margin": 3.8,
+      "release_date": "2026-07-24",
+      "provider": "Anthropic"
+    },
+    {
+      "model": "Fable 5 (max)",
+      "harness": "Claude Code",
+      "score": 44.8,
+      "margin": 3.8,
+      "release_date": "2026-06-09",
+      "provider": "Anthropic"
+    },
+    {
+      "model": "Fable 5.1 (low)",
+      "harness": "Claude Code",
+      "score": 43.3,
+      "margin": 3.6,
+      "release_date": "2026-09-01",
+      "provider": "Anthropic"
+    },
+    {
+      "model": "GLM-5.3 (max)",
+      "harness": "Claude Code",
+      "score": 41.2,
+      "margin": 3.3,
+      "release_date": "2026-08-14",
+      "provider": "Z.ai"
+    },
+    {
+      "model": "Haiku 5.5 (max)",
+      "harness": "Claude Code",
+      "score": 40.0,
+      "margin": 3.6,
+      "release_date": "2026-10-07",
+      "provider": "Anthropic"
+    },
+    {
+      "model": "Grok 4.7 (xhigh)",
+      "harness": "Grok Build",
+      "score": 38.8,
+      "margin": 3.6,
+      "release_date": "2026-09-21",
+      "provider": "xAI"
+    },
+    {
+      "model": "GPT-5.6 Sol (max)",
+      "harness": "Codex",
+      "score": 38.5,
+      "margin": 3.8,
+      "release_date": "2026-06-26",
+      "provider": "OpenAI"
+    },
+    {
+      "model": "DeepSeek V4.1 Flash 1017 (max)",
+      "harness": "Claude Code",
+      "score": 38.5,
+      "margin": 3.8,
+      "release_date": "2026-10-17",
+      "provider": "DeepSeek"
+    },
+    {
+      "model": "Hy4 (max)",
+      "harness": "Claude Code",
+      "score": 37.9,
+      "margin": 3.5,
+      "release_date": "2026-11-04",
+      "provider": "Tencent"
+    },
+    {
+      "model": "GLM-5.3-Flash (max)",
+      "harness": "Claude Code",
+      "score": 37.0,
+      "margin": 3.6,
+      "release_date": "2026-08-26",
+      "provider": "Z.ai"
+    },
+    {
+      "model": "GLM-5.3-Flash (none)",
+      "harness": "Claude Code",
+      "score": 35.5,
+      "margin": 3.6,
+      "release_date": "2026-08-26",
+      "provider": "Z.ai"
+    },
+    {
+      "model": "Opus 5 (low)",
+      "harness": "Claude Code",
+      "score": 34.8,
+      "margin": 3.9,
+      "release_date": "2026-07-24",
+      "provider": "Anthropic"
+    },
+    {
+      "model": "Muse Ember (xhigh)",
+      "harness": "Muse Code",
+      "score": 30.6,
+      "margin": 3.8,
+      "release_date": "2026-11-09",
+      "provider": "Meta"
+    },
+    {
+      "model": "Mistral Large 4 (max)",
+      "harness": "Claude Code",
+      "score": 27.6,
+      "margin": 3.9,
+      "release_date": "2026-10-06",
+      "provider": "Mistral AI"
+    },
+    {
+      "model": "Qwen3.8-Max-0902 (max)",
+      "harness": "Claude Code",
+      "score": 27.0,
+      "margin": 3.9,
+      "release_date": "2026-09-02",
+      "provider": "Alibaba"
+    },
+    {
+      "model": "MiMo V2.6 Pro (none)",
+      "harness": "mini-swe-agent",
+      "score": 27.0,
+      "margin": 3.6,
+      "release_date": "2026-09-22",
+      "provider": "Xiaomi"
+    },
+    {
+      "model": "Opus 4.8 (max)",
+      "harness": "Claude Code",
+      "score": 23.6,
+      "margin": 3.6,
+      "release_date": "2026-05-28",
+      "provider": "Anthropic"
+    },
+    {
+      "model": "Kimi K3 (max)",
+      "harness": "Claude Code",
+      "score": 23.0,
+      "margin": 3.7,
+      "release_date": "2026-07-16",
+      "provider": "Moonshot AI"
+    },
+    {
+      "model": "Ember-1 (none)",
+      "harness": "mini-swe-agent",
+      "score": 21.8,
+      "margin": 3.5,
+      "release_date": "2026-09-24",
+      "provider": "Fireworks"
+    },
+    {
+      "model": "GPT-5.6 Terra (max)",
+      "harness": "Codex",
+      "score": 21.5,
+      "margin": 3.3,
+      "release_date": "2026-06-26",
+      "provider": "OpenAI"
+    },
+    {
+      "model": "Grok 4.6 (high)",
+      "harness": "Grok Build",
+      "score": 19.7,
+      "margin": 3.1,
+      "release_date": "2026-08-12",
+      "provider": "xAI"
+    },
+    {
+      "model": "Hy4 Preview (max)",
+      "harness": "Claude Code",
+      "score": 19.1,
+      "margin": 3.1,
+      "release_date": "2026-08-28",
+      "provider": "Tencent"
+    },
+    {
+      "model": "Gemini 3.8 Flash (high)",
+      "harness": "mini-SWE-agent",
+      "score": 18.2,
+      "margin": 3.4,
+      "release_date": "2026-09-02",
+      "provider": "Google"
+    },
+    {
+      "model": "GPT-5.6 Luna (max)",
+      "harness": "Codex",
+      "score": 17.6,
+      "margin": 2.9,
+      "release_date": "2026-06-26",
+      "provider": "OpenAI"
+    },
+    {
+      "model": "MiMo V2.6 Flash (none)",
+      "harness": "mini-swe-agent",
+      "score": 16.1,
+      "margin": 3.4,
+      "release_date": "2026-09-22",
+      "provider": "Xiaomi"
+    },
+    {
+      "model": "GPT-6 Luna (max)",
+      "harness": "Codex",
+      "score": 15.2,
+      "margin": 2.7,
+      "release_date": "2026-09-22",
+      "provider": "OpenAI"
+    },
+    {
+      "model": "Muse Spark 1.3 (xhigh)",
+      "harness": "Muse Code",
+      "score": 14.8,
+      "margin": 3.0,
+      "release_date": "2026-09-02",
+      "provider": "Meta"
+    },
+    {
+      "model": "Inkling Small 2 (xhigh)",
+      "harness": "mini-swe-agent",
+      "score": 13.0,
+      "margin": 2.8,
+      "release_date": "2026-11-05",
+      "provider": "Thinking Machines Lab"
+    },
+    {
+      "model": "Gemini 3.7 Flash (high)",
+      "harness": "mini-SWE-agent",
+      "score": 12.4,
+      "margin": 2.5,
+      "release_date": "2026-08-13",
+      "provider": "Google"
+    },
+    {
+      "model": "Grok 4.5 (high)",
+      "harness": "Grok Build",
+      "score": 12.4,
+      "margin": 2.6,
+      "release_date": "2026-07-16",
+      "provider": "xAI"
+    },
+    {
+      "model": "Sonnet 5 (max)",
+      "harness": "Claude Code",
+      "score": 12.1,
+      "margin": 3.0,
+      "release_date": "2026-06-30",
+      "provider": "Anthropic"
+    },
+    {
+      "model": "Hy4 Flash (none)",
+      "harness": "mini-swe-agent",
+      "score": 11.8,
+      "margin": 2.8,
+      "release_date": "2026-11-16",
+      "provider": "Tencent"
+    },
+    {
+      "model": "MiniMax M3 (none)",
+      "harness": "mini-swe-agent",
+      "score": 7.6,
+      "margin": 2.8,
+      "release_date": "2026-06-01",
+      "provider": "MiniMax"
+    },
+    {
+      "model": "DeepSeek V4 Pro 0813 (max)",
+      "harness": "Claude Code",
+      "score": 6.7,
+      "margin": 2.5,
+      "release_date": "2026-08-13",
+      "provider": "DeepSeek"
+    },
+    {
+      "model": "Beam 1.0 (none)",
+      "harness": "mini-swe-agent",
+      "score": 6.4,
+      "margin": 1.7,
+      "release_date": "2026-10-16",
+      "provider": "Reflection"
+    },
+    {
+      "model": "Gemini 3.1 Pro (high)",
+      "harness": "Antigravity CLI",
+      "score": 2.7,
+      "margin": 1.7,
+      "release_date": "2026-02-19",
+      "provider": "Google"
+    },
+    {
+      "model": "GPT-5.4 Mini (xhigh)",
+      "harness": "Codex",
+      "score": 1.8,
+      "margin": 1.3,
+      "release_date": "2026-03-17",
+      "provider": "OpenAI"
+    },
+    {
+      "model": "Inkling Small (none)",
+      "harness": "mini-swe-agent",
+      "score": 0.9,
+      "margin": 0.9,
+      "release_date": "2026-07-30",
+      "provider": "Thinking Machines Lab"
+    },
+    {
+      "model": "Nemotron 3.5 Super VL (none)",
+      "harness": "mini-swe-agent",
+      "score": 0.3,
+      "margin": 0.6,
+      "release_date": "2026-10-15",
+      "provider": "NVIDIA"
+    },
+    {
+      "model": "Inkling (none)",
+      "harness": "mini-swe-agent",
+      "score": 0.0,
+      "margin": 0.0,
+      "release_date": "2026-07-17",
+      "provider": "Thinking Machines Lab"
+    }
+  ]
+}
