@@ -30,6 +30,8 @@ export function formatValue(value, type = 'number', decimals = type === 'money' 
   return Number(value).toLocaleString('en-US', {maximumFractionDigits: decimals, minimumFractionDigits: decimals});
 }
 export function boardFreshness(board, policy, now = new Date()) {
+  // A board may carry its own cadence-aware window (per-board freshness in the registry).
+  policy = board.freshness || policy;
   const stamp = board.published_at || board.observed_at;
   if (!stamp) return 'missing';
   const age = Math.floor((Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()) - Date.parse(stamp + 'T00:00:00Z')) / 86400000);

@@ -1,6 +1,6 @@
 # Model Atlas — ranking methodology
 
-**Version 2.1.2 · 2026-11-26**
+**Version 2.1.3 · 2026-11-26**
 
 The dashboard opens on the Atlas model hierarchy. Its inputs are the retained
 source snapshots in `output/leaderboards.json`. The four native boards and the
@@ -70,8 +70,9 @@ not mean “recently released,” “publicly available,” or “recently evalu
 ### Source selection and refresh reliability
 
 Atlas polls daily. A successful retrieval confirms that the board could be read.
-Only a source publication date dates the board itself. The 14-day freshness
-window is an Atlas policy; an evaluator can publish less frequently. Coverage
+Only a source publication date dates the board itself. Freshness windows are a per-board Atlas policy
+(default warn 14 / expire 90 days; LiveBench warns at 28) matching each evaluator's publication
+cadence, so a healthy interval between biweekly releases is not flagged. Coverage
 and rank can change when a source ages out, even with identical model scores.
 
 | Source | Reason to include it | Main limitation |
@@ -145,8 +146,10 @@ view; they therefore have `published_at: null`. Terminal-Bench release dates sta
 as `release_date`. The retained Arena dataset keeps its actual `2026-10-28` publication date,
 not the `2026-11-03` date of this repair. See [the capture record](data/evidence/2026-11-03/README.md).
 
-For status only, use publication date when known, otherwise observation date. Over **14 days**
-is `stale`; over **90 days** is `expired`. Unknown evaluation dates always remain disclosed.
+For status only, use publication date when known, otherwise observation date. Each board's
+freshness window matches its publisher's cadence: the default warns past **14 days** and expires
+past **90**, while LiveBench — a roughly biweekly publisher — warns past **28**. Unknown
+evaluation dates always remain disclosed.
 Old native boards remain browsable for reference with warnings; they are not advertised as
 current. The static dashboard recalculates age in the browser, so a stopped refresh job
 cannot leave a permanently green “fresh” label. `generated_at` is a build timestamp only.
@@ -274,6 +277,10 @@ its isolated demo path.
 
 ## 8. Version history
 
+- **2.1.3 — 2026-11-26:** Per-board freshness windows: the stale/expired thresholds now follow
+  each publisher's cadence (default 14/90 days; LiveBench warns at 28) instead of flagging every
+  healthy interval between biweekly releases as stale. Windows are validated and shipped with
+  each board to the dashboard.
 - **2.1.2 — 2026-11-26:** Migrate the Artificial Analysis native registry to Intelligence
   Index v5.0.2 (source's patch regrade of the same 9-evaluation v5 suite, observed on the
   methodology page); the v5.0.1 snapshot is retained as a previous-version archive.
