@@ -82,7 +82,7 @@ The retained Arena snapshot keeps its original source date. See the
 
 ## Read the ranks correctly
 
-- **Artificial Analysis:** current-model Intelligence Index **v5.0.1**; rounded raw scores, exact
+- **Artificial Analysis:** current-model Intelligence Index **v5.0.2**; rounded raw scores, exact
   effort and fallback settings (including grouped release variants). Equal displayed scores share
   a rank. No invented CIs.
 - **Arena:** complete official **style-controlled text / overall** roster, not raw text or agent
@@ -103,7 +103,7 @@ as unknown, and stale snapshots remain clearly labeled reference data.
 
 Source-native rankings. **Scores from different boards are not interchangeable.**
 
-### Artificial Analysis — Intelligence Index v5.0.1
+### Artificial Analysis — Intelligence Index v5.0.2
 
 [Source](https://artificialanalysis.ai/leaderboards/models) · 127 scored entries · published: not supplied · observed: 2026-11-24 · **available**
 
@@ -120,7 +120,7 @@ Source-native rankings. **Scores from different boards are not interchangeable.*
 | 7 | Gemini 4 Neon (High) | 60 |
 | 10 | Claude Opus 5.5 (Max, Default Fallback) | 59 |
 
-Source-native Intelligence Index v5.0.1 (CritPt v2 regrade across the 9-benchmark v5 suite), not a Model Atlas aggregate. Reasoning effort and fallback settings are distinct entries, including configurations collapsed under release groups on the source page. Public table scores are rounded integers; equal displayed scores share a rank here. No confidence intervals are published in this table. Cost per task is not API price per million tokens; a rounded $0.00 is not proof of free usage. The source's current-model view is not a guarantee of public availability.
+Source-native Intelligence Index v5.0.2 (CritPt v2 regrade across the 9-benchmark v5 suite), not a Model Atlas aggregate. Reasoning effort and fallback settings are distinct entries, including configurations collapsed under release groups on the source page. Public table scores are rounded integers; equal displayed scores share a rank here. No confidence intervals are published in this table. Cost per task is not API price per million tokens; a rounded $0.00 is not proof of free usage. The source's current-model view is not a guarantee of public availability.
 
 > Evaluation/publication date not supplied by the table; observed date is retrieval only.
 

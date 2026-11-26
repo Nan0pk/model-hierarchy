@@ -1,6 +1,6 @@
 # Model Atlas — ranking methodology
 
-**Version 2.1.1 · 2026-11-26**
+**Version 2.1.2 · 2026-11-26**
 
 The dashboard opens on the Atlas model hierarchy. Its inputs are the retained
 source snapshots in `output/leaderboards.json`. The four native boards and the
@@ -97,7 +97,7 @@ Authoritative metadata and version pins live in [`config/leaderboards.yaml`](con
 
 | View | Metric | Unit of comparison | Important qualification |
 |---|---|---|---|
-| [Artificial Analysis](https://artificialanalysis.ai/leaderboards/models) | Intelligence Index **v5.0.1** | Exact model + effort + fallback configuration | Already an aggregate (CritPt v2 regrade across the 9-benchmark v5 suite). Public table has rounded scores, no model-level CIs; grouped effort variants are retained. Cost/task is not $/million tokens. |
+| [Artificial Analysis](https://artificialanalysis.ai/leaderboards/models) | Intelligence Index **v5.0.2** | Exact model + effort + fallback configuration | Already an aggregate (CritPt v2 regrade across the 9-benchmark v5 suite). Public table has rounded scores, no model-level CIs; grouped effort variants are retained. Cost/task is not $/million tokens. |
 | [Arena](https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset) | `text_style_control`, `latest`, `overall` | Exact model/configuration | Official paginated dataset, not raw text Elo or the agent board. Includes historical models. Preserve source 95% intervals and votes. |
 | [LiveBench](https://livebench.ai/) | **LiveBench 2.0** overall and seven suites | Source evaluation configuration | Official release CSV/JSON feed, not legacy LiveBench overall. Overall uses Long Agentic ×2, Design/Coding ×1.5, other suites ×1 over measured suites. Single runs; no invented CIs. |
 | [Terminal-Bench](https://www.tbench.ai/) | **4.1** resolution rate | Model + effort + **agent harness** | Systems, not isolated models. Preserve the published ± 95% confidence margin across evaluation trials. Model release dates are not evaluation dates. |
@@ -274,6 +274,9 @@ its isolated demo path.
 
 ## 8. Version history
 
+- **2.1.2 — 2026-11-26:** Migrate the Artificial Analysis native registry to Intelligence
+  Index v5.0.2 (source's patch regrade of the same 9-evaluation v5 suite, observed on the
+  methodology page); the v5.0.1 snapshot is retained as a previous-version archive.
 - **2.1.1 — 2026-11-26:** Make the AA index-version gate resilient to methodology-page
   outages: an unreadable page records an unverified-version note instead of failing the
   whole board, while a readable page naming a newer index still fails closed. Cache-busting

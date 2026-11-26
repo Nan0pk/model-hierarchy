@@ -1,6 +1,6 @@
 # Native leaderboards are independent views, NEVER extra composite inputs.
 # Pin metric versions: a changed task suite must get a new board ID/version.
-version: "2.1.1"
+version: "2.1.2"
 default_board: artificial_analysis
 freshness:
   warn_after_days: 14
@@ -12,8 +12,9 @@ boards:
     kind: artificial_analysis
     url: https://artificialanalysis.ai/leaderboards/models
     methodology_url: https://artificialanalysis.ai/methodology/intelligence-benchmarking
-    version: "Intelligence Index v5.0.1"
+    version: "Intelligence Index v5.0.2"
     previous_versions:
+      - "Intelligence Index v5.0.1"
       - "Intelligence Index v5.0"
     metric: Intelligence Index
     unit: points
@@ -21,7 +22,7 @@ boards:
     min_rows: 40
     score_range: [0, 100]
     qualification: >-
-      Source-native Intelligence Index v5.0.1 (CritPt v2 regrade across the 9-benchmark
+      Source-native Intelligence Index v5.0.2 (CritPt v2 regrade across the 9-benchmark
       v5 suite), not a Model Atlas aggregate. Reasoning effort and fallback settings are
       distinct entries, including configurations collapsed under release groups on the
       source page. Public table scores are rounded integers; equal displayed scores share
