@@ -1,4 +1,4 @@
-.PHONY: demo validate test run fetch
+.PHONY: demo validate test check run fetch stamps sync-version
 
 demo:
 	python -m hierarchy demo
@@ -8,6 +8,15 @@ validate:
 
 test:
 	pytest -q
+
+check:
+	python -m hierarchy validate && pytest -q && ruff check hierarchy tests && npm test
+
+stamps:
+	node dashboard/stamps.mjs
+
+sync-version:
+	python scripts/sync_version.py
 
 fetch:
 	python -m hierarchy fetch --allow-missing

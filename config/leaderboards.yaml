@@ -1,6 +1,6 @@
 # Native leaderboards are independent views, NEVER extra composite inputs.
 # Pin metric versions: a changed task suite must get a new board ID/version.
-version: "2.1.0"
+version: "2.1.1"
 default_board: artificial_analysis
 freshness:
   warn_after_days: 14

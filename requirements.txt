@@ -1,6 +1,3 @@
-PyYAML>=6.0
-requests>=2.31
-requests-cache>=1.2
-pytest>=8.0
-hypothesis>=6.100
-ruff>=0.6
+# Single source of truth for dependencies: pyproject.toml.
+# This file exists only for tooling that expects a requirements.txt.
+-e .[dev]

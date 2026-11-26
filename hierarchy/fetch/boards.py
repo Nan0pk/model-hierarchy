@@ -528,26 +528,44 @@ def fetch_native_board(bid: str, spec: dict, cfg) -> dict:
         )
     elif spec["kind"] == "artificial_analysis":
         html = base._get(spec["url"], cfg.sources).text
-        methodology = base._get(spec["methodology_url"], cfg.sources).text
-        plain = re.sub(r"<[^>]+>", " ", methodology)
         expected_ver = spec["version"].removeprefix("Intelligence Index v").strip()
-        # The current heading can sit below historical notes, so judge by the
-        # newest version mentioned, not the first string occurrence: pass when
-        # the expected version is present and nothing newer supersedes it.
+
         def _vtuple(version: str) -> tuple:
             return tuple(int(part) for part in version.split("."))
-        mentioned = sorted({_vtuple(v) for v in
-                            re.findall(r"Intelligence\s+Index\s+v(\d+(?:\.\d+)+)", plain, re.I)})
-        expected = _vtuple(expected_ver)
-        if expected not in mentioned or max(mentioned) != expected:
-            raise FetchError(
-                f"Artificial Analysis current index is not v{expected_ver}; "
-                f"methodology mentions {[('v' + '.'.join(map(str, v))) for v in mentioned]} "
-                "— review the metric version"
-            )
+
+        # The methodology page pins the metric version, but it is a separate page:
+        # when it cannot be read, keep refreshing the pinned board and record the
+        # gap, instead of letting a cosmetic outage silence a live leaderboard.
+        # A readable page naming a NEWER index still fails closed — that is a
+        # deliberate migration, not a scrape hiccup.
+        version_unverified = None
+        try:
+            methodology = base._get(spec["methodology_url"], cfg.sources).text
+        except FetchError:
+            version_unverified = ("methodology page unreachable this run; the pinned index version "
+                                  f"v{expected_ver} was not re-verified")
+        else:
+            plain = re.sub(r"<[^>]+>", " ", methodology)
+            # The current heading can sit below historical notes, so judge by the
+            # newest version mentioned, not the first string occurrence.
+            mentioned = sorted({_vtuple(v) for v in
+                                re.findall(r"Intelligence\s+Index\s+v(\d+(?:\.\d+)+)", plain, re.I)})
+            if not mentioned:
+                version_unverified = ("methodology page no longer states an index version; "
+                                      f"the pinned v{expected_ver} was not re-verified")
+            elif expected_ver not in {".".join(map(str, v)) for v in mentioned} \
+                    or max(mentioned) != _vtuple(expected_ver):
+                raise FetchError(
+                    f"Artificial Analysis current index is not v{expected_ver}; "
+                    f"methodology mentions {[('v' + '.'.join(map(str, v))) for v in mentioned]} "
+                    "— review the metric version"
+                )
         snap["rows"] = parse_artificial_analysis(html)
         if re.search(r'"initialModels"\s*:\s*\[', _rsc_stream(html)):
             snap["scope"] = "Complete scored current-model roster (including grouped effort variants)"
+        if version_unverified:
+            # Surfaced as a board warning by build_board_report.
+            snap["notes"] = version_unverified
     elif spec["kind"] == "livebench_v2":
         html = base._get(spec["url"], cfg.sources).text
         if "<table" in html.lower():

@@ -228,7 +228,7 @@ The historical dashboard preview image also uses synthetic data and is not a cur
 
 > ⚠️ **Synthetic demo data** (see `demo/scores.csv`) — illustrates the output shape only. Run `python -m hierarchy run` for a real leaderboard.
 
-Tier hierarchy (G-score 0-100) — generated 2026-11-26 06:46 UTC — SYNTHETIC DEMO DATA
+Tier hierarchy (G-score 0-100) — generated 2026-11-26 07:36 UTC — SYNTHETIC DEMO DATA
 ────────────────────────────────────────────────────────────────
 T1 │ claude opus 4.5 · gemini 3 pro · gpt 5.1
 T2 │ grok 4.1
@@ -290,3 +290,30 @@ verified offline by `.github/workflows/tests.yml`.
 No secrets are required by the public-source adapters. Sites can change or block scraping;
 transparent failure reporting and dated last-good snapshots are part of the ranking, not an
 excuse to re-date old results.
+
+## Maintenance model
+
+Built to run unattended: the daily job fetches, validates, publishes, tests, and commits only
+meaningful changes. Human action is needed when a source changes *meaning*, not when it
+changes *markup*.
+
+**Automatic — no action needed**
+
+- A failing source retains its dated last-good snapshot, keeps its recorded dates, and shows
+  the failure in the dashboard; the other boards keep publishing. The Atlas ranking re-widens
+  by itself when a board recovers.
+- `dashboard/stamps.mjs` rewrites the dashboard's cache-busting `?v=` hashes each daily build,
+  so a forgotten stamp heals itself; `scripts/sync_version.py` propagates
+  `hierarchy.METHOD_VERSION` into `pyproject.toml` and `config/leaderboards.yaml`.
+- Persisted refresh failures open, update, and close a GitHub issue automatically
+  (`scripts/report_refresh_failures.py`), so a broken adapter becomes a visible TODO instead
+  of a line in an Actions log.
+
+**Deliberate — needs you**
+
+- A source changing metric version or semantics (e.g. a new Artificial Analysis index) fails
+  closed by design. Migrate deliberately: review, bump the pin, add fixtures, add a changelog
+  line. The adapter error now lists the versions the source mentions to make that review a
+  five-minute task.
+- Methodology edits stay manual on purpose; `hierarchy validate` and the tests fail if the
+  stated version drifts from the code.

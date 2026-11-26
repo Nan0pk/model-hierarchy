@@ -1,6 +1,6 @@
 # Model Atlas — ranking methodology
 
-**Version 2.1.0 · 2026-11-24**
+**Version 2.1.1 · 2026-11-26**
 
 The dashboard opens on the Atlas model hierarchy. Its inputs are the retained
 source snapshots in `output/leaderboards.json`. The four native boards and the
@@ -159,7 +159,11 @@ A rebuild does not renew source dates.
 
 Automatic native adapters use the official Arena dataset and the public source-owned tables
 for AA, LiveBench and Terminal-Bench. AA also checks the current index version in the source's
-methodology. No paid API keys or private credentials are required by these adapters.
+methodology: when that page can be read, a readable page naming a newer index fails closed
+(deliberate migration); when the page is unreachable or stops stating a version, the run
+records an unverified-version note on the snapshot and keeps refreshing the pinned board,
+so a cosmetic page outage cannot silence a live leaderboard. No paid API keys or private
+credentials are required by these adapters.
 
 They fail closed on missing headers/version markers, invalid/non-finite numbers, unknown
 source URLs, duplicate identities, future/invalid dates, invalid CIs, inadequate row counts,
@@ -270,6 +274,12 @@ its isolated demo path.
 
 ## 8. Version history
 
+- **2.1.1 — 2026-11-26:** Make the AA index-version gate resilient to methodology-page
+  outages: an unreadable page records an unverified-version note instead of failing the
+  whole board, while a readable page naming a newer index still fails closed. Cache-busting
+  dashboard stamps and duplicate version strings are now synced by commands (`make stamps`,
+  `make sync-version`) instead of manual edits; the daily workflow stamps automatically and
+  opens/updates/closes a tracking issue when source adapters keep failing.
 - **2.1.0 — 2026-11-24:** Migrate Artificial Analysis native registry to Intelligence Index
   v5.0.1 and parse full uncollapsed model configurations from Next.js RSC payloads; replace
   LiveBench's broken HTML table scrape with LiveBench 2.0's official `/data/<release>/` CSV/JSON

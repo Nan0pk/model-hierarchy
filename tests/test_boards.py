@@ -432,6 +432,34 @@ def test_aa_version_check_lists_the_versions_it_saw_on_a_bump(monkeypatch):
         fetch.fetch_native_board("artificial_analysis", spec, load_config())
 
 
+def test_aa_fetch_survives_an_unreadable_methodology_page(monkeypatch):
+    """A methodology-page outage must not silence a live, parseable leaderboard."""
+    spec = load_board_config()["boards"]["artificial_analysis"]
+
+    def flaky(url, *a, **k):
+        if "methodology" in url:
+            raise FetchError(f"{url} -> HTTP 503")
+        return SimpleNamespace(text=AA_MINIMAL_TABLE)
+
+    monkeypatch.setattr(fetch.base, "_get", flaky)
+    snap = fetch.fetch_native_board("artificial_analysis", spec, load_config())
+    assert [row["model"] for row in snap["rows"]] == ["Model X"]
+    assert "unreachable" in snap["notes"] and "v5.0.1" in snap["notes"]
+
+
+def test_aa_fetch_survives_a_methodology_page_without_version_tokens(monkeypatch):
+    spec = load_board_config()["boards"]["artificial_analysis"]
+
+    def moved(url, *a, **k):
+        return SimpleNamespace(text="<p>Page redesigned; no version heading here.</p>"
+                               if "methodology" in url else AA_MINIMAL_TABLE)
+
+    monkeypatch.setattr(fetch.base, "_get", moved)
+    snap = fetch.fetch_native_board("artificial_analysis", spec, load_config())
+    assert snap["rows"][0]["model"] == "Model X"
+    assert "no longer states an index version" in snap["notes"]
+
+
 def test_truncated_arena_pagination_fails_instead_of_publishing_first_page(monkeypatch):
     from hierarchy.fetch import base
     pages = iter([{"rows": [{"row": {"model_name": "A"}}], "num_rows_total": 3},
