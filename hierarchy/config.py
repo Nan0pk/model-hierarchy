@@ -9,6 +9,7 @@ from __future__ import annotations
 import hashlib
 import json
 import pathlib
+import re
 
 import yaml
 
@@ -17,6 +18,7 @@ CONFIG_DIR = ROOT / "config"
 DATA_DIR = ROOT / "data"
 OUTPUT_DIR = ROOT / "output"
 DEMO_DIR = ROOT / "demo"
+METHODOLOGY_FILE = ROOT / "METHODOLOGY.md"
 
 NORMALIZATION_MODES = {"blend", "borda_only", "minmax_only", "elo", "log_share"}
 KINDS_WITH_ADAPTERS = {"lm_arena", "openrouter", "json_url", "llmstat"}
@@ -24,6 +26,16 @@ KINDS_WITH_ADAPTERS = {"lm_arena", "openrouter", "json_url", "llmstat"}
 
 class ConfigError(ValueError):
     pass
+
+
+def methodology_version() -> str | None:
+    """Version stated in the METHODOLOGY.md heading, or None if unstated."""
+    try:
+        text = METHODOLOGY_FILE.read_text(encoding="utf-8")
+    except OSError:
+        return None
+    match = re.search(r"\*\*Version (\d+\.\d+\.\d+)", text)
+    return match.group(1) if match else None
 
 
 class Config:

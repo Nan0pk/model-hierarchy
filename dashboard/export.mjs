@@ -23,10 +23,14 @@ export function atlasExport(data, now = new Date()) {
 
 export function atlasCSV(report) {
   const cell = v => v == null ? '' : /[",\n]/.test(String(v)) ? `"${String(v).replace(/"/g, '""')}"` : String(v);
-  const lines = [];
+  // One header for both views, built from the union of row keys in first-seen
+  // order, so an empty models view (or uneven keys) cannot misalign the CSV.
+  const keys = [...new Set([...report.models.rows, ...report.effort_levels.rows]
+    .flatMap(row => Object.keys(row)))];
+  const columns = keys.length ? keys : ['rank'];
+  const lines = [['view', ...columns].join(',')];
   for (const [name, view] of [['models', report.models], ['effort_levels', report.effort_levels]]) {
-    if (!lines.length) lines.push(['view', ...Object.keys(view.rows[0] ?? {rank: 0})].join(','));
-    for (const row of view.rows) lines.push([name, ...Object.values(row)].map(cell).join(','));
+    for (const row of view.rows) lines.push([name, ...columns.map(key => row[key])].map(cell).join(','));
   }
   return lines.join('\n') + '\n';
 }

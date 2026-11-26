@@ -316,6 +316,17 @@ test('the Atlas export publishes the same ranking the dashboard shows', () => {
   assert.equal(csv.length, 1 + report.models.n_ranked + report.effort_levels.n_ranked);
 });
 
+test('atlas CSV survives an empty Atlas view without a misaligned header', () => {
+  const data = fixture();
+  data.boards.arena_text = structuredClone(baseBoard);
+  data.boards.arena_text.published_at = '2020-01-01';  // expires the shared two-evaluator field
+  const report = atlasExport(data, new Date('2026-11-04'));
+  assert.equal(report.models.n_ranked, 0);
+  const lines = atlasCSV(report).trim().split('\n');
+  assert.equal(lines[0], 'view,rank');  // a valid header even with zero ranked rows anywhere
+  for (const line of lines.slice(1)) assert.equal(line.split(',').length, lines[0].split(',').length);
+});
+
 test('value frontier keeps only models nothing beats on both score and price', () => {
   const row = (id, rank, score, cost) => ({id, model: id, rank, score, cost_per_task: cost});
   const rows = [row('top', 1, 95, 3), row('pricey', 2, 90, 9), row('mid', 3, 80, 1.5), row('cheap', 4, 70, 0.5),

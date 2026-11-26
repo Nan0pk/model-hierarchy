@@ -5,7 +5,8 @@ from __future__ import annotations
 import argparse
 import sys
 
-from .config import ConfigError, DEMO_DIR, OUTPUT_DIR, ROOT, load_config
+from . import METHOD_VERSION
+from .config import ConfigError, DEMO_DIR, OUTPUT_DIR, ROOT, load_config, methodology_version
 from .data import load_manual_csv, load_snapshots, merge_snapshots, to_matrix, today
 from .fetch import fetch_all
 from .fetch.base import ADAPTERS
@@ -22,7 +23,7 @@ def cmd_validate(args) -> int:
         print(f"config ERROR: {exc}", file=sys.stderr)
         return 1
     print(f"config OK — methodology v{cfg.version}, config_hash {cfg.config_hash()}")
-    print(f"pillars   : " + ", ".join(f"{pid}={w:.2f}" for pid, w in cfg.pillar_weights.items()))
+    print("pillars   : " + ", ".join(f"{pid}={w:.2f}" for pid, w in cfg.pillar_weights.items()))
     print(f"benchmarks: {len(cfg.bench_ids())} registered, weights sum "
           f"{sum(cfg.bench_weight(b) for b in cfg.bench_ids()):.2f}")
     for bid in cfg.bench_ids():
@@ -39,8 +40,17 @@ def cmd_validate(args) -> int:
     ]
     print(f"automatic sources: {', '.join(active) or 'none'}")
     print(f"manual-only sources: {', '.join(manual) or 'none'}")
-    for bid, spec in load_board_config()["boards"].items():
-        print(f"native board: {bid} — {spec['version']} ({spec['kind']})")
+    try:
+        for bid, spec in load_board_config()["boards"].items():
+            print(f"native board: {bid} — {spec['version']} ({spec['kind']})")
+    except ValueError as exc:
+        print(f"board config ERROR: {exc}", file=sys.stderr)
+        return 1
+    stated = methodology_version()
+    if stated and stated != METHOD_VERSION:
+        print(f"version ERROR: METHODOLOGY.md states v{stated} but the code implements "
+              f"v{METHOD_VERSION} — align hierarchy.METHOD_VERSION or the doc heading", file=sys.stderr)
+        return 1
     return 0
 
 
@@ -81,10 +91,21 @@ def cmd_demo(args) -> int:
     return _run_matrix(raw, sigma, as_of, cfg, demo=True, reps=args.reps, name_map=name_map, source_info=source_info)
 
 
+def _drop_unscored_sources(cfg, snapshots: dict) -> dict:
+    """Context/mirror/optional sources are never composite inputs (§4).
+
+    Dropping them before to_matrix keeps the 'skipping unregistered benchmarks'
+    warning meaningful: it should fire only for genuinely unknown benchmark ids.
+    """
+    roles = cfg.sources.get("sources", {})
+    return {bid: snap for bid, snap in snapshots.items()
+            if (roles.get(bid) or {}).get("role", "scored") == "scored"}
+
+
 def cmd_aggregate(args) -> int:
     cmd_boards(args)
     cfg = load_config()
-    snaps = merge_snapshots(load_snapshots(), load_manual_csv())
+    snaps = _drop_unscored_sources(cfg, merge_snapshots(load_snapshots(), load_manual_csv()))
     raw, sigma, as_of, skipped, name_map, source_info = to_matrix(snaps, cfg)
     if skipped:
         print(f"skipping unregistered benchmarks: {sorted(skipped)}")
