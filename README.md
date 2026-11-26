@@ -124,7 +124,7 @@ Source-native Intelligence Index v5.0.1 (CritPt v2 regrade across the 9-benchmar
 
 ### Arena — Text · style-controlled · overall
 
-[Source](https://arena.ai/leaderboard/text) · 427 scored entries · published: 2026-11-22 · observed: 2026-11-25 · **available**
+[Source](https://arena.ai/leaderboard/text) · 427 scored entries · published: 2026-11-22 · observed: 2026-11-26 · **available**
 
 | Rank | Model / configuration | Score |
 |---|---|---|
@@ -143,7 +143,7 @@ Official text_style_control dataset, overall category only. Not the raw text, co
 
 ### LiveBench — LiveBench 2.0
 
-[Source](https://livebench.ai/) · 41 scored entries · published: 2026-11-11 · observed: 2026-11-25 · **available**
+[Source](https://livebench.ai/) · 41 scored entries · published: 2026-11-11 · observed: 2026-11-26 · **stale**
 
 | Rank | Model / configuration | Score |
 |---|---|---|
@@ -160,9 +160,11 @@ Official text_style_control dataset, overall category only. Not the raw text, co
 
 LiveBench 2.0 official release feed, NOT the retired LiveBench overall benchmark. Overall is the source's weighted mean (Long Agentic ×2; Design and Coding ×1.5; other suites ×1). Suites are single runs; effort is highest supported unless the source's model notes say otherwise. No per-model confidence intervals are supplied. Missing suite results stay missing, not zero. Cost is per successful task.
 
+> Stale snapshot (15 days); not a current ranking.
+
 ### Terminal-Bench — Terminal-Bench 4.1
 
-[Source](https://www.tbench.ai/) · 67 scored entries · published: 2026-11-20 · observed: 2026-11-25 · **available**
+[Source](https://www.tbench.ai/) · 67 scored entries · published: 2026-11-20 · observed: 2026-11-26 · **available**
 
 | Rank | Model / configuration | Score |
 |---|---|---|

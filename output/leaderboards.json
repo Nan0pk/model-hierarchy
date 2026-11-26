@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "methodology_version": "2.1.0",
-  "generated_at": "2026-11-25T16:34:16+00:00",
+  "generated_at": "2026-11-26T06:05:08+00:00",
   "default_board": "artificial_analysis",
   "config_hash": "b5973a3a1f43ba32",
   "freshness": {
@@ -1459,11 +1459,11 @@
       "last_fetch": {
         "status": "failed",
         "error": "Artificial Analysis current index is not v5.0.1; review the metric version",
-        "attempted_at": "2026-11-25T16:34:15+00:00"
+        "attempted_at": "2026-11-26T06:05:06+00:00"
       },
       "published_at": null,
       "observed_at": "2026-11-24",
-      "age_days": 1,
+      "age_days": 2,
       "freshness_basis": "observed_at",
       "source": "https://artificialanalysis.ai/leaderboards/models",
       "data_hash": "e36ff35fe9a7b73351a2c6c95d71f4b36e078c0c85f8e7f3c75286a69e560771",
@@ -6632,14 +6632,14 @@
       "last_fetch": {
         "status": "ok",
         "rows": 427,
-        "attempted_at": "2026-11-25T16:34:15+00:00"
+        "attempted_at": "2026-11-26T06:05:06+00:00"
       },
       "published_at": "2026-11-22",
-      "observed_at": "2026-11-25",
-      "age_days": 3,
+      "observed_at": "2026-11-26",
+      "age_days": 4,
       "freshness_basis": "published_at",
       "source": "https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset",
-      "data_hash": "a2047ffcd86ff71626330aa6cc5d1e437cc0f0a2509c8f4c2ef9034583a113d7",
+      "data_hash": "0fa53a2007afb95ec6e9adf1b59d6edf1257df8e995f07912b249167cd524e00",
       "retrieval_method": "automatic_public_source",
       "scope": "Complete parsed source table",
       "n_scored": 427
@@ -7351,19 +7351,21 @@
           "rank": 41
         }
       ],
-      "status": "available",
-      "warnings": [],
+      "status": "stale",
+      "warnings": [
+        "Stale snapshot (15 days); not a current ranking."
+      ],
       "last_fetch": {
         "status": "ok",
         "rows": 41,
-        "attempted_at": "2026-11-25T16:34:15+00:00"
+        "attempted_at": "2026-11-26T06:05:06+00:00"
       },
       "published_at": "2026-11-11",
-      "observed_at": "2026-11-25",
-      "age_days": 14,
+      "observed_at": "2026-11-26",
+      "age_days": 15,
       "freshness_basis": "published_at",
       "source": "https://livebench.ai/",
-      "data_hash": "39d3419899beddf7253dedd086e7544811140a26a00bdd7c6964b0fb9244199e",
+      "data_hash": "c7f16f780e3e83e1cbde673b9aeafd15a570da0d71a4a6d1972ccb80b5566207",
       "retrieval_method": "automatic_public_source",
       "scope": "Complete official LiveBench 2.0 release (20261106)",
       "n_scored": 41
@@ -8082,14 +8084,14 @@
       "last_fetch": {
         "status": "ok",
         "rows": 67,
-        "attempted_at": "2026-11-25T16:34:16+00:00"
+        "attempted_at": "2026-11-26T06:05:08+00:00"
       },
       "published_at": "2026-11-20",
-      "observed_at": "2026-11-25",
-      "age_days": 5,
+      "observed_at": "2026-11-26",
+      "age_days": 6,
       "freshness_basis": "published_at",
       "source": "https://www.tbench.ai/",
-      "data_hash": "aa4024aceabb92176ad6c4702b06a2ac50057c665d3dbd246dcec1e09334f811",
+      "data_hash": "f34dca94d989ae5451a8b36014d6bc533e8cacbc8e364eaccec097b5b7efa62b",
       "retrieval_method": "automatic_public_source",
       "scope": "Complete official display roster (all evaluated model + agent systems)",
       "n_scored": 67
