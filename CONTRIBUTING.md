@@ -34,9 +34,9 @@ the dashboard; `jsdom` is a dev/test dependency only.
   a changelog line in `METHODOLOGY.md`, updated pins in `tests/test_weights.py`,
   and `METHOD_VERSION`/package version kept in step (`tests/test_docs.py` guards this).
 - **Dashboard** (`dashboard/`) — static and dependency-free. If you touch
-  `styles.css` or `app.js`, update the matching `?v=` stamp in
-  `dashboard/index.html` (the test suite computes the expected hash for you).
-  Missing data must render as a dash, never as zero.
+  `styles.css` or `app.js`, run `make stamps` to rewrite the cache-busting
+  `?v=` hashes (CI runs it too, so a forgotten stamp heals on the next daily
+  build). Missing data must render as a dash, never as zero.
 
 ## Tests
 

@@ -3,6 +3,7 @@ import copy
 import csv
 import datetime as dt
 import json
+import re
 import shutil
 from pathlib import Path
 from types import SimpleNamespace
@@ -96,9 +97,14 @@ def test_november_24_v2_1_snapshots_are_fresh_and_complete(tmp_path):
     report = build_board_report(today=day, directory=tmp_path)
     assert not report["validation_issues"]
     for bid, board in report["boards"].items():
-        assert board["status"] == "available", f"{bid} is {board['status']}"
-    assert report["boards"]["artificial_analysis"]["version"] == "Intelligence Index v5.0.1"
-    assert report["boards"]["artificial_analysis"]["n_scored"] >= 120
+        # AA's retained v5.0.1 snapshot is an archived previous version since the
+        # v5.0.2 pin migration; the other boards validate as available.
+        assert (board["status"] == "available" if bid != "artificial_analysis"
+                else board["status"] == "missing"), f"{bid} is {board['status']}"
+    # The retained v5.0.1 snapshot archived cleanly when the pin moved to v5.0.2;
+    # the current-board version is now v5.0.2 and the old rows stay on disk only.
+    assert report["boards"]["artificial_analysis"]["version"] == "Intelligence Index v5.0.2"
+    assert report["boards"]["artificial_analysis"]["status"] == "missing"
     assert report["boards"]["arena_text"]["n_scored"] >= 420
     assert report["boards"]["livebench"]["published_at"] is not None
     assert report["boards"]["livebench"]["n_scored"] >= 40
@@ -396,12 +402,18 @@ def test_evidence_transcriptions_match_committed_native_scores():
         assert [(r["model"], float(r["score"])) for r in rows] == [(r["model"], r["score"]) for r in snap["rows"]]
 
 
+def _pinned_version() -> str:
+    spec = load_board_config()["boards"]["artificial_analysis"]
+    return spec["version"].removeprefix("Intelligence Index ")
+
+
 def test_aa_refuses_metric_version_migration(monkeypatch):
     spec = load_board_config()["boards"]["artificial_analysis"]
+    pinned = re.escape(_pinned_version())
     monkeypatch.setattr(fetch.base, "_get", lambda url, *a, **k: SimpleNamespace(text=(
         "<h2>Artificial Analysis Intelligence Index v6.0</h2>" if "methodology" in url else "<table></table>"
     )))
-    with pytest.raises(FetchError, match="not v5.0.1"):
+    with pytest.raises(FetchError, match=f"not {pinned}"):
         fetch.fetch_native_board("artificial_analysis", spec, load_config())
 
 
@@ -415,7 +427,7 @@ def test_aa_version_check_reads_the_newest_mention_not_the_first_string(monkeypa
     """Historical notes may name older indexes before the current heading."""
     spec = load_board_config()["boards"]["artificial_analysis"]
     methodology = ("<p>History: the Intelligence Index v5.0 suite superseded v4.</p>"
-                   "<h2>Artificial Analysis Intelligence Index v5.0.1</h2>")
+                   f"<h2>Artificial Analysis Intelligence Index {_pinned_version()}</h2>")
     monkeypatch.setattr(fetch.base, "_get", lambda url, *a, **k: SimpleNamespace(
         text=methodology if "methodology" in url else AA_MINIMAL_TABLE))
     snap = fetch.fetch_native_board("artificial_analysis", spec, load_config())
@@ -428,8 +440,36 @@ def test_aa_version_check_lists_the_versions_it_saw_on_a_bump(monkeypatch):
     monkeypatch.setattr(fetch.base, "_get", lambda url, *a, **k: SimpleNamespace(
         text=("<h2>Artificial Analysis Intelligence Index v5.1</h2>"
               if "methodology" in url else AA_MINIMAL_TABLE)))
-    with pytest.raises(FetchError, match=r"not v5\.0\.1.*v5\.1"):
+    with pytest.raises(FetchError, match=f"not {re.escape(_pinned_version())}.*v5\\.1"):
         fetch.fetch_native_board("artificial_analysis", spec, load_config())
+
+
+def test_aa_fetch_survives_an_unreadable_methodology_page(monkeypatch):
+    """A methodology-page outage must not silence a live, parseable leaderboard."""
+    spec = load_board_config()["boards"]["artificial_analysis"]
+
+    def flaky(url, *a, **k):
+        if "methodology" in url:
+            raise FetchError(f"{url} -> HTTP 503")
+        return SimpleNamespace(text=AA_MINIMAL_TABLE)
+
+    monkeypatch.setattr(fetch.base, "_get", flaky)
+    snap = fetch.fetch_native_board("artificial_analysis", spec, load_config())
+    assert [row["model"] for row in snap["rows"]] == ["Model X"]
+    assert "unreachable" in snap["notes"] and _pinned_version() in snap["notes"]
+
+
+def test_aa_fetch_survives_a_methodology_page_without_version_tokens(monkeypatch):
+    spec = load_board_config()["boards"]["artificial_analysis"]
+
+    def moved(url, *a, **k):
+        return SimpleNamespace(text="<p>Page redesigned; no version heading here.</p>"
+                               if "methodology" in url else AA_MINIMAL_TABLE)
+
+    monkeypatch.setattr(fetch.base, "_get", moved)
+    snap = fetch.fetch_native_board("artificial_analysis", spec, load_config())
+    assert snap["rows"][0]["model"] == "Model X"
+    assert "no longer states an index version" in snap["notes"]
 
 
 def test_truncated_arena_pagination_fails_instead_of_publishing_first_page(monkeypatch):

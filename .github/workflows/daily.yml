@@ -13,6 +13,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 concurrency:
   group: daily
@@ -46,11 +47,20 @@ jobs:
       - name: Export the Atlas rankings with the dashboard's own code
         run: node dashboard/export.mjs
 
+      - name: Sync dashboard cache stamps
+        run: node dashboard/stamps.mjs
+
       - name: Python & dashboard contract tests
         run: |
           pytest -q
           ruff check hierarchy tests
           npm test
+
+      - name: Report failing sources to a tracking issue
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/report_refresh_failures.py
 
       - name: Auto-commit if meaningful data changed
         run: |
