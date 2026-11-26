@@ -105,7 +105,7 @@ Source-native rankings. **Scores from different boards are not interchangeable.*
 
 ### Artificial Analysis — Intelligence Index v5.0.2
 
-[Source](https://artificialanalysis.ai/leaderboards/models) · 127 scored entries · published: not supplied · observed: 2026-11-24 · **available**
+[Source](https://artificialanalysis.ai/leaderboards/models) · 124 scored entries · published: not supplied · observed: 2026-11-26 · **available**
 
 | Rank | Model / configuration | Score |
 |---|---|---|
@@ -114,7 +114,7 @@ Source-native rankings. **Scores from different boards are not interchangeable.*
 | 2 | Claude Fable 5.2 (Xhigh, Default Fallback) | 62 |
 | 2 | GPT-6.2 Astra (Max) | 62 |
 | 2 | GPT-6.2 Astra (Xhigh) | 62 |
-| 6 | Gemini 4 Neon (Xhigh) | 61 |
+| 2 | Gemini 4 Neon (Xhigh) | 62 |
 | 7 | GPT-6.2 Astra (High) | 60 |
 | 7 | Gemini 4 Carbon (High) | 60 |
 | 7 | Gemini 4 Neon (High) | 60 |
@@ -123,8 +123,6 @@ Source-native rankings. **Scores from different boards are not interchangeable.*
 Source-native Intelligence Index v5.0.2 (CritPt v2 regrade across the 9-benchmark v5 suite), not a Model Atlas aggregate. Reasoning effort and fallback settings are distinct entries, including configurations collapsed under release groups on the source page. Public table scores are rounded integers; equal displayed scores share a rank here. No confidence intervals are published in this table. Cost per task is not API price per million tokens; a rounded $0.00 is not proof of free usage. The source's current-model view is not a guarantee of public availability.
 
 > Evaluation/publication date not supplied by the table; observed date is retrieval only.
-
-> Last refresh failed; retaining the last valid snapshot.
 
 ### Arena — Text · style-controlled · overall
 

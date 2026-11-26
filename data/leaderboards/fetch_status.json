@@ -1,8 +1,8 @@
 {
   "artificial_analysis": {
-    "status": "failed",
-    "error": "Artificial Analysis current index is not v5.0.1; review the metric version",
-    "attempted_at": "2026-11-26T06:05:06+00:00"
+    "status": "ok",
+    "rows": 124,
+    "attempted_at": "2026-11-26T07:44:51+00:00"
   },
   "arena_text": {
     "status": "ok",

@@ -65,14 +65,14 @@
       "artificial_analysis"
     ]
   },
-  "gemini 4 carbon (medium)": {
-    "model": "Gemini 4 Carbon (Medium)",
+  "claude opus 5.5 (xhigh, default fallback)": {
+    "model": "Claude Opus 5.5 (Xhigh, Default Fallback)",
     "boards": [
       "artificial_analysis"
     ]
   },
-  "claude opus 5.5 (xhigh, default fallback)": {
-    "model": "Claude Opus 5.5 (Xhigh, Default Fallback)",
+  "gemini 4 carbon (medium)": {
+    "model": "Gemini 4 Carbon (Medium)",
     "boards": [
       "artificial_analysis"
     ]
@@ -139,20 +139,28 @@
       "artificial_analysis"
     ]
   },
-  "gpt 6.2 sol (medium)": {
-    "model": "GPT-6.2 Sol (Medium)",
-    "boards": [
-      "artificial_analysis"
-    ]
-  },
   "claude opus 5.5 (high, default fallback)": {
     "model": "Claude Opus 5.5 (High, Default Fallback)",
     "boards": [
       "artificial_analysis"
     ]
   },
+  "gpt 6.2 sol (medium)": {
+    "model": "GPT-6.2 Sol (Medium)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
   "gpt 6.1 terra (max)": {
     "model": "GPT-6.1 Terra (Max)",
+    "boards": [
+      "artificial_analysis",
+      "arena_text",
+      "terminal_bench"
+    ]
+  },
+  "gemini 4 argon (high)": {
+    "model": "Gemini 4 Argon (High)",
     "boards": [
       "artificial_analysis",
       "arena_text",
@@ -173,14 +181,6 @@
       "artificial_analysis"
     ]
   },
-  "gemini 4 argon (high)": {
-    "model": "Gemini 4 Argon (High)",
-    "boards": [
-      "artificial_analysis",
-      "arena_text",
-      "terminal_bench"
-    ]
-  },
   "muse wonder full (max)": {
     "model": "Muse Wonder Full (Max)",
     "boards": [
@@ -199,17 +199,17 @@
       "artificial_analysis"
     ]
   },
-  "gpt 6.2 astra (low)": {
-    "model": "GPT-6.2 Astra (Low)",
-    "boards": [
-      "artificial_analysis"
-    ]
-  },
   "kimi k3.1 pro": {
     "model": "Kimi K3.1 Pro",
     "boards": [
       "artificial_analysis",
       "livebench"
+    ]
+  },
+  "gpt 6.2 astra (low)": {
+    "model": "GPT-6.2 Astra (Low)",
+    "boards": [
+      "artificial_analysis"
     ]
   },
   "gpt 6.1 terra (xhigh)": {
@@ -231,6 +231,12 @@
       "arena_text"
     ]
   },
+  "gpt 6.1 terra (high)": {
+    "model": "GPT-6.1 Terra (High)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
   "qwen4 max": {
     "model": "Qwen4 Max",
     "boards": [
@@ -240,12 +246,6 @@
   },
   "claude sonnet 5.5 (high, default fallback)": {
     "model": "Claude Sonnet 5.5 (High, Default Fallback)",
-    "boards": [
-      "artificial_analysis"
-    ]
-  },
-  "gpt 6.1 terra (high)": {
-    "model": "GPT-6.1 Terra (High)",
     "boards": [
       "artificial_analysis"
     ]
@@ -346,12 +346,6 @@
       "artificial_analysis"
     ]
   },
-  "gpt 6.1 terra (non reasoning)": {
-    "model": "GPT-6.1 Terra (Non-reasoning)",
-    "boards": [
-      "artificial_analysis"
-    ]
-  },
   "grok 4.7 (low)": {
     "model": "Grok 4.7 (Low)",
     "boards": [
@@ -371,6 +365,12 @@
     "boards": [
       "artificial_analysis",
       "arena_text"
+    ]
+  },
+  "gpt 6.1 terra (non reasoning)": {
+    "model": "GPT-6.1 Terra (Non-reasoning)",
+    "boards": [
+      "artificial_analysis"
     ]
   },
   "ling 3.1 flash 1019": {
@@ -406,12 +406,6 @@
       "livebench"
     ]
   },
-  "qwen3.8 flash next": {
-    "model": "Qwen3.8-Flash-Next",
-    "boards": [
-      "artificial_analysis"
-    ]
-  },
   "step 5 preview": {
     "model": "Step 5 Preview",
     "boards": [
@@ -436,6 +430,12 @@
   },
   "joyai vl preview": {
     "model": "JoyAI-VL-Preview",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "qwen3.8 flash next": {
+    "model": "Qwen3.8-Flash-Next",
     "boards": [
       "artificial_analysis"
     ]
@@ -639,17 +639,17 @@
       "artificial_analysis"
     ]
   },
+  "inkling (xhigh)": {
+    "model": "Inkling (Xhigh)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
   "gemini 3.5 flash lite": {
     "model": "Gemini 3.5 Flash-Lite",
     "boards": [
       "artificial_analysis",
       "arena_text"
-    ]
-  },
-  "inkling (xhigh)": {
-    "model": "Inkling (Xhigh)",
-    "boards": [
-      "artificial_analysis"
     ]
   },
   "nemotron 3 ultra 550b a55b (reasoning)": {
@@ -712,13 +712,6 @@
       "artificial_analysis"
     ]
   },
-  "granite 4.2 30b": {
-    "model": "Granite 4.2 30B",
-    "boards": [
-      "artificial_analysis",
-      "arena_text"
-    ]
-  },
   "lfm3 1.7b": {
     "model": "LFM3-1.7B",
     "boards": [
@@ -741,20 +734,6 @@
     "model": "Gemma 4 E4B (Reasoning)",
     "boards": [
       "artificial_analysis"
-    ]
-  },
-  "granite 4.2 3b": {
-    "model": "Granite 4.2 3B",
-    "boards": [
-      "artificial_analysis",
-      "arena_text"
-    ]
-  },
-  "granite 4.2 8b": {
-    "model": "Granite 4.2 8B",
-    "boards": [
-      "artificial_analysis",
-      "arena_text"
     ]
   },
   "mistral medium 3.5": {
@@ -2164,6 +2143,12 @@
       "arena_text"
     ]
   },
+  "granite 4.2 30b": {
+    "model": "Granite 4.2 30B",
+    "boards": [
+      "arena_text"
+    ]
+  },
   "gpt 5 nano (high)": {
     "model": "GPT-5 nano (High)",
     "boards": [
@@ -2502,6 +2487,18 @@
   },
   "jamba 1.5 large": {
     "model": "Jamba 1.5 Large",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "granite 4.2 8b": {
+    "model": "Granite 4.2 8B",
+    "boards": [
+      "arena_text"
+    ]
+  },
+  "granite 4.2 3b": {
+    "model": "Granite 4.2 3B",
     "boards": [
       "arena_text"
     ]

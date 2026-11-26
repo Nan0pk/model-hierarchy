@@ -1,131 +1,128 @@
 board,version,rank,model,score,harness,published_at,observed_at,source
-artificial_analysis,Intelligence Index v5.0.1,1,"Claude Fable 5.2 (Max, Default Fallback)",65.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,2,"Claude Fable 5.2 (High, Default Fallback)",62.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,2,"Claude Fable 5.2 (Xhigh, Default Fallback)",62.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,2,GPT-6.2 Astra (Max),62.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,2,GPT-6.2 Astra (Xhigh),62.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,6,Gemini 4 Neon (Xhigh),61.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,7,GPT-6.2 Astra (High),60.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,7,Gemini 4 Carbon (High),60.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,7,Gemini 4 Neon (High),60.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,10,"Claude Opus 5.5 (Max, Default Fallback)",59.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,11,Gemini 4 Carbon (Medium),58.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,12,"Claude Opus 5.5 (Xhigh, Default Fallback)",57.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,12,GPT-6.2 Astra (Medium),57.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,12,GPT-6.2 Sol (Max),57.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,15,"Claude Fable 5.2 (Medium, Default Fallback)",56.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,15,GPT-6.2 Sol (Xhigh),56.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,17,"Claude Sonnet 5.5 (Max, Default Fallback)",55.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,17,GPT-6.2 Sol (High),55.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,17,Gemini 4 Neon (Medium),55.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,20,"Claude Fable 5.2 (Low, Default Fallback)",54.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,20,Gemini 4 Carbon (Low),54.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,20,Gemini 4 Hydrogen (Xhigh),54.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,23,GPT-6.2 Sol (Medium),53.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,24,"Claude Opus 5.5 (High, Default Fallback)",52.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,25,GPT-6.1 Terra (Max),51.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,25,Gemini 4 Hydrogen (High),51.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,27,"Claude Sonnet 5.5 (Xhigh, Default Fallback)",50.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,27,Gemini 4 Argon (High),50.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,27,Muse Wonder Full (Max),50.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,30,"Claude Opus 5.5 (Medium, Default Fallback)",48.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,30,Gemini 4 Argon (Medium),48.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,32,GPT-6.2 Astra (Low),46.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,32,Kimi K3.1 Pro,46.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,34,GPT-6.1 Terra (Xhigh),45.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,35,Gemini 4 Neon (Low),44.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,35,Muse Wonder (Max),44.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,37,Qwen4 Max,43.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,38,"Claude Sonnet 5.5 (High, Default Fallback)",42.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,38,GPT-6.1 Terra (High),42.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,40,GPT-6.2 Sol (Low),41.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,40,Gemini 4 Hydrogen (Medium),41.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,40,Muse Wonder (High),41.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,43,GPT-6.1 Terra (Medium),38.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,44,Claude Haiku 5.5 (Max),36.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,44,Muse Ember (Max),36.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,46,Claude Haiku 5.5 (Xhigh),35.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,46,"Claude Opus 5.5 (Low, Default Fallback)",35.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,46,Grok 4.7 (High),35.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,46,Grok 4.7 (Xhigh),35.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,46,Tencent Hy4,35.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,51,Muse Ember (Xhigh),34.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,52,DeepSeek V4.1 Flash 1017 (Max),33.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,53,GLM-5.3 (Max),32.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,54,"Claude Sonnet 5.5 (Medium, Default Fallback)",31.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,54,GPT-6.1 Terra (Non-reasoning),31.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,54,Grok 4.7 (Low),31.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,54,Inkling 2 Small,31.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,58,Claude Haiku 5.5 (High),30.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,58,Ling 3.1 Flash 1019,30.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,58,MiMo-V2.6-Pro,30.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,61,DeepSeek V4.1 Flash 1017 (High),29.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,61,GPT-6.1 Terra (Low),29.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,61,MiniMax-M3.1-Flash,29.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,61,Qwen3.8-Flash-Next,29.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,61,Step 5 Preview,29.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,66,GLM-5.3-Flash (Max),28.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,66,GPT-6 Luna (Max),28.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,66,JoyAI-VL-Preview,28.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,69,Gemini 4 Hydrogen (Low),27.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,69,MiMo-V2.6-Flash,27.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,71,"Claude Sonnet 5.5 (Low, Default Fallback)",26.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,71,Mistral Large 4 (High),26.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,73,Claude Haiku 5.5 (Medium),25.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,73,Muse Spark Open (Xhigh),25.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,75,Agnes 2.5 Pro Theta,24.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,76,DeepSeek V4 Pro 0813 (Max),23.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,76,GLM-5.3 (Low),23.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,76,GPT-6 Luna (Xhigh),23.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,76,Ling-3.2-air,23.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,76,Mistral Large 4 (Medium),23.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,81,DeepSeek V4 Pro 0813 (High),21.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,81,GPT-6 Luna (High),21.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,83,Inkling 2 Mini,20.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,83,Nanbeige4.3-33B,20.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,83,Qwen3.8 27B (Xhigh),20.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,86,Claude Haiku 5.5 (Low),19.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,86,DeepSeek V4.1 Flash 1017 (Non-reasoning),19.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,86,JT-4.1 Flash 236B A21B,19.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,86,MiniMax-M3,19.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,90,Beam 1.0,18.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,90,GPT-6 Luna (Medium),18.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,90,K2 Horizon 375B A23B,18.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,93,Qwen3.8 27B (Medium),17.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,94,Qwen3.8 27B (Low),16.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,95,Apodex 1.1,14.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,95,K2 Horizon 32B,14.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,95,K2 Horizon MoVA 36B A4B,14.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,95,Nemotron 3.5 Super VL,14.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,95,Solar Pro 4,14.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,100,DeepSeek V4 Pro 0813 (Non-reasoning),13.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,101,Gemini 3.5 Flash-Lite,12.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,101,Inkling (Xhigh),12.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,101,Nemotron 3 Ultra 550B A55B (Reasoning),12.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,104,Inkling (High),11.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,104,K2 Horizon 7B,11.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,106,GPT-6 Luna (Low),10.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,106,Qwen3.8 27B (Non-reasoning),10.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,108,A.X-K2,9.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,108,GPT-6 Luna (Non-reasoning),9.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,110,K-EXAONE 2.0,8.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,110,K2 Horizon 3.7B,8.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,112,Command A+,6.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,112,Granite 4.2 30B,6.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,112,LFM3-1.7B,6.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,112,Muse Glimmer (High),6.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,112,Nemotron 3.5 Lightning,6.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,117,Gemma 4 E4B (Reasoning),5.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,117,Granite 4.2 3B,5.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,117,Granite 4.2 8B,5.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,117,Mistral Medium 3.5,5.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,121,Gemma 4 31B (Reasoning),4.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,121,Mistral Small 4 (Reasoning),4.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,121,gpt-oss-120b (High),4.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,124,K2 Horizon 0.9B,3.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,124,North Mini Code,3.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,126,LFM3-VL-2B,2.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
-artificial_analysis,Intelligence Index v5.0.1,126,NVIDIA Nemotron 3 Nano 4B,2.0,,,2026-11-24,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,1,"Claude Fable 5.2 (Max, Default Fallback)",65.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,2,"Claude Fable 5.2 (High, Default Fallback)",62.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,2,"Claude Fable 5.2 (Xhigh, Default Fallback)",62.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,2,GPT-6.2 Astra (Max),62.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,2,GPT-6.2 Astra (Xhigh),62.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,2,Gemini 4 Neon (Xhigh),62.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,7,GPT-6.2 Astra (High),60.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,7,Gemini 4 Carbon (High),60.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,7,Gemini 4 Neon (High),60.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,10,"Claude Opus 5.5 (Max, Default Fallback)",59.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,11,"Claude Opus 5.5 (Xhigh, Default Fallback)",58.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,11,Gemini 4 Carbon (Medium),58.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,13,GPT-6.2 Astra (Medium),57.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,13,GPT-6.2 Sol (Max),57.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,15,"Claude Fable 5.2 (Medium, Default Fallback)",56.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,15,GPT-6.2 Sol (Xhigh),56.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,17,"Claude Sonnet 5.5 (Max, Default Fallback)",55.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,17,GPT-6.2 Sol (High),55.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,17,Gemini 4 Neon (Medium),55.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,20,"Claude Fable 5.2 (Low, Default Fallback)",54.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,20,Gemini 4 Carbon (Low),54.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,20,Gemini 4 Hydrogen (Xhigh),54.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,23,"Claude Opus 5.5 (High, Default Fallback)",52.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,23,GPT-6.2 Sol (Medium),52.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,25,GPT-6.1 Terra (Max),51.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,25,Gemini 4 Argon (High),51.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,25,Gemini 4 Hydrogen (High),51.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,28,"Claude Sonnet 5.5 (Xhigh, Default Fallback)",50.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,28,Muse Wonder Full (Max),50.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,30,"Claude Opus 5.5 (Medium, Default Fallback)",48.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,30,Gemini 4 Argon (Medium),48.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,32,Kimi K3.1 Pro,47.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,33,GPT-6.2 Astra (Low),46.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,34,GPT-6.1 Terra (Xhigh),45.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,35,Gemini 4 Neon (Low),44.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,35,Muse Wonder (Max),44.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,37,GPT-6.1 Terra (High),43.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,37,Qwen4 Max,43.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,39,"Claude Sonnet 5.5 (High, Default Fallback)",41.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,39,GPT-6.2 Sol (Low),41.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,39,Gemini 4 Hydrogen (Medium),41.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,39,Muse Wonder (High),41.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,43,GPT-6.1 Terra (Medium),38.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,44,Claude Haiku 5.5 (Max),37.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,45,Muse Ember (Max),36.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,46,Claude Haiku 5.5 (Xhigh),35.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,46,"Claude Opus 5.5 (Low, Default Fallback)",35.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,46,Grok 4.7 (High),35.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,46,Grok 4.7 (Xhigh),35.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,46,Tencent Hy4,35.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,51,Muse Ember (Xhigh),34.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,52,DeepSeek V4.1 Flash 1017 (Max),32.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,52,GLM-5.3 (Max),32.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,54,"Claude Sonnet 5.5 (Medium, Default Fallback)",31.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,54,Grok 4.7 (Low),31.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,54,Inkling 2 Small,31.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,57,Claude Haiku 5.5 (High),30.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,57,GPT-6.1 Terra (Non-reasoning),30.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,57,Ling 3.1 Flash 1019,30.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,57,MiMo-V2.6-Pro,30.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,61,DeepSeek V4.1 Flash 1017 (High),29.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,61,GPT-6.1 Terra (Low),29.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,61,MiniMax-M3.1-Flash,29.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,61,Step 5 Preview,29.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,65,GLM-5.3-Flash (Max),28.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,65,GPT-6 Luna (Max),28.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,65,JoyAI-VL-Preview,28.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,65,Qwen3.8-Flash-Next,28.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,69,Gemini 4 Hydrogen (Low),27.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,69,MiMo-V2.6-Flash,27.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,71,"Claude Sonnet 5.5 (Low, Default Fallback)",26.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,71,Mistral Large 4 (High),26.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,73,Claude Haiku 5.5 (Medium),25.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,73,Muse Spark Open (Xhigh),25.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,75,Agnes 2.5 Pro Theta,24.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,76,DeepSeek V4 Pro 0813 (Max),23.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,76,GLM-5.3 (Low),23.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,76,GPT-6 Luna (Xhigh),23.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,76,Ling-3.2-air,23.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,76,Mistral Large 4 (Medium),23.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,81,DeepSeek V4 Pro 0813 (High),21.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,81,GPT-6 Luna (High),21.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,83,Inkling 2 Mini,20.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,83,Nanbeige4.3-33B,20.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,83,Qwen3.8 27B (Xhigh),20.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,86,Claude Haiku 5.5 (Low),19.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,86,DeepSeek V4.1 Flash 1017 (Non-reasoning),19.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,86,JT-4.1 Flash 236B A21B,19.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,86,MiniMax-M3,19.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,90,Beam 1.0,18.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,90,GPT-6 Luna (Medium),18.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,90,K2 Horizon 375B A23B,18.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,90,Qwen3.8 27B (Medium),18.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,94,Qwen3.8 27B (Low),16.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,95,Apodex 1.1,14.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,95,K2 Horizon 32B,14.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,95,K2 Horizon MoVA 36B A4B,14.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,95,Nemotron 3.5 Super VL,14.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,95,Solar Pro 4,14.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,100,DeepSeek V4 Pro 0813 (Non-reasoning),13.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,100,Inkling (Xhigh),13.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,102,Gemini 3.5 Flash-Lite,12.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,102,Nemotron 3 Ultra 550B A55B (Reasoning),12.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,104,Inkling (High),11.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,104,K2 Horizon 7B,11.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,106,GPT-6 Luna (Low),10.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,106,Qwen3.8 27B (Non-reasoning),10.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,108,A.X-K2,9.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,108,GPT-6 Luna (Non-reasoning),9.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,110,K-EXAONE 2.0,8.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,110,K2 Horizon 3.7B,8.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,112,Command A+,6.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,112,LFM3-1.7B,6.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,112,Muse Glimmer (High),6.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,112,Nemotron 3.5 Lightning,6.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,116,Gemma 4 E4B (Reasoning),5.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,116,Mistral Medium 3.5,5.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,118,Gemma 4 31B (Reasoning),4.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,118,Mistral Small 4 (Reasoning),4.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,118,gpt-oss-120b (High),4.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,121,K2 Horizon 0.9B,3.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,121,North Mini Code,3.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,123,LFM3-VL-2B,2.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
+artificial_analysis,Intelligence Index v5.0.2,123,NVIDIA Nemotron 3 Nano 4B,2.0,,,2026-11-26,https://artificialanalysis.ai/leaderboards/models
 arena_text,Text · style-controlled · overall,1,Gemini 4 Carbon (High),1526.543936260111,,2026-11-22,2026-11-26,https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset
 arena_text,Text · style-controlled · overall,2,Gemini 4 Argon (High),1519.8114468595227,,2026-11-22,2026-11-26,https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset
 arena_text,Text · style-controlled · overall,3,Gemini 4 Neon (High),1512.226938554825,,2026-11-22,2026-11-26,https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset
