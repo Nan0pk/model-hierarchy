@@ -41,6 +41,9 @@ def load_board_config() -> dict:
         prev = spec.get("previous_versions") or []
         if not isinstance(prev, list) or spec["version"] in prev:
             raise ValueError(f"{bid}: invalid previous_versions")
+        policy = spec.get("freshness") or cfg["freshness"]
+        if not (0 < policy["warn_after_days"] < policy["expire_after_days"]):
+            raise ValueError(f"{bid}: invalid per-board freshness window")
     return cfg
 
 
@@ -180,11 +183,14 @@ def build_board_report(cfg=None, directory: Path = BOARD_DIR, *, today=None) -> 
         if snap:
             dates = {k: snap.get(k) for k in ("published_at", "observed_at")}
             # A recently fetched frozen board remains old if its published date is old.
+            # Warn/expire windows are per board: a biweekly publisher is not stale at 15 days.
+            policy = spec.get("freshness") or cfg["freshness"]
             reference = dates["published_at"] or dates["observed_at"]
             age = (today - _date(reference)).days
-            status = ("expired" if age > cfg["freshness"]["expire_after_days"] else
-                      "stale" if age > cfg["freshness"]["warn_after_days"] else "available")
+            status = ("expired" if age > policy["expire_after_days"] else
+                      "stale" if age > policy["warn_after_days"] else "available")
             board.update({**dates, "status": status, "age_days": age,
+                          "freshness": policy,
                           "freshness_basis": "published_at" if dates["published_at"] else "observed_at",
                           "source": snap["source"], "data_hash": digest(snap),
                           "retrieval_method": snap.get("retrieval_method", "unspecified"),

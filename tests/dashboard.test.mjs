@@ -364,3 +364,13 @@ test('index.html version stamps match the shipped CSS and JS, so returning visit
     assert.match(html, new RegExp(`${file.replace('.', '\\.')}\\?v=${stamp}`), `bump ${file}?v= to ${stamp}`);
   }
 });
+
+test('per-board freshness windows match each publisher cadence', () => {
+  const policy = {warn_after_days: 14, expire_after_days: 90};
+  const now = new Date('2026-11-26T00:00:00Z');
+  const board = {...baseBoard, published_at: '2026-11-11',
+    freshness: {warn_after_days: 28, expire_after_days: 90}};
+  assert.equal(boardFreshness(board, policy, now), 'available');
+  assert.equal(boardFreshness({...board, freshness: undefined}, policy, now), 'stale');
+  assert.equal(boardFreshness({...board, freshness: {warn_after_days: 3, expire_after_days: 10}}, policy, now), 'expired');
+});

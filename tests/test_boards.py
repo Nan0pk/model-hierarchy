@@ -13,7 +13,7 @@ import pytest
 from hierarchy.boards import (BOARD_DIR, build_board_report, load_board_config,
                               load_board_snapshots, ranked_rows, validate_snapshot,
                               write_board_outputs, write_board_snapshot)
-from hierarchy.config import load_config
+from hierarchy.config import CONFIG_DIR, load_config
 from hierarchy.fetch import boards as fetch
 from hierarchy.fetch.boards import (FetchError, parse_artificial_analysis,
                                     parse_livebench, parse_livebench_release,
@@ -507,3 +507,32 @@ def test_invalid_composite_snapshot_does_not_overwrite_valid_file(tmp_path):
     with pytest.raises(FetchError, match="Invalid snapshot"):
         write_snapshot(invalid, tmp_path)
     assert path.read_bytes() == before
+
+
+def test_per_board_freshness_matches_publisher_cadence(tmp_path):
+    """LiveBench warns at 28 days; AA keeps the default 14-day window."""
+    day = dt.date(2026, 11, 26)
+    shutil.copytree(BOARD_DIR / day.isoformat(), tmp_path / day.isoformat())
+    report = build_board_report(today=dt.date(2026, 12, 9), directory=tmp_path)
+    # 2026-11-11 release is 28 days old: available under livebench's 28-day window,
+    # while AA's 2026-11-24 snapshot (15 days) is stale under the default 14.
+    assert report["boards"]["livebench"]["status"] == "available"
+    assert report["boards"]["livebench"]["freshness"]["warn_after_days"] == 28
+    # AA's snapshot carries no published date (observed 2026-11-26); Terminal-Bench's
+    # published_at 2026-11-20 is 19 days old: stale under the default 14-day window.
+    assert report["boards"]["terminal_bench"]["status"] == "stale"
+    assert report["boards"]["terminal_bench"]["freshness"]["warn_after_days"] == 14
+    assert report["boards"]["artificial_analysis"]["status"] == "available"
+
+
+def test_invalid_per_board_freshness_window_is_rejected(monkeypatch, tmp_path):
+    import yaml
+    from hierarchy import boards as boards_module
+    for path in (CONFIG_DIR / "leaderboards.yaml", CONFIG_DIR / "models.yaml"):
+        shutil.copy(path, tmp_path / path.name)
+    cfg = yaml.safe_load((tmp_path / "leaderboards.yaml").read_text())
+    cfg["boards"]["livebench"]["freshness"] = {"warn_after_days": 90, "expire_after_days": 28}
+    (tmp_path / "leaderboards.yaml").write_text(yaml.safe_dump(cfg))
+    monkeypatch.setattr(boards_module, "CONFIG_DIR", tmp_path)
+    with pytest.raises(ValueError, match="freshness window"):
+        load_board_config()
