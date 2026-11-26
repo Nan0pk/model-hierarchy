@@ -18,12 +18,13 @@ import json
 import math
 import pathlib
 import re
+import time
 from html.parser import HTMLParser
 
 import requests
 import requests_cache
 
-from ..config import DATA_DIR
+from ..config import DATA_DIR, ROOT
 
 HF_DATASET = "lmarena-ai/leaderboard-dataset"
 HF_STYLE_CONFIG = "text_style_control"   # style-controlled text leaderboard (§4 row 1)
@@ -34,7 +35,20 @@ class FetchError(RuntimeError):
     pass
 
 
-_HTTP = requests_cache.CachedSession(".cache/model-hierarchy-http", expire_after=24 * 60 * 60)
+_CACHE_DIR = ROOT / ".cache"  # repo-anchored: the cache works from any working directory
+_HTTP = None
+
+
+def _session() -> requests_cache.CachedSession:
+    global _HTTP
+    if _HTTP is None:
+        try:
+            _CACHE_DIR.mkdir(parents=True, exist_ok=True)
+        except OSError:
+            pass
+        _HTTP = requests_cache.CachedSession(str(_CACHE_DIR / "model-hierarchy-http"),
+                                             expire_after=24 * 60 * 60)
+    return _HTTP
 
 
 def _get(
@@ -47,10 +61,14 @@ def _get(
     headers = {"User-Agent": defaults.get("user_agent", "model-hierarchy")}
     headers.update(extra_headers or {})
     last = None
-    for _ in range(int(defaults.get("retries", 2))):
+    attempts = max(1, int(defaults.get("retries", 2)))
+    for attempt in range(attempts):
+        if attempt:
+            # Brief backoff: one retry is cheap, hammering a struggling source is not.
+            time.sleep(min(2.0, 0.5 * 2 ** (attempt - 1)))
         try:
-            r = _HTTP.get(url, headers=headers, params=params,
-                          timeout=int(defaults.get("timeout_seconds", 20)))
+            r = _session().get(url, headers=headers, params=params,
+                               timeout=int(defaults.get("timeout_seconds", 20)))
             if r.status_code == 200:
                 return r
             last = FetchError(f"{url} -> HTTP {r.status_code}")
@@ -89,7 +107,11 @@ def write_snapshot(snap: dict, raw_dir: pathlib.Path = None) -> pathlib.Path:
     out_dir = raw_dir / day
     out_dir.mkdir(parents=True, exist_ok=True)
     path = out_dir / f"{snap['benchmark']}.json"
-    path.write_text(json.dumps(snap, indent=2, ensure_ascii=False) + "\n")
+    # Same atomic tmp+replace discipline as native board snapshots: a reader
+    # (or a crash) must never observe a half-written snapshot.
+    temporary = path.with_suffix(".tmp")
+    temporary.write_text(json.dumps(snap, indent=2, ensure_ascii=False) + "\n")
+    temporary.replace(path)
     return path
 
 

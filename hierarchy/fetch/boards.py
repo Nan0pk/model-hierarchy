@@ -531,11 +531,19 @@ def fetch_native_board(bid: str, spec: dict, cfg) -> dict:
         methodology = base._get(spec["methodology_url"], cfg.sources).text
         plain = re.sub(r"<[^>]+>", " ", methodology)
         expected_ver = spec["version"].removeprefix("Intelligence Index v").strip()
-        # Check the current heading, not an older version string in history.
-        versions = re.findall(r"Intelligence\s+Index\s+v(\d+(?:\.\d+)+)", plain, re.I)
-        if not versions or versions[0] != expected_ver:
+        # The current heading can sit below historical notes, so judge by the
+        # newest version mentioned, not the first string occurrence: pass when
+        # the expected version is present and nothing newer supersedes it.
+        def _vtuple(version: str) -> tuple:
+            return tuple(int(part) for part in version.split("."))
+        mentioned = sorted({_vtuple(v) for v in
+                            re.findall(r"Intelligence\s+Index\s+v(\d+(?:\.\d+)+)", plain, re.I)})
+        expected = _vtuple(expected_ver)
+        if expected not in mentioned or max(mentioned) != expected:
             raise FetchError(
-                f"Artificial Analysis current index is not v{expected_ver}; review the metric version"
+                f"Artificial Analysis current index is not v{expected_ver}; "
+                f"methodology mentions {[('v' + '.'.join(map(str, v))) for v in mentioned]} "
+                "— review the metric version"
             )
         snap["rows"] = parse_artificial_analysis(html)
         if re.search(r'"initialModels"\s*:\s*\[', _rsc_stream(html)):

@@ -405,6 +405,33 @@ def test_aa_refuses_metric_version_migration(monkeypatch):
         fetch.fetch_native_board("artificial_analysis", spec, load_config())
 
 
+AA_MINIMAL_TABLE = """
+<table><tr><th>Model</th><th>Artificial Analysis Intelligence Index</th></tr>
+<tr><td>Model X</td><td>50</td></tr></table>
+"""
+
+
+def test_aa_version_check_reads_the_newest_mention_not_the_first_string(monkeypatch):
+    """Historical notes may name older indexes before the current heading."""
+    spec = load_board_config()["boards"]["artificial_analysis"]
+    methodology = ("<p>History: the Intelligence Index v5.0 suite superseded v4.</p>"
+                   "<h2>Artificial Analysis Intelligence Index v5.0.1</h2>")
+    monkeypatch.setattr(fetch.base, "_get", lambda url, *a, **k: SimpleNamespace(
+        text=methodology if "methodology" in url else AA_MINIMAL_TABLE))
+    snap = fetch.fetch_native_board("artificial_analysis", spec, load_config())
+    assert snap["board"] == "artificial_analysis"
+    assert snap["rows"][0]["model"] == "Model X"
+
+
+def test_aa_version_check_lists_the_versions_it_saw_on_a_bump(monkeypatch):
+    spec = load_board_config()["boards"]["artificial_analysis"]
+    monkeypatch.setattr(fetch.base, "_get", lambda url, *a, **k: SimpleNamespace(
+        text=("<h2>Artificial Analysis Intelligence Index v5.1</h2>"
+              if "methodology" in url else AA_MINIMAL_TABLE)))
+    with pytest.raises(FetchError, match=r"not v5\.0\.1.*v5\.1"):
+        fetch.fetch_native_board("artificial_analysis", spec, load_config())
+
+
 def test_truncated_arena_pagination_fails_instead_of_publishing_first_page(monkeypatch):
     from hierarchy.fetch import base
     pages = iter([{"rows": [{"row": {"model_name": "A"}}], "num_rows_total": 3},

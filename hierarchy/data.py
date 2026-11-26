@@ -11,6 +11,7 @@ import datetime as dt
 import json
 import math
 import pathlib
+import sys
 
 from .config import DATA_DIR
 from .names import canonical
@@ -43,7 +44,7 @@ def observation(entry, snap):
 
 def load_snapshots(raw_dir: pathlib.Path = DATA_DIR / "raw") -> dict:
     """Newest published snapshot per benchmark, never newest folder/scrape time."""
-    snaps = {}
+    snaps, broken = {}, []
     for path in sorted(raw_dir.glob("*/*.json")):
         try:
             snap = json.loads(path.read_text())
@@ -51,11 +52,15 @@ def load_snapshots(raw_dir: pathlib.Path = DATA_DIR / "raw") -> dict:
             _valid_date(snap.get("as_of"))
             if not isinstance(snap.get("values"), dict):
                 raise ValueError("snapshot values must be a mapping")
-        except (ValueError, KeyError, TypeError):
+        except (ValueError, KeyError, TypeError) as exc:
+            broken.append(f"{path.relative_to(raw_dir)}: {exc}")
             continue
         previous = snaps.get(bid)
         if previous is None or snap["as_of"] >= previous["as_of"]:
             snaps[bid] = snap
+    if broken:
+        # A skipped file must be visible, not silently absent from the composite.
+        print("ignoring invalid raw snapshots: " + "; ".join(broken), file=sys.stderr)
     return snaps
 
 

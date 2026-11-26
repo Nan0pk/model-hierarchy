@@ -1,5 +1,9 @@
 # Model Atlas · model-hierarchy
 
+[![tests](https://github.com/Nan0pk/model-hierarchy/actions/workflows/tests.yml/badge.svg)](https://github.com/Nan0pk/model-hierarchy/actions/workflows/tests.yml)
+[![daily refresh](https://github.com/Nan0pk/model-hierarchy/actions/workflows/daily.yml/badge.svg)](https://github.com/Nan0pk/model-hierarchy/actions/workflows/daily.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 **AI model rankings with the evidence still attached.**
 
 Explore original scores from **Artificial Analysis, Arena, LiveBench 2.0, and Terminal-Bench 4.1**.
@@ -224,7 +228,7 @@ The historical dashboard preview image also uses synthetic data and is not a cur
 
 > ⚠️ **Synthetic demo data** (see `demo/scores.csv`) — illustrates the output shape only. Run `python -m hierarchy run` for a real leaderboard.
 
-Tier hierarchy (G-score 0-100) — generated 2026-11-03 20:25 UTC — SYNTHETIC DEMO DATA
+Tier hierarchy (G-score 0-100) — generated 2026-11-26 06:46 UTC — SYNTHETIC DEMO DATA
 ────────────────────────────────────────────────────────────────
 T1 │ claude opus 4.5 · gemini 3 pro · gpt 5.1
 T2 │ grok 4.1
