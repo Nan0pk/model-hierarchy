@@ -346,6 +346,12 @@
       "artificial_analysis"
     ]
   },
+  "ernie 5.5 flash preview": {
+    "model": "ERNIE 5.5 Flash Preview",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
   "grok 4.7 (low)": {
     "model": "Grok 4.7 (Low)",
     "boards": [
@@ -510,6 +516,12 @@
   },
   "mistral large 4 (medium)": {
     "model": "Mistral Large 4 (Medium)",
+    "boards": [
+      "artificial_analysis"
+    ]
+  },
+  "quasar 1.2 358b (max, based on glm 5.3)": {
+    "model": "Quasar 1.2 358B (Max, Based on GLM-5.3)",
     "boards": [
       "artificial_analysis"
     ]
@@ -741,6 +753,12 @@
     "boards": [
       "artificial_analysis",
       "arena_text"
+    ]
+  },
+  "gemma 4 26b a4b (reasoning)": {
+    "model": "Gemma 4 26B A4B (Reasoning)",
+    "boards": [
+      "artificial_analysis"
     ]
   },
   "gemma 4 31b (reasoning)": {

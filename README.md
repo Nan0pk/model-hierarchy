@@ -105,7 +105,7 @@ Source-native rankings. **Scores from different boards are not interchangeable.*
 
 ### Artificial Analysis — Intelligence Index v5.0.2
 
-[Source](https://artificialanalysis.ai/leaderboards/models) · 124 scored entries · published: not supplied · observed: 2026-11-26 · **available**
+[Source](https://artificialanalysis.ai/leaderboards/models) · 127 scored entries · published: not supplied · observed: 2026-11-27 · **available**
 
 | Rank | Model / configuration | Score |
 |---|---|---|
@@ -126,7 +126,7 @@ Source-native Intelligence Index v5.0.2 (CritPt v2 regrade across the 9-benchmar
 
 ### Arena — Text · style-controlled · overall
 
-[Source](https://arena.ai/leaderboard/text) · 427 scored entries · published: 2026-11-22 · observed: 2026-11-26 · **available**
+[Source](https://arena.ai/leaderboard/text) · 427 scored entries · published: 2026-11-22 · observed: 2026-11-27 · **available**
 
 | Rank | Model / configuration | Score |
 |---|---|---|
@@ -145,7 +145,7 @@ Official text_style_control dataset, overall category only. Not the raw text, co
 
 ### LiveBench — LiveBench 2.0
 
-[Source](https://livebench.ai/) · 41 scored entries · published: 2026-11-11 · observed: 2026-11-26 · **available**
+[Source](https://livebench.ai/) · 41 scored entries · published: 2026-11-11 · observed: 2026-11-27 · **available**
 
 | Rank | Model / configuration | Score |
 |---|---|---|
@@ -164,7 +164,7 @@ LiveBench 2.0 official release feed, NOT the retired LiveBench overall benchmark
 
 ### Terminal-Bench — Terminal-Bench 4.1
 
-[Source](https://www.tbench.ai/) · 67 scored entries · published: 2026-11-20 · observed: 2026-11-26 · **available**
+[Source](https://www.tbench.ai/) · 67 scored entries · published: 2026-11-26 · observed: 2026-11-27 · **available**
 
 | Rank | Model / configuration | Score |
 |---|---|---|
