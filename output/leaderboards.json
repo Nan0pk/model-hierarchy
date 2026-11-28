@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "methodology_version": "2.1.3",
-  "generated_at": "2026-11-27T15:54:30+00:00",
+  "generated_at": "2026-11-28T10:46:44+00:00",
   "default_board": "artificial_analysis",
   "config_hash": "c2845f2e95871081",
   "freshness": {
@@ -71,7 +71,7 @@
           "provider": "Anthropic",
           "context": "1M",
           "cost_per_task": 9.08,
-          "output_tps": 112.0,
+          "output_tps": 111.0,
           "open_weights": false,
           "id": "claude fable 5.2 (high, default fallback)|",
           "rank": 2
@@ -93,7 +93,7 @@
           "provider": "OpenAI",
           "context": "1M",
           "cost_per_task": 4.0,
-          "output_tps": 42.0,
+          "output_tps": 41.0,
           "open_weights": false,
           "id": "gpt 6.2 astra (max)|",
           "rank": 2
@@ -104,7 +104,7 @@
           "provider": "OpenAI",
           "context": "1M",
           "cost_per_task": 2.52,
-          "output_tps": 42.0,
+          "output_tps": 41.0,
           "open_weights": false,
           "id": "gpt 6.2 astra (xhigh)|",
           "rank": 2
@@ -115,7 +115,7 @@
           "provider": "Google",
           "context": "1M",
           "cost_per_task": 6.44,
-          "output_tps": 85.0,
+          "output_tps": 89.0,
           "open_weights": false,
           "id": "gemini 4 neon (xhigh)|",
           "rank": 2
@@ -126,7 +126,7 @@
           "provider": "OpenAI",
           "context": "1M",
           "cost_per_task": 2.07,
-          "output_tps": 44.0,
+          "output_tps": 42.0,
           "open_weights": false,
           "id": "gpt 6.2 astra (high)|",
           "rank": 7
@@ -137,7 +137,7 @@
           "provider": "Google",
           "context": "1M",
           "cost_per_task": 7.76,
-          "output_tps": 50.0,
+          "output_tps": 49.0,
           "open_weights": false,
           "id": "gemini 4 carbon (high)|",
           "rank": 7
@@ -148,7 +148,7 @@
           "provider": "Google",
           "context": "1M",
           "cost_per_task": 3.74,
-          "output_tps": 102.0,
+          "output_tps": 99.0,
           "open_weights": false,
           "id": "gemini 4 neon (high)|",
           "rank": 7
@@ -170,7 +170,7 @@
           "provider": "Anthropic",
           "context": "1M",
           "cost_per_task": 6.05,
-          "output_tps": 112.0,
+          "output_tps": 111.0,
           "open_weights": false,
           "id": "claude opus 5.5 (xhigh, default fallback)|",
           "rank": 11
@@ -192,7 +192,7 @@
           "provider": "OpenAI",
           "context": "1M",
           "cost_per_task": 1.62,
-          "output_tps": 42.0,
+          "output_tps": 40.0,
           "open_weights": false,
           "id": "gpt 6.2 astra (medium)|",
           "rank": 13
@@ -203,7 +203,7 @@
           "provider": "OpenAI",
           "context": "1M",
           "cost_per_task": 1.01,
-          "output_tps": 59.0,
+          "output_tps": 58.0,
           "open_weights": false,
           "id": "gpt 6.2 sol (max)|",
           "rank": 13
@@ -236,7 +236,7 @@
           "provider": "Anthropic",
           "context": "1M",
           "cost_per_task": 10.02,
-          "output_tps": 154.0,
+          "output_tps": 153.0,
           "open_weights": false,
           "id": "claude sonnet 5.5 (max, default fallback)|",
           "rank": 17
@@ -247,7 +247,7 @@
           "provider": "OpenAI",
           "context": "1M",
           "cost_per_task": 0.56,
-          "output_tps": 57.0,
+          "output_tps": 54.0,
           "open_weights": false,
           "id": "gpt 6.2 sol (high)|",
           "rank": 17
@@ -258,7 +258,7 @@
           "provider": "Google",
           "context": "1M",
           "cost_per_task": 1.9,
-          "output_tps": 95.0,
+          "output_tps": 93.0,
           "open_weights": false,
           "id": "gemini 4 neon (medium)|",
           "rank": 17
@@ -280,7 +280,7 @@
           "provider": "Google",
           "context": "1M",
           "cost_per_task": 7.19,
-          "output_tps": 50.0,
+          "output_tps": 48.0,
           "open_weights": false,
           "id": "gemini 4 carbon (low)|",
           "rank": 20
@@ -291,7 +291,7 @@
           "provider": "Google",
           "context": "1M",
           "cost_per_task": 3.16,
-          "output_tps": 177.0,
+          "output_tps": 180.0,
           "open_weights": false,
           "id": "gemini 4 hydrogen (xhigh)|",
           "rank": 20
@@ -313,7 +313,7 @@
           "provider": "OpenAI",
           "context": "1M",
           "cost_per_task": 0.41,
-          "output_tps": 57.0,
+          "output_tps": 56.0,
           "open_weights": false,
           "id": "gpt 6.2 sol (medium)|",
           "rank": 23
@@ -324,7 +324,7 @@
           "provider": "OpenAI",
           "context": "1M",
           "cost_per_task": 0.96,
-          "output_tps": 63.0,
+          "output_tps": 62.0,
           "open_weights": false,
           "id": "gpt 6.1 terra (max)|",
           "rank": 25
@@ -346,7 +346,7 @@
           "provider": "Google",
           "context": "1M",
           "cost_per_task": 1.87,
-          "output_tps": 183.0,
+          "output_tps": 181.0,
           "open_weights": false,
           "id": "gemini 4 hydrogen (high)|",
           "rank": 25
@@ -379,7 +379,7 @@
           "provider": "Anthropic",
           "context": "1M",
           "cost_per_task": 2.45,
-          "output_tps": 108.0,
+          "output_tps": 107.0,
           "open_weights": false,
           "id": "claude opus 5.5 (medium, default fallback)|",
           "rank": 30
@@ -390,7 +390,7 @@
           "provider": "Google",
           "context": "1M",
           "cost_per_task": 8.63,
-          "output_tps": 67.0,
+          "output_tps": 66.0,
           "open_weights": false,
           "id": "gemini 4 argon (medium)|",
           "rank": 30
@@ -401,7 +401,7 @@
           "provider": "Kimi",
           "context": "1M",
           "cost_per_task": 3.68,
-          "output_tps": 37.0,
+          "output_tps": 36.0,
           "open_weights": true,
           "id": "kimi k3.1 pro|",
           "rank": 32
@@ -412,7 +412,7 @@
           "provider": "OpenAI",
           "context": "1M",
           "cost_per_task": 0.66,
-          "output_tps": 40.0,
+          "output_tps": 39.0,
           "open_weights": false,
           "id": "gpt 6.2 astra (low)|",
           "rank": 33
@@ -423,7 +423,7 @@
           "provider": "OpenAI",
           "context": "1M",
           "cost_per_task": 0.4,
-          "output_tps": 61.0,
+          "output_tps": 60.0,
           "open_weights": false,
           "id": "gpt 6.1 terra (xhigh)|",
           "rank": 34
@@ -434,7 +434,7 @@
           "provider": "Google",
           "context": "1M",
           "cost_per_task": 0.88,
-          "output_tps": 96.0,
+          "output_tps": 95.0,
           "open_weights": false,
           "id": "gemini 4 neon (low)|",
           "rank": 35
@@ -445,7 +445,7 @@
           "provider": "Meta",
           "context": "1M",
           "cost_per_task": 6.95,
-          "output_tps": 85.0,
+          "output_tps": 79.0,
           "open_weights": false,
           "id": "muse wonder (max)|",
           "rank": 35
@@ -456,7 +456,7 @@
           "provider": "OpenAI",
           "context": "1M",
           "cost_per_task": 0.26,
-          "output_tps": 60.0,
+          "output_tps": 59.0,
           "open_weights": false,
           "id": "gpt 6.1 terra (high)|",
           "rank": 37
@@ -467,7 +467,7 @@
           "provider": "Alibaba",
           "context": "984k",
           "cost_per_task": 3.27,
-          "output_tps": 110.0,
+          "output_tps": 113.0,
           "open_weights": false,
           "id": "qwen4 max|",
           "rank": 37
@@ -478,7 +478,7 @@
           "provider": "Anthropic",
           "context": "1M",
           "cost_per_task": 1.64,
-          "output_tps": 142.0,
+          "output_tps": 141.0,
           "open_weights": false,
           "id": "claude sonnet 5.5 (high, default fallback)|",
           "rank": 39
@@ -489,7 +489,7 @@
           "provider": "OpenAI",
           "context": "1M",
           "cost_per_task": 0.18,
-          "output_tps": 55.0,
+          "output_tps": 54.0,
           "open_weights": false,
           "id": "gpt 6.2 sol (low)|",
           "rank": 39
@@ -500,7 +500,7 @@
           "provider": "Google",
           "context": "1M",
           "cost_per_task": 0.8,
-          "output_tps": 170.0,
+          "output_tps": 171.0,
           "open_weights": false,
           "id": "gemini 4 hydrogen (medium)|",
           "rank": 39
@@ -511,7 +511,7 @@
           "provider": "Meta",
           "context": "1M",
           "cost_per_task": 4.56,
-          "output_tps": 85.0,
+          "output_tps": 82.0,
           "open_weights": false,
           "id": "muse wonder (high)|",
           "rank": 39
@@ -522,7 +522,7 @@
           "provider": "OpenAI",
           "context": "1M",
           "cost_per_task": 0.17,
-          "output_tps": 59.0,
+          "output_tps": 57.0,
           "open_weights": false,
           "id": "gpt 6.1 terra (medium)|",
           "rank": 43
@@ -533,7 +533,7 @@
           "provider": "Anthropic",
           "context": "1M",
           "cost_per_task": 0.41,
-          "output_tps": 258.0,
+          "output_tps": 245.0,
           "open_weights": false,
           "id": "claude haiku 5.5 (max)|",
           "rank": 44
@@ -544,7 +544,7 @@
           "provider": "Meta",
           "context": "1M",
           "cost_per_task": 0.14,
-          "output_tps": 368.0,
+          "output_tps": 364.0,
           "open_weights": false,
           "id": "muse ember (max)|",
           "rank": 45
@@ -555,7 +555,7 @@
           "provider": "Anthropic",
           "context": "1M",
           "cost_per_task": 0.25,
-          "output_tps": 236.0,
+          "output_tps": 232.0,
           "open_weights": false,
           "id": "claude haiku 5.5 (xhigh)|",
           "rank": 46
@@ -566,7 +566,7 @@
           "provider": "Anthropic",
           "context": "1M",
           "cost_per_task": 0.98,
-          "output_tps": 109.0,
+          "output_tps": 111.0,
           "open_weights": false,
           "id": "claude opus 5.5 (low, default fallback)|",
           "rank": 46
@@ -577,7 +577,7 @@
           "provider": "SpaceXAI",
           "context": "500k",
           "cost_per_task": 6.18,
-          "output_tps": 78.0,
+          "output_tps": 77.0,
           "open_weights": false,
           "id": "grok 4.7 (high)|",
           "rank": 46
@@ -599,7 +599,7 @@
           "provider": "Tencent",
           "context": "1M",
           "cost_per_task": 1.03,
-          "output_tps": 98.0,
+          "output_tps": 99.0,
           "open_weights": true,
           "id": "tencent hy4|",
           "rank": 46
@@ -610,7 +610,7 @@
           "provider": "Meta",
           "context": "1M",
           "cost_per_task": 0.12,
-          "output_tps": 387.0,
+          "output_tps": 382.0,
           "open_weights": false,
           "id": "muse ember (xhigh)|",
           "rank": 51
@@ -621,7 +621,7 @@
           "provider": "DeepSeek",
           "context": "1M",
           "cost_per_task": 0.6,
-          "output_tps": 179.0,
+          "output_tps": 177.0,
           "open_weights": true,
           "id": "deepseek v4.1 flash 1017 (max)|",
           "rank": 52
@@ -632,7 +632,7 @@
           "provider": "Z AI",
           "context": "1M",
           "cost_per_task": 5.01,
-          "output_tps": 78.0,
+          "output_tps": 79.0,
           "open_weights": true,
           "id": "glm 5.3 (max)|",
           "rank": 52
@@ -654,7 +654,7 @@
           "provider": "Baidu",
           "context": "1M",
           "cost_per_task": 1.14,
-          "output_tps": 183.0,
+          "output_tps": 177.0,
           "open_weights": true,
           "id": "ernie 5.5 flash preview|",
           "rank": 54
@@ -665,7 +665,7 @@
           "provider": "SpaceXAI",
           "context": "500k",
           "cost_per_task": 2.92,
-          "output_tps": 76.0,
+          "output_tps": 72.0,
           "open_weights": false,
           "id": "grok 4.7 (low)|",
           "rank": 54
@@ -676,7 +676,7 @@
           "provider": "Thinking Machines",
           "context": "1M",
           "cost_per_task": 1.18,
-          "output_tps": 104.0,
+          "output_tps": 107.0,
           "open_weights": true,
           "id": "inkling 2 small|",
           "rank": 54
@@ -687,7 +687,7 @@
           "provider": "Anthropic",
           "context": "1M",
           "cost_per_task": 0.16,
-          "output_tps": 231.0,
+          "output_tps": 228.0,
           "open_weights": false,
           "id": "claude haiku 5.5 (high)|",
           "rank": 58
@@ -698,7 +698,7 @@
           "provider": "OpenAI",
           "context": "1M",
           "cost_per_task": 0.23,
-          "output_tps": 59.0,
+          "output_tps": 57.0,
           "open_weights": false,
           "id": "gpt 6.1 terra (non reasoning)|",
           "rank": 58
@@ -720,7 +720,7 @@
           "provider": "Xiaomi",
           "context": "1M",
           "cost_per_task": 0.26,
-          "output_tps": 43.0,
+          "output_tps": 44.0,
           "open_weights": true,
           "id": "mimo v2.6 pro|",
           "rank": 58
@@ -742,7 +742,7 @@
           "provider": "OpenAI",
           "context": "1M",
           "cost_per_task": 0.07,
-          "output_tps": 58.0,
+          "output_tps": 56.0,
           "open_weights": false,
           "id": "gpt 6.1 terra (low)|",
           "rank": 62
@@ -753,7 +753,7 @@
           "provider": "MiniMax",
           "context": "1M",
           "cost_per_task": 0.49,
-          "output_tps": 132.0,
+          "output_tps": 134.0,
           "open_weights": true,
           "id": "minimax m3.1 flash|",
           "rank": 62
@@ -764,7 +764,7 @@
           "provider": "StepFun",
           "context": "1M",
           "cost_per_task": 3.94,
-          "output_tps": 77.0,
+          "output_tps": 78.0,
           "open_weights": true,
           "id": "step 5 preview|",
           "rank": 62
@@ -786,7 +786,7 @@
           "provider": "OpenAI",
           "context": "1M",
           "cost_per_task": 0.15,
-          "output_tps": 130.0,
+          "output_tps": 132.0,
           "open_weights": false,
           "id": "gpt 6 luna (max)|",
           "rank": 66
@@ -808,7 +808,7 @@
           "provider": "Alibaba",
           "context": "256k",
           "cost_per_task": 0.57,
-          "output_tps": 84.0,
+          "output_tps": 91.0,
           "open_weights": true,
           "id": "qwen3.8 flash next|",
           "rank": 66
@@ -819,7 +819,7 @@
           "provider": "Google",
           "context": "1M",
           "cost_per_task": 0.37,
-          "output_tps": 151.0,
+          "output_tps": 145.0,
           "open_weights": false,
           "id": "gemini 4 hydrogen (low)|",
           "rank": 70
@@ -830,7 +830,7 @@
           "provider": "Xiaomi",
           "context": "1M",
           "cost_per_task": 0.13,
-          "output_tps": 38.0,
+          "output_tps": 37.0,
           "open_weights": true,
           "id": "mimo v2.6 flash|",
           "rank": 70
@@ -852,7 +852,7 @@
           "provider": "Mistral",
           "context": "1M",
           "cost_per_task": 2.06,
-          "output_tps": 88.0,
+          "output_tps": 92.0,
           "open_weights": true,
           "id": "mistral large 4 (high)|",
           "rank": 72
@@ -863,7 +863,7 @@
           "provider": "Anthropic",
           "context": "1M",
           "cost_per_task": 0.09,
-          "output_tps": 224.0,
+          "output_tps": 223.0,
           "open_weights": false,
           "id": "claude haiku 5.5 (medium)|",
           "rank": 74
@@ -874,7 +874,7 @@
           "provider": "Meta",
           "context": "1M",
           "cost_per_task": 1.77,
-          "output_tps": 184.0,
+          "output_tps": 199.0,
           "open_weights": true,
           "id": "muse spark open (xhigh)|",
           "rank": 74
@@ -885,7 +885,7 @@
           "provider": "Sapiens AI",
           "context": "1M",
           "cost_per_task": 0.45,
-          "output_tps": 151.0,
+          "output_tps": 152.0,
           "open_weights": false,
           "id": "agnes 2.5 pro theta|",
           "rank": 76
@@ -896,7 +896,7 @@
           "provider": "DeepSeek",
           "context": "1M",
           "cost_per_task": 1.77,
-          "output_tps": 75.0,
+          "output_tps": 76.0,
           "open_weights": true,
           "id": "deepseek v4 pro 0813 (max)|",
           "rank": 77
@@ -918,7 +918,7 @@
           "provider": "OpenAI",
           "context": "1M",
           "cost_per_task": 0.1,
-          "output_tps": 122.0,
+          "output_tps": 127.0,
           "open_weights": false,
           "id": "gpt 6 luna (xhigh)|",
           "rank": 77
@@ -940,7 +940,7 @@
           "provider": "Mistral",
           "context": "1M",
           "cost_per_task": 1.41,
-          "output_tps": 83.0,
+          "output_tps": 86.0,
           "open_weights": true,
           "id": "mistral large 4 (medium)|",
           "rank": 77
@@ -951,7 +951,7 @@
           "provider": "Multiverse Computing",
           "context": "1M",
           "cost_per_task": 0.13,
-          "output_tps": 131.0,
+          "output_tps": 137.0,
           "open_weights": false,
           "id": "quasar 1.2 358b (max, based on glm 5.3)|",
           "rank": 77
@@ -962,7 +962,7 @@
           "provider": "DeepSeek",
           "context": "1M",
           "cost_per_task": 0.85,
-          "output_tps": 79.0,
+          "output_tps": 80.0,
           "open_weights": true,
           "id": "deepseek v4 pro 0813 (high)|",
           "rank": 83
@@ -973,7 +973,7 @@
           "provider": "OpenAI",
           "context": "1M",
           "cost_per_task": 0.07,
-          "output_tps": 123.0,
+          "output_tps": 125.0,
           "open_weights": false,
           "id": "gpt 6 luna (high)|",
           "rank": 83
@@ -984,7 +984,7 @@
           "provider": "Thinking Machines",
           "context": "1M",
           "cost_per_task": 0.59,
-          "output_tps": 174.0,
+          "output_tps": 166.0,
           "open_weights": true,
           "id": "inkling 2 mini|",
           "rank": 85
@@ -1006,7 +1006,7 @@
           "provider": "Alibaba",
           "context": "256k",
           "cost_per_task": 3.53,
-          "output_tps": 59.0,
+          "output_tps": 58.0,
           "open_weights": true,
           "id": "qwen3.8 27b (xhigh)|",
           "rank": 85
@@ -1017,7 +1017,7 @@
           "provider": "Anthropic",
           "context": "1M",
           "cost_per_task": 0.04,
-          "output_tps": 222.0,
+          "output_tps": 217.0,
           "open_weights": false,
           "id": "claude haiku 5.5 (low)|",
           "rank": 88
@@ -1028,7 +1028,7 @@
           "provider": "DeepSeek",
           "context": "1M",
           "cost_per_task": 0.43,
-          "output_tps": 170.0,
+          "output_tps": 167.0,
           "open_weights": true,
           "id": "deepseek v4.1 flash 1017 (non reasoning)|",
           "rank": 88
@@ -1050,7 +1050,7 @@
           "provider": "MiniMax",
           "context": "1M",
           "cost_per_task": 1.29,
-          "output_tps": 115.0,
+          "output_tps": 108.0,
           "open_weights": true,
           "id": "minimax m3|",
           "rank": 88
@@ -1061,7 +1061,7 @@
           "provider": "Reflection",
           "context": "1M",
           "cost_per_task": 0.28,
-          "output_tps": 392.0,
+          "output_tps": 383.0,
           "open_weights": true,
           "id": "beam 1.0|",
           "rank": 92
@@ -1072,7 +1072,7 @@
           "provider": "OpenAI",
           "context": "1M",
           "cost_per_task": 0.04,
-          "output_tps": 116.0,
+          "output_tps": 118.0,
           "open_weights": false,
           "id": "gpt 6 luna (medium)|",
           "rank": 92
@@ -1083,7 +1083,7 @@
           "provider": "Institute of Foundation Models",
           "context": "524k",
           "cost_per_task": 0.0,
-          "output_tps": 319.0,
+          "output_tps": 324.0,
           "open_weights": true,
           "id": "k2 horizon 375b a23b|",
           "rank": 92
@@ -1094,7 +1094,7 @@
           "provider": "Alibaba",
           "context": "256k",
           "cost_per_task": 2.51,
-          "output_tps": 58.0,
+          "output_tps": 59.0,
           "open_weights": true,
           "id": "qwen3.8 27b (medium)|",
           "rank": 92
@@ -1149,7 +1149,7 @@
           "provider": "NVIDIA",
           "context": "1M",
           "cost_per_task": 0.55,
-          "output_tps": 356.0,
+          "output_tps": 378.0,
           "open_weights": true,
           "id": "nemotron 3.5 super vl|",
           "rank": 97
@@ -1160,7 +1160,7 @@
           "provider": "Upstage",
           "context": "512k",
           "cost_per_task": 1.33,
-          "output_tps": 81.0,
+          "output_tps": 92.0,
           "open_weights": false,
           "id": "solar pro 4|",
           "rank": 97
@@ -1171,7 +1171,7 @@
           "provider": "DeepSeek",
           "context": "1M",
           "cost_per_task": 0.98,
-          "output_tps": 78.0,
+          "output_tps": 76.0,
           "open_weights": true,
           "id": "deepseek v4 pro 0813 (non reasoning)|",
           "rank": 102
@@ -1182,7 +1182,7 @@
           "provider": "Thinking Machines",
           "context": "1M",
           "cost_per_task": 1.35,
-          "output_tps": 99.0,
+          "output_tps": 101.0,
           "open_weights": true,
           "id": "inkling (xhigh)|",
           "rank": 102
@@ -1193,7 +1193,7 @@
           "provider": "Google",
           "context": "1M",
           "cost_per_task": 0.69,
-          "output_tps": 308.0,
+          "output_tps": 303.0,
           "open_weights": false,
           "id": "gemini 3.5 flash lite|",
           "rank": 104
@@ -1204,7 +1204,7 @@
           "provider": "NVIDIA",
           "context": "262k",
           "cost_per_task": 2.5,
-          "output_tps": 193.0,
+          "output_tps": 197.0,
           "open_weights": true,
           "id": "nemotron 3 ultra 550b a55b (reasoning)|",
           "rank": 104
@@ -1215,7 +1215,7 @@
           "provider": "Thinking Machines",
           "context": "1M",
           "cost_per_task": 0.62,
-          "output_tps": 96.0,
+          "output_tps": 94.0,
           "open_weights": true,
           "id": "inkling (high)|",
           "rank": 106
@@ -1237,7 +1237,7 @@
           "provider": "OpenAI",
           "context": "1M",
           "cost_per_task": 0.01,
-          "output_tps": 105.0,
+          "output_tps": 106.0,
           "open_weights": false,
           "id": "gpt 6 luna (low)|",
           "rank": 108
@@ -1270,7 +1270,7 @@
           "provider": "OpenAI",
           "context": "1M",
           "cost_per_task": 0.07,
-          "output_tps": 102.0,
+          "output_tps": 104.0,
           "open_weights": false,
           "id": "gpt 6 luna (non reasoning)|",
           "rank": 110
@@ -1303,7 +1303,7 @@
           "provider": "Cohere",
           "context": "192k",
           "cost_per_task": 0.0,
-          "output_tps": 200.0,
+          "output_tps": 192.0,
           "open_weights": true,
           "id": "command a+|",
           "rank": 114
@@ -1314,7 +1314,7 @@
           "provider": "Liquid AI",
           "context": "262k",
           "cost_per_task": 0.17,
-          "output_tps": 330.0,
+          "output_tps": 338.0,
           "open_weights": true,
           "id": "lfm3 1.7b|",
           "rank": 114
@@ -1325,7 +1325,7 @@
           "provider": "Meta",
           "context": "131k",
           "cost_per_task": 0.15,
-          "output_tps": 89.0,
+          "output_tps": 93.0,
           "open_weights": true,
           "id": "muse glimmer (high)|",
           "rank": 114
@@ -1358,7 +1358,7 @@
           "provider": "Mistral",
           "context": "256k",
           "cost_per_task": 1.04,
-          "output_tps": 138.0,
+          "output_tps": 141.0,
           "open_weights": true,
           "id": "mistral medium 3.5|",
           "rank": 118
@@ -1369,7 +1369,7 @@
           "provider": "Google",
           "context": "256k",
           "cost_per_task": 0.19,
-          "output_tps": 87.0,
+          "output_tps": 88.0,
           "open_weights": true,
           "id": "gemma 4 26b a4b (reasoning)|",
           "rank": 120
@@ -1391,7 +1391,7 @@
           "provider": "Mistral",
           "context": "256k",
           "cost_per_task": 0.04,
-          "output_tps": 153.0,
+          "output_tps": 154.0,
           "open_weights": true,
           "id": "mistral small 4 (reasoning)|",
           "rank": 120
@@ -1402,7 +1402,7 @@
           "provider": "OpenAI",
           "context": "131k",
           "cost_per_task": 0.35,
-          "output_tps": 202.0,
+          "output_tps": 203.0,
           "open_weights": true,
           "id": "gpt oss 120b (high)|",
           "rank": 120
@@ -1435,7 +1435,7 @@
           "provider": "Liquid AI",
           "context": "128k",
           "cost_per_task": 0.12,
-          "output_tps": 336.0,
+          "output_tps": 338.0,
           "open_weights": true,
           "id": "lfm3 vl 2b|",
           "rank": 126
@@ -1459,10 +1459,10 @@
       "last_fetch": {
         "status": "ok",
         "rows": 127,
-        "attempted_at": "2026-11-27T15:54:28+00:00"
+        "attempted_at": "2026-11-28T10:46:42+00:00"
       },
       "published_at": null,
-      "observed_at": "2026-11-27",
+      "observed_at": "2026-11-28",
       "age_days": 0,
       "freshness": {
         "warn_after_days": 14,
@@ -1470,7 +1470,7 @@
       },
       "freshness_basis": "observed_at",
       "source": "https://artificialanalysis.ai/leaderboards/models",
-      "data_hash": "336561f87df959345ef36fec2fdc6436bae29267d85a78e787b72fbd1c3c0d74",
+      "data_hash": "4279411930bae5e8b723c66cb2f2a0c37774f7d3cec47df6a19f693fd4f7be87",
       "retrieval_method": "automatic_public_source",
       "scope": "Complete scored current-model roster (including grouped effort variants)",
       "n_scored": 127
@@ -6636,18 +6636,18 @@
       "last_fetch": {
         "status": "ok",
         "rows": 427,
-        "attempted_at": "2026-11-27T15:54:28+00:00"
+        "attempted_at": "2026-11-28T10:46:42+00:00"
       },
       "published_at": "2026-11-22",
-      "observed_at": "2026-11-27",
-      "age_days": 5,
+      "observed_at": "2026-11-28",
+      "age_days": 6,
       "freshness": {
         "warn_after_days": 14,
         "expire_after_days": 90
       },
       "freshness_basis": "published_at",
       "source": "https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset",
-      "data_hash": "1b2c43db162dc5918012bdff0c304cd0115be7cdcd6987e257e57341e8bd6550",
+      "data_hash": "c259188263ffc5627ae2c2868e126694dd97d80232f1be872a502319857b69c5",
       "retrieval_method": "automatic_public_source",
       "scope": "Complete parsed source table",
       "n_scored": 427
@@ -7368,14 +7368,14 @@
       "last_fetch": {
         "status": "ok",
         "rows": 41,
-        "attempted_at": "2026-11-27T15:54:28+00:00"
+        "attempted_at": "2026-11-28T10:46:42+00:00"
       },
       "published_at": "2026-11-11",
-      "observed_at": "2026-11-27",
-      "age_days": 16,
+      "observed_at": "2026-11-28",
+      "age_days": 17,
       "freshness_basis": "published_at",
       "source": "https://livebench.ai/",
-      "data_hash": "627e68097c4d72c7e5d91494cdead748a9a010fbe6dbf0a9194cf8bcf5d6c86e",
+      "data_hash": "0585ac49ddc4b77a3a17aa76e930ef8d4574ae8eb1fb11f2254440436b28ed5b",
       "retrieval_method": "automatic_public_source",
       "scope": "Complete official LiveBench 2.0 release (20261106)",
       "n_scored": 41
@@ -8094,18 +8094,18 @@
       "last_fetch": {
         "status": "ok",
         "rows": 67,
-        "attempted_at": "2026-11-27T15:54:30+00:00"
+        "attempted_at": "2026-11-28T10:46:44+00:00"
       },
       "published_at": "2026-11-26",
-      "observed_at": "2026-11-27",
-      "age_days": 1,
+      "observed_at": "2026-11-28",
+      "age_days": 2,
       "freshness": {
         "warn_after_days": 14,
         "expire_after_days": 90
       },
       "freshness_basis": "published_at",
       "source": "https://www.tbench.ai/",
-      "data_hash": "c26452db7b130de00355a38c5d633c88782c347e3497aa5de3c3630d233c482d",
+      "data_hash": "55a212d8dc135b03f7e5551813f2368c221c504ddc5c7c308622cced4cde7e34",
       "retrieval_method": "automatic_public_source",
       "scope": "Complete official display roster (all evaluated model + agent systems)",
       "n_scored": 67
